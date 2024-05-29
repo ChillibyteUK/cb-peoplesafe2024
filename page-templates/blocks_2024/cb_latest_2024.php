@@ -12,36 +12,39 @@
             'post__not_in'    => $excluded,
         ));
         ?>
-        <div class="latest_2024__slider mb-5">
-            <?php
-            $c = 1;
-            while ($l->have_posts()) {
-                $l->the_post();
+        <div class="swiper-container latest_2024__slider mb-5">
+            <div class="swiper-wrapper">
+                <?php
+                $c = 1;
+                while ($l->have_posts()) {
+                    $l->the_post();
 
-                $type = get_post_type($l->ID) == 'post' ? 'blog' : get_post_type($l->ID);
-                $img = get_the_post_thumbnail_url( $l->ID, 'large' );
-                if (!$img) {
-                    $img = catch_that_image(get_post($l->ID));
+                    $type = get_post_type($l->ID) == 'post' ? 'blog' : get_post_type($l->ID);
+                    $img = get_the_post_thumbnail_url( $l->ID, 'large' );
+                    if (!$img) {
+                        $img = catch_that_image(get_post($l->ID));
+                    }
+                    ?>
+                    <div class="swiper-slide latest_2024__slide">
+                        <a class="latest_2024__card" href="<?=get_the_permalink($l->ID)?>">
+                            <div class="latest_2024__image">
+                                <?=get_the_post_thumbnail($l->ID,'large')?>
+                                <div class="flash flash--<?=acf_slugify($type)?>"><?=$type?></div>
+                            </div>
+                            <div class="latest_2024__inner">
+                                <h3><?=get_the_title()?></h3>
+                                <div class="latest_2024__excerpt mb-2">
+                                    <?=wp_trim_words(get_the_content($l->ID),15)?>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                <?php
+                    $c++;
                 }
                 ?>
-                <div class="laetst_2024__slide px-2 pb-4">
-                    <a class="latest_2024__card h-100" href="<?=get_the_permalink($l->ID)?>">
-                        <div class="latest_2024__image">
-                            <?=get_the_post_thumbnail($l->ID,'large')?>
-                            <div class="flash flash--<?=acf_slugify($type)?>"><?=$type?></div>
-                        </div>
-                        <div class="latest_2024__inner">
-                            <h3><?=get_the_title()?></h3>
-                            <div class="latest_2024__excerpt mb-2">
-                                <?=wp_trim_words(get_the_content($l->ID),15)?>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            <?php
-                $c++;
-            }
-            ?>
+            </div>
+            <div class="swiper-pagination"></div>
         </div>
         <div class="text-center"><a href="#" class="button button-outline">View All Articles</a></div>
     </div>
@@ -49,41 +52,39 @@
 <?php
 add_action('wp_footer',function(){
     ?>
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
 <script>
-(function($){
-    $('.latest_2024__slider').slick({
-        infinite: true,
-        dots: true,
-        arrows: false,
-        slidesToShow: 4,
-        slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 6000,
-        responsive: [
-            {
-                breakpoint: 992,
-                settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 1,
-                }
+document.addEventListener('DOMContentLoaded', function() {
+    var swiper = new Swiper('.latest_2024__slider', {
+        loop: true,
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        slidesPerView: 4,
+        spaceBetween: 18, // Adjust this value to match your design
+        breakpoints: {
+            992: {
+                autoplay: {
+                    delay: 4000,
+                    disableOnInteraction: true,
+                },
+                slidesPerView: 3,
+                spaceBetween: 18, // Adjust as needed
             },
-            {
-                breakpoint: 768,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 1
-                }
+            768: {
+                slidesPerView: 2,
+                spaceBetween: 18, // Adjust as needed
             },
-            {
-                breakpoint: 576,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1
-                }
+            576: {
+                slidesPerView: 1,
+                spaceBetween: 18, // Adjust as needed
             }
-        ]
+        }
     });
-})(jQuery);
+});
 </script>
     <?php
 },9999);

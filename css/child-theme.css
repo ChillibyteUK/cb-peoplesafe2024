@@ -23912,6 +23912,7 @@ nav #dropdownKnowledge .knowledge-link:hover {
 
 .latest_2024 {
   background-color: var(--col-blue-200);
+  position: relative;
 }
 .latest_2024__card {
   height: 100%;
