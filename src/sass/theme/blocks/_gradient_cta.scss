@@ -1,0 +1,31 @@
+.gradient_cta {
+    position: relative;
+    min-height: 360px;
+    display: flex;
+    align-items: center;
+    z-index: 0;
+    &::before {
+        position: absolute;
+        content: "";
+        background-image: url(../img/ps-logo-crop--45-top-right--white.svg);
+        background-size: cover;
+        @media (min-width:992px) {
+            background-size: contain;
+        }
+        background-repeat: no-repeat;
+        background-position: center left;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: -1;
+    }
+}
+.gradient_cta.bg_grad--plain {
+    &::before {
+        background-image: url(../img/ps-logo-crop--45-top-right--yellow.svg);
+    }
+    .btn {
+        @extend .btn-primary;
+    }
+}

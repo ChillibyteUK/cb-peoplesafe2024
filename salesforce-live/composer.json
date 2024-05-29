@@ -1,0 +1,5 @@
+{
+    "require": {
+        "eventfarm/restforcephp": "^2.0.0"
+    }
+}

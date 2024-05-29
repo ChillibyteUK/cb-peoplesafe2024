@@ -1,0 +1,19 @@
+.accreditation {
+    text-align: center;
+    a {
+        color: $black;
+        text-decoration: none;
+    }
+    &__image {
+        width: 100%;
+        max-width: 300px;
+        aspect-ratio: 16 / 9;
+        margin: auto;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat
+    }
+    &__title {
+        @extend .h4;
+    }
+}

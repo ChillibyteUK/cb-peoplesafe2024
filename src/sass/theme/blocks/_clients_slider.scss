@@ -1,0 +1,22 @@
+.clients__slider,
+.logo__slider {
+
+    .slick-track {
+        display: flex;
+    }
+    .slick-track .slick-slide {
+        display: flex !important;
+        height: auto;
+        justify-content: center;
+        align-items: center;
+        padding: 0 3rem;
+    }
+
+    .slick-dots {
+        padding-inline-end: 4rem;
+    }
+    // .clients__slide img,
+    // .logo__slide img {
+    //     filter: grayscale(100%) saturate(0%); // brightness(60%);
+    // }
+}

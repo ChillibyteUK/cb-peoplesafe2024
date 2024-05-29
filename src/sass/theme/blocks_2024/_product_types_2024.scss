@@ -1,0 +1,121 @@
+.product_types_2024 {
+
+    &__inner {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        gap: 1rem;
+    }
+    
+    .pill {
+        background-color: var(--col-white);
+        padding: 10px;
+        text-align: center;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        border: 4px solid var(--col-white);
+        border-radius: 1rem;
+        box-shadow: var(--shadow-out);
+        &.active {
+            border-color: var(--col-orange-400);
+            background-color: color-mix(in srgb, var(--col-orange-400), var(--col-white) 80%);
+            box-shadow: var(--shadow-in);
+            .pill__title {
+                &::after {
+                    content: '\f106';
+                }
+            }
+        }
+
+        &__icon {
+            align-self: center;
+            display: grid;
+            place-content: center;
+            width: 58px;
+            aspect-ratio: 1;
+            border-radius: 100vw;
+            background-color: color-mix(in srgb, var(--col-orange-400), var(--col-white) 90%);
+        }
+        &__title {
+            font-size: var(--fs-300);
+            font-weight: 900;
+            position: relative;
+            text-align: start;
+            width: 100%;
+            &::after {
+                content: '\f107';
+                font-family: var(--ff-fa);
+                position: absolute;
+                right: 1rem;
+            }
+        }
+    }
+    
+
+    /* Desktop view */
+    @media (min-width: 992px) {
+        .product_types_2024__inner {
+            grid-template-columns: repeat(5, 1fr);
+            grid-template-rows: auto auto;
+            grid-template-areas:
+                "pill1 pill2 pill3 pill4 pill5"
+                "content content content content content";
+            row-gap: 3rem;
+        }
+    
+        .pill {
+            flex-direction: column;
+            gap: 0.5rem;
+            &__title {
+                text-align: center;
+                &::after {
+                    display: none;
+                }
+            }
+        }
+
+        .pill:nth-child(1) {
+            grid-area: pill1;
+        }
+        .pill:nth-child(2) {
+            grid-area: pill2;
+        }
+        .pill:nth-child(3) {
+            grid-area: pill3;
+        }
+        .pill:nth-child(4) {
+            grid-area: pill4;
+        }
+        .pill:nth-child(5) {
+            grid-area: pill5;
+        }
+        .content {
+            grid-area: content;
+        }
+    }
+
+    .content {
+        display: none;
+        grid-template-columns: 1fr 3fr;
+        gap: 1rem;
+        &__inner > * {
+            margin-bottom: 1rem;
+        }
+
+        @media (min-width:992px) {
+            grid-template-columns: 1fr 2fr;
+            gap: 2rem;
+        }
+    }
+
+    .content.active {
+        display: grid;
+        img,
+        .content__inner {
+            animation: fadeIn 500ms ease-in-out forwards;
+        }
+
+    }
+}

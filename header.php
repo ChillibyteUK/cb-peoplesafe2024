@@ -1,0 +1,377 @@
+<?php
+/**
+ * The header for the theme
+ *
+ * Displays all of the <head> section and everything up till <div id="content">
+ *
+ * @package cb-peoplesafe
+ */
+
+// Exit if accessed directly.
+defined('ABSPATH') || exit;
+?>
+<!DOCTYPE html>
+<html <?php language_attributes(); ?>>
+<head>
+	<meta charset="<?php bloginfo('charset'); ?>">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="profile" href="http://gmpg.org/xfn/11">
+    <!-- <link rel='stylesheet' id='font-awesome-css' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css' media='all' /> -->
+    <link rel="preload" href="<?=get_stylesheet_directory_uri()?>/fonts/BasisGrotesquePro-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="<?=get_stylesheet_directory_uri()?>/fonts/BasisGrotesquePro-Bold.woff" as="font" type="font/woff" crossorigin="anonymous">
+    <link rel="preload" href="<?=get_stylesheet_directory_uri()?>/fonts/BasisGrotesquePro-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+    <link rel="preload" href="<?=get_stylesheet_directory_uri()?>/fonts/BasisGrotesquePro-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="<?=get_stylesheet_directory_uri()?>/fonts/BasisGrotesquePro-Regular.woff" as="font" type="font/woff" crossorigin="anonymous">
+    <link rel="preload" href="<?=get_stylesheet_directory_uri()?>/fonts/BasisGrotesquePro-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+    <link rel="preload" href="<?=get_stylesheet_directory_uri()?>/fonts/BasisGrotesquePro-Light.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="<?=get_stylesheet_directory_uri()?>/fonts/BasisGrotesquePro-Light.woff" as="font" type="font/woff" crossorigin="anonymous">
+    <link rel="preload" href="<?=get_stylesheet_directory_uri()?>/fonts/BasisGrotesquePro-Light.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+    <?php
+    if (get_field('gtm_property','options')) {
+        ?>
+<!-- Google Tag Manager -->
+<script>
+  <?php
+if (is_singular('guides') || is_post_type_archive('guides')) {
+    ?>
+window.dataLayer = window.dataLayer || [];
+dataLayer.push({
+  'event': 'userdata',
+  'guide_viewed': 'true',
+});
+    <?php
+}
+if (is_singular('news') || is_post_type_archive('news')) {
+    ?>
+window.dataLayer = window.dataLayer || [];
+dataLayer.push({
+  'event': 'userdata',
+  'news_viewed': 'true',
+});
+    <?php
+}
+if (is_singular('post') || is_home()) {
+    ?>
+window.dataLayer = window.dataLayer || [];
+dataLayer.push({
+  'event': 'userdata',
+  'blog_viewed': 'true',
+});
+    <?php
+}
+  ?>
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','<?=get_field('gtm_property','options')?>');
+</script>
+<!-- End Google Tag Manager -->
+        <?php
+    }
+    if (get_field('ga_property', 'options')) { 
+        ?>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=<?=get_field('ga_property','options')?>"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', '<?=get_field('ga_property','options')?>');
+</script>
+        <?php
+    }
+	if (get_field('google_site_verification','options')) {
+        echo '<meta name="google-site-verification" content="' . get_field('google_site_verification','options') . '" />';
+    }
+    if (get_field('bing_site_verification','options')) {
+        echo '<meta name="msvalidate.01" content="' . get_field('bing_site_verification','options') . '" />';
+    }
+    if (is_front_page() || is_page('contact-us')) {
+        ?>
+ <script type="application/ld+json">
+ {
+ "@context": "http://schema.org",
+ "@type": "Organization",
+ "url": "https://peoplesafe.co.uk/",
+ "name": "Peoplesafe",
+ "legalName": "Skyguard Ltd",
+ "description": "Formerly Skyguard and Guardian24, Peoplesafe is an industry leading UK-based technology business centred around the safety of lone and at-risk workers",
+ "logo": "https://peoplesafe.co.uk/wp-content/themes/cb-peoplesafe<?=get_stylesheet_directory_uri()?>/img/2024/ps-logo-full--dark.svg",
+ "sameAs": [
+ "https://twitter.com/peoplesafe",
+ "https://www.youtube.com/channel/UCRT8D1BWOHpR9Gt8jZukZSQ",
+ "https://www.linkedin.com/company/peoplesafe-ltd/"
+ ],
+ "contactPoint": {
+ "@type": "ContactPoint",
+ "telephone": "+44-330-333-6556",
+ "contactType": "Customer service"
+ }
+ }
+ </script>
+        <?php
+    }
+    ?>
+	<?php wp_head(); ?>
+</head>
+
+<body <?php body_class(); ?>>
+<?php
+do_action('wp_body_open'); 
+
+if (get_field('gtm_property','options')) {
+    ?>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=<?=get_field('ga_property', 'options')?>"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+    <?php
+}
+?>
+<div class="site" id="page">
+<header>
+<nav>
+    <div class="container-xl">
+        <div class="navbar">
+            <div class="burger-menu" id="burger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <a href="/" class="logo"><img src="<?=get_stylesheet_directory_uri()?>/img/2024/ps-logo.png"></a>
+            <div class="navItems" id="navItems">
+                <a class="toggle" aria-controls="dropdownSolutions" data-href="/solutions/">Solutions</a>
+                <a class="toggle" aria-controls="dropdownProducts" data-href="/products/">Products</a>
+                <a class="toggle" aria-controls="dropdownPlatform" data-href="/platform/">Platform</a>
+                <a class="toggle" aria-controls="dropdownKnowledge" data-href="/knowledge/">Knowledge Hub</a>
+                <div class="navbar__extras me-xl-2">
+                    <a href="#">Support</a>
+                    <a href="#">Login</a>
+                    <a href="#" class="button button-yellow mb-2"><span>Book a Demo</span></a>
+                </div>
+            </div>
+        </div>
+        <div class="navMenus" id="navMenus">
+            <div id="dropdownSolutions" class="dropdownMenu">
+                <ul class="left">
+                    <li class="active" aria-controls="byRole">By Role</li>
+                    <li class="" aria-controls="bySector">By Sector</li>
+                </ul>
+                <div class="right right--cards active" id="byRole">
+                    <a class="item" href="/personal-safety/">
+                        <div class="item__image">
+                            <img src="<?=get_stylesheet_directory_uri()?>/img/2024/all-employees.png" alt="All Employees">
+                        </div>
+                        <div class="item__title">All Employees</div>
+                        <div class="item__desc">
+                            Protect every employee with our dedicated solutions.
+                        </div>
+                    </a>
+                    <a class="item" href="/home-workers/">
+                        <div class="item__image">
+                            <img src="<?=get_stylesheet_directory_uri()?>/img/2024/home-hybrid.png" alt="Home & Hybrid Workers">
+                        </div>
+                        <div class="item__title">Home & Hybrid Workers</div>
+                        <div class="item__desc">
+                            Our market-leading technology empowers home and hybrid workers to stay safe.
+                        </div>
+                    </a>
+                    <a class="item" href="/lone-workers/">
+                        <div class="item__image">
+                            <img src="<?=get_stylesheet_directory_uri()?>/img/2024/lone-workers.png" alt="Lone Workers">
+                        </div>
+                        <div class="item__title">Lone Workers</div>
+                        <div class="item__desc">
+                            Keep your lone workers safe 24/7, wherever they are, with the Peoplesafe Lone Worker Alarms.
+                        </div>
+                    </a>
+                    <a class="item" href="/international-workers/">
+                        <div class="item__image">
+                            <img src="<?=get_stylesheet_directory_uri()?>/img/2024/international-workers.png" alt="International Workers">
+                        </div>
+                        <div class="item__title">International Workers</div>
+                        <div class="item__desc">
+                            Ensure the safety of your staff even when they are not in the UK.
+                        </div>
+                    </a>
+                </div>
+                <div class="right right--cols" id="bySector">
+                    <div class="h3">By Sector</div>
+                    <div>Whatever the risks your staff face at work, our fully accredited service will support them in an emergency.</div>
+                    <ul>
+                        <li><a href="/sectors/nhs/">NHS</a></li>
+                        <li><a href="/sectors/housing/">Housing</a></li>
+                        <li><a href="/sectors/retail/">Retail</a></li>
+                        <li><a href="/sectors/transport/">Transport</a></li>
+                        <li><a href="/sectors/education/">Education</a></li>
+                        <li><a href="/sectors/estate-agents/">Estate Agents</a></li>
+                        <li><a href="/sectors/manufacturing/">Manufacturing</a></li>
+                        <li><a href="/sectors/professional-services-government/">Professional Services &amp; Government</a></li>
+                        <li><a href="/sectors/councils/">Councils</a></li>
+                        <li><a href="/sectors/utilities-telecoms/">Utilities</a></li>
+                        <li><a href="/sectors/haulage-distribution/">Haulage &amp; Distribution</a></li>
+                        <li><a href="/sectors/charity/">Charity</a></li>
+                        <li><a href="/sectors/hospitality/">Hospitality</a></li>
+                        <li><a href="/sectors/construction/">Construction</a></li>
+                        <li><a href="/sectors/police/">Police</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="dropdownProducts" class="dropdownMenu">
+                <ul class="left">
+                    <li class="active" aria-controls="safetyDevices">Safety Devices</li>
+                    <li class="" aria-controls="safetyApps">Safety Apps</li>
+                    <li class="" aria-controls="emergencyNotification">Emergency Notification System</li>
+                    <li class="" aria-controls="safetyCameras">Safety Cameras</li>
+                    <li class="" aria-controls="panicAlarms">Panic Alarms</li>
+                </ul>
+                <div class="right right--products active" id="safetyDevices">
+                    <div class="h3">Safety Devices</div>
+                    <div>We provide a range of safety products including devices and apps to ensure the most appropriate solution for your organisation.</div>
+                    <div class="items">
+                        <a class="item" href="/products/mysos/">
+                            <img class="item__image" src="<?=get_stylesheet_directory_uri()?>/img/2024/products/MySOS.png">
+                            <div class="item__inner">
+                                <div class="item__title">MySOS</div>
+                                <div class="item__desc">Compact personal safety alarm</div>
+                            </div>
+                        </a>
+                        <a class="item" href="/products/mysos-id-badge-4g/">
+                            <img class="item__image" src="<?=get_stylesheet_directory_uri()?>/img/2024/products/MySOS-ID-Badge.png">
+                            <div class="item__inner">
+                                <div class="item__title">MySOS ID Badge 4G</div>
+                                <div class="item__desc">Discreet personal safety ID badge</div>
+                            </div>
+                        </a>
+                        <a class="item" href="/products/microsos/">
+                            <img class="item__image" src="<?=get_stylesheet_directory_uri()?>/img/2024/products/MicroSOS.png">
+                            <div class="item__inner">
+                                <div class="item__title">MicroSOS</div>
+                                <div class="item__desc">Our smallest and lightest device</div>
+                            </div>
+                        </a>
+                        <a class="item" href="/products/spot-gen4/">
+                            <img class="item__image" src="<?=get_stylesheet_directory_uri()?>/img/2024/products/SpotGen4.png">
+                            <div class="item__inner">
+                                <div class="item__title">SPOT Gen4</div>
+                                <div class="item__desc">Pocket-sized satellite SOS alarm</div>
+                            </div>
+                        </a>
+                        <a class="item" href="/products/spot-x/">
+                            <img class="item__image" src="<?=get_stylesheet_directory_uri()?>/img/2024/products/SpotX.png">
+                            <div class="item__inner">
+                                <div class="item__title">SPOT X</div>
+                                <div class="item__desc">Robust compact satellite SOS alarm</div>
+                            </div>
+                        </a>
+                        <a class="item" href="/products/twig-ex-atex/">
+                            <img class="item__image" src="<?=get_stylesheet_directory_uri()?>/img/2024/products/TwigEx.png">
+                            <div class="item__inner">
+                                <div class="item__title">TWIG Ex (ATEX)</div>
+                                <div class="item__desc">ATEX/IECEX approved SOS alarm</div>
+                            </div>
+                        </a>
+                        <a class="item" href="/products/standard-mobile/">
+                            <img class="item__image" src="<?=get_stylesheet_directory_uri()?>/img/2024/products/StandardMobile.png">
+                            <div class="item__inner">
+                                <div class="item__title">Standard Mobile</div>
+                                <div class="item__desc">Entry level solution for low-risk workers</div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="w-50 ms-auto">
+                        <a href="/products/" class="products-link"><span>View all products</span><i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="right right--cols" id="safetyApps">
+                    <div class="h3">SAFETY APPS</div>
+                </div>
+                <div class="right right--cols" id="emergencyNotification">
+                    <div class="h3">EMERGENCY NOTIFICATION SYSTEMS</div>
+                </div>
+                <div class="right right--cols" id="safetyCameras">
+                    <div class="h3">SAFETY CAMERAS</div>
+                </div>
+                <div class="right right--cols" id="panicAlarms">
+                    <div class="h3">PANIC ALARMS</div>
+                </div>
+            </div>
+
+            <div id="dropdownPlatform" class="dropdownMenu">
+                <ul>
+                    <li><a href="/the-service/">How We Protect</a></li>
+                    <li><a href="/nexus/">Nexus</a></li>
+                    <li><a href="/alarm-receiving-centre/">ARC</a></li>
+                </ul>
+            </div>
+
+            <div id="dropdownKnowledge" class="dropdownMenu">
+                <div class="items mb-3">
+                    <a class="item" href="/blogs/">
+                        <img class="item__icon" src="<?=get_stylesheet_directory_uri()?>/img/2024/icons/blog.png">
+                        <div class="item__inner">
+                            <div class="item__title">Blogs</div>
+                            <div class="item__desc">Tips &amp; content for safety at work</div>
+                        </div>
+                    </a>
+                    <a class="item" href="/news/">
+                        <img class="item__icon" src="<?=get_stylesheet_directory_uri()?>/img/2024/icons/news.png">
+                        <div class="item__inner">
+                            <div class="item__title">News</div>
+                            <div class="item__desc">The very latest developments</div>
+                        </div>
+                    </a>
+                    <a class="item" href="/guides/">
+                        <img class="item__icon" src="<?=get_stylesheet_directory_uri()?>/img/2024/icons/guides.png">
+                        <div class="item__inner">
+                            <div class="item__title">Guides</div>
+                            <div class="item__desc">Help &amp; guidance for employee safety</div>
+                        </div>
+                    </a>
+                    <a class="item" href="/whitepapers/">
+                        <img class="item__icon" src="<?=get_stylesheet_directory_uri()?>/img/2024/icons/whitepapers.png">
+                        <div class="item__inner">
+                            <div class="item__title">Whitepapers</div>
+                            <div class="item__desc">Lorem ipsum dolor sit amet</div>
+                        </div>
+                    </a>
+                    <a class="item" href="/legislation/">
+                        <img class="item__icon" src="<?=get_stylesheet_directory_uri()?>/img/2024/icons/legislation.png">
+                        <div class="item__inner">
+                            <div class="item__title">Legislation Information</div>
+                            <div class="item__desc">Up-to-date legislation information</div>
+                        </div>
+                    </a>
+                    <a class="item" href="/brochures/">
+                        <img class="item__icon" src="<?=get_stylesheet_directory_uri()?>/img/2024/icons/brochures.png">
+                        <div class="item__inner">
+                            <div class="item__title">Brochures</div>
+                            <div class="item__desc">Peoplesafe product offerings</div>
+                        </div>
+                    </a>
+                    <a class="item" href="/stories/">
+                        <img class="item__icon" src="<?=get_stylesheet_directory_uri()?>/img/2024/icons/stories.png">
+                        <div class="item__inner">
+                            <div class="item__title">Real Life Stories</div>
+                            <div class="item__desc">How we helped each person</div>
+                        </div>
+                    </a>
+                    <a class="item" href="/case-studies/">
+                        <img class="item__icon" src="<?=get_stylesheet_directory_uri()?>/img/2024/icons/case-studies.png">
+                        <div class="item__inner">
+                            <div class="item__title">Case Studies</div>
+                            <div class="item__desc">Hear direct from our customers</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="w-50 ms-auto">
+                    <a href="/resources/" class="knowledge-link"><span>View all Knowledge Hub</span><i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+</header>

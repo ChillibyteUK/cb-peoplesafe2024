@@ -1,0 +1,35 @@
+.sector_nav {
+    background-color: #fafafa;
+    &__sector {
+        a {
+            text-decoration: none;
+            .card {
+                color: black;
+                font-weight: bold;
+                font-size: 1rem;
+                transition: all 0.3s ease;
+                box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+                transition: all 0.3s ease;
+                &:hover {
+                    transform: translateY(-5px); // scale(1.02);
+                    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+                }
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 1rem;
+                @media (min-width:768px) {
+                    min-height: 130px;
+                }
+                @media (min-width:1200px) {
+                    min-height: 80px;
+                }
+            }
+            &:hover {
+                .card {
+                    background-color: $ps-yellow;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,25 @@
+.testimonial_slider {
+    .big_quote__quote {
+        font-size: 1rem !important;
+    }
+    .big_quote__link {
+        text-align: right;
+        a {
+            text-decoration: none;
+            position: relative;
+            right: 2rem;
+            &::after {
+                position: absolute;
+                content: "\f105";
+                font-family: fontawesome;
+                right: -1rem;
+                transition: all 0.3s ease;
+            }
+            &:hover {
+                &::after {
+                    transform: translateX(0.5rem);
+                }
+            }
+        }
+    }
+}

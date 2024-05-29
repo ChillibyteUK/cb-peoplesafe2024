@@ -1,0 +1,5 @@
+vendor/
+.idea
+codeclimate.json
+build/logs/clover.xml
+phpunit.*.xml

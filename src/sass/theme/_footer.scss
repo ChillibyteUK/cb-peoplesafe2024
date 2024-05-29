@@ -1,0 +1,134 @@
+// #footer-top {
+//     height: 100px;
+// }
+.footer {
+    background-image: url(../img/footer-background.svg);
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    background-size: 100% 80%;
+
+    position: relative;
+    // text-transform: uppercase;
+    background-color: $ps-navy;
+    color: white;
+    font-size: 0.875rem;
+    a:not(.btn) {
+        color: white;
+        transition: all 0.3s ease;
+        &:hover {
+            color: $ps-yellow;
+        }
+    }
+
+    .nav-title {
+        font-weight: 700;
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+    }
+    .menu {
+        list-style: none;
+        padding-inline-start: 0;
+        line-height: 2;
+    }
+    img {
+        max-width: 200px;
+    }
+
+    .social {
+        margin-top: 1rem;
+        display: flex;
+        justify-content: flex-start;
+        font-size: 1rem;
+        a:not(:last-of-type) {
+            margin-right: 1rem;
+        }
+    }
+
+    // @media (min-width:768px) {
+    //     .container {
+    //         border-bottom: 1px solid $sm-aqua;
+    //     }
+    // }
+
+    // .col-md-6 {
+    //     border-bottom: 1px solid $sm-aqua;
+    //     @media (min-width:768px) {
+    //         border-bottom: none;            
+    //     }
+    // }
+    
+}
+
+.colophon {
+    color: white;
+    font-size: 0.813rem;
+    .cb {
+        content: url(../img/cb.png);
+        opacity: .6;
+        transition: all .3s ease;
+        &:hover {
+            opacity: 1;
+        }
+    }
+}
+
+.side-buttons {
+    display: none;
+    @media (min-width:992px) {
+        display: block;
+    }
+    z-index: 9999;
+    position: fixed;
+    top: calc(50% - 55px);
+    a {
+        text-decoration: none;
+    }
+}
+.side-buttons--left {
+    left: -50px;
+    .side-button {
+        transform: rotate(90deg);
+    }
+}
+.side-buttons--right {
+    right: -50px;
+    .side-button {
+        transform: rotate(-90deg);
+    }
+}
+.side-button {
+    cursor: pointer;
+    width: 110px;
+    height: 110px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.05rem;
+    color: #fff;
+    border-top-left-radius: 110px;
+    border-top-right-radius: 110px;
+    text-align: center;
+    padding-top: 25px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    position: relative;
+    &:hover {
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    }
+}
+ 
+.enquire-button {
+    transition: all 0.3s ease;
+    background: $ps-teal;
+    background: linear-gradient(-30deg, $ps-teal 0%, $ps-green 100%);
+    margin-bottom: 5px;
+    &:hover {
+        transform: rotate(-90deg) translateY(-10px);
+    }
+}
+.shop-button {
+    transition: all 0.3s ease;
+    background: $ps-yellow;
+    background: linear-gradient(-30deg, $ps-yellow 0%, $ps-orange 100%);
+    &:hover {
+        transform: rotate(90deg) translateY(-10px);
+    }
+}

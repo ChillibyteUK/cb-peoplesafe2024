@@ -1,0 +1,57 @@
+@import "hero_2024";
+@import "product_types_2024";
+@import "who_we_protect";
+@import "case_study_quotes_2024";
+@import "stat_spinner_2024";
+@import "latest_2024";
+
+
+lite-vimeo {
+    border-radius: 1rem;
+    box-shadow: var(--shadow-out);   
+    .ltv-playbtn {
+        width: 80px !important;
+        height: 80px !important;
+        background-image: url(../img/2024/icons/play-button.png) !important;
+        background-size: contain !important;
+        background-repeat: no-repeat !important;
+        background-color: transparent !important;
+        &::before {
+            display: none;
+        }
+    }
+}
+
+.logo__slider {
+
+    padding-inline: 3rem;
+
+    .slick-next {
+        right: 1rem;
+    }
+    .slick-prev {
+        left: 1rem;
+    }
+    .slick-next,
+    .slick-prev {
+        &::before {
+            color: var(--col-blue-400);
+            font-size: 36px;
+        }
+    }
+
+    .slick-slide {
+        padding: 0 1rem !important;
+    }
+    .logo__slide {
+        padding: 1rem;
+        aspect-ratio: 1;
+        border: 2px solid #C6D9DF;
+        background-color: var(--col-white);
+        border-radius: 0.75rem;
+    }
+
+    .slick-dots li.slick-active button:before {
+        color: var(--col-blue-400);
+    }
+}

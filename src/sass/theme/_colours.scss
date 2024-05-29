@@ -1,0 +1,52 @@
+.text--yellow {
+    color: $ps-yellow !important;
+}
+a.text--yellow:hover {
+    color: white !important;
+}
+
+.gradient-title {
+    display: block;
+    padding: 1.2rem;
+    margin-bottom: 1.5rem;
+    &--orange {
+        background: $ps-orange;
+        background: linear-gradient(-30deg, $ps-yellow 0%, $ps-orange 100%);
+        color: white;
+    }
+    &--pink {
+        background: $ps-pink;
+        background: linear-gradient(-30deg, $ps-orange 0%, $ps-pink 100%);
+        color: white;
+    }
+    &--green {
+        background: $ps-green;
+        background: linear-gradient(-30deg, $ps-teal 0%, $ps-green 100%);
+        color: white;
+    }
+}
+
+.gradient-text--orange {
+    background: -webkit-linear-gradient(-30deg, $ps-yellow 0%, $ps-orange 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.text--orange {
+    color: $ps-orange;
+}
+.gradient-text--pink {
+    background: linear-gradient(-30deg, $ps-orange 0%, $ps-pink 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.text--pink {
+    color: $ps-pink;
+}
+.gradient-text--green {
+    background: linear-gradient(-30deg, $ps-teal 0%, $ps-green 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.text--green {
+    color: $ps-green;
+}

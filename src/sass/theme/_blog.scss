@@ -1,0 +1,265 @@
+.blog-item,
+.news__item {
+    border-bottom: 1px solid $grey-100;
+    a {
+        text-decoration: none;
+        color: $grey-800;
+    }
+    .news__item {
+        display: flex;
+    }
+    .news__image {
+        min-height: 120px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .news__date {
+        color: $grey-400;
+        font-size: 0.8rem;
+        margin-bottom: 0.5rem;
+    }
+    .news__inner {
+        .news__title {
+            @extend .h4;
+            margin-bottom: 0.5rem;
+        }
+        .news__link {
+            a {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+
+.navigation li a,
+.navigation li a:hover,
+.navigation li.active a,
+.navigation li.disabled {
+    color: $black;
+    text-decoration:none;
+}
+ 
+.navigation li {
+    display: inline;
+}
+ 
+.navigation li a,
+.navigation li a:hover,
+.navigation li.active a,
+.navigation li.disabled {
+    background-color: $ps-yellow;
+    border-radius: 3px;
+    cursor: pointer;
+    padding: 12px;
+    padding: 0.75rem;
+}
+ 
+.navigation li a:hover,
+.navigation li.active a {
+    background-color: darken($ps-yellow,10%);
+}
+
+
+// .single_blog {
+//     padding: 4rem 0;
+// }
+
+// .blog-item a:hover {
+//     text-decoration: none;
+// }
+
+// .blog-item {
+//     a {
+//         font-weight: initial;
+//     }
+//     .index_card {
+//         position: relative;
+//         background-size: cover;
+//         background-position: center;
+//         background-repeat: no-repeat;
+//         aspect-ratio: 1 / 1;
+//         overflow: hidden;
+//         @media all and (min-width:992px) {
+//             aspect-ratio: 16 / 9;
+//             &:hover {
+//                 .index_card__content {
+//                     height: calc(100% - 25px);
+//                 }
+//             }
+//         }
+//         @media all and (min-width:1240px) {
+//             &:hover {
+//                 .index_card__content {
+//                     height: 70%;
+//                 }
+//             }
+//         }
+//         .index_card__flash {
+//             position: absolute;
+//             top: 0;
+//             left: 0;
+//             padding: 0.2rem 0.25rem;
+//             font-size: 0.75rem;
+//             text-transform: uppercase;
+//         }
+//         .index_card__content {
+//             position: absolute;
+//             bottom: 0;
+//             color: white;
+//             padding: 0 0.5rem 0.5rem;
+//             height: auto;
+//             width: 100%;
+//             @media all and (min-width:992px) {
+//                 height: 6.5rem;
+//                 transition: height 0.3s ease-in-out;
+//             }
+//             .index_card__title {
+//                 font-family: 'Open Sans', sans-serif;
+//                 font-weight: 800;
+//                 font-size: clamp(1.2rem, 10vw, 1.5rem);
+//                 text-transform: uppercase;
+//                 min-height: 4.5rem;
+//                 @media all and (min-width:992px) {
+//                     min-height: 4.5rem;
+//                 }
+//                 @media all and (min-width:1240px) {
+//                     min-height: 4.5rem;
+//                 }
+//             }
+//             .index_card__meta {
+//                 text-transform: uppercase;
+//                 font-size: 0.9rem;
+//                 margin-bottom: 0.5rem;
+//             }
+//             @media all and (min-width:992px) {
+//                 .index_card__preview {
+//                     font-size: 0.9rem;
+//                 }
+//             }
+//         }
+//     }
+// }
+// @supports not (aspect-ratio: 1 / 1) {
+//     .index_card::before {
+//         float: left;
+//         padding-top: 100%;
+//         content: "";
+//     }
+  
+//     .index_card::after {
+//         display: block;
+//         content: "";
+//         clear: both;
+//     }
+// }
+// @supports not (aspect-ratio: 16 / 9) {
+//     .index_card::before {
+//         float: left;
+//         padding-top: (9 / 16) * 100%;
+//         content: "";
+//     }
+  
+//     .index_card::after {
+//         display: block;
+//         content: "";
+//         clear: both;
+//     }
+// }
+
+
+// #breadcrumbs {
+//     font-size: 0.8rem;
+//     // text-transform: uppercase;
+// }
+
+// .single_blog__meta {
+//     text-transform: uppercase;
+//     font-size: 0.85rem;
+//     // span {
+//     // }
+// }
+
+// .single_blog__image {
+//     background-size: cover;
+//     background-position: center;
+//     background-repeat: no-repeat;
+//     min-height: 400px;
+//     width: auto;
+//     border-radius: 1.25rem;
+//     box-shadow: 0px 2px 15px 2px rgba(0,0,0,0.15);
+// }
+
+/*
+.recent {
+    a {
+        font-weight: initial;
+    }
+    a:hover {
+        text-decoration: none;
+    }
+}
+
+.recent__card {
+    height: 100%;
+    background-color: #fff;
+    box-shadow: 0px 0px 20px 2px rgba(0,0,0,0.15);
+    transition: all 0.3s ease;
+    &:hover {
+        transform: translatey(5px);
+        box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.15);
+        .news__link::after {
+            margin-left: 45px;
+        }
+    }
+}
+
+.recent__image {
+    aspect-ratio: 9 / 5;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+@supports not (aspect-ratio: 9 / 5) { 
+    .recent__image::before {
+      float: left;
+      padding-top: (5 / 9) * 100%;
+      content: '';
+    }
+    .recent__image::after {
+      display: block;
+      content: '';
+      clear: both;
+    }
+}
+
+.recent__title {
+    font-family: museo-sans, sans-serif;
+}
+.recent__date {
+    font-size: 0.8rem;
+}
+*/
+
+
+.recent_project {
+    font-weight: 600;
+    a {
+        text-decoration: none;
+    }
+    img {
+        width: 100%;
+        object-fit: cover;
+        aspect-ratio: 2/1;
+        margin-bottom: 0.5rem;
+    }
+    .project__title {
+        min-height: 4.5rem;
+        color: $grey-800;
+    }
+    .project__link {
+        text-transform: uppercase;
+    }
+}

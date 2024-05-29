@@ -1,0 +1,43 @@
+.big_quote,
+.big_quote_slider {
+    &__quote {
+        font-size: 1.25rem;
+        position: relative;
+        padding-top: 1rem;
+        margin-bottom: 1rem;
+        margin-left: 1rem;
+        margin-right: 1rem;
+        @media (min-width:992px) {
+            padding-left: 4rem;
+        }
+        &::before {
+            position: absolute;
+            top: -1rem;
+            left: -1rem;
+            content: "\f10d";
+            font-family: fontawesome;
+            font-size: 4rem;
+            color: #00000028;
+        }
+    }
+    &__attrib {
+        @extend .h4;
+        text-align: right;
+        @media (min-width:992px) {
+            padding-left: 4rem;
+        }
+    }
+    &__slide {
+        padding: 1rem;
+    }
+}
+
+.bg--navy {
+    .big_quote__quote::before,
+    .big_quote_slider__quote::before {
+        color: #ffffff28; // was 11
+    }
+    .slick-dots li button:before {
+        color: white;
+    }
+}

@@ -1,0 +1,63 @@
+.icon {
+    width: 50px;
+    margin-bottom: 1rem;
+}
+
+.icon--hero {
+    width: 80px;
+    margin-right: 1rem;
+}
+
+.social-icons {
+    a {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        margin-right: 5px;
+        text-align: center;
+        font-size: 1rem;
+        line-height: 1.8 !important;
+        color: inherit;
+        transition: all 0.3s ease;
+    }
+}
+#header,
+#wrapper-navbar {
+    .social-icons {
+        color: #ffffff;
+        a {
+            &:hover {
+                color: $ps-yellow;
+            }
+        }
+    }
+}
+
+
+.icon--pink {
+    aspect-ratio: 1 / 1;
+    background: $ps-pink;
+    background: linear-gradient(-30deg, $ps-orange 0%, $ps-pink 100%);
+    border-radius: 50%;
+    max-width: 100px;
+    display: flex;
+    margin: auto;
+}
+.icon--green {
+    aspect-ratio: 1 / 1;
+    background: $ps-teal;
+    background: linear-gradient(-30deg, $ps-teal 0%, $ps-green 100%);
+    border-radius: 50%;
+    max-width: 100px;
+    display: flex;
+    margin: auto;
+}
+.icon--orange {
+    aspect-ratio: 1 / 1;
+    background: $ps-yellow;
+    background: linear-gradient(-30deg, $ps-yellow 0%, $ps-orange 100%);
+    border-radius: 50%;
+    max-width: 100px;
+    display: flex;
+    margin: auto;
+}

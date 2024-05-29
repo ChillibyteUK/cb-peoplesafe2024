@@ -1,0 +1,123 @@
+.rollover {
+    height: 810px;
+    @media (min-width:992px) {
+        height: 400px;
+    }
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    outline: 0;
+}
+.rollover__backgrounds,
+.rollover__image,
+.rollover__list {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-wrap: wrap;
+    z-index: 1;
+}
+@media (min-width:992px) {
+    .rollover__backgrounds,
+    .rollover__image,
+    .rollover__list {
+        flex-direction: column;
+    }
+}
+.rollover__image {
+    transition: opacity 0.4s ease;
+    opacity: 0;
+    background-color: #010101;
+}
+.rollover__image img,
+.rollover__itembg img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+    // opacity: 0.6;
+    object-fit: cover;
+}
+.rollover__list::before {
+    left: calc(100% / 3);
+}
+
+.rollover__list::before,
+.rollover__list::after {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    content: '';
+    transition: background-color 0.4s ease;
+}
+.rollover__list::after {
+    position: absolute;
+    left: calc((100% / 3) * 2);
+}
+
+.rollover__item {
+    position: relative;
+    display: inline-flex;
+    overflow: hidden;
+    width: 100%;
+    // height: 190px;
+    height: 270px;
+    align-items: center;
+    justify-content: center;
+    backface-visibility: hidden;
+
+}
+@media (min-width:992px) {
+    .rollover__item {
+        width: calc(100% / 3);
+        height: 100%;
+    }
+}
+
+.rollover__itembg {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 300%;
+    height: 100%;
+    transition: opacity 0.4s ease;
+    background-color: #010101;
+}
+.rollover__item:nth-of-type(2) .rollover__itembg {
+    left: -100%;
+}
+.rollover__item:nth-of-type(3) .rollover__itembg {
+    left: -200%;
+}
+.rollover__content {
+    width: 100%;
+    padding: 0 30px;
+    transition: opacity 0.4s ease;
+    text-align: center;
+    color: #fff;
+    font-size: 3rem;
+    // letter-spacing: #{(200/1000)}em;
+    line-height: 1.2;
+}
+@media (min-width:992px) {
+    .rollover__list.is-active::after,
+    .rollover__list.is-active::before {
+        background-color: rgba(255,255,255,.1);
+    }
+    .rollover__image.is-active {
+        opacity: 1;
+    }
+    .is-opacity .rollover__itembg {
+        opacity: 0;
+    }
+    .is-opacity .rollover__content {
+        opacity: .2;
+    }
+}

@@ -1,0 +1,45 @@
+:root {
+
+    --col-black: #000000;
+    --col-white: #FFFFFF;
+    --col-neutral: #F1F7F8;
+    --col-yellow-400: #FFB422;
+    --col-blue-400: #0484A0;
+    --col-navy-400: #043950;
+    --col-teal-400: #06BEA9;
+    --col-orange-400: #DF4305;
+    --col-pink-400: #DE007D;
+
+    --col-blue-200: #D5E1E5;
+
+    --gradient-pink: linear-gradient( var(--col-pink-400), var(--col-orange-400) );
+    --gradient-orange: linear-gradient( var(--col-orange-400), var(--col-yellow-400) );
+    --gradient-blue: linear-gradient( var(--col-blue-400), var(--col-teal-400) );
+
+    --fs-900: 72px; // huge title
+    --fs-800: 56px; // large title
+    --fs-700: 40px; // medium title
+    --fs-600: 24px; // small title
+    --fs-500: 18px; // captions
+    --fs-400: 18px; // body
+    --fs-300: 15px; // small text
+    --fs-200: 15px; // button
+    --fs-100: 12px; // tiny text
+
+
+    --fw-300: 300;
+    --fw-400: 400;
+    --fw-900: 700;
+
+
+    --ff-fa: 'Font Awesome 6 Free';
+
+    --transition: 250ms ease-in-out;
+
+
+    --shadow-out: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+    --shadow-in: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+
+    --h-top: 70px;
+
+}

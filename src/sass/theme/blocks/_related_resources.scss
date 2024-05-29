@@ -1,0 +1,12 @@
+.related_resources {
+    &__image {
+        aspect-ratio: 4 / 2;
+        width: 100%;
+        object-fit: cover;
+        margin-bottom: 1rem;
+    }
+    &__title {
+        @extend .h4;
+        min-height: 3rem;
+    }
+}

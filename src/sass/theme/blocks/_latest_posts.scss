@@ -1,0 +1,24 @@
+.latest {
+    &__news {
+        .latest__img {
+            aspect-ratio: 16/9;
+            width: 100%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .latest__title {
+            @extend .h4;
+            min-height: 4.4rem;
+        }
+        .latest__excerpt {
+            min-height: 6rem;
+        }
+        .latest__more {
+            font-weight: bold;
+            span {
+                color: $ps-yellow;
+            }
+        }
+    }
+}

@@ -1,0 +1,107 @@
+.bg-image {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 300px;
+}
+
+.overlay {
+    background: rgba(0,0,0,0.70);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.bg--white {
+    background-color: white;
+}
+
+.bg--overlay {
+    position: fixed;
+    top: 0; right: 0; bottom: 0; left: 0;
+    background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(47,47,47,0.50) 50%);
+    z-index: -1;
+}
+
+.bg_grad--orange {
+    background: $ps-yellow;
+    background: linear-gradient(-30deg, $ps-yellow 0%, $ps-orange 100%);
+    color: white;
+    .btn {
+        background-color: white;
+        color: $ps-orange;
+        transition: all 0.3s ease;
+        &:hover {
+            box-shadow: rgba(60, 64, 67, 0.3) 0px 4px 4px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+        }
+    }
+    a {
+        color: black;
+    }
+}
+.bg_grad--pink {
+    background: $ps-pink;
+    background: linear-gradient(-30deg, $ps-orange 0%, $ps-pink 100%);
+    color: white;
+    .btn {
+        background-color: white;
+        color: $ps-pink;
+        transition: all 0.3s ease;
+        &:hover {
+            box-shadow: rgba(60, 64, 67, 0.3) 0px 4px 4px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+        }
+    }
+}
+.bg_grad--green {
+    background: $ps-teal;
+    background: linear-gradient(-30deg, $ps-teal 0%, $ps-green 100%);
+    color: white;
+    .btn {
+        background-color: white;
+        color: $ps-teal;
+        transition: all 0.3s ease;
+        &:hover {
+            box-shadow: rgba(60, 64, 67, 0.3) 0px 4px 4px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+        }
+    }
+}
+
+.bg--dark,
+.bg--navy {
+    background-color: $ps-navy;
+    color: white;
+    .page-meta {
+        a {
+            color: white;
+        }
+    }
+}
+
+.bg--yellow,
+.bg_grad--yellow {
+    background-color: $ps-yellow;
+    a {
+        color: $black;
+    }
+}
+
+.bg--grey {
+    background-color: #fafafa;
+}
+
+.bg--pink {
+    background-color: $ps-pink;
+}
+.bg--orange {
+    background-color: $ps-orange;
+    color: white;
+}
+.bg--green {
+    background-color: $ps-green;
+}
+.bg--red {
+    background-color: red;
+    color: white;
+}

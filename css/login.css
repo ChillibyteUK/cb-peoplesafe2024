@@ -1,0 +1,14 @@
+body.login div#login form#loginform input#user_login {
+    border-color: #0C4743;
+}
+
+body.login div#login form#loginform input#user_pass {
+    border-color: #0C4743;
+}
+
+body.login div#login form#loginform p.submit input#wp-submit {
+    border-color: #0C4743;
+    background-color: #F9B234;
+    color: #F2F2F2
+}
+/*# sourceMappingURL=login.css.map */

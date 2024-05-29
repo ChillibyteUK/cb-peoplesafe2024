@@ -1,0 +1,36 @@
+{
+  "name": "jerkob/php-salesforce-rest-api",
+  "description": "Salesforce REST API PHP library",
+  "license": "MIT",
+  "keywords": [
+    "php salesforce",
+    "php salesforce rest",
+    "php salesforce rest api"
+  ],
+  "authors": [
+    {
+      "name": "Bijesh Shrestha",
+      "email": "bjsmasth@gmail.com",
+      "homepage": "https://github.com/bjsmasth"
+    },
+    {
+      "name": "Maciej Wilczyński (Cleeng)",
+      "email": "m@lupin.rocks",
+      "homepage": "https://github.com/mLupine"
+    },
+    {
+      "name": "Jacob Terry (jerkob)",
+      "email": "jsterry@gmail.com",
+      "homepage": "https://www.jacobterry.com"
+    }
+  ],
+  "require": {
+    "guzzlehttp/guzzle": "^7.0",
+    "php": ">=7.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "jerkob\\Salesforce\\": "src/"
+    }
+  }
+}

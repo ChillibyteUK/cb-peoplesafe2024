@@ -1,0 +1,74 @@
+.case_study_quotes {
+
+    .quotes__slider {
+        
+    }
+
+    .quote_slide {
+        padding: 0 1rem 2rem 1rem;
+    }
+
+    .quotes {
+        border-radius: 1rem;
+        background-color: white;
+        box-shadow: var(--shadow-out);
+        position: relative;
+        isolation: isolate;
+        overflow: clip;
+
+        height: 320px;
+
+        &::before {
+            content: "";
+            display: block;
+            position: absolute;
+            bottom: -5rem;
+            right: -4rem;
+            width: 55%;
+            aspect-ratio: 1;
+            border-radius: 100vw;
+            background-color: red;
+        }
+
+        &__image {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            height: 95%;
+        }
+    
+        &__inner {
+            padding: 1.5rem 0 1.5rem 1.5rem;
+            width: 50%;
+            height: 100%;
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+            gap: 1rem;
+        }
+
+        &__quote {
+            line-height: 1.5;
+        }
+
+        &__cite {
+            font-size: var(--fs-200);
+            color: var(--col-pink-400);
+        }
+
+        &__logo {
+            max-width: 50%;
+        }
+    }
+    
+    .quotes--blue::before {
+        background: var(--gradient-blue);
+    }
+    .quotes--orange::before {
+        background: var(--gradient-orange);
+    }
+    .quotes--pink::before {
+        background: var(--gradient-pink);
+    }
+
+ 
+}

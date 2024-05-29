@@ -1,0 +1,148 @@
+.hero_2024 {
+    min-height: 600px;
+    margin-top: calc(var(--h-top) + 2rem);
+    
+
+    h1 {
+        font-size: var(--fs-900);
+    }
+
+    &__text_anim_container {
+        color: var(--col-blue-400);
+        span {
+            opacity: 0;
+            animation: fadeIn 1s ease-in forwards;
+        }
+        span:nth-of-type(1) {
+            animation-delay: 1s;
+        }
+        span:nth-of-type(2) {
+            animation-delay: 2s;
+        }
+    }
+}
+
+.heroAnim {
+    margin-inline: auto;
+    position: relative;
+    aspect-ratio: 1;
+    width: 480px;
+    display: grid;
+    overflow: clip;
+    isolation: isolate;
+    & > * {
+        position: absolute;
+    }
+
+    .dots {
+        place-self: center;
+        animation: dotSpin 8s linear infinite;
+        transform-origin: center;
+        z-index: 0;
+    }
+    .circle {
+        place-self: center;
+        z-index: 0;
+    }
+    .gradient {
+        place-self: center;
+        animation: gradGrow 500ms ease-in forwards;
+        z-index: 0;
+    }
+    .shakira {
+        opacity: 0;
+        scale: 0.8;
+        right: -10%;
+        bottom: -10%;
+        animation: shakira 750ms ease-in forwards;
+        z-index: 1;
+    }
+    .laptop {
+        opacity: 0;
+        bottom: -10%;
+        right: -110%;
+        animation: laptop 1s ease-in forwards;
+        z-index: 6;
+    }
+    .phone1 {
+        opacity: 0;
+        right: -25%;
+        top: 5%;
+        animation: phone 750ms ease-in forwards;
+        animation-delay: 1s;
+        z-index: 5;
+    }
+    .phone2 {
+        opacity: 0;
+        right: -25%;
+        top: 5%;
+        animation: phone 750ms ease-in forwards;
+        animation-delay: 2s;
+        z-index: 4;
+    }
+    .phone3 {
+        opacity: 0;
+        right: -25%;
+        top: 5%;
+        animation: phone 750ms ease-in forwards;
+        animation-delay: 3s;
+        z-index: 3;
+    }
+}
+
+@keyframes dotSpin {
+    from {
+        rotate: 0deg;
+    }
+    to {
+        rotate: 360deg;
+    }
+}
+
+@keyframes gradGrow {
+    to {
+        scale: 1;
+    }
+}
+
+@keyframes shakira {
+    from {
+        scale: 0.8;
+        opacity: 0;
+        bottom: -10%;
+        right: -10%;
+    }
+    to {
+        scale: 1;
+        opacity: 1;
+        bottom: 0%;
+        right: 0%;
+    }
+}
+
+@keyframes laptop {
+    from {
+        opacity: 0;
+        bottom: -10%;
+        right: -110%;
+    }
+    to {
+        opacity: 1;
+        bottom: 0;
+        right: 0;
+    }
+}
+
+@keyframes phone {
+    from {
+        opacity: 0;
+        right: -25%;
+        top: 5%;
+
+    }
+    to {
+        opacity: 1;
+        right: 0%;
+        top: 0%;
+    }
+}

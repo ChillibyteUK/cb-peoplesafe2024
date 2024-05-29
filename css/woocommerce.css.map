@@ -1,0 +1,1 @@
+{"version":3,"sources":["woocommerce.css"],"names":[],"mappings":"AAAA;IACI,gBAAgB;AACpB;;AAEA;;IAEI,WAAW;AACf","file":"woocommerce.css","sourcesContent":[".related img {\n    max-height: none;\n}\n\n.woocommerce-input-wrapper,\n.woocommerce form .form-row label {\n    width: 100%;\n}"]}

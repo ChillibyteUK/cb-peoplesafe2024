@@ -1,0 +1,31 @@
+.image_hero {
+    background-size: cover;
+    &.image_hero--left {
+        background-position: right center;
+    }
+    &.image_hero--right {
+        background-position: left center;
+    }
+    background-repeat: no-repeat;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    &__content {
+        font-size: 1.2rem;
+        color: white;
+        margin-bottom: 1rem;
+    }
+    position: relative;
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0; right: 0; bottom: 0; left: 0;
+        background-color: black;
+        opacity: 0.6;
+    }
+    @media(min-width:768px) {
+        &::before {
+            opacity: 0;
+        }
+    }
+}

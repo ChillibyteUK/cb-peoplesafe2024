@@ -1,0 +1,71 @@
+// .btn {
+//     font-weight: 700;
+//     font-size: 1rem;
+//     min-width: 200px;
+//     // height: 56px;
+//     border-radius: 0;
+//     // padding-top: 16px;
+//     text-decoration: none;
+// }
+.full-button {
+    @extend .btn;
+    display: block;
+    background-color: $grey-700;
+    color: #fff;
+    text-transform: initial;
+    transition: all 0.3s ease;
+    span {
+        color: $ps-yellow;
+    }
+    &:hover {
+        background-color: darken($ps-yellow, 10%);
+        color: #fff;
+        span {
+            color: $grey-700;
+        }
+    }
+}
+
+.btn-primary {
+    background-color: $ps-yellow;
+    color: black !important;
+}
+
+.btn-secondary--sm {
+    font-size: 0.875rem;
+    min-width: 160px;
+}
+.btn-secondary--sm.active {
+    background-color: $ps-yellow !important;
+}
+
+.btn-previous {
+    @extend .btn-secondary;
+}
+.btn-next {
+    @extend .btn-secondary;
+}
+
+.btn-gradient {
+
+    &--orange {
+        background: $ps-yellow;
+        background: linear-gradient(-30deg, $ps-yellow 0%, $ps-orange 100%);
+        color: white;
+    }
+    &--pink {
+        background: $ps-pink;
+        background: linear-gradient(-30deg, $ps-orange 0%, $ps-pink 100%);
+        color: white;
+    }
+    &--green {
+        background: $ps-teal;
+        background: linear-gradient(-30deg, $ps-teal 0%, $ps-green 100%);
+        color: white;
+    }
+}
+
+.btn--navy {
+    background-color: $ps-navy;
+    color: white !important;
+}

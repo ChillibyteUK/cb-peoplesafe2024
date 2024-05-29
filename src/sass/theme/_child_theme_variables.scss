@@ -1,0 +1,65 @@
+// Use this file to overwrite the basic Bootstrap variables and add your own variables
+// To overwrite a Bootstrap variable you don´t have to touch the Bootstrap folder. 
+// Just copy a variable from /sass/bootstrap/_variables.scss, paste it here and edit the value.
+// As example you find one of the most important Bootstrap variable below: $brand-primary.
+// Thats the ugly Bootstrap blue used for all the links, primary buttons etc.
+// Just add your color code here, compile the theme.scss file to change this color everywhere
+
+
+//
+// Color system
+//
+
+$black: hsl(60, 2%, 20%);
+
+
+$orange-500:  hsl(33, 100%, 47%);
+$orange-600:  hsl(33, 100%, 40%);
+$grey-100: hsl(199, 20%, 81%);
+
+$grey-200: hsl(186, 5%, 60%);
+$grey-300: hsl(183, 30%, 40%);
+$grey-400: hsl(183, 30%, 30%);
+$grey-700: hsl(60, 1%, 21%);
+$grey-800: hsl(0, 0%, 16%);
+
+$ps-yellow: #ffa823;
+$ps-yellow-700: #ffa823;
+$ps-yellow-100: hsl(36, 100%, 87%);
+
+$ps-orange: #e04305;
+$ps-orange-700: #e04305;
+$ps-orange-100: hsl(17, 96%, 85%);
+
+$ps-pink: #DF007D;
+$ps-pink-700: #DF007D;
+$ps-pink-100: hsl(326, 100%, 84%);
+
+$ps-teal: #0484A1;
+$ps-green: #07BFA9;
+$ps-green-700: #07BFA9;
+$ps-green-100: hsl(173, 93%, 69%);
+
+$ps-navy: #0a0f1c;
+
+$black-tx: hsla(0, 0%, 0%, 0.5);
+$black-tx--900: hsla(0, 0%, 0%, 0.75);
+
+
+$primary: $ps-yellow;
+$secondary: $grey-100;
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1240px
+);
+
+$container-max-widths: (
+    sm: 540px,
+    md: 720px,
+    lg: 960px,
+    xl: 1180px,
+);

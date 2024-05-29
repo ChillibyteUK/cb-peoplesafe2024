@@ -1,0 +1,56 @@
+.feature {
+    position: relative;
+    &--overlay {
+        &::before {
+            position: absolute;
+            content: "";
+            background-image: url(../img/ps-logo-crop--45-twice.svg);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center left;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+    }
+}
+
+ul.check {
+    li {
+        list-style-type: none;
+        position: relative;
+        margin-bottom: 0.5rem;
+        &::before {
+            position: absolute;
+            left: -1.5rem;
+            content: "\f00c";
+            font-family: fontawesome;
+            color: $ps-green;
+        }
+    }
+}
+li.check {
+    list-style-type: none;
+    position: relative;
+    margin-bottom: 0.5rem;
+    &::before {
+        position: absolute;
+        left: -1.5rem;
+        content: "\f00c";
+        font-family: fontawesome;
+        color: $ps-green;
+    }
+}
+li.cross {
+    list-style-type: none;
+    position: relative;
+    margin-bottom: 0.5rem;
+    &::before {
+        position: absolute;
+        left: -1.5rem;
+        content: "\f00d";
+        font-family: fontawesome;
+        color: $ps-orange;
+    }
+}
