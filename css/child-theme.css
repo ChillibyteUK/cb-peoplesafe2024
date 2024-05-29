@@ -23490,7 +23490,7 @@ nav #dropdownKnowledge .knowledge-link:hover {
 
 .hero_2024 {
   min-height: 600px;
-  margin-top: calc(var(--h-top) + 2rem);
+  margin-top: var(--h-top);
 }
 .hero_2024 h1, .hero_2024 .h1 {
   font-size: var(--fs-900);
