@@ -23912,9 +23912,18 @@ nav #dropdownKnowledge .knowledge-link:hover {
 
 .latest_2024 {
   background-color: var(--col-blue-200);
+}
+.latest_2024__slider {
   position: relative;
 }
+.latest_2024__slide {
+  align-items: center;
+  height: 100%;
+  border-radius: 1rem;
+  overflow: hidden;
+}
 .latest_2024__card {
+  background: lime;
   height: 100%;
   background-color: var(--col-white);
   overflow: clip;

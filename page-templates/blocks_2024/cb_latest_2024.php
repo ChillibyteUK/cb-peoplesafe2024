@@ -25,7 +25,7 @@
                         $img = catch_that_image(get_post($l->ID));
                     }
                     ?>
-                    <div class="swiper-slide latest_2024__slide">
+                    <div class="swiper-slide latest_2024__slide pb-4">
                         <a class="latest_2024__card" href="<?=get_the_permalink($l->ID)?>">
                             <div class="latest_2024__image">
                                 <?=get_the_post_thumbnail($l->ID,'large')?>
@@ -57,33 +57,64 @@ add_action('wp_footer',function(){
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
+
+    function setEqualHeight() {
+        let maxHeight = 0;
+        const slides = document.querySelectorAll('.swiper-slide');
+
+        // Remove existing heights to recalculate
+        slides.forEach(slide => {
+            slide.style.height = 'auto';
+        });
+
+        // Find the maximum height
+        slides.forEach(slide => {
+            if (slide.offsetHeight > maxHeight) {
+                maxHeight = slide.offsetHeight;
+            }
+        });
+
+        // Set all slides to the maximum height
+        slides.forEach(slide => {
+            slide.style.height = `${maxHeight}px`;
+        });
+    }
+
+
     var swiper = new Swiper('.latest_2024__slider', {
         loop: true,
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
+        autoplay: {
+            delay: 4000,
+            disableOnInteraction: true,
         },
-        slidesPerView: 4,
+        slidesPerView: 1,
         spaceBetween: 18, // Adjust this value to match your design
         breakpoints: {
-            992: {
-                autoplay: {
-                    delay: 4000,
-                    disableOnInteraction: true,
-                },
-                slidesPerView: 3,
-                spaceBetween: 18, // Adjust as needed
-            },
             768: {
                 slidesPerView: 2,
-                spaceBetween: 18, // Adjust as needed
+                spaceBetween: 18,
             },
-            576: {
-                slidesPerView: 1,
-                spaceBetween: 18, // Adjust as needed
+            992: {
+                slidesPerView: 3,
+                spaceBetween: 18,
+            },
+            1200: {
+                slidesPerView: 4,
+                spaceBetween: 18,
+            },
+        },
+        on: {
+            init: function() {
+                setEqualHeight();
+            },
+            resize: function() {
+                setEqualHeight();
             }
         }
     });
+
+    window.addEventListener('load', setEqualHeight);
+
 });
 </script>
     <?php

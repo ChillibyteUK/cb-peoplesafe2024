@@ -1,8 +1,19 @@
 .latest_2024 {
     background-color: var(--col-blue-200);
-    position: relative;
 
+    &__slider {
+        position: relative;
+    }
+
+    &__slide {
+        align-items: center;
+        height: 100%;
+        border-radius: 1rem;
+        overflow: hidden;
+    }
+    
     &__card {
+        background: lime;
         height: 100%;
         background-color: var(--col-white);
         overflow: clip;
