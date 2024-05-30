@@ -23520,7 +23520,7 @@ nav #dropdownKnowledge .knowledge-link:hover {
 }
 @media (min-width: 992px) {
   .heroAnim {
-    width: 480px;
+    width: 100%;
   }
 }
 .heroAnim > * {

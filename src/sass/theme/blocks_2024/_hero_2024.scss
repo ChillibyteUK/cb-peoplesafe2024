@@ -28,7 +28,7 @@
     aspect-ratio: 1;
     width: 300px;
     @media (min-width: 992px) {
-        width: 480px;
+        width: 100%;
     }
     display: grid;
     overflow: clip;
