@@ -23513,10 +23513,15 @@ nav #dropdownKnowledge .knowledge-link:hover {
   margin-inline: auto;
   position: relative;
   aspect-ratio: 1;
-  width: 100%;
+  width: 300px;
   display: grid;
   overflow: clip;
   isolation: isolate;
+}
+@media (min-width: 992px) {
+  .heroAnim {
+    width: 480px;
+  }
 }
 .heroAnim > * {
   position: absolute;

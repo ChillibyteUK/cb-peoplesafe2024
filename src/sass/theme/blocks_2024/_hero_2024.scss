@@ -26,7 +26,10 @@
     margin-inline: auto;
     position: relative;
     aspect-ratio: 1;
-    width: 100%;
+    width: 300px;
+    @media (min-width: 992px) {
+        width: 480px;
+    }
     display: grid;
     overflow: clip;
     isolation: isolate;
