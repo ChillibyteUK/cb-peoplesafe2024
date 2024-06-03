@@ -12,70 +12,70 @@ require_once CB_THEME_DIR . '/inc/cb-careers.php';
 
 
 
- // rename posts to blog
- function change_post_label()
- {
-     global $menu;
-     global $submenu;
-     $menu[5][0] = 'Blog Posts';
-     $submenu['edit.php'][5][0] = 'Blog Posts';
-     $submenu['edit.php'][10][0] = 'Add Blog';
-     $submenu['edit.php'][16][0] = 'Blog Tags';
- }
- function change_post_object()
- {
-     global $wp_post_types;
-     $labels = &$wp_post_types['post']->labels;
-     $labels->name = 'Blog Posts';
-     $labels->singular_name = 'Blog Post';
-     $labels->add_new = 'Add Blog';
-     $labels->add_new_item = 'Add Blog';
-     $labels->edit_item = 'Edit Blog';
-     $labels->new_item = 'Blog';
-     $labels->view_item = 'View Blog';
-     $labels->search_items = 'Search Blog';
-     $labels->not_found = 'No Blog found';
-     $labels->not_found_in_trash = 'No Blog found in Trash';
-     $labels->all_items = 'All Blog';
-     $labels->menu_name = 'Blog';
-     $labels->name_admin_bar = 'Blog';
- }
+// rename posts to blog
+function change_post_label()
+{
+    global $menu;
+    global $submenu;
+    $menu[5][0] = 'Blog Posts';
+    $submenu['edit.php'][5][0] = 'Blog Posts';
+    $submenu['edit.php'][10][0] = 'Add Blog';
+    $submenu['edit.php'][16][0] = 'Blog Tags';
+}
+function change_post_object()
+{
+    global $wp_post_types;
+    $labels = &$wp_post_types['post']->labels;
+    $labels->name = 'Blog Posts';
+    $labels->singular_name = 'Blog Post';
+    $labels->add_new = 'Add Blog';
+    $labels->add_new_item = 'Add Blog';
+    $labels->edit_item = 'Edit Blog';
+    $labels->new_item = 'Blog';
+    $labels->view_item = 'View Blog';
+    $labels->search_items = 'Search Blog';
+    $labels->not_found = 'No Blog found';
+    $labels->not_found_in_trash = 'No Blog found in Trash';
+    $labels->all_items = 'All Blog';
+    $labels->menu_name = 'Blog';
+    $labels->name_admin_bar = 'Blog';
+}
  
- add_action('admin_menu', 'change_post_label');
- add_action('init', 'change_post_object');
+add_action('admin_menu', 'change_post_label');
+add_action('init', 'change_post_object');
 
 
 
- if (function_exists('acf_add_options_page')) {
-     acf_add_options_page(
-         array(
-             'page_title' 	=> 'Site-Wide Settings',
-             'menu_title'	=> 'Site-Wide Settings',
-             'menu_slug' 	=> 'theme-general-settings',
-             'capability'	=> 'edit_posts',
-         )
-     );
- }
+if (function_exists('acf_add_options_page')) {
+    acf_add_options_page(
+        array(
+            'page_title' 	=> 'Site-Wide Settings',
+            'menu_title'	=> 'Site-Wide Settings',
+            'menu_slug' 	=> 'theme-general-settings',
+            'capability'	=> 'edit_posts',
+        )
+    );
+}
 
- function widgets_init()
- {
+function widgets_init()
+{
   
-     register_nav_menus(array(
-         'primary_nav' => __('Primary Nav', 'cb-peoplesafe2024'),
-         'footer_menu1' => __('Footer Products', 'cb-peoplesafe2024'),
-         'footer_menu2' => __('Footer Resources', 'cb-peoplesafe2024'),
-         'footer-1' => __('Footer Col 1', 'cb-peoplesafe2024'),
-         'footer-2' => __('Footer Col 2', 'cb-peoplesafe2024'),
-         'footer-3' => __('Footer Col 3', 'cb-peoplesafe2024'),
-     ));
+    register_nav_menus(array(
+        'primary_nav' => __('Primary Nav', 'cb-peoplesafe2024'),
+        'footer_menu1' => __('Footer Products', 'cb-peoplesafe2024'),
+        'footer_menu2' => __('Footer Resources', 'cb-peoplesafe2024'),
+        'footer-1' => __('Footer Col 1', 'cb-peoplesafe2024'),
+        'footer-2' => __('Footer Col 2', 'cb-peoplesafe2024'),
+        'footer-3' => __('Footer Col 3', 'cb-peoplesafe2024'),
+    ));
  
-     unregister_sidebar('hero');
-     unregister_sidebar('herocanvas');
-     unregister_sidebar('statichero');
-     unregister_sidebar('left-sidebar');
-     unregister_sidebar('right-sidebar');
-     unregister_sidebar('footerfull');
-     unregister_nav_menu('primary');
+    unregister_sidebar('hero');
+    unregister_sidebar('herocanvas');
+    unregister_sidebar('statichero');
+    unregister_sidebar('left-sidebar');
+    unregister_sidebar('right-sidebar');
+    unregister_sidebar('footerfull');
+    unregister_nav_menu('primary');
  
     add_theme_support('disable-custom-colors');
     add_theme_support(
@@ -152,137 +152,143 @@ function cb_dashboard_widget_display()
 
 
 
- function archive_limit($query)
- {
-     if ($query->is_archive() && $query->is_main_query() && !is_admin()) {
-         $query->set('posts_per_page', 100);
-     }
- }
- add_action('pre_get_posts', 'archive_limit');
+function archive_limit($query)
+{
+    if ($query->is_archive() && $query->is_main_query() && !is_admin()) {
+        $query->set('posts_per_page', 100);
+    }
+}
+add_action('pre_get_posts', 'archive_limit');
 
- add_filter('wpseo_breadcrumb_links', 'override_yoast_breadcrumb_trail_stories');
+add_filter('wpseo_breadcrumb_links', 'override_yoast_breadcrumb_trail_stories');
 
- function override_yoast_breadcrumb_trail_stories($links)
- {
-     global $post;
+function override_yoast_breadcrumb_trail_stories($links)
+{
+    global $post;
 
-     if (is_tax('incidents')) {
-         $breadcrumb[] = array(
-             'url' => '/stories/',
-             'text' => 'Stories',
-         );
-         array_splice($links, 1, -2, $breadcrumb);
-     }
+    if (is_tax('incidents')) {
+        $breadcrumb[] = array(
+            'url' => '/stories/',
+            'text' => 'Stories',
+        );
+        array_splice($links, 1, -2, $breadcrumb);
+    }
 
-     if (is_singular('careers')) {
-         $breadcrumb[] = array(
-             'url' => '/careers/',
-             'text' => 'Careers',
-         );
-         array_splice($links, 1, -2, $breadcrumb);
-     }
+    if (is_singular('careers')) {
+        $breadcrumb[] = array(
+            'url' => '/careers/',
+            'text' => 'Careers',
+        );
+        array_splice($links, 1, -2, $breadcrumb);
+    }
 
-     if (is_singular(array('news','guides', 'post', 'whitepapers', 'legislation'))) {
-         $breadcrumb[] = array(
-             'url' => '/resources/',
-             'text' => 'Knowledge Hub',
-         );
-         array_splice($links, 1, -2, $breadcrumb);
-     }
+    if (is_singular(array('news','guides', 'post', 'whitepapers', 'legislation'))) {
+        $breadcrumb[] = array(
+            'url' => '/resources/',
+            'text' => 'Knowledge Hub',
+        );
+        array_splice($links, 1, -2, $breadcrumb);
+    }
 
-     if (is_archive(array('news','guides', 'post', 'whitepapers', 'legislation'))) {
-         $breadcrumb[] = array(
-             'url' => '/resources/',
-             'text' => 'Knowledge Hub',
-         );
-         array_splice($links, 1, -2, $breadcrumb);
-     }
+    if (is_archive(array('news','guides', 'post', 'whitepapers', 'legislation'))) {
+        $breadcrumb[] = array(
+            'url' => '/resources/',
+            'text' => 'Knowledge Hub',
+        );
+        array_splice($links, 1, -2, $breadcrumb);
+    }
 
-     return $links;
- }
-
-
- // exclude stories from search
-
- function search_filter($query)
- {
-     if (! is_admin() && $query->is_main_query()) {
-         if ($query->is_search) {
-             $post_types = get_post_types(array(), 'names');
-             $exclude = array(
-                 'attachment',
-                 'revision',
-                 'nav_menu_item',
-                 'acf-field',
-                 'acf-field-group',
-                 'stories',
-                 'brochures',
-                 'wp_block',
-                 'wp_global_styles',
-                 'cookielawinfo'
-             );
-             $include = array_diff($post_types, $exclude);
-             $query->set('post_type', $include);
-         }
-     }
- }
- add_action('pre_get_posts', 'search_filter');
-
- // demo button on mobile menu
- add_filter('wp_nav_menu_items', 'add_demo_button', 10, 2);
- function add_demo_button($items, $args)
- {
-     if ($args->theme_location == 'primary_nav') {
-         $items .= '<a href="/shop/" class="d-lg-none btn btn-primary mt-2 mx-3"><strong>Buy Now</strong></a>';
-         // $items .= '<button type="button" class="d-lg-none btn btn-primary mt-2 mx-3" data-toggle="modal" data-target="#demoModal">Book a Demo</button>';
-     }
-     return $items;
- }
+    return $links;
+}
 
 
- // function wpse_modify_category_query( $query ) {
+// exclude stories from search
+
+function search_filter($query)
+{
+    if (! is_admin() && $query->is_main_query()) {
+        if ($query->is_search) {
+            $post_types = get_post_types(array(), 'names');
+            $exclude = array(
+                'attachment',
+                'revision',
+                'nav_menu_item',
+                'acf-field',
+                'acf-field-group',
+                'stories',
+                'brochures',
+                'wp_block',
+                'wp_global_styles',
+                'cookielawinfo'
+            );
+            $include = array_diff($post_types, $exclude);
+            $query->set('post_type', $include);
+        }
+    }
+}
+add_action('pre_get_posts', 'search_filter');
+
+// demo button on mobile menu
+add_filter('wp_nav_menu_items', 'add_demo_button', 10, 2);
+function add_demo_button($items, $args)
+{
+    if ($args->theme_location == 'primary_nav') {
+        $items .= '<a href="/shop/" class="d-lg-none btn btn-primary mt-2 mx-3"><strong>Buy Now</strong></a>';
+        // $items .= '<button type="button" class="d-lg-none btn btn-primary mt-2 mx-3" data-toggle="modal" data-target="#demoModal">Book a Demo</button>';
+    }
+    return $items;
+}
+
+
+// function wpse_modify_category_query( $query ) {
 //     if ( ! is_admin() && $query->is_main_query() ) {
 //         if ( $query->is_category() ) {
 //             $query->set( 'posts_per_page', 2 );
 //         }
 //     }
- // }
- // add_action( 'pre_get_posts', 'wpse_modify_category_query' );
+// }
+// add_action( 'pre_get_posts', 'wpse_modify_category_query' );
 
- add_action('pre_get_posts', function ($q) {
-     if (!is_admin() // Only target the front end queries
-          && $q->is_main_query() // Targets the main query only
-          && $q->is_category() // Only target category pages
-     ) {
-         $q->set('posts_per_page', 10);
-         $q->set('ignore_sticky_posts', 1);
-     }
- });
+add_action('pre_get_posts', function ($q) {
+    if (!is_admin() // Only target the front end queries
+         && $q->is_main_query() // Targets the main query only
+         && $q->is_category() // Only target category pages
+    ) {
+        $q->set('posts_per_page', 10);
+        $q->set('ignore_sticky_posts', 1);
+    }
+});
 
 
- function cb_theme_enqueue()
- {
-     $the_theme = wp_get_theme();
-     // wp_enqueue_style('lightbox-stylesheet', get_stylesheet_directory_uri() . '/css/lightbox.min.css', array(), $the_theme->get('Version'));
-     // wp_enqueue_script('lightbox-scripts', get_stylesheet_directory_uri() . '/js/lightbox-plus-jquery.min.js', array(), $the_theme->get('Version'), true);
-     // wp_enqueue_script('lightbox-scripts', get_stylesheet_directory_uri() . '/js/lightbox.min.js', array(), $the_theme->get('Version'), true);
-     // wp_enqueue_script('jquery', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js', array(), null, true);
+function cb_theme_enqueue()
+{
+    $the_theme = wp_get_theme();
+    // wp_enqueue_style('lightbox-stylesheet', get_stylesheet_directory_uri() . '/css/lightbox.min.css', array(), $the_theme->get('Version'));
+    // wp_enqueue_script('lightbox-scripts', get_stylesheet_directory_uri() . '/js/lightbox-plus-jquery.min.js', array(), $the_theme->get('Version'), true);
+    // wp_enqueue_script('lightbox-scripts', get_stylesheet_directory_uri() . '/js/lightbox.min.js', array(), $the_theme->get('Version'), true);
+    // wp_enqueue_script('jquery', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js', array(), null, true);
  
-     wp_deregister_script('jquery');
-     wp_enqueue_script('jquery', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js', array(), null, true);
-     wp_enqueue_style('slick-styles', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css', array(), true);
-     wp_enqueue_style('slick-theme-styles', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css', array(), true);
-     wp_enqueue_script('slick', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js', array(), null, true);
-     wp_enqueue_style('aos-style', "https://unpkg.com/aos@2.3.1/dist/aos.css", array());
-     wp_enqueue_script('aos', 'https://unpkg.com/aos@2.3.1/dist/aos.js', array(), null, true);
+    wp_deregister_script('jquery');
+    wp_enqueue_script('jquery', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js', array(), null, true);
+    wp_enqueue_style('slick-styles', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css', array(), true);
+    wp_enqueue_style('slick-theme-styles', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css', array(), true);
+    wp_enqueue_script('slick', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js', array(), null, true);
+    wp_enqueue_style('aos-style', "https://unpkg.com/aos@2.3.1/dist/aos.css", array());
+    wp_enqueue_script('aos', 'https://unpkg.com/aos@2.3.1/dist/aos.js', array(), null, true);
+
+    wp_enqueue_style('swiper-style', "https://unpkg.com/swiper/swiper-bundle.min.css", array());
+    wp_enqueue_script('swiper', "https://unpkg.com/swiper/swiper-bundle.min.js", array(), null, true);
+
+
     //  wp_enqueue_style('glightbox-stylesheet', get_stylesheet_directory_uri() . '/css/glightbox.min.css', array(), $the_theme->get('Version'));
     //  wp_enqueue_script('glightbox-scripts', get_stylesheet_directory_uri() . '/js/glightbox.min.js', array(), null, true);
- }
- add_action('wp_enqueue_scripts', 'cb_theme_enqueue');
+}
+add_action('wp_enqueue_scripts', 'cb_theme_enqueue');
 
 
 
-function other_videos($id) {
+function other_videos($id)
+{
 
     ob_start();
 
@@ -303,11 +309,13 @@ function other_videos($id) {
         right: 0;
         top: 24px;
     }
+
     .h2__container {
         position: relative;
         display: flex;
         justify-content: space-between;
     }
+
     .h2__link {
         font-size: 0.8rem;
         margin-top: 0.9rem;
@@ -315,13 +323,16 @@ function other_videos($id) {
         z-index: 99;
         padding-left: 0.5rem;
     }
+
     .h2__link::after {
         content: " >";
     }
+
     .h2__link a {
         color: #0a0f1c;
         font-weight: 600;
     }
+
     .h2__container h2 {
         position: relative;
         background-color: #fff;
@@ -329,35 +340,36 @@ function other_videos($id) {
         padding-right: 0.5rem;
     }
 </style>
-    <div class="recent_news">
-        <div class="h2__container mb-2">
-            <h2>Other videos</h2>
-            <div class="h2__link"><a href="/video/" class="noline">View all</a></div>
-        </div>
-        <div class="row">
-            <?php
+<div class="recent_news">
+    <div class="h2__container mb-2">
+        <h2>Other videos</h2>
+        <div class="h2__link"><a href="/video/" class="noline">View all</a></div>
+    </div>
+    <div class="row">
+        <?php
     while ($q->have_posts()) {
         $q->the_post();
         $img = get_vimeo_data_from_id(get_field('vimeo_id'), 'thumbnail_url') ?: get_stylesheet_directory_uri() . '/img/ps-logo-placeholder.png';
         ?>
-            <div class="col-md-4 mb-4 mb-lg-0">
-                <div class="guide">
-                    <a href="<?=get_the_permalink(get_the_ID())?>">
-                        <div class="guide__image">
-                            <img src="<?=$img?>">
-                        </div>
-                        <div class="guide__inner">
-                            <div class="guide__title"><?=get_the_title(get_the_ID())?></div>
-                        </div>
-                    </a>
-                </div>
+        <div class="col-md-4 mb-4 mb-lg-0">
+            <div class="guide">
+                <a href="<?=get_the_permalink(get_the_ID())?>">
+                    <div class="guide__image">
+                        <img src="<?=$img?>">
+                    </div>
+                    <div class="guide__inner">
+                        <div class="guide__title">
+                            <?=get_the_title(get_the_ID())?></div>
+                    </div>
+                </a>
             </div>
+        </div>
         <?php
     }
-        ?>
-        </div>
+    ?>
     </div>
-    <?php
+</div>
+<?php
 
     return ob_get_clean();
 
@@ -394,3 +406,4 @@ function remove_understrap_post_formats()
 {
     remove_theme_support('post-formats', array( 'aside', 'image', 'video' , 'quote' , 'link' ));
 }
+?>

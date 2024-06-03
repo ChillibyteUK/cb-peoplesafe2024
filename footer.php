@@ -65,9 +65,10 @@ defined('ABSPATH') || exit;
     <div class="container py-5">
         <div class="row px-4 px-md-0">
             <div class="col-md-6 col-lg-3 text-center text-md-start mb-4">
-                <img src="<?=get_stylesheet_directory_uri()?>/img/ps-logo-full.svg">
-<?php /*	
-				<div class="gf">
+                <img
+                    src="<?=get_stylesheet_directory_uri()?>/img/ps-logo-full.svg">
+                <?php /*
+                <div class="gf">
                     <p class="nav-title">Signup to our Newsletter:</p>
                     <?=do_shortcode('[gravityform id="1" title="false"]')?>
                 </div>
@@ -79,19 +80,21 @@ defined('ABSPATH') || exit;
                     <?=do_shortcode('[social_yt_icon]')?>
                     <?=do_shortcode('[social_tw_icon]')?>
                 </div>
-            <div class="">
-                <div class="nav-title">Newsletter Sign Up</div>
-                <form target="_blank" method="GET" action="https://peoplesafe.co.uk/newsletter-signup/" style="height: auto; display: inline;">
-                    <div class="mb-3">
-                        <label for="NewsletterEmail" class="form-label visually-hidden d-none">Email address</label>
-                        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-                    </div>
-                    <div class="input-group">
-                        <input type="email" class="form-control required" id="email" name="email" aria-describedby="emailHelp" placeholder="Email address" required>
-                        <button type="submit" class="btn btn-primary" style="font-weight: 400;">Sign Up</button>
-                    </div>
-                </form>
-            </div>
+                <div class="">
+                    <div class="nav-title">Newsletter Sign Up</div>
+                    <form target="_blank" method="GET" action="https://peoplesafe.co.uk/newsletter-signup/"
+                        style="height: auto; display: inline;">
+                        <div class="mb-3">
+                            <label for="NewsletterEmail" class="form-label visually-hidden d-none">Email address</label>
+                            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                        </div>
+                        <div class="input-group">
+                            <input type="email" class="form-control required" id="email" name="email"
+                                aria-describedby="emailHelp" placeholder="Email address" required>
+                            <button type="submit" class="btn btn-primary" style="font-weight: 400;">Sign Up</button>
+                        </div>
+                    </form>
+                </div>
             </div>
             <div class="col-md-6 col-lg-3 text-center text-md-start mb-4">
                 <div class="nav-title">Products</div>
@@ -109,18 +112,18 @@ defined('ABSPATH') || exit;
                     // foreach ($terms as $c) {
                     //     echo '<li><a href="/sectors/' . $c->slug . '/">' . $c->name . '</a></li>';
                     // }
-                    $parent = get_page_by_path( 'sectors' );
-                    $q = new WP_Query(array(
-                        'post_type' => 'page',
-                        'post_parent' => $parent->ID,
-                        'posts_per_page' => -1
-                    ));
-                    while ($q->have_posts()) {
-                        $q->the_post();
-                        echo '<li><a href="' . get_the_permalink() . '">' . get_the_title() . '</a></li>';
-                    }
-                    wp_reset_postdata();
-                    ?>
+                    $parent = get_page_by_path('sectors');
+$q = new WP_Query(array(
+    'post_type' => 'page',
+    'post_parent' => $parent->ID,
+    'posts_per_page' => -1
+));
+while ($q->have_posts()) {
+    $q->the_post();
+    echo '<li><a href="' . get_the_permalink() . '">' . get_the_title() . '</a></li>';
+}
+wp_reset_postdata();
+?>
                 </ul>
             </div>
             <div class="col-md-6 col-lg-3 text-center text-md-start">
@@ -131,8 +134,11 @@ defined('ABSPATH') || exit;
     </div>
     <div class="colophon">
         <div class="container d-flex justify-content-between flex-wrap py-2">
-            <div>&copy; <?=date('Y')?> Skyguard Ltd T/A Peoplesafe. Company Registration Number: 04107459. All rights reserved. Peoplesafe is part of the Send for Help Group.</div>
-            <a href="https://www.chillibyte.co.uk/" rel="nofollow noopener" target="_blank" class="cb" title="Digital Marketing by Chillibyte"></a>
+            <div>&copy; <?=date('Y')?> Skyguard
+                Ltd T/A Peoplesafe. Company Registration Number: 04107459. All rights reserved. Peoplesafe is part of
+                the Send for Help Group.</div>
+            <a href="https://www.chillibyte.co.uk/" rel="nofollow noopener" target="_blank" class="cb"
+                title="Digital Marketing by Chillibyte"></a>
         </div>
     </div>
 </div>
@@ -143,12 +149,15 @@ defined('ABSPATH') || exit;
             <div class="modal-header">
                 <div class="modal-title text-center mx-auto" id="demoLabel">
                     <div class="h3 text-black">Book a Demo</div>
-		        </div>
-                <button type="button" class="btn-modal btn-close align-self-start" style="background:none;border:none" data-dismiss="modal" aria-label="Close"><i class="fa fa-times"></i></button>
+                </div>
+                <button type="button" class="btn-modal btn-close align-self-start" style="background:none;border:none"
+                    data-dismiss="modal" aria-label="Close"><i class="fa fa-times"></i></button>
             </div>
             <div class="modal-body">
-                <div>To book a demo of any of our solutions or a consultation with one of our personal safety experts, please fill in the form below.</div>
-                <iframe loading="lazy" style="border: 0;" src="https://safe.peoplesafe.co.uk/l/830213/2022-06-22/rgxm4" width="100%" height="1200" frameborder="0" scrolling="auto" id="myiframe"></iframe>
+                <div>To book a demo of any of our solutions or a consultation with one of our personal safety experts,
+                    please fill in the form below.</div>
+                <iframe loading="lazy" style="border: 0;" src="https://safe.peoplesafe.co.uk/l/830213/2022-06-22/rgxm4"
+                    width="100%" height="1200" frameborder="0" scrolling="auto" id="myiframe"></iframe>
             </div>
         </div>
     </div>
@@ -165,107 +174,137 @@ defined('ABSPATH') || exit;
 <?php
 
 if (is_front_page()) {
-	?>
+    ?>
 <style>
-.countryModal {
-  background-color: rgba(0,0,0,0.4);
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: table;
-  z-index:999;
-}
+    .countryModal {
+        background-color: rgba(0, 0, 0, 0.4);
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: table;
+        z-index: 999;
+    }
 
-.countryModal.hidden {
-  display: none;
-}
+    .countryModal.hidden {
+        display: none;
+    }
 
-.countryModal .modalContainer {
- display: table-cell;
- text-align: center;
- vertical-align: middle;
- width: min(300px,90vw);
-}
+    .countryModal .modalContainer {
+        display: table-cell;
+        text-align: center;
+        vertical-align: middle;
+        width: min(300px, 90vw);
+    }
 
-.countryModal .body {
-  display: inline-block;
-  background-color: white;
-  border: 1px solid black; 
-  padding: 1rem;
-}
-.countryModal .buttons {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 0.5rem;
-}
-.countryModal .button {
-	border: 2px solid black;
-	padding: 0.5rem 1rem;
-	text-decoration: none;
-	color: black;
-	font-weight: bold;
-	width: 290px;
-	cursor: pointer;
-	transition: background-color 300ms ease-in;
-}
-.countryModal .button:hover {
-	background-color: #ffa63a;
-}
+    .countryModal .body {
+        display: inline-block;
+        background-color: white;
+        border: 1px solid black;
+        padding: 1rem;
+    }
+
+    .countryModal .buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .countryModal .button {
+        border: 2px solid black;
+        padding: 0.5rem 1rem;
+        text-decoration: none;
+        color: black;
+        font-weight: bold;
+        width: 290px;
+        cursor: pointer;
+        transition: background-color 300ms ease-in;
+    }
+
+    .countryModal .button:hover {
+        background-color: #ffa63a;
+    }
 </style>
 <div id="countryModal" class="countryModal hidden">
-  <div class="modalContainer">
-    <div class="body">
-      	<div class="h4">It looks like you are visiting from North America</div>
-		<p>Would you like to visit our North American solution, <strong>OK Alone</strong>?</p>
-	  	<p class="buttons">
-	  		<a href="https://www.okaloneworker.com/" class="button">
-				Visit our North America site
-			</a>
-			<span id="countryModalDismiss" class="button">
-				Continue to the UK site
-		  	</span>
-	  	</p> 
+    <div class="modalContainer">
+        <div class="body">
+            <div class="h4">It looks like you are visiting from North America</div>
+            <p>Would you like to visit our North American solution, <strong>OK Alone</strong>?</p>
+            <p class="buttons">
+                <a href="https://www.okaloneworker.com/" class="button">
+                    Visit our North America site
+                </a>
+                <span id="countryModalDismiss" class="button">
+                    Continue to the UK site
+                </span>
+            </p>
+        </div>
     </div>
-  </div>
 </div>
 <?php
-?>
+    ?>
 <script>
-var modal = document.querySelector("#countryModal");
-var container = modal.querySelector(".modalContainer");
+    var modal = document.querySelector("#countryModal");
+    var container = modal.querySelector(".modalContainer");
 
-<?php
-$clientIP = $_SERVER['REMOTE_ADDR'];
-$country = file_get_contents('http://ip-api.com/json/' . $clientIP);
-$countryData = json_decode($country);
-echo "console.log('{$countryData->countryCode}');";
-if ($countryData->countryCode === 'US' || $countryData->countryCode === 'CA') {
-    echo "modal.classList.remove('hidden');";
-}
-?>
-document.querySelector("#countryModalDismiss").addEventListener("click", function (e) {
-	modal.classList.add("hidden");
-});
-document.querySelector("#countryModal").addEventListener("click", function (e) {
-  if (e.target !== modal && e.target !== container) {
-	  return;
-  }
-  modal.classList.add("hidden");
-});
+    <?php
+        $clientIP = $_SERVER['REMOTE_ADDR'];
+    $country = file_get_contents('http://ip-api.com/json/' . $clientIP);
+    $countryData = json_decode($country);
+    echo "console.log('{$countryData->countryCode}');";
+    if ($countryData->countryCode === 'US' || $countryData->countryCode === 'CA') {
+        echo "modal.classList.remove('hidden');";
+    }
+    ?>
+    document.querySelector("#countryModalDismiss").addEventListener("click", function(e) {
+        modal.classList.add("hidden");
+    });
+    document.querySelector("#countryModal").addEventListener("click", function(e) {
+        if (e.target !== modal && e.target !== container) {
+            return;
+        }
+        modal.classList.add("hidden");
+    });
 </script>
 <?php
 }
 
+// TODO: SORT THIS NONSENSE OUT.
 ?>
+<script>
+    // swiper equal height
+    function setEqualHeight(slider) {
+        let maxHeight = 0;
+        const slides = document.querySelectorAll(slider);
+
+        // Remove existing heights to recalculate
+        slides.forEach(slide => {
+            slide.style.height = 'auto';
+        });
+
+        // Find the maximum height
+        slides.forEach(slide => {
+            if (slide.offsetHeight > maxHeight) {
+                maxHeight = slide.offsetHeight;
+            }
+        });
+
+        // Set all slides to the maximum height
+        slides.forEach(slide => {
+            slide.style.height = `${maxHeight}px`;
+        });
+    }
+</script>
 <?php wp_footer();
 if (get_field('gtm_property', 'options')) {
     ?>
 <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=<?=get_field('gtm_property', 'options')?>" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<noscript><iframe
+        src="https://www.googletagmanager.com/ns.html?id=<?=get_field('gtm_property', 'options')?>"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
-    <?php
+<?php
 }
 ?>
 <!-- Accessibility Code for "peoplesafe.co.uk" -->
@@ -273,4 +312,3 @@ if (get_field('gtm_property', 'options')) {
 </body>
 
 </html>
-

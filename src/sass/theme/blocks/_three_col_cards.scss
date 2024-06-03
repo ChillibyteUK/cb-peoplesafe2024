@@ -45,8 +45,9 @@ ul.ps-check {
         margin-bottom: 0.5rem;
         &::before {
             content: "\f00c";
-            font-family: "fontawesome";
-            color: $ps-yellow-700;
+            font-family: var(--ff-fa);
+            font-weight: var(--fw-fa-solid);
+            color: var(--col-yellow-400);
             position: absolute;
             left: -1.5rem;
         }
@@ -54,11 +55,11 @@ ul.ps-check {
 }
 
 .has-yellow-color {
-    color: $ps-yellow-700;
+    color: var(--col-yellow-400);
 }
 .has-teal-color {
-    color: $ps-green-700;
+    color: var(--col-teal-400);
 }
 .has-orange-color {
-    color: $ps-orange-700;
+    color: var(--col-orange-400);
 }

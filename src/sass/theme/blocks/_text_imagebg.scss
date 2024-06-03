@@ -8,3 +8,11 @@
 .mt-h2 {
     margin-top: 3.6rem;
 }
+
+
+.text_image {
+    &__image {
+        border-radius: 1rem;
+        box-shadow: var(--shadow-out);
+    }
+}

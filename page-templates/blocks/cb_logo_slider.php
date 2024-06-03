@@ -1,86 +1,81 @@
 <!-- logo_slider -->
 <section class="logos py-5">
-    <div class="container">
-		<?php
-		if (get_field('title')) {
-			?>
-		<h2 class="text-center"><?=get_field('title')?></h2>
-		    <?php
-		}
-		else {
-			?>
+    <div class="container-xl">
+        <?php
+        if (get_field('title')) {
+            ?>
+        <h2 class="text-center">
+            <?=get_field('title')?>
+        </h2>
+        <?php
+        } else {
+            ?>
         <h2 class="text-center">Some of our clients</h2>
-		    <?php
-		}
-		?>
-        <div class="logo__slider mb-5">
-            <?php
+        <?php
+        }
+        ?>
+        <div class="swiper logo__slider mb-5">
+            <div class="swiper-wrapper">
+                <?php
         while (have_rows('logos')) {
             the_row();
             ?>
-            <div class="logo__slide">
+                <div class="swiper-slide logo__slide">
+                    <?=wp_get_attachment_image(get_sub_field('logo'), 'thumbnail')?>
+                </div>
                 <?php
-                $img = wp_get_attachment_image_url(get_sub_field('logo'),'thumbnail');
-                ?>
-                <img src="<?=$img?>" class="img-fluid" alt="">
-            </div>
-            <?php
         }
-            ?>
+        ?>
+            </div>
+            <div class="swiper-pagination swiper-pagination-logos"></div>
         </div>
         <?php
         if (get_field('show_case_study_link')) {
             ?>
         <div class="text-center">
-            <a href="/case-studies/" class="btn btn-primary">View our case studies</a>
+            <a href="/case-studies/" class="button button-yellow"><span>View our case studies</span></a>
         </div>
-            <?php
+        <?php
         }
         ?>
     </div>
 </section>
 <?php
-add_action('wp_footer',function(){
+add_action('wp_footer', function () {
     ?>
 <script>
-(function($){
-    $('.logo__slider').slick({
-        infinite: true,
-        dots: true,
-        arrows: true,
-        slidesToShow: 5,
-        slidesToScroll: 1,
-        autoplay: true,
-        responsive: [
-            {
-                breakpoint: 992,
-                settings: {
-                    slidesToShow: 4,
-                    slidesToScroll: 1,
-                    arrows: true,
-                }
+    document.addEventListener('DOMContentLoaded', function() {
+        var logoSlider = new Swiper('.logo__slider', {
+            loop: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
             },
-            {
-                breakpoint: 768,
-                settings: {
-                    arrows: false,
-                    slidesToShow: 2,
-                    slidesToScroll: 1
-                }
+            pagination: {
+                el: '.swiper-pagination-logos',
+                dynamicBullets: true,
             },
-            {
-                breakpoint: 576,
-                settings: {
-                    arrows: false,
-                    slidesToShow: 1,
-                    slidesToScroll: 1
+            slidesPerView: 1,
+            slidesPerGroup: 1,
+            spaceBetween: 18,
+            breakpoints: {
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 18,
+                },
+                992: {
+                    slidesPerView: 4,
+                    spaceBetween: 18,
+                },
+                1200: {
+                    slidesPerView: 5,
+                    spaceBetween: 18,
                 }
             }
-        ]
+        });
     });
-})(jQuery);
 </script>
-    <?php
-},9999);
+<?php
+}, 9999);
 
-?>
+        ?>

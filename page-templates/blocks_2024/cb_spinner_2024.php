@@ -2,32 +2,34 @@
     <div class="container-xl">
         <div class="row g-5">
             <div class="col-md-4 order-2 order-md-1">
-                <img src="<?=get_stylesheet_directory_uri()?>/img/2024/cutouts/cutout4.png" alt="">
+                <img src="<?=get_stylesheet_directory_uri()?>/img/2024/cutouts/cutout4.png"
+                    alt="">
             </div>
             <div class="col-md-8 order-1 order-md-2">
                 <h3>Protection you can count on</h3>
                 <div class="stats">
+                    <?php
+                    while (have_rows('spinner_stats')) {
+                        the_row();
+                        $endval = get_sub_field('stat');
+                        $endval = preg_replace('/,/', '.', $endval);
+                        $decimals = strlen(substr(strrchr($endval, "."), 1));
+                        $suffix = get_sub_field('suffix');
+                        ?>
                     <div class="stat__stat">
                         <div class="stat__value text-orange">
-                            <?=do_shortcode("[countup start='0' end='250' duration='3' scroll='true']")?>k
+                            <?=do_shortcode("[countup start='0' end='{$endval}' decimals='{$decimals}' duration='3' scroll='true']")?><?=$suffix?>
                         </div>
-                        <div class="stat__qualifier">Employees</div>
-                        <div class="stat__title">Protected by Peoplesafe</div>
-                    </div>
-                    <div class="stat__stat">
-                        <div class="stat__value text-orange">
-                            <?=do_shortcode("[countup start='0' end='25' duration='3' scroll='true']")?>
+                        <div class="stat__qualifier">
+                            <?=get_sub_field('title')?>
                         </div>
-                        <div class="stat__qualifier">Years Experience</div>
-                        <div class="stat__title">Putting people at the heart of safety</div>
-                    </div>
-                    <div class="stat__stat">
-                        <div class="stat__value text-orange">
-                            <?=do_shortcode("[countup start='0' end='350' duration='3' scroll='true']")?>k
+                        <div class="stat__title">
+                            <?=get_sub_field('description')?>
                         </div>
-                        <div class="stat__qualifier">Alarm Activations</div>
-                        <div class="stat__title">Handled in our ARC every year</div>
                     </div>
+                    <?php
+                    }
+                ?>
                 </div>
             </div>
         </div>

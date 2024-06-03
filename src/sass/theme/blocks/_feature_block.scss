@@ -25,8 +25,9 @@ ul.check {
             position: absolute;
             left: -1.5rem;
             content: "\f00c";
-            font-family: fontawesome;
-            color: $ps-green;
+            font-family: var(--ff-fa);
+            font-weight: var(--fw-fa-solid);
+            color: var(--col-teal-400);
         }
     }
 }
@@ -38,8 +39,9 @@ li.check {
         position: absolute;
         left: -1.5rem;
         content: "\f00c";
-        font-family: fontawesome;
-        color: $ps-green;
+        font-family: var(--ff-fa);
+        font-weight: var(--fw-fa-solid);
+        color: var(--col-teal-400);
     }
 }
 li.cross {
@@ -50,7 +52,8 @@ li.cross {
         position: absolute;
         left: -1.5rem;
         content: "\f00d";
-        font-family: fontawesome;
+        font-family: var(--ff-fa);
+        font-weight: var(--fw-fa-solid);
         color: $ps-orange;
     }
 }

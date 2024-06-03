@@ -29,13 +29,27 @@
                 color: $secondary;
             }
         }
+
+
+        .play span {
+            width: 80px !important;
+            height: 80px !important;
+            background-image: url(../img/2024/icons/play-button.png) !important;
+            background-size: contain !important;
+            background-repeat: no-repeat !important;
+            background-color: transparent !important;
+            &::before {
+                display: none;
+            }
+        }
+
         img {
             width: 100%;
             // aspect-ratio: 6/4;
             background-size: cover;
             background-position: center;
-            // box-shadow: 0px 2px 15px 2px rgba(0,0,0,0.15);
-            // border-radius: 1.25rem;
+            box-shadow: var(--shadow-out);
+            border-radius: 1rem;
             position: relative;
         }
     }

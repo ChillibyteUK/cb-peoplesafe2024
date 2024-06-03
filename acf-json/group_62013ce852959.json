@@ -1,10 +1,10 @@
 {
-    "key": "group_664df9cd57282",
-    "title": "CB Stat Spinner (2024)",
+    "key": "group_62013ce852959",
+    "title": "CB Latest Posts",
     "fields": [
         {
-            "key": "field_664df9cddaaaf",
-            "label": "CB Stat Spinner (2024)",
+            "key": "field_62013ce86d4c1",
+            "label": "CB Latest News",
             "name": "",
             "aria-label": "",
             "type": "message",
@@ -26,7 +26,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/cb-spinner-2024"
+                "value": "acf\/cb-latest-posts"
             }
         ]
     ],
@@ -39,5 +39,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1716386278
+    "modified": 1717403532
 }
