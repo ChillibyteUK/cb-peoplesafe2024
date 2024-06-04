@@ -1,4 +1,7 @@
-<section class="stat_spinner">
+<?php
+$class = $block['className'] ?? 'pt-5';
+?>
+<section class="stat_spinner <?=$class?>">
     <div class="container-xl">
         <div class="row g-5">
             <div class="col-md-4 order-2 order-md-1">
