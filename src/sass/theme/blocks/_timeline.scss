@@ -71,17 +71,17 @@
 }
 
 /* Place the container to the left */
-.left {
+.timeline__container.left {
     left: 0;
 }
 
 /* Place the container to the right */
-.right {
+.timeline__container.right {
     left: 50%;
 }
 
 /* Add arrows to the left container (pointing right) */
-.left::before {
+.timeline__container.left::before {
     content: " ";
     height: 0;
     position: absolute;
@@ -95,7 +95,7 @@
 }
 
 /* Add arrows to the right container (pointing left) */
-.right::before {
+.timeline__container.right::before {
     content: " ";
     height: 0;
     position: absolute;
@@ -108,7 +108,7 @@
     border-color: transparent $grey-100 transparent transparent;
 }
 
-.left.tl--yellow::before {
+.timeline__container.left.tl--yellow::before {
     border: medium solid $ps-yellow-100;
     border-width: 10px 0 10px 10px;
     border-color: transparent transparent transparent $ps-yellow-100;
@@ -117,13 +117,13 @@
         border-color: transparent $ps-yellow-100 transparent transparent;   
     }
 }
-.right.tl--yellow::before {
+.timeline__container.right.tl--yellow::before {
     border: medium solid $ps-yellow-100;
     border-width: 10px 10px 10px 0;
     border-color: transparent $ps-yellow-100 transparent transparent;
 }
 
-.left.tl--pink::before {
+.timeline__container.left.tl--pink::before {
     border: medium solid $ps-pink-100;
     border-width: 10px 0 10px 10px;
     border-color: transparent transparent transparent $ps-pink-100;
@@ -132,13 +132,13 @@
         border-color: transparent $ps-pink-100 transparent transparent;
     }
 }
-.right.tl--pink::before {
+.timeline__container.right.tl--pink::before {
     border: medium solid $ps-pink-100;
     border-width: 10px 10px 10px 0;
     border-color: transparent $ps-pink-100 transparent transparent;
 }
 
-.left.tl--green::before {
+.timeline__container.left.tl--green::before {
     border: medium solid $ps-green-100;
     border-width: 10px 0 10px 10px;
     border-color: transparent transparent transparent $ps-green-100;
@@ -147,13 +147,13 @@
         border-color: transparent $ps-green-100 transparent transparent;
     }
 }
-.right.tl--green::before {
+.timeline__container.right.tl--green::before {
     border: medium solid $ps-green-100;
     border-width: 10px 10px 10px 0;
     border-color: transparent $ps-green-100 transparent transparent;
 }
 
-.left.tl--orange::before {
+.timeline__container.left.tl--orange::before {
     border: medium solid $ps-orange-100;
     border-width: 10px 0 10px 10px;
     border-color: transparent transparent transparent $ps-orange-100;
@@ -162,7 +162,7 @@
         border-color: transparent $ps-orange-100 transparent transparent;
     }
 }
-.right.tl--orange::before {
+.timeline__container.right.tl--orange::before {
     border: medium solid $ps-orange-100;
     border-width: 10px 10px 10px 0;
     border-color: transparent $ps-orange-100 transparent transparent;
@@ -170,7 +170,7 @@
 
 
 /* Fix the circle for containers on the right side */
-.right::after {
+.timeline__container.right::after {
     left: -12px;
 }
 
@@ -222,12 +222,12 @@
     }
   
     /* Make sure all circles are at the same spot */
-    .left::after, .right::after {
+    .timeline__container.left::after, .timeline__container.right::after {
         left: 18px;
     }
     
     /* Make all right containers behave like the left ones */
-    .right {
+    .timeline__container.right {
         left: 0%;
     }
 }

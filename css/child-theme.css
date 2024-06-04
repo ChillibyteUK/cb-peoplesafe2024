@@ -22960,17 +22960,17 @@ li.cross::before {
 }
 
 /* Place the container to the left */
-.left {
+.timeline__container.left {
   left: 0;
 }
 
 /* Place the container to the right */
-.right {
+.timeline__container.right {
   left: 50%;
 }
 
 /* Add arrows to the left container (pointing right) */
-.left::before {
+.timeline__container.left::before {
   content: " ";
   height: 0;
   position: absolute;
@@ -22984,7 +22984,7 @@ li.cross::before {
 }
 
 /* Add arrows to the right container (pointing left) */
-.right::before {
+.timeline__container.right::before {
   content: " ";
   height: 0;
   position: absolute;
@@ -22997,80 +22997,80 @@ li.cross::before {
   border-color: transparent hsl(199, 20%, 81%) transparent transparent;
 }
 
-.left.tl--yellow::before {
+.timeline__container.left.tl--yellow::before {
   border: medium solid hsl(36, 100%, 87%);
   border-width: 10px 0 10px 10px;
   border-color: transparent transparent transparent hsl(36, 100%, 87%);
 }
 @media screen and (max-width: 768px) {
-  .left.tl--yellow::before {
+  .timeline__container.left.tl--yellow::before {
     border-width: 10px 10px 10px 0;
     border-color: transparent hsl(36, 100%, 87%) transparent transparent;
   }
 }
 
-.right.tl--yellow::before {
+.timeline__container.right.tl--yellow::before {
   border: medium solid hsl(36, 100%, 87%);
   border-width: 10px 10px 10px 0;
   border-color: transparent hsl(36, 100%, 87%) transparent transparent;
 }
 
-.left.tl--pink::before {
+.timeline__container.left.tl--pink::before {
   border: medium solid hsl(326, 100%, 84%);
   border-width: 10px 0 10px 10px;
   border-color: transparent transparent transparent hsl(326, 100%, 84%);
 }
 @media screen and (max-width: 768px) {
-  .left.tl--pink::before {
+  .timeline__container.left.tl--pink::before {
     border-width: 10px 10px 10px 0;
     border-color: transparent hsl(326, 100%, 84%) transparent transparent;
   }
 }
 
-.right.tl--pink::before {
+.timeline__container.right.tl--pink::before {
   border: medium solid hsl(326, 100%, 84%);
   border-width: 10px 10px 10px 0;
   border-color: transparent hsl(326, 100%, 84%) transparent transparent;
 }
 
-.left.tl--green::before {
+.timeline__container.left.tl--green::before {
   border: medium solid hsl(173, 93%, 69%);
   border-width: 10px 0 10px 10px;
   border-color: transparent transparent transparent hsl(173, 93%, 69%);
 }
 @media screen and (max-width: 768px) {
-  .left.tl--green::before {
+  .timeline__container.left.tl--green::before {
     border-width: 10px 10px 10px 0;
     border-color: transparent hsl(173, 93%, 69%) transparent transparent;
   }
 }
 
-.right.tl--green::before {
+.timeline__container.right.tl--green::before {
   border: medium solid hsl(173, 93%, 69%);
   border-width: 10px 10px 10px 0;
   border-color: transparent hsl(173, 93%, 69%) transparent transparent;
 }
 
-.left.tl--orange::before {
+.timeline__container.left.tl--orange::before {
   border: medium solid hsl(17, 96%, 85%);
   border-width: 10px 0 10px 10px;
   border-color: transparent transparent transparent hsl(17, 96%, 85%);
 }
 @media screen and (max-width: 768px) {
-  .left.tl--orange::before {
+  .timeline__container.left.tl--orange::before {
     border-width: 10px 10px 10px 0;
     border-color: transparent hsl(17, 96%, 85%) transparent transparent;
   }
 }
 
-.right.tl--orange::before {
+.timeline__container.right.tl--orange::before {
   border: medium solid hsl(17, 96%, 85%);
   border-width: 10px 10px 10px 0;
   border-color: transparent hsl(17, 96%, 85%) transparent transparent;
 }
 
 /* Fix the circle for containers on the right side */
-.right::after {
+.timeline__container.right::after {
   left: -12px;
 }
 
@@ -23123,11 +23123,11 @@ li.cross::before {
     border-color: transparent white transparent transparent;
   }
   /* Make sure all circles are at the same spot */
-  .left::after, .right::after {
+  .timeline__container.left::after, .timeline__container.right::after {
     left: 18px;
   }
   /* Make all right containers behave like the left ones */
-  .right {
+  .timeline__container.right {
     left: 0%;
   }
 }
