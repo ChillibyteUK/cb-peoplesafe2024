@@ -7,7 +7,7 @@
     &::before {
         position: absolute;
         content: "";
-        background-image: url(../img/ps-logo-crop--45-top-right--white.svg);
+        background-image: url(../img/2024/banner-mask.png);
         background-size: cover;
         @media (min-width:992px) {
             background-size: contain;
@@ -20,6 +20,26 @@
         right: 0;
         z-index: -1;
     }
+
+
+    &__image {
+        display: none;
+        @media (min-width:992px) {
+            position: absolute;
+            display: block;
+            max-width: 960px;
+            inset: 0;
+            margin-inline: auto;
+            background-image: var(--bg-url);
+            background-size: contain;
+            background-position: left;
+            background-repeat: no-repeat;
+        }
+        @media (min-width:1240px) {
+            max-width: 1180px;
+        }
+    }
+
 }
 .gradient_cta.bg_grad--plain {
     &::before {

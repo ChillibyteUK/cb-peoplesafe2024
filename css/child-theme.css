@@ -21070,13 +21070,13 @@ a.text--yellow:hover {
 }
 
 .bg_grad--orange {
-  background: #ffa823;
-  background: linear-gradient(-30deg, #ffa823 0%, #e04305 100%);
-  color: white;
+  background: var(--col-yellow-400);
+  background: linear-gradient(-30deg, var(--col-yellow-400) 0%, var(--col-orange-400) 100%);
+  color: var(--col-black);
 }
 .bg_grad--orange .btn, .bg_grad--orange .full-button {
   background-color: white;
-  color: #e04305;
+  color: var(--col-orange-400);
   transition: all 0.3s ease;
 }
 .bg_grad--orange .btn:hover, .bg_grad--orange .full-button:hover {
@@ -22181,7 +22181,7 @@ a.text--yellow:hover {
 .gradient_cta::before {
   position: absolute;
   content: "";
-  background-image: url(../img/ps-logo-crop--45-top-right--white.svg);
+  background-image: url(../img/2024/banner-mask.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center left;
@@ -22194,6 +22194,27 @@ a.text--yellow:hover {
 @media (min-width: 992px) {
   .gradient_cta::before {
     background-size: contain;
+  }
+}
+.gradient_cta__image {
+  display: none;
+}
+@media (min-width: 992px) {
+  .gradient_cta__image {
+    position: absolute;
+    display: block;
+    max-width: 960px;
+    inset: 0;
+    margin-inline: auto;
+    background-image: var(--bg-url);
+    background-size: contain;
+    background-position: left;
+    background-repeat: no-repeat;
+  }
+}
+@media (min-width: 1240px) {
+  .gradient_cta__image {
+    max-width: 1180px;
   }
 }
 
