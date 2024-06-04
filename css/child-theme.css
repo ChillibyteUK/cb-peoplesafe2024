@@ -23625,6 +23625,7 @@ nav #dropdownKnowledge .knowledge-link:hover {
     margin-inline: auto;
     margin-top: 1rem;
     width: 80vw;
+    font-weight: var(--fw-900);
   }
   nav.active .navItems, nav.active .navMenus {
     display: flex;
