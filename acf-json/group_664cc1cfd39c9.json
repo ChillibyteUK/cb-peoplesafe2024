@@ -62,7 +62,7 @@
             "label": "Content",
             "name": "apps_content",
             "aria-label": "",
-            "type": "text",
+            "type": "textarea",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -73,9 +73,25 @@
             },
             "default_value": "",
             "maxlength": "",
+            "rows": 2,
             "placeholder": "",
-            "prepend": "",
-            "append": ""
+            "new_lines": ""
+        },
+        {
+            "key": "field_66605a9c86b75",
+            "label": "Link",
+            "name": "apps_link",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
         },
         {
             "key": "field_6660591dbd1af",
@@ -119,7 +135,7 @@
             "label": "Content",
             "name": "safety_devices_content",
             "aria-label": "",
-            "type": "text",
+            "type": "textarea",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -130,9 +146,25 @@
             },
             "default_value": "",
             "maxlength": "",
+            "rows": 2,
             "placeholder": "",
-            "prepend": "",
-            "append": ""
+            "new_lines": ""
+        },
+        {
+            "key": "field_66605ab186b76",
+            "label": "Link",
+            "name": "safety_devices_link",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
         },
         {
             "key": "field_66605944bd1b2",
@@ -176,7 +208,7 @@
             "label": "Content",
             "name": "nexus_content",
             "aria-label": "",
-            "type": "text",
+            "type": "textarea",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -187,9 +219,25 @@
             },
             "default_value": "",
             "maxlength": "",
+            "rows": 2,
             "placeholder": "",
-            "prepend": "",
-            "append": ""
+            "new_lines": ""
+        },
+        {
+            "key": "field_66605ac986b77",
+            "label": "Link",
+            "name": "nexus_link",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
         },
         {
             "key": "field_66605963bd1b5",
@@ -233,7 +281,7 @@
             "label": "Content",
             "name": "travelsafe_content",
             "aria-label": "",
-            "type": "text",
+            "type": "textarea",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -244,9 +292,25 @@
             },
             "default_value": "",
             "maxlength": "",
+            "rows": 2,
             "placeholder": "",
-            "prepend": "",
-            "append": ""
+            "new_lines": ""
+        },
+        {
+            "key": "field_66605ade86b78",
+            "label": "Link",
+            "name": "travelsafe_link",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
         },
         {
             "key": "field_66605983bd1b8",
@@ -290,7 +354,7 @@
             "label": "Content",
             "name": "emergency_alert_content",
             "aria-label": "",
-            "type": "text",
+            "type": "textarea",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -301,9 +365,25 @@
             },
             "default_value": "",
             "maxlength": "",
+            "rows": 2,
             "placeholder": "",
-            "prepend": "",
-            "append": ""
+            "new_lines": ""
+        },
+        {
+            "key": "field_66605af486b79",
+            "label": "Link",
+            "name": "emergency_alert_link",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
         }
     ],
     "location": [
@@ -324,5 +404,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1717590438
+    "modified": 1717590916
 }

@@ -1,3 +1,10 @@
+<?php
+$appsLink = get_field('apps_link');
+$sdLink =  get_field('safety_devices_link');
+$nexusLink =  get_field('nexus_link');
+$tsLink =  get_field('travelsafe_link');
+$eaLink =  get_field('emergency_alert_link');
+?>
 <section class="product_types_2024 py-5">
     <div class="container-xl">
         <div class="product_types_2024__inner">
@@ -9,9 +16,9 @@
                 <img class="content__image" src="<?=get_stylesheet_directory_uri()?>/img/2024/apps.png" width=500 height=500>
                 <div class="content__inner">
                     <div class="fs-300 fw-900 text-orange">Apps</div>
-                    <h2>Professional protection in your pocket</h2>
-                    <p>Easily roll out personal safety technology to your entire organisation with our feature-rich apps that can quickly and discreetly raise an SOS alarm and provide a wide range of time-saving solutions to protect people on the move.</p>
-                    <a href="#" class="button button-outline">Read More</a>
+                    <h2><?=get_field('apps_title')?></h2>
+                    <p><?=get_field('apps_content')?></p>
+                    <a href="<?=$appsLink['url']?>" class="button button-outline"><?=$appsLink['title']?></a>
                 </div>
             </div>
 
@@ -23,9 +30,9 @@
                 <img class="content__image" src="<?=get_stylesheet_directory_uri()?>/img/2024/safety-devices.png" width=500 height=500>
                 <div class="content__inner">
                     <div class="fs-300 fw-900 text-orange">Safety Devices</div>
-                    <h2>Dedicated SOS devices designed to protect discreetly</h2>
-                    <p>Select the right device for your environment or situation from our specially designed devices that cover every scenario from shop floor or client home to remote or hazardous places.</p>
-                    <a href="#" class="button button-outline">View Products</a>
+                    <h2><?=get_field('safety_devices_title')?></h2>
+                    <p><?=get_field('safety_devices_content')?></p>
+                    <a href="<?=$sdLink['url']?>" class="button button-outline"><?=$sdLink['title']?></a>
                 </div>
             </div>
 
@@ -37,9 +44,9 @@
                 <img class="content__image" src="<?=get_stylesheet_directory_uri()?>/img/2024/nexus.png" width=500 height=500>
                 <div class="content__inner">
                     <div class="fs-300 fw-900 text-orange">Nexus</div>
-                    <h2>Award-winning management platform</h2>
-                    <p>Proactively manage people risk across your business with the Nexus management platform that connects your staff, managers and our 24/7 control centre in one place.</p>
-                    <a href="#" class="button button-outline">Read More</a>
+                    <h2><?=get_field('nexus_title')?></h2>
+                    <p><?=get_field('nexus_content')?></p>
+                    <a href="<?=$nexusLink['url']?>" class="button button-outline"><?=$nexusLink['title']?></a>
                 </div>
             </div>
 
@@ -51,9 +58,9 @@
                 <img class="content__image" src="<?=get_stylesheet_directory_uri()?>/img/2024/travelsafe.png" width=500 height=500>
                 <div class="content__inner">
                     <div class="fs-300 fw-900 text-orange">Travelsafe</div>
-                    <h2>Keep your people safe when they travel</h2>
-                    <p>Get staff safely from A to B using our specialised service for journeys. Our unique app feature protects your people throughout their journey, with welfare checks along the way.</p>
-                    <a href="#" class="button button-outline">Read More</a>
+                    <h2><?=get_field('travelsafe_title')?></h2>
+                    <p><?=get_field('travelsafe_content')?></p>
+                    <a href="<?=$tsLink['url']?>" class="button button-outline"><?=$tsLink['title']?></a>
                 </div>
             </div>
 
@@ -65,9 +72,9 @@
                 <img class="content__image" src="<?=get_stylesheet_directory_uri()?>/img/2024/mass-communication.png" width=500 height=500>
                 <div class="content__inner">
                     <div class="fs-300 fw-900 text-orange">Emergency Alert</div>
-                    <h2>Simple emergency communication platform</h2>
-                    <p>Send multichannel safety notifications across app, SMS, email, and desktop using a simple and dedicated platform with no implementation or set-up fees.</p>
-                    <a href="#" class="button button-outline">Read More</a>
+                    <h2><?=get_field('emergency_alert_title')?></h2>
+                    <p><?=get_field('emergency_alert_content')?></p>
+                    <a href="<?=$eaLink['url']?>" class="button button-outline"><?=$eaLink['title']?></a>
                 </div>
             </div>
         </div>
