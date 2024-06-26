@@ -19,13 +19,26 @@ $l = get_field('cta') ?? null;
                 }
                 ?>
             </div>
-            <div class="col-md-6 <?=$orderImage?> my-auto">
+            <div class="col-md-6 <?=$orderImage?>">
                 <?php
                 if (get_field('image') ?? null) {
-                    echo wp_get_attachment_image( get_field('image'), 'full');
+                    echo wp_get_attachment_image(get_field('image'),'full',false);
+                }
+                elseif (get_field('vimeo_id') ?? null) {
+                    ?>
+                <lite-vimeo videoid="<?=get_field('vimeo_id')?>">
+                    <div class="ltv-playbtn"></div>
+                </lite-vimeo>
+                    <?php
                 }
                 ?>
             </div>
         </div>
     </div>
 </section>
+<?php
+add_action('wp_footer', function() {
+    ?>
+<script type="module" src="https://cdn.jsdelivr.net/npm/lite-vimeo-embed/+esm" defer></script>
+    <?php
+});
