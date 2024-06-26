@@ -55,8 +55,7 @@ add_action('wp_footer',function(){
         arrows: false,
         slidesToShow: 1,
         slidesToScroll: 1,
-        // autoplay: true,
-        autoplay: false,
+        autoplay: true,
         autoplaySpeed: 8000,
         rows: 1
     });

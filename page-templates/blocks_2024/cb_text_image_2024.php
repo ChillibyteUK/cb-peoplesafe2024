@@ -19,7 +19,7 @@ $l = get_field('cta') ?? null;
                 }
                 ?>
             </div>
-            <div class="col-md-6 <?=$orderImage?>">
+            <div class="col-md-6 <?=$orderImage?> text-center">
                 <?php
                 if (get_field('image') ?? null) {
                     echo wp_get_attachment_image(get_field('image'),'full',false);
