@@ -111,6 +111,11 @@ function widgets_init()
                 'slug'  => 'orange-400',
                 'color' => '#ff6a42',
             ),
+            array(
+                'name' => 'Blue',
+                'slug' => 'blue-400',
+                'color' => '#0484A0',
+            )
         )
     );
 }

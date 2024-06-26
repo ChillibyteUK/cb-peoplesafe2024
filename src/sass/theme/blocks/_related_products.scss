@@ -1,7 +1,7 @@
 .related_products {
     &__card {
         height: 100%;
-        background-color: var(--col-yellow-400);
+        background-color: var(--col-white);
         overflow: clip;
         border-radius: 1rem;
         display: grid;
@@ -31,7 +31,7 @@
         mask-repeat: no-repeat;
         mask-size: cover;
 
-        background-color: white;
+        background: var(--gradient-blue);
         object-fit: contain;
         width: 100%;
         aspect-ratio: 1;
@@ -41,8 +41,8 @@
     &__inner {
         padding: 1rem;
         display: grid;
-        grid-template-rows: 1fr auto;
+        grid-template-rows: 2.5em auto;
         gap: 0.5rem;
-        background-color: var(--col-yellow-400);
+        background-color: var(--col-white);
     }
 }

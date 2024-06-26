@@ -1,5 +1,6 @@
 .full_video,
-.text_video {
+.text_video,
+.text_video_2024 {
     &__container {
         position: relative;
         z-index: inherit;
@@ -45,9 +46,8 @@
 
         img {
             width: 100%;
-            // aspect-ratio: 6/4;
-            background-size: cover;
-            background-position: center;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
             box-shadow: var(--shadow-out);
             border-radius: 1rem;
             position: relative;

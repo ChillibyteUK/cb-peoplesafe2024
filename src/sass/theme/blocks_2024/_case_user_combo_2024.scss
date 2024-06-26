@@ -1,0 +1,79 @@
+.case_user_combo_2024 {
+    &__cs {
+        display: grid;
+        grid-template-rows:1fr 1fr;
+        justify-content: stretch;
+        flex-grow: 1;
+    }
+    &__card {
+        background-color: var(--col-white);
+        text-decoration: none;
+        color: var(--col-black);
+        border-radius: .5rem;
+        padding: 2rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: "pill logo" "title title" "excerpt excerpt";
+        flex-grow: 1;
+        box-shadow: var(--shadow-out);
+        transition: transform var(--transition), box-shadow var(--transition);
+        &:hover {
+            color: var(--col-black);
+            transform: translateY(2px);
+            box-shadow: var(--shadow-in);
+        }
+        margin-bottom: 1rem;
+    }
+    &__pill {
+        grid-area: pill;
+        background-color: var(--col-navy-400);
+        color: var(--col-white);
+        font-size: var(--fs-100);
+        text-transform: uppercase;
+        font-weight: var(--fw-900);
+        padding: 0.5em 1em;
+        border-radius: 100vw;
+        align-self: self-start;
+        justify-self: self-start;
+    }
+    &__logo {
+        grid-area: logo;
+        max-width: 175px;
+        justify-self: self-end;
+    }
+    &__title {
+        grid-area: title;
+        font-size: var(--fs-500);
+    }
+    &__excerpt {
+        grid-area: excerpt;
+        font-size: var(--fs-300);
+        line-height: 1.2;
+    }
+
+    .story__slide {
+        height: 100%;
+        @media (min-width:992px) {
+            padding-inline: 1rem;
+        }
+        &_inner {
+            background-color: var(--col-navy-400);
+            color: var(--col-white);
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: var(--shadow-out);
+            height: 100%;
+        }
+    }
+
+    .slick-track {
+        display: flex !important;
+    }
+
+    .slick-slide {
+        height: inherit !important;
+        & > div {
+            height: 100%;
+        }
+    }
+}

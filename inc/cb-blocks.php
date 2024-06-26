@@ -560,19 +560,12 @@ function acf_blocks()
             'supports' => array('mode' => false),
         ));
 
+        // 2024 Blocks below
+
         acf_register_block(array(
             'name'				=> 'cb_hero_2024',
             'title'				=> __('CB Hero (2024)'),
             'render_template'	=> 'page-templates/blocks_2024/cb_hero_2024.php',
-            'category'			=> 'layout',
-            'icon'				=> 'cover-image',
-            'mode'	=> 'edit',
-            'supports' => array('mode' => false),
-        ));
-        acf_register_block(array(
-            'name'				=> 'cb_product_types_2024',
-            'title'				=> __('CB Product Types (2024)'),
-            'render_template'	=> 'page-templates/blocks_2024/cb_product_types_2024.php',
             'category'			=> 'layout',
             'icon'				=> 'cover-image',
             'mode'	=> 'edit',
@@ -618,6 +611,42 @@ function acf_blocks()
             'name'				=> 'cb_latest_2024',
             'title'				=> __('CB Latest News (2024)'),
             'render_template'	=> 'page-templates/blocks_2024/cb_latest_2024.php',
+            'category'			=> 'layout',
+            'icon'				=> 'cover-image',
+            'mode'	=> 'edit',
+            'supports' => array('mode' => false),
+        ));
+        acf_register_block(array(
+            'name'				=> 'cb_product_header_2024',
+            'title'				=> __('CB Product Header (2024)'),
+            'render_template'	=> 'page-templates/blocks_2024/cb_product_header_2024.php',
+            'category'			=> 'layout',
+            'icon'				=> 'cover-image',
+            'mode'	=> 'edit',
+            'supports' => array('mode' => false),
+        ));
+        acf_register_block(array(
+            'name'				=> 'cb_top_tab_group_2024',
+            'title'				=> __('CB Top Tab Group (2024)'),
+            'render_template'	=> 'page-templates/blocks_2024/cb_top_tab_group_2024.php',
+            'category'			=> 'layout',
+            'icon'				=> 'cover-image',
+            'mode'	=> 'edit',
+            'supports' => array('mode' => false),
+        ));
+        acf_register_block(array(
+            'name'				=> 'cb_text_video_2024',
+            'title'				=> __('CB Text Video (2024)'),
+            'render_template'	=> 'page-templates/blocks_2024/cb_text_video_2024.php',
+            'category'			=> 'layout',
+            'icon'				=> 'cover-image',
+            'mode'	=> 'edit',
+            'supports' => array('mode' => false),
+        ));
+        acf_register_block(array(
+            'name'				=> 'cb_case_user_combo_2024',
+            'title'				=> __('CB Case Study / User Stories Combo (2024)'),
+            'render_template'	=> 'page-templates/blocks_2024/cb_case_user_combo_2024.php',
             'category'			=> 'layout',
             'icon'				=> 'cover-image',
             'mode'	=> 'edit',

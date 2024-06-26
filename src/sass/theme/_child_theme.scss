@@ -286,6 +286,9 @@ p:empty {
     justify-content: center;
 }
 
+li {
+    margin-bottom: 0.5rem;    
+}
 
 @media (min-width:992px) {
     .border-lg-left {

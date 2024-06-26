@@ -1,6 +1,12 @@
 .text-orange {
     color: var(--col-orange-400);
 }
+
+.has-blue-400-color,
 .text-blue {
     color: var(--col-blue-400);
+}
+
+.bg-blue-200 {
+    background-color: var(--col-blue-200);
 }
