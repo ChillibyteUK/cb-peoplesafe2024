@@ -1,7 +1,7 @@
 <!-- case_study/quotes -->
 <section class="case_study_quotes py-5">
     <div class="container-xl">
-        <div class="row">
+        <div class="row g-5">
             <div class="col-lg-5">
                 <div class="fs-300 text-blue fw-900 mb-3">Case Studies</div>
                 <h2>Hear directly from our customers</h2>

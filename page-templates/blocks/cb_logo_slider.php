@@ -55,12 +55,12 @@ add_action('wp_footer', function () {
                 el: '.swiper-pagination-logos',
                 dynamicBullets: true,
             },
-            slidesPerView: 1,
+            slidesPerView: 2,
             slidesPerGroup: 1,
             spaceBetween: 18,
             breakpoints: {
                 768: {
-                    slidesPerView: 2,
+                    slidesPerView: 3,
                     spaceBetween: 18,
                 },
                 992: {
