@@ -13,7 +13,7 @@ $bgalign = get_field('align') == 'left' ? 'image_hero--left' : 'image_hero--righ
                 <?php
                 if (get_field('cta_book_a_demo')) {
                     ?>
-                <button type="button" class="btn btn-gradient btn-gradient--<?=get_field('colour')?> mb-2 mr-2" data-toggle="modal" data-target="#demoModal">Book a Demo</button>
+                <button type="button" class="btn btn-gradient btn-gradient--<?=get_field('colour')?> mb-2 mr-2" data-bs-toggle="modal" data-bs-target="#demoModal">Book a Demo</button>
                     <?php
                 }
                 else if (get_field('cta')) {
@@ -31,7 +31,7 @@ $bgalign = get_field('align') == 'left' ? 'image_hero--left' : 'image_hero--righ
                 if (get_field('modal_cta') != '') {
                     $id = get_field('modal_cta');
                     ?>
-                <button type="button" class="btn btn-gradient btn-gradient--<?=get_field('colour')?> mb-2" data-toggle="modal" data-target="#<?=$id?>">Watch Video</button>
+                <button type="button" class="btn btn-gradient btn-gradient--<?=get_field('colour')?> mb-2" data-bs-toggle="modal" data-bs-target="#<?=$id?>">Watch Video</button>
                     <?php
                 }
                 ?>

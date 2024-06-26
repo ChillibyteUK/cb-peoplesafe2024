@@ -239,7 +239,7 @@ function add_demo_button($items, $args)
 {
     if ($args->theme_location == 'primary_nav') {
         $items .= '<a href="/shop/" class="d-lg-none btn btn-primary mt-2 mx-3"><strong>Buy Now</strong></a>';
-        // $items .= '<button type="button" class="d-lg-none btn btn-primary mt-2 mx-3" data-toggle="modal" data-target="#demoModal">Book a Demo</button>';
+        // $items .= '<button type="button" class="d-lg-none btn btn-primary mt-2 mx-3" data-bs-toggle="modal" data-bs-target="#demoModal">Book a Demo</button>';
     }
     return $items;
 }

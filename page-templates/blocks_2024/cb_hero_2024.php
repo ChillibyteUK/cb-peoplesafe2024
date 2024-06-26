@@ -20,7 +20,7 @@ $bg = null;
                     <?php
                     if (get_field('cta_book_a_demo')) {
                         ?>
-                    <button type="button" class="button button-yellow mb-2 me-2" data-toggle="modal" data-target="#demoModal"><span>Book a Demo</span></button>
+                    <button type="button" class="button button-yellow mb-2 me-2" data-bs-toggle="modal" data-bs-target="#demoModal"><span>Book a Demo</span></button>
                         <?php
                     }
                     else if (get_field('cta')) {
@@ -38,7 +38,7 @@ $bg = null;
                     if (get_field('modal_cta') != '') {
                         $id = get_field('modal_cta');
                         ?>
-                    <button type="button" class="button button-yellow mb-2" data-toggle="modal" data-target="#<?=$id?>"><span>Watch Video</span></button>
+                    <button type="button" class="button button-yellow mb-2" data-bs-toggle="modal" data-bs-target="#<?=$id?>"><span>Watch Video</span></button>
                         <?php
                     }
                     ?>

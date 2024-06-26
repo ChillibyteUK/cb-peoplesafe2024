@@ -22186,6 +22186,7 @@ a.text--yellow:hover {
   display: flex;
   align-items: center;
   z-index: 0;
+  isolation: isolate;
 }
 .gradient_cta::before {
   position: absolute;
@@ -22206,6 +22207,7 @@ a.text--yellow:hover {
   }
 }
 .gradient_cta__image {
+  z-index: -1;
   display: none;
 }
 @media (min-width: 992px) {

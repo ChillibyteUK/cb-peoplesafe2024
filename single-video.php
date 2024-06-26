@@ -53,7 +53,7 @@ margin-left: 1rem;
 }    
 </style>
     <div class="py-4">
-        <div class="collapsed h3" data-toggle="collapse" id="header_transcript" data-target="#collapse_transcript" aria-expanded="false" aria-controls="collapse_transcript">Video Transcript</div>
+        <div class="collapsed h3" data-bs-toggle="collapse" id="header_transcript" data-bs-target="#collapse_transcript" aria-expanded="false" aria-controls="collapse_transcript">Video Transcript</div>
         <div class="collapse" id="collapse_transcript" aria-labelledby="heading_transcript"><div class="pt-2"><?=apply_filters('the_content',get_field('transcription'))?></div></div>
     </div>
             <?php

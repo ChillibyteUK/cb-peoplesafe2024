@@ -191,7 +191,7 @@ if ( ! class_exists( 'Understrap_WP_Bootstrap_Navwalker' ) ) {
 			// If item has_children add atts to <a>.
 			if ( isset( $args->has_children ) && $args->has_children && $args->depth > 1) { //} && 0 === $depth && 1 !== $args->depth ) {
 				$atts['href']           = '#';
-				$atts['data-toggle']    = 'dropdown';
+				$atts['data-bs-toggle']    = 'dropdown';
 				$atts['data-bs-toggle'] = 'dropdown';
 				$atts['aria-haspopup']  = 'true';
 				$atts['aria-expanded']  = 'false';

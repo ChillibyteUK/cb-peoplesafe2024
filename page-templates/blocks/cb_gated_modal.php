@@ -16,7 +16,7 @@ else {
                 <iframe src="https://player.vimeo.com/video/<?=get_field('vimeo_id')?>?h=716155803e&autoplay=1&color=ffb422&title=0&byline=0&portrait=0&muted=1" class="embed-responsive-item" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
             </div>
             <div class="col-md-12 text-center">
-                <button type="button" class="btn btn-primary me-3" data-toggle="modal" data-target="#gatedModal<?=$uq?>"><?=get_field('button_label')?></button>
+                <button type="button" class="btn btn-primary me-3" data-bs-toggle="modal" data-bs-target="#gatedModal<?=$uq?>"><?=get_field('button_label')?></button>
             </div>
         </div>
     </div>
@@ -29,7 +29,7 @@ else {
                     <div class="h3 text-black"><?=get_field('modal_title')?></div>
                 </div>
                 <button type="button" class="btn-modal btn-close align-self-start" style="background:none;border:none"
-                    data-dismiss="modal" aria-label="Close"><i class="fa fa-times"></i></button>
+                    data-bs-dismiss="modal" aria-label="Close"><i class="fa fa-times"></i></button>
             </div>
             <div class="modal-body">
                 <div><?=get_field('modal_intro')?></div>

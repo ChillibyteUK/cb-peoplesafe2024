@@ -168,7 +168,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             <span class="contact-icons">
                                 <a href="tel:+448009903563" class="mr-2"><i class="fas fa-phone-alt"></i> 0800 990 3563</a>
                             </span>
-                            <button class="navbar-toggler text--yellow ml-auto input-button mr-2" id="navToggle" data-toggle="collapse" data-target="#navbarNavDropdown" type="button"><i class="fa fa-navicon"></i></button>
+                            <button class="navbar-toggler text--yellow ml-auto input-button mr-2" id="navToggle" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" type="button"><i class="fa fa-navicon"></i></button>
                         </div>
                     </div>
                 </div>

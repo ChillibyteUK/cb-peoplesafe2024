@@ -46,12 +46,12 @@ $vid_margin = get_field('vid_title') == '' ? 'my-auto' : '';
                     <?php
                     if (get_field('video_provider') == 'Vimeo') {
                         ?>
-                    <img src="<?=get_vimeo_data_from_id(get_field('video_id'), 'thumbnail_url')?>" class="<?=$image_margin?> img-fluid product_video pointer" data-toggle="modal" data-target="#modal<?=$modal?>">
+                    <img src="<?=get_vimeo_data_from_id(get_field('video_id'), 'thumbnail_url')?>" class="<?=$image_margin?> img-fluid product_video pointer" data-bs-toggle="modal" data-bs-target="#modal<?=$modal?>">
                         <?php
                     }
                     else {
                         ?>
-                    <img src="https://img.youtube.com/vi/<?=get_field('video_id')?>/hqdefault.jpg" class="<?=$image_margin?> img-fluid product_video pointer" data-toggle="modal" data-target="#modal<?=$modal?>">
+                    <img src="https://img.youtube.com/vi/<?=get_field('video_id')?>/hqdefault.jpg" class="<?=$image_margin?> img-fluid product_video pointer" data-bs-toggle="modal" data-bs-target="#modal<?=$modal?>">
                         <?php
                     }
                     ?>
@@ -70,7 +70,7 @@ $vid_margin = get_field('vid_title') == '' ? 'my-auto' : '';
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content product-modal">
                             <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal"><i class="fas fa-times"></i></button>
+                                <button type="button" class="close" data-bs-dismiss="modal"><i class="fas fa-times"></i></button>
                             </div>
                             <div class="modal-body">
                                 <div class="embed-responsive embed-responsive-16by9">

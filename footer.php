@@ -151,7 +151,7 @@ wp_reset_postdata();
                     <div class="h3 text-black">Book a Demo</div>
                 </div>
                 <button type="button" class="btn-modal btn-close align-self-start" style="background:none;border:none"
-                    data-dismiss="modal" aria-label="Close"><i class="fa fa-times"></i></button>
+                    data-bs-dismiss="modal" aria-label="Close"><i class="fa fa-times"></i></button>
             </div>
             <div class="modal-body">
                 <div>To book a demo of any of our solutions or a consultation with one of our personal safety experts,

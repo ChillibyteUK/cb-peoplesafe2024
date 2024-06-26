@@ -198,7 +198,7 @@ class Bootstrap_Collapse_NavWalker extends Walker_Nav_Menu
                 $atts[ 'class' ] = 'link-item';
             }
             if ($args && isset($args->walker) && $args->walker->has_children) {
-                $atts[ 'data-toggle' ] = 'collapse';
+                $atts[ 'data-bs-toggle' ] = 'collapse';
                 $atts[ 'aria-expanded' ] = 'false';
                 $atts[ 'aria-controls' ] = $this->collapse_id($item->ID);
                 // $atts['data-parent']  = '#nav-panel-left';

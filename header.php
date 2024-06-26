@@ -149,7 +149,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <div class="navbar__extras me-xl-2">
                     <a href="#">Support</a>
                     <a href="#">Login</a>
-                    <a href="#" class="button button-yellow mb-2"><span>Book a Demo</span></a>
+                    <span role="button" data-bs-toggle="modal" data-bs-target="#demoModal" class="button button-yellow mb-2"><span>Book a Demo</span></span>
                 </div>
             </div>
         </div>

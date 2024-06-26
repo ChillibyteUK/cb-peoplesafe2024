@@ -14,7 +14,7 @@ $img = wp_get_attachment_image_url(get_field('image'),'full');
                 <?php
 				if (get_field('modal_trigger')[0] == 'Yes') {
 					?>
-				<button type="button" class="btn" data-toggle="modal" data-target="#demoModal">Book a Demo</button>
+				<button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#demoModal">Book a Demo</button>
 					<?php
 				}
                 elseif ($cta) {
