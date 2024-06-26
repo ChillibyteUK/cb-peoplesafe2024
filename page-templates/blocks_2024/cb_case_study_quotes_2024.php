@@ -10,43 +10,32 @@
             </div>
             <div class="col-lg-7">
                 <div class="quotes_slider">
-                    <div class="quote_slide">
-                        <div class="quotes quotes--blue">
-                            <img class="quotes__image" src="<?=get_stylesheet_directory_uri()?>/img/2024/cutouts/cutout1.png">
-                            <div class="quotes__inner">
-                                <div class="quotes__quote">
-                                    "All in all, it's complete peace of mind that our Engineers have protection when out working."
-                                </div>
-                                <div class="quotes__cite">Alan Cowlishaw, Compliance Engineer</div>
-                                <img class="quotes__logo" src="/wp-content/uploads/2018/11/talk-talk-1-300x169.png">
+                <?php
+            $classes = ['quotes--blue', 'quotes--orange', 'quotes--pink'];
+            $classIndex = 0; // Initialize the class index
+
+        while (have_rows('quotes')) {
+            the_row();
+
+            $class = $classes[$classIndex % count($classes)];
+
+            ?>
+                <div class="quote_slide">
+                    <div class="quotes quotes--large <?=$class?>">
+                        <?=wp_get_attachment_image( get_sub_field('image'), 'large', false, array('class' => 'quotes__image'))?>
+                        <div class="quotes__inner">
+                            <div class="quotes__quote">
+                                <?=get_sub_field('quote')?>
                             </div>
-                        </div>
-                    </div>
-                    <div class="quote_slide">
-                        <div class="quotes quotes--orange">
-                            <img class="quotes__image" src="<?=get_stylesheet_directory_uri()?>/img/2024/cutouts/cutout2.png">
-                            <div class="quotes__inner">
-                                <div class="quotes__quote">
-                                    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores voluptas architecto aspernatur"
-                                </div>
-                                <div class="quotes__cite">Chester Drawers, Compliance Engineer</div>
-                                <img class="quotes__logo" src="/wp-content/uploads/2019/01/optivo-300x169.png">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="quote_slide">
-                        <div class="quotes quotes--pink">
-                            <img class="quotes__image" src="<?=get_stylesheet_directory_uri()?>/img/2024/cutouts/cutout3.png">
-                            <div class="quotes__inner">
-                                <div class="quotes__quote">
-                                    "Ad vel sunt non mollitia praesentium, laborum repellendus sit totam tempora veritatis!"
-                                </div>
-                                <div class="quotes__cite">Paddy O'Furniture, Compliance Engineer</div>
-                                <img class="quotes__logo" src="/wp-content/uploads/2018/11/centre-point-300x169.png">
-                            </div>
+                            <div class="quotes__cite"><?=get_sub_field('attribution')?></div>
+                            <?=wp_get_attachment_image( get_sub_field('logo'), 'medium', false, array('class' => 'quotes__logo'))?>
                         </div>
                     </div>
                 </div>
+            <?php
+            $classIndex++;
+        }
+            ?>
             </div>
         </div>
     </div>
