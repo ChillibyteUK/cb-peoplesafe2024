@@ -20,9 +20,9 @@ $tab3Link = get_field('tab_3_link') ?? null;
         ?>
         <div class="side_tab_group_2024__inner">
             <div class="contents">
-                <?=wp_get_attachment_image(get_field('tab_1_image'),'large',false,array('class' => 'content active', 'id' => $i . '_tab1'))?>
-                <?=wp_get_attachment_image(get_field('tab_2_image'),'large',false,array('class' => 'content', 'id' => $i . '_tab2'))?>
-                <?=wp_get_attachment_image(get_field('tab_3_image'),'large',false,array('class' => 'content', 'id' => $i . '_tab3'))?>
+                <?=wp_get_attachment_image(get_field('tab_1_image'),'large',false,array('class' => 'content active', 'alt' => '', 'id' => $i . '_tab1'))?>
+                <?=wp_get_attachment_image(get_field('tab_2_image'),'large',false,array('class' => 'content', 'alt' => '', 'id' => $i . '_tab2'))?>
+                <?=wp_get_attachment_image(get_field('tab_3_image'),'large',false,array('class' => 'content', 'alt' => '', 'id' => $i . '_tab3'))?>
             </div>
             <div class="pills">
 
