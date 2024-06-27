@@ -14,6 +14,7 @@
 .button-yellow {
     background-color: var(--col-yellow-400);
     padding: calc(var(--_padding-inline) + var(--_button-border)) calc(var(--_padding-block) + var(--_button-border));
+    border: none;
     color: black;
     position: relative;
     overflow: hidden;
