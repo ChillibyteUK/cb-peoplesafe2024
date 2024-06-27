@@ -1,10 +1,10 @@
 {
-    "key": "group_664dc84443d86",
-    "title": "CB Who We Protect (2024)",
+    "key": "group_667d223f5cb23",
+    "title": "CB Side Tab Group (2024)",
     "fields": [
         {
-            "key": "field_664dc844856ab",
-            "label": "CB Who We Protect (2024)",
+            "key": "field_667d223f65729",
+            "label": "CB Side Tab Group (2024)",
             "name": "",
             "aria-label": "",
             "type": "message",
@@ -21,7 +21,7 @@
             "esc_html": 0
         },
         {
-            "key": "field_66605df046f78",
+            "key": "field_667d223f693c4",
             "label": "Title",
             "name": "title",
             "aria-label": "",
@@ -41,7 +41,7 @@
             "append": ""
         },
         {
-            "key": "field_66605df646f79",
+            "key": "field_667d223f6d034",
             "label": "Intro",
             "name": "intro",
             "aria-label": "",
@@ -61,8 +61,8 @@
             "new_lines": ""
         },
         {
-            "key": "field_66605e0446f7a",
-            "label": "Lone Workers",
+            "key": "field_667d223f70d17",
+            "label": "Tab 1",
             "name": "",
             "aria-label": "",
             "type": "tab",
@@ -79,9 +79,29 @@
             "selected": 0
         },
         {
-            "key": "field_66605e1046f7b",
+            "key": "field_667d29745988b",
+            "label": "Title",
+            "name": "tab_1_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_667d223f7497b",
             "label": "Content",
-            "name": "lone_workers_content",
+            "name": "tab_1_content",
             "aria-label": "",
             "type": "textarea",
             "instructions": "",
@@ -99,9 +119,9 @@
             "new_lines": ""
         },
         {
-            "key": "field_66605e2046f7c",
+            "key": "field_667d223f785e9",
             "label": "Link",
-            "name": "lone_workers_link",
+            "name": "tab_1_link",
             "aria-label": "",
             "type": "link",
             "instructions": "",
@@ -115,8 +135,33 @@
             "return_format": "array"
         },
         {
-            "key": "field_66605e2f46f7d",
-            "label": "All Employees",
+            "key": "field_667d2287582c7",
+            "label": "Image",
+            "name": "tab_1_image",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "preview_size": "thumbnail"
+        },
+        {
+            "key": "field_667d223f7c22c",
+            "label": "Tab 2",
             "name": "",
             "aria-label": "",
             "type": "tab",
@@ -133,9 +178,29 @@
             "selected": 0
         },
         {
-            "key": "field_66605e3a46f7e",
+            "key": "field_667d29835988c",
+            "label": "Title",
+            "name": "tab_2_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_667d223f7fee1",
             "label": "Content",
-            "name": "all_employees_content",
+            "name": "tab_2_content",
             "aria-label": "",
             "type": "textarea",
             "instructions": "",
@@ -153,9 +218,9 @@
             "new_lines": ""
         },
         {
-            "key": "field_66605e5446f7f",
+            "key": "field_667d223f83b8d",
             "label": "Link",
-            "name": "all_employees_link",
+            "name": "tab_2_link",
             "aria-label": "",
             "type": "link",
             "instructions": "",
@@ -169,8 +234,33 @@
             "return_format": "array"
         },
         {
-            "key": "field_66605e6146f80",
-            "label": "Hybrid Workers",
+            "key": "field_667d22b8582c8",
+            "label": "Image",
+            "name": "tab_2_image",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "preview_size": "thumbnail"
+        },
+        {
+            "key": "field_667d223f877eb",
+            "label": "Tab 3",
             "name": "",
             "aria-label": "",
             "type": "tab",
@@ -187,9 +277,29 @@
             "selected": 0
         },
         {
-            "key": "field_66605e6b46f81",
+            "key": "field_667d298f5988d",
+            "label": "Title",
+            "name": "tab_3_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_667d223f8b45d",
             "label": "Content",
-            "name": "hybrid_workers_content",
+            "name": "tab_3_content",
             "aria-label": "",
             "type": "textarea",
             "instructions": "",
@@ -207,9 +317,9 @@
             "new_lines": ""
         },
         {
-            "key": "field_66605e7e46f82",
+            "key": "field_667d223f8f0fd",
             "label": "Link",
-            "name": "hybrid_workers_link",
+            "name": "tab_3_link",
             "aria-label": "",
             "type": "link",
             "instructions": "",
@@ -221,6 +331,31 @@
                 "id": ""
             },
             "return_format": "array"
+        },
+        {
+            "key": "field_667d22dd582c9",
+            "label": "Image",
+            "name": "tab_3_image",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "preview_size": "thumbnail"
         }
     ],
     "location": [
@@ -228,7 +363,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/cb-who-we-protect"
+                "value": "acf\/cb-side-tab-group-2024"
             }
         ]
     ],
@@ -241,5 +376,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1717592216
+    "modified": 1719478686
 }

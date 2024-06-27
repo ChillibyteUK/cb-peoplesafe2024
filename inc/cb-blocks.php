@@ -581,15 +581,6 @@ function acf_blocks()
             'supports' => array('mode' => false),
         ));
         acf_register_block(array(
-            'name'				=> 'cb_who_we_protect',
-            'title'				=> __('CB Who We Protect (2024)'),
-            'render_template'	=> 'page-templates/blocks_2024/cb_who_we_protect.php',
-            'category'			=> 'layout',
-            'icon'				=> 'cover-image',
-            'mode'	=> 'edit',
-            'supports' => array('mode' => false),
-        ));
-        acf_register_block(array(
             'name'				=> 'cb_case_study_quotes_2024',
             'title'				=> __('CB Case Study / Quotes (2024)'),
             'render_template'	=> 'page-templates/blocks_2024/cb_case_study_quotes_2024.php',
@@ -629,6 +620,15 @@ function acf_blocks()
             'name'				=> 'cb_top_tab_group_2024',
             'title'				=> __('CB Top Tab Group (2024)'),
             'render_template'	=> 'page-templates/blocks_2024/cb_top_tab_group_2024.php',
+            'category'			=> 'layout',
+            'icon'				=> 'cover-image',
+            'mode'	=> 'edit',
+            'supports' => array('mode' => false),
+        ));
+        acf_register_block(array(
+            'name'				=> 'cb_side_tab_group_2024',
+            'title'				=> __('CB Side Tab Group (2024)'),
+            'render_template'	=> 'page-templates/blocks_2024/cb_side_tab_group_2024.php',
             'category'			=> 'layout',
             'icon'				=> 'cover-image',
             'mode'	=> 'edit',
