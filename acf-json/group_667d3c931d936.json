@@ -1,9 +1,9 @@
 {
-    "key": "group_667addfd49a99",
-    "title": "CB Product Header (2024)",
+    "key": "group_667d3c931d936",
+    "title": "CB Product Header (2024) (copy)",
     "fields": [
         {
-            "key": "field_667addfd4f9e3",
+            "key": "field_667d3c9322bf8",
             "label": "CB Product Header (2024)",
             "name": "",
             "aria-label": "",
@@ -21,7 +21,7 @@
             "esc_html": 0
         },
         {
-            "key": "field_667addfd57279",
+            "key": "field_667d3c9326841",
             "label": "Alt Title",
             "name": "alt_title",
             "aria-label": "",
@@ -41,7 +41,7 @@
             "maxlength": ""
         },
         {
-            "key": "field_667addfd5af9b",
+            "key": "field_667d3c932a477",
             "label": "Intro",
             "name": "intro",
             "aria-label": "",
@@ -61,7 +61,7 @@
             "new_lines": "br"
         },
         {
-            "key": "field_667addfd628d2",
+            "key": "field_667d3c932e147",
             "label": "Buy Now",
             "name": "buy_now",
             "aria-label": "",
@@ -78,7 +78,7 @@
             "placeholder": ""
         },
         {
-            "key": "field_667addfd66533",
+            "key": "field_667d3c9331de8",
             "label": "Brochure",
             "name": "brochure",
             "aria-label": "",
@@ -95,7 +95,7 @@
             "placeholder": ""
         },
         {
-            "key": "field_667addfd6a19a",
+            "key": "field_667d3c9335aa6",
             "label": "E-Book",
             "name": "ebook",
             "aria-label": "",
@@ -112,7 +112,7 @@
             "placeholder": ""
         },
         {
-            "key": "field_667addfd6de16",
+            "key": "field_667d3c93396e6",
             "label": "Hide breadcrumbs (for PPC)",
             "name": "hide_breadcrumbs",
             "aria-label": "",
@@ -137,7 +137,7 @@
             "custom_choice_button_text": "Add new choice"
         },
         {
-            "key": "field_667addfd71a99",
+            "key": "field_667d3c933d333",
             "label": "Hide CTA (for PPC)",
             "name": "hide_cta",
             "aria-label": "",
@@ -180,5 +180,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1719483437
+    "modified": 1719483539
 }

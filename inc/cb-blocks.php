@@ -572,6 +572,15 @@ function acf_blocks()
             'supports' => array('mode' => false),
         ));
         acf_register_block(array(
+            'name'				=> 'cb_hero_2024',
+            'title'				=> __('CB Hero (2024)'),
+            'render_template'	=> 'page-templates/blocks_2024/cb_hero_2024.php',
+            'category'			=> 'layout',
+            'icon'				=> 'cover-image',
+            'mode'	=> 'edit',
+            'supports' => array('mode' => false),
+        ));
+        acf_register_block(array(
             'name'				=> 'cb_text_image_2024',
             'title'				=> __('CB Text Image (2024)'),
             'render_template'	=> 'page-templates/blocks_2024/cb_text_image_2024.php',
