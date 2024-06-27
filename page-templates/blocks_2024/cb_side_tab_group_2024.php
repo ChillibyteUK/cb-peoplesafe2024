@@ -10,7 +10,7 @@ $titleClass = get_field('title_class') == 'H1' ? 'h1' : '';
         <?php
         if (get_field('title') ?? null) {
             ?>
-        <h2 class="<?=$titleClass?> text-center"><?=get_field('title')?></h2>
+        <h2 class="<?=$titleClass?> mb-4 text-center"><?=get_field('title')?></h2>
             <?php
         }
         if (get_field('intro') ?? null) {
