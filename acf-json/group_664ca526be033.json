@@ -1,10 +1,10 @@
 {
     "key": "group_664ca526be033",
-    "title": "CB Hero (2024)",
+    "title": "CB Homepage Hero (2024)",
     "fields": [
         {
             "key": "field_664ca526e0621",
-            "label": "CB Hero (2024)",
+            "label": "CB Homepage Hero (2024)",
             "name": "",
             "aria-label": "",
             "type": "message",
@@ -163,7 +163,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/cb-hero-2024"
+                "value": "acf\/cb-home-hero-2024"
             }
         ]
     ],
@@ -176,5 +176,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1716299339
+    "modified": 1719482780
 }

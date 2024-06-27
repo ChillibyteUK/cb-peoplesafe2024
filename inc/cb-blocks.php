@@ -563,9 +563,9 @@ function acf_blocks()
         // 2024 Blocks below
 
         acf_register_block(array(
-            'name'				=> 'cb_hero_2024',
-            'title'				=> __('CB Hero (2024)'),
-            'render_template'	=> 'page-templates/blocks_2024/cb_hero_2024.php',
+            'name'				=> 'cb_home_hero_2024',
+            'title'				=> __('CB Homepage Hero (2024)'),
+            'render_template'	=> 'page-templates/blocks_2024/cb_home_hero_2024.php',
             'category'			=> 'layout',
             'icon'				=> 'cover-image',
             'mode'	=> 'edit',
