@@ -3,13 +3,14 @@ $i = random_str(4);
 $tab1Link = get_field('tab_1_link') ?? null;
 $tab2Link = get_field('tab_2_link') ?? null;
 $tab3Link = get_field('tab_3_link') ?? null;
+$titleClass = get_field('title_class') == 'H1' ? 'h1' : '';
 ?>
 <section class="side_tab_group_2024 py-5">
     <div class="container-xl">
         <?php
         if (get_field('title') ?? null) {
             ?>
-        <h2 class="h1 text-center"><?=get_field('title')?></h2>
+        <h2 class="<?=$titleClass?> text-center"><?=get_field('title')?></h2>
             <?php
         }
         if (get_field('intro') ?? null) {
