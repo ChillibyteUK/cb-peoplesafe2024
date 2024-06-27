@@ -142,4 +142,34 @@ document.addEventListener('DOMContentLoaded', function() {
   handleLeftItemClicks('dropdownSolutions');
   handleLeftItemClicks('dropdownProducts');
 
+
+    // Select all section elements
+    const sections = document.querySelectorAll('section');
+
+    // Iterate through each section
+    sections.forEach(section => {
+        // Select pill and content elements within the section
+        const pills = section.querySelectorAll('.pill');
+        const contents = section.querySelectorAll('.content');
+
+        // Add click event listener to each pill
+        pills.forEach(pill => {
+            pill.addEventListener('click', function() {
+                // Remove 'active' class from all pills in the section
+                pills.forEach(p => p.classList.remove('active'));
+                // Add 'active' class to the clicked pill
+                pill.classList.add('active');
+
+                // Get the id of the content to show
+                const contentId = pill.getAttribute('aria-controls');
+
+                // Hide all content elements in the section
+                contents.forEach(content => content.classList.remove('active'));
+
+                // Show the related content element in the section
+                section.querySelector(`#${contentId}`).classList.add('active');
+            });
+        });
+    });
+
 });
