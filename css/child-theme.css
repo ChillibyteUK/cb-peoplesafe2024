@@ -20592,6 +20592,7 @@ readers do not read off random characters that represent icons */
   --gradient-pink: linear-gradient( var(--col-pink-400), var(--col-orange-400) );
   --gradient-orange: linear-gradient( var(--col-orange-400), var(--col-yellow-400) );
   --gradient-blue: linear-gradient( var(--col-blue-400), var(--col-teal-400) );
+  --gradient-green: linear-gradient( var(--col-teal-400), var(--col-blue-400) );
   --fs-900: 72px;
   --fs-800: 56px;
   --fs-700: 40px;
@@ -23964,6 +23965,25 @@ nav #dropdownKnowledge .knowledge-link:hover {
   background: var(--gradient-pink);
 }
 
+.product_header_2024__image {
+  position: relative;
+  display: grid;
+  place-content: center;
+  aspect-ratio: 1;
+  isolation: isolate;
+}
+.product_header_2024__imgbg {
+  position: absolute;
+  aspect-ratio: 1;
+  width: 80%;
+  background: var(--gradient-green);
+  border-radius: 100vw;
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .top_tab_group_2024 {
   /* Desktop view */
 }
@@ -24484,11 +24504,12 @@ p:empty {
 
 .page-meta {
   padding: 1rem 0;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
 }
 .page-meta a {
   font-weight: bold;
   color: hsl(60, 2%, 20%);
+  text-decoration: none;
 }
 
 .aligncenter {

@@ -273,10 +273,11 @@ p:empty {
 
 .page-meta {
     padding: 1rem 0;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     a {
         font-weight: bold;
         color: $black;
+        text-decoration: none;
     }
 }
 

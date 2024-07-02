@@ -12,9 +12,14 @@
 
     --col-blue-200: #D5E1E5;
 
+    $ps-teal: #0484A1;
+    $ps-green: #07BFA9;
+
     --gradient-pink: linear-gradient( var(--col-pink-400), var(--col-orange-400) );
     --gradient-orange: linear-gradient( var(--col-orange-400), var(--col-yellow-400) );
     --gradient-blue: linear-gradient( var(--col-blue-400), var(--col-teal-400) );
+
+    --gradient-green: linear-gradient( var(--col-teal-400), var(--col-blue-400) );
 
     --fs-900: 72px; // huge title
     --fs-800: 56px; // large title

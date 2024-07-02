@@ -5,7 +5,7 @@
         <?php
         if (get_field('hide_breadcrumbs')[0] != 'Yes') {
             ?>
-        <div class="page-meta pt-4">
+        <div class="page-meta pt-5">
             <?php
             if ( function_exists('yoast_breadcrumb') ) {
                 yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );
@@ -16,8 +16,9 @@
         }
         ?>
         <div class="row g-4">
-            <div class="col-md-4 order-md-2">
-                <img src="<?=get_the_post_thumbnail_url(get_the_ID(),'full')?>" class="img-fluid d-flex mx-auto">
+            <div class="col-md-4 order-md-2 product_header_2024__image">
+                <div class="product_header_2024__imgbg"></div>
+                <img src="<?=get_the_post_thumbnail_url(get_the_ID(),'full')?>" class="product_header_2024__img">
             </div>
             <div class="col-md-8 order-md-1 my-auto">
                 <h1><?php

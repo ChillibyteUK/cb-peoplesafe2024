@@ -1,0 +1,20 @@
+.product_header_2024 {
+    &__image {
+        position: relative;
+        display: grid;
+        place-content: center;
+        aspect-ratio: 1;
+        isolation: isolate;
+    }
+    &__imgbg {
+        position: absolute;
+        aspect-ratio: 1;
+        width: 80%;
+        background: var(--gradient-green);
+        border-radius: 100vw;
+        z-index: -1;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
