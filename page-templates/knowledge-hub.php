@@ -11,15 +11,13 @@ the_post();
 
 ?>
 <main id="main" class="pt-5">
-    <div class="container py-5" id="knowledge">
-        <h1><?=get_the_title()?></h1>
-        <?php
-        the_content();
-        ?>
+    <div class="container-xl py-5" id="knowledge">
+        <div class="text-center">
+            <h1><?=get_the_title()?></h1>
+            <?=get_the_content()?>
+        </div>
         <section class="latest pb-5">
-            <div class="h2__container">
-                <h2>Latest</h2>
-            </div>
+            <h2>Latest</h2>
             <?php
             $l = new WP_Query(array(
                 'post_type' => array('post','news','guides','whitepapers','legislation'), // ,'case_studies'),
@@ -28,37 +26,31 @@ the_post();
                 'post__not_in' => get_field('hidden_posts','options')
             ));
             ?>
-            <div class="row">
+            <div class="latest__grid">
                 <?php
                 $c = 1;
                 while ($l->have_posts()) {
                     $l->the_post();
-                    if ($c == 1) {
-                        echo '<div class="col-lg-6 mb-4 mb-lg-0 latest__preview">';
-                    }
-                    else {
-                        echo '<div class="col-lg-3 mb-4 mb-lg-0 latest__preview">';
-                    }
                     $type = get_post_type($l->ID) == 'post' ? 'blog' : get_post_type($l->ID);
                     $img = get_the_post_thumbnail_url( $l->ID, 'large' );
                     if (!$img) {
                         $img = catch_that_image(get_post($l->ID));
                     }
                     ?>
-                    <a href="<?=get_the_permalink($l->ID)?>">
-                        <div class="latest__container">
-                            <div class="latest__image" style="background-image:url('<?=$img?>')">
-                                <div class="flash"><?=ucfirst($type)?></div>
-                            </div>
+                    <a href="<?=get_the_permalink($l->ID)?>" class="latest__card">
+                        <div class="latest__image">
+                            <?=get_the_post_thumbnail(get_the_ID(), 'large')?>
+                            <div class="flash flash--<?=acf_slugify($type)?>"><?=ucfirst($type)?></div>
+                        </div>
+                        <div class="latest__container p-4">
                             <div class="latest__content">
-                                <h3><?=get_the_title()?></h3>
-                                <div class="latest__excerpt mb-2">
+                                <h3 class="mb-2"><?=get_the_title()?></h3>
+                                <div class="latest__excerpt">
                                     <?=wp_trim_words(get_the_content($l->ID),20)?>
                                 </div>
                             </div>
                         </div>
                     </a>
-                </div>
                 <?php
                     $c++;
                 }
@@ -67,11 +59,11 @@ the_post();
         </section>
 
         <section class="blogs pb-5">
-            <div class="row">
+            <div class="row g-5">
                 <div class="col-lg-6">
-                    <div class="h2__container">
-                        <h2>Blogs</h2>
-                        <div class="h2__link"><a href="/blogs/">View all</a></div>
+                    <div class="d-flex justify-content-between align-content-center mb-4">
+                        <h2 class="mb-0">Blogs</h2>
+                        <a href="/blogs/" class="align-self-center">View all</a>
                     </div>
                     <?php
                     $b = new WP_Query(array(
@@ -87,10 +79,18 @@ the_post();
                             $img = catch_that_image(get_post($b->ID));
                         }
                         ?>
-                        <a href="<?=get_the_permalink($b->ID)?>">
-                            <div class="row mb-2 mx-0">
-                                <div class="col-lg-4 blogs__image" style="background-image:url('<?=$img?>')"></div>
-                                <div class="col-lg-8 py-2"><h3><?=get_the_title()?></h3></div>
+                        <a href="<?=get_the_permalink($l->ID)?>" class="latest__card latest__card--short mb-4">
+                            <div class="latest__image">
+                                <?=get_the_post_thumbnail(get_the_ID(), 'large')?>
+                                <div class="flash flash--blog">Blog</div>
+                            </div>
+                            <div class="latest__container p-4">
+                                <div class="latest__content">
+                                    <h3 class="mb-2"><?=get_the_title()?></h3>
+                                    <div class="latest__excerpt">
+                                        <?=wp_trim_words(get_the_content($l->ID),20)?>
+                                    </div>
+                                </div>
                             </div>
                         </a>
                         <?php
@@ -99,9 +99,9 @@ the_post();
                     ?>
                 </div>
                 <div class="col-lg-6">
-                    <div class="h2__container">
-                        <h2>News</h2>
-                        <div class="h2__link"><a href="/news/">View all</a></div>
+                    <div class="d-flex justify-content-between align-content-center mb-4">
+                        <h2 class="mb-0">News</h2>
+                        <a href="/news/" class="align-self-center">View all</a>
                     </div>
                     <?php
                     $n = new WP_Query(array(
@@ -117,10 +117,18 @@ the_post();
                             $img = catch_that_image(get_post($n->ID));
                         }
                         ?>
-                        <a href="<?=get_the_permalink($n->ID)?>">
-                            <div class="row mb-2 mx-0">
-                                <div class="col-lg-4 blogs__image" style="background-image:url('<?=$img?>')"></div>
-                                <div class="col-lg-8 py-2"><h3><?=get_the_title()?></h3></div>
+                        <a href="<?=get_the_permalink($l->ID)?>" class="latest__card latest__card--short mb-4">
+                            <div class="latest__image">
+                                <?=get_the_post_thumbnail(get_the_ID(), 'large')?>
+                                <div class="flash flash--news">News</div>
+                            </div>
+                            <div class="latest__container p-4">
+                                <div class="latest__content">
+                                    <h3 class="mb-2"><?=get_the_title()?></h3>
+                                    <div class="latest__excerpt">
+                                        <?=wp_trim_words(get_the_content($l->ID),20)?>
+                                    </div>
+                                </div>
                             </div>
                         </a>
                         <?php
@@ -132,9 +140,9 @@ the_post();
         </section>
 
         <section class="guides pb-5">
-            <div class="h2__container">
-                <h2>Guides</h2>
-                <div class="h2__link"><a href="/guides/">View all</a></div>
+            <div class="d-flex justify-content-between align-content-center mb-4">
+                <h2 class="mb-0">Guides</h2>
+                <a href="/guides/" class="align-self-center">View all</a>
             </div>
             <div class="row">
                 <?php
@@ -165,9 +173,9 @@ the_post();
         </section>
 
         <section class="infographics pb-5">
-            <div class="h2__container">
-                <h2>Infographics</h2>
-                <div class="h2__link"><a href="/infographics/" class="noline">View all</a></div>
+            <div class="d-flex justify-content-between align-content-center mb-4">
+                <h2 class="mb-0">Infographics</h2>
+                <a href="/infographics/" class="align-self-center">View all</a>
             </div>
             <div class="infographics__slider">
                 <?php

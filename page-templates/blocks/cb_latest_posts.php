@@ -1,5 +1,5 @@
 <!-- latest_posts -->
-<section class="latest py-5">
+<section class="latest bg-blue-200 py-5">
     <div class="container-xl">
         <h2 class="text-center mb-4">Latest News &amp; Blogs</h2>
         <?php
