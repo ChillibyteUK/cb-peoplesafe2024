@@ -21760,18 +21760,16 @@ a.text--yellow:hover {
   .latest__grid .latest__card:nth-of-type(1) {
     grid-row: span 2;
   }
-  .latest__grid .latest__card:not(:nth-of-type(1)) .latest__image {
+  .latest__grid .latest__card:not(:nth-of-type(1)) .latest__image img {
+    aspect-ratio: 4/1;
+    -o-object-fit: cover;
+    object-fit: cover;
     -webkit-mask: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg id='Layer_2' data-name='Layer 2' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 100'%3E%3Cdefs%3E%3Cstyle%3E .cls-1 %7B fill: %23fff; stroke-width: 0px; %7D %3C/style%3E%3C/defs%3E%3Cg id='Layer_1-2' data-name='Layer 1'%3E%3Cpath class='cls-1' d='m400,0v55.44c-60.68,28.58-128.47,44.56-200,44.56S60.68,84.02,0,55.44V0h400Z'/%3E%3C/g%3E%3C/svg%3E");
     mask: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg id='Layer_2' data-name='Layer 2' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 100'%3E%3Cdefs%3E%3Cstyle%3E .cls-1 %7B fill: %23fff; stroke-width: 0px; %7D %3C/style%3E%3C/defs%3E%3Cg id='Layer_1-2' data-name='Layer 1'%3E%3Cpath class='cls-1' d='m400,0v55.44c-60.68,28.58-128.47,44.56-200,44.56S60.68,84.02,0,55.44V0h400Z'/%3E%3C/g%3E%3C/svg%3E");
     -webkit-mask-position: bottom;
     mask-position: bottom;
     -webkit-mask-size: cover;
     mask-size: cover;
-  }
-  .latest__grid .latest__card:not(:nth-of-type(1)) .latest__image img {
-    aspect-ratio: 4/1;
-    -o-object-fit: cover;
-    object-fit: cover;
   }
 }
 
