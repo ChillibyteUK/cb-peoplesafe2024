@@ -325,9 +325,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                 <div class="item__desc">Keep your international travellers safe</div>
                             </div>
                         </a>
-                        <div class="w-50 ms-auto">
-                            <a href="/products/" class="products-link"><span>View all products</span><i class="fa-solid fa-arrow-right"></i></a>
-                        </div>
+                    </div>
+                    <div class="w-50 ms-auto">
+                        <a href="/products/" class="products-link"><span>View all products</span><i class="fa-solid fa-arrow-right"></i></a>
                     </div>
                 </div>
                 <div class="right right--cols" id="emergencyNotification">
