@@ -140,7 +140,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <span></span>
                 <span></span>
             </div>
-            <a href="/" class="logo"><img src="<?=get_stylesheet_directory_uri()?>/img/2024/ps-logo.png"></a>
+            <a href="/" class="logo"><img src="<?=get_stylesheet_directory_uri()?>/img/ps-logo-full--dark.svg"></a>
             <div class="navItems" id="navItems">
                 <a class="toggle" aria-controls="dropdownSolutions" data-href="/solutions/">Solutions</a>
                 <a class="toggle" aria-controls="dropdownProducts" data-href="/products/">Products</a>

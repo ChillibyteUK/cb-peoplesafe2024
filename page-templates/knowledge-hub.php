@@ -63,7 +63,7 @@ the_post();
                 <div class="col-lg-6">
                     <div class="d-flex justify-content-between align-content-center mb-4">
                         <h2 class="mb-0">Blogs</h2>
-                        <a href="/blogs/" class="align-self-center">View all</a>
+                        <a href="/blogs/" class="align-self-center kh_link">View all &gt;</a>
                     </div>
                     <?php
                     $b = new WP_Query(array(
@@ -101,7 +101,7 @@ the_post();
                 <div class="col-lg-6">
                     <div class="d-flex justify-content-between align-content-center mb-4">
                         <h2 class="mb-0">News</h2>
-                        <a href="/news/" class="align-self-center">View all</a>
+                        <a href="/news/" class="align-self-center kh_link">View all &gt;</a>
                     </div>
                     <?php
                     $n = new WP_Query(array(
@@ -142,7 +142,7 @@ the_post();
         <section class="guides pb-5">
             <div class="d-flex justify-content-between align-content-center mb-4">
                 <h2 class="mb-0">Guides</h2>
-                <a href="/guides/" class="align-self-center">View all</a>
+                <a href="/guides/" class="align-self-center kh_link">View all &gt;</a>
             </div>
             <div class="row">
                 <?php
@@ -175,7 +175,7 @@ the_post();
         <section class="infographics pb-5">
             <div class="d-flex justify-content-between align-content-center mb-4">
                 <h2 class="mb-0">Infographics</h2>
-                <a href="/infographics/" class="align-self-center">View all</a>
+                <a href="/infographics/" class="align-self-center kh_link">View all &gt;</a>
             </div>
             <div class="infographics__slider">
                 <?php
@@ -250,9 +250,9 @@ the_post();
         <section class="whitepapers pb-5">
             <div class="row">
                 <div class="col-lg-6">
-                    <div class="h2__container">
-                        <h2>Whitepapers</h2>
-                        <div class="h2__link"><a href="/whitepapers/">View all</a></div>
+                    <div class="d-flex justify-content-between align-content-center mb-4">
+                        <h2 class="mb-0">Whitepapers</h2>
+                        <a href="/whitepapers/" class="align-self-center kh_link">View all &gt;</a>
                     </div>
                     <?php
                     $w = new WP_Query(array(
@@ -278,9 +278,9 @@ the_post();
                     ?>
                 </div>
                 <div class="col-lg-6">
-                    <div class="h2__container">
-                        <h2>Legislation Information</h2>
-                        <div class="h2__link"><a href="/legislation/">View all</a></div>
+                    <div class="d-flex justify-content-between align-content-center mb-4">
+                        <h2 class="mb-0">Legislation Information</h2>
+                        <a href="/legislation/" class="align-self-center kh_link">View all &gt;</a>
                     </div>
                     <?php
                     $l = new WP_Query(array(

@@ -21746,6 +21746,17 @@ a.text--yellow:hover {
   text-transform: uppercase;
 }
 
+.kh_link {
+  font-weight: bold;
+  text-decoration: none;
+  color: var(--col-black);
+  transition: color var(--transition);
+  font-size: var(--fs-300);
+}
+.kh_link:hover {
+  color: var(--col-orange-400);
+}
+
 .latest__grid {
   display: grid;
   row-gap: 1rem;

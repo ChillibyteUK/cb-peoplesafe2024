@@ -1,3 +1,14 @@
+.kh_link {
+    font-weight: bold;
+    text-decoration: none;
+    color: var(--col-black);
+    transition: color var(--transition);
+    font-size: var(--fs-300);
+    &:hover {
+        color: var(--col-orange-400);
+    }
+}
+
 .latest {
     &__grid {
         display: grid;
