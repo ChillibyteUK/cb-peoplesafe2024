@@ -226,7 +226,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <li class="" aria-controls="safetyApps">Safety Apps</li>
                     <li class="" aria-controls="emergencyNotification">Emergency Notification System</li>
                     <li class="" aria-controls="safetyCameras">Safety Cameras</li>
-                    <li class="" aria-controls="panicAlarms">Panic Alarms</li>
                 </ul>
                 <div class="right right--products active" id="safetyDevices">
                     <div class="h3">Safety Devices</div>
