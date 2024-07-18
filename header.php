@@ -330,8 +330,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <a href="/products/" class="products-link"><span>View all products</span><i class="fa-solid fa-arrow-right"></i></a>
                     </div>
                 </div>
-                <div class="right right--cols" id="emergencyNotification">
-                    <div class="h3">EMERGENCY NOTIFICATION SYSTEMS</div>
+                <div class="right right--products" id="emergencyNotification">
+                    <div class="h3">Emergency Notification System</div>
+                    <div>Simple and dedicated emergency communication platform.</div>
+                    <div class="items">
+                        <a class="item" href="/products/peoplesafe-alert/">
+                            <img class="item__image" src="/wp-content/uploads/2024/07/Peoplesafe-Alert.png">
+                            <div class="item__inner">
+                                <div class="item__title">Emergency Alert System</div>
+                                <div class="item__desc">Send multichannel notifications to keep your people safe and connected</div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="w-50 ms-auto">
+                        <a href="/products/" class="products-link"><span>View all products</span><i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
                 </div>
                 <div class="right right--cols" id="safetyCameras">
                     <div class="h3">SAFETY CAMERAS</div>
