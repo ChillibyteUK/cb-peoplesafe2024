@@ -287,7 +287,45 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     </div>
                 </div>
                 <div class="right right--cols" id="safetyApps">
-                    <div class="h3">SAFETY APPS</div>
+                    <div class="h3">Safety Apps</div>
+                    <div>We provide a range of safety apps to ensure the most appropriate solution for your organisation.</div>
+                    <div class="items">
+                        <a class="item" href="/products/lone-worker-app/">
+                            <img class="item__image" src="/wp-content/uploads/2024/07/Lone-Worker-App.png">
+                            <div class="item__inner">
+                                <div class="item__title">Lone Worker App</div>
+                                <div class="item__desc">Accredited app for lone workers</div>
+                            </div>
+                        </a>
+                        <a class="item" href="/products/sos-app/">
+                            <img class="item__image" src="/wp-content/uploads/2024/07/Personal-Safety-App.png">
+                            <div class="item__inner">
+                                <div class="item__title">Personal Safety App</div>
+                                <div class="item__desc">Safety app for all employees</div>
+                            </div>
+                        </a>
+                        <a class="item" href="/products/travelsafe/">
+                            <img class="item__image" src="/wp-content/uploads/2024/07/Travelsafe.png">
+                            <div class="item__inner">
+                                <div class="item__title">Travelsafe</div>
+                                <div class="item__desc">Get safely from A to B</div>
+                            </div>
+                        </a>
+                        <a class="item" href="/products/apple-watch/">
+                            <img class="item__image" src="/wp-content/uploads/2024/07/Apple-Watch-Personal-App.png">
+                            <div class="item__inner">
+                                <div class="item__title">Apple Watch App</div>
+                                <div class="item__desc">Response direct from your Apple Watch</div>
+                            </div>
+                        </a>
+                        <a class="item" href="/products/international-traveller/">
+                            <img class="item__image" src="/wp-content/uploads/2024/07/International-Traveller-1.png">
+                            <div class="item__inner">
+                                <div class="item__title">International Traveller</div>
+                                <div class="item__desc">Keep your international travellers safe</div>
+                            </div>
+                        </a>
+                    </div>
                 </div>
                 <div class="right right--cols" id="emergencyNotification">
                     <div class="h3">EMERGENCY NOTIFICATION SYSTEMS</div>
