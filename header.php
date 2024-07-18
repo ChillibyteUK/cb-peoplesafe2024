@@ -346,11 +346,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <a href="/products/" class="products-link"><span>View all products</span><i class="fa-solid fa-arrow-right"></i></a>
                     </div>
                 </div>
-                <div class="right right--cols" id="safetyCameras">
-                    <div class="h3">SAFETY CAMERAS</div>
-                </div>
-                <div class="right right--cols" id="panicAlarms">
-                    <div class="h3">PANIC ALARMS</div>
+                <div class="right right--products" id="safetyCameras">
+                    <div class="h3">Safety Cameras</div>
+                    <div>Overt protection for frontline workers.</div>
+                    <div class="items">
+                        <a class="item" href="/products/body-worn-camera/">
+                            <img class="item__image" src="/wp-content/uploads/2024/07/Body-Worn-Camera.png">
+                            <div class="item__inner">
+                                <div class="item__title">Body Worn Camera</div>
+                                <div class="item__desc">Deterrent for verbal and physical abuse</div>
+                            </div>
+                        </a>
+                        <a class="item" href="/products/surecam/">
+                            <img class="item__image" src="/wp-content/uploads/2024/07/Surecam.png">
+                            <div class="item__inner">
+                                <div class="item__title">SureCam</div>
+                                <div class="item__desc">Providing drivers inside and outside the vehicle</div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="w-50 ms-auto">
+                        <a href="/products/" class="products-link"><span>View all products</span><i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
                 </div>
             </div>
 
