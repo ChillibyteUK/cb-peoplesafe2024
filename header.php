@@ -286,7 +286,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <a href="/products/" class="products-link"><span>View all products</span><i class="fa-solid fa-arrow-right"></i></a>
                     </div>
                 </div>
-                <div class="right right--cols" id="safetyApps">
+                <div class="right right--products" id="safetyApps">
                     <div class="h3">Safety Apps</div>
                     <div>We provide a range of safety apps to ensure the most appropriate solution for your organisation.</div>
                     <div class="items">
