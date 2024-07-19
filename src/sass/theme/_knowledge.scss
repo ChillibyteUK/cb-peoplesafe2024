@@ -61,6 +61,47 @@
     }
 }
 
+.guide_card {
+    &__card {
+        display: block;
+        background-color: var(--col-white);
+        text-decoration: none;
+        color: var(--col-black);
+        border-radius: 1rem;
+        box-shadow: var(--shadow-out);
+        transition: transform var(--transition), box-shadow var(--transition);
+        overflow: hidden;
+        height: 100%;
+        &:hover {
+            color: var(--col-black);
+            transform: translateY(2px);
+            box-shadow: var(--shadow-in);
+            .guide_card__img {
+                transform: scale3d(1, 1, 1) rotateX(0) rotateZ(0) translate3d(0,0,0);
+            }
+        }
+        h3 {
+            padding: 1rem;
+            margin-bottom: 0;
+            font-size: var(--fs-600);
+        }
+    }
+    &__image {
+        background: var(--gradient-orange);
+        perspective: 450px;
+        perspective-origin: 50% 50%;
+        aspect-ratio: 4 / 3;
+        width: 100%;
+        display: grid;
+        place-content: center;
+    }
+    &__img {
+        transform: scale3d(0.75, 1, 1) rotateX(58deg) rotateY(0) rotateZ(340deg) translate3d(0, 0, 0) skew(0deg, 0deg);
+        transition: transform var(--transition);
+    }
+
+}
+
 
 // #knowledge {
 

@@ -160,8 +160,10 @@ the_post();
                         }
                         ?>
                         <div class="col-lg-4">
-                            <a href="<?=get_the_permalink($n->ID)?>">
-                                <div class="latest__image" style="background-image:url('<?=$img?>')"></div>
+                            <a href="<?=get_the_permalink($n->ID)?>" class="guide_card__card">
+                                <div class="guide_card__image">
+                                    <?=get_the_post_thumbnail(get_the_ID(), 'large', array('class' => 'guide_card__img'))?>
+                                </div>
                                 <h3><?=get_the_title()?></h3>
                             </a>
                         </div>
