@@ -159,7 +159,7 @@ the_post();
                             $img = catch_that_image(get_post($n->ID));
                         }
                         ?>
-                        <div class="col-lg-3">
+                        <div class="col-lg-3 col-md-6">
                             <a href="<?=get_the_permalink($n->ID)?>" class="guide_card__card">
                                 <div class="guide_card__image">
                                     <?=get_the_post_thumbnail(get_the_ID(), 'large', array('class' => 'guide_card__img'))?>
