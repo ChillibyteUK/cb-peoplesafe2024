@@ -300,19 +300,19 @@ the_post();
                 </div>
             </div>
         </section>
-        <section class="gradient_cta py-5 bg_grad--orange">
-            <div class="gradient_cta__image" style="--bg-url:url(/wp-content/uploads/2024/06/Group-43.png)"></div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-7 offset-lg-5">
-                        <h2>Find out how you can protect your employees today</h2>
-                        <div class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis sed iusto iure omnis voluptatem, in atque id hic placeat reiciendis saepe at ullam labore facere inventore dicta molestias? Quod, neque!</div>
-                        <a href="/book-a-demo-video/" class="btn">Book a Demo Today</a>
-                    </div>
+    </div>
+    <section class="gradient_cta py-5 bg_grad--orange">
+        <div class="gradient_cta__image" style="--bg-url:url(/wp-content/uploads/2024/06/Group-43.png)"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 offset-lg-5">
+                    <h2>Find out how you can protect your employees today</h2>
+                    <div class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis sed iusto iure omnis voluptatem, in atque id hic placeat reiciendis saepe at ullam labore facere inventore dicta molestias? Quod, neque!</div>
+                    <a href="/book-a-demo-video/" class="btn">Book a Demo Today</a>
                 </div>
             </div>
-        </section>
-    </div>
+        </div>
+    </section>
 </main>
 <?php
 
