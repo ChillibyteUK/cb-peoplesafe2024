@@ -160,11 +160,12 @@ the_post();
                         }
                         ?>
                         <div class="col-lg-3 col-md-6">
-                            <a href="<?=get_the_permalink($n->ID)?>" class="guide_card__card">
+                            <a href="<?=get_the_permalink($n->ID)?>" class="guide_card">
                                 <div class="guide_card__image">
                                     <?=get_the_post_thumbnail(get_the_ID(), 'large', array('class' => 'guide_card__img'))?>
                                 </div>
                                 <h3><?=get_the_title()?></h3>
+                                <div class="card__content"><?=wp_trim_words(get_the_content($l->ID),20)?></div>
                             </a>
                         </div>
                         <?php

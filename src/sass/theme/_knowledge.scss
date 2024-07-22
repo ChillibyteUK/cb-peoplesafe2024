@@ -62,29 +62,31 @@
 }
 
 .guide_card {
-    &__card {
-        display: block;
-        background-color: var(--col-white);
-        text-decoration: none;
+    display: block;
+    background-color: var(--col-white);
+    text-decoration: none;
+    color: var(--col-black);
+    border-radius: 1rem;
+    box-shadow: var(--shadow-out);
+    transition: transform var(--transition), box-shadow var(--transition);
+    overflow: hidden;
+    height: 100%;
+    &:hover {
         color: var(--col-black);
-        border-radius: 1rem;
-        box-shadow: var(--shadow-out);
-        transition: transform var(--transition), box-shadow var(--transition);
-        overflow: hidden;
-        height: 100%;
-        &:hover {
-            color: var(--col-black);
-            transform: translateY(2px);
-            box-shadow: var(--shadow-in);
-            .guide_card__img {
-                transform: scale3d(0.85, 0.85, 1) rotateX(0) rotateZ(0) translate3d(0,-1rem,0);
-            }
+        transform: translateY(2px);
+        box-shadow: var(--shadow-in);
+        .guide_card__img {
+            transform: scale3d(0.85, 0.85, 1) rotateX(0) rotateZ(0) translate3d(0,-1rem,0);
         }
-        h3 {
-            padding: 1rem;
-            margin-bottom: 0;
-            font-size: var(--fs-600);
-        }
+    }
+    h3 {
+        padding: 1rem;
+        margin-bottom: 0;
+        font-size: var(--fs-400);
+    }
+    &__content {
+        font-size: var(--fs-200);
+        margin-bottom: 0;
     }
     &__image {
         background: var(--gradient-orange);
