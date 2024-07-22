@@ -174,10 +174,10 @@ the_post();
                         }
                         if ($left_content) {
                             // Trim the left_content to 20 words
-                            $content = wp_trim_words($left_content, 20);
+                            $content = wp_trim_words($left_content, 15);
                         } else {
                             // Fallback to regular content if no left_content was found
-                            $content = wp_trim_words(get_the_content($n->ID), 20);
+                            $content = wp_trim_words(get_the_content($n->ID), 15);
                         }
 
                         ?>
