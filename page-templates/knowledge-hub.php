@@ -163,10 +163,9 @@ the_post();
                         $blocks = parse_blocks($content);
                         $left_content = '';
                         $content = '';
-                        var_dump($blocks);
-                        
+
                         foreach ($blocks as $block) {
-                            if ($block['blockName'] === 'acf/cb_two_cols') {
+                            if ($block['blockName'] === 'acf/cb-two-columns') {
                                 // Get the left_content field from the block's inner content
                                 if (isset($block['attrs']['data']['left_content'])) {
                                     $left_content .= ' ' . $block['attrs']['data']['left_content'];
