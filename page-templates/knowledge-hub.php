@@ -158,14 +158,26 @@ the_post();
                         if (!$img) {
                             $img = catch_that_image(get_post($n->ID));
                         }
-                        $content = get_field('left_content', $n->ID);
-                        if ($content) {
-                            $content = 'ACF content';
-                            $content .= wp_trim_words($content, 20);
-                        } else {
-                            $content = 'ACF field not found';
-                            $content .= wp_trim_words(get_the_content($n->ID), 20);
+
+                        $content = get_the_content(null, false, $n->ID);
+                        $blocks = parse_blocks($content);
+                        $left_content = '';
+                        foreach ($blocks as $block) {
+                            if ($block['blockName'] === 'acf/cb-two-cols') {
+                                // Get the left_content field from the block's inner content
+                                if (isset($block['attrs']['data']['left_content'])) {
+                                    $left_content .= ' ' . $block['attrs']['data']['left_content'];
+                                }
+                            }
                         }
+                        if ($left_content) {
+                            // Trim the left_content to 20 words
+                            echo wp_trim_words($left_content, 20);
+                        } else {
+                            // Fallback to regular content if no left_content was found
+                            echo wp_trim_words(get_the_content($n->ID), 20);
+                        }
+
                         ?>
                         <div class="col-lg-3 col-md-6">
                             <a href="<?=get_the_permalink($n->ID)?>" class="guide_card">
