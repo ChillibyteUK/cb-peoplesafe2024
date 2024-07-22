@@ -203,7 +203,8 @@ the_post();
                 <h2 class="mb-0">Infographics</h2>
                 <a href="/infographics/" class="align-self-center kh_link">View all &gt;</a>
             </div>
-            <div class="infographics__slider">
+            <div class="swiper infographics__slider mb-4">
+                <div class="swiper-wrapper">
                 <?php
                 if (get_field('infographics')) {
                     $q = new WP_Query(array(
@@ -223,57 +224,22 @@ the_post();
                     $q->the_post();
                     $image = wp_get_attachment_image( get_field('file',get_the_ID()), 'large' );
                     ?>
-                <div>
-                    <a href="<?=get_the_permalink(get_field('file',get_the_ID()))?>" download class="infographics">
-                        <div class="infographics__slide">
-                            <div class="infographics__image">
-                                <?=$image?>
-                            </div>
-                            <h3><?=get_the_title()?></h3>
+                <div class="swiper-slide infographics__slide">
+                    <a href="<?=get_the_permalink(get_field('file',get_the_ID()))?>" download class="infographics__card">
+                        <div class="infographics__image">
+                            <?=$image?>
                         </div>
+                        <h3><?=get_the_title()?></h3>
                     </a>
                 </div>
                     <?php
                 }
                 // wp_reset_postdata();
                 ?>
+                </div>
+                <div class="swiper-pagination swiper-pagination-infographics"></div>
             </div>
         </section>
-<?php
-/*
-        <section class="guides pb-5">
-            <div class="h2__container">
-                <h2>Case Studies</h2>
-                <div class="h2__link"><a href="/case-studies/">View all</a></div>
-            </div>
-            <div class="row">
-                <?php
-                    $c = new WP_Query(array(
-                        'post_type' => 'case_studies',
-                        'posts_per_page' => 4,
-                        'post_status' => 'publish'
-                    ));
-                    while ($c->have_posts()) {
-                        $c->the_post();
-                        $img = get_the_post_thumbnail_url( $c->ID, 'large' );
-                        if (!$img) {
-                            $img = catch_that_image(get_post($c->ID));
-                        }
-                        ?>
-                        <div class="col-md-6 col-lg-3">
-                            <a href="<?=get_the_permalink($c->ID)?>">
-                                <div class="caseStudy__image" style="background-image:url('<?=$img?>')"></div>
-                                <h3><?=get_the_title()?></h3>
-                            </a>
-                        </div>
-                        <?php
-                    }
-                    wp_reset_postdata();
-                ?>
-            </div>
-        </section>
-*/
-?>
 
         <section class="whitepapers pb-5">
             <div class="row">
@@ -341,40 +307,54 @@ the_post();
 </main>
 <?php
 
-add_action('wp_footer',function(){
+add_action('wp_footer', function () {
     ?>
 <script>
-(function($){
-    $('.infographics__slider').slick({
-        infinite: true,
-        dots: false,
-        arrows: false,
-        slidesToShow: 4,
-        slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 4000,
-        speed: 1000,
-        cssEase: 'linear',
-        responsive: [
-            {
-                breakpoint: 992,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 1
-                }
+    document.addEventListener('DOMContentLoaded', function() {
+
+        var infographicsSlider = new Swiper('.infographics__slider', {
+            loop: true,
+            autoplay: {
+                delay: 4000,
+                disableOnInteraction: true,
             },
-            {
-                breakpoint: 576,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1
+            pagination: {
+                el: '.swiper-pagination-infographics',
+                clickable: true,
+                dynamicBullets: true,
+            },
+            slidesPerView: 1,
+            slidesPerGroup: 1,
+            spaceBetween: 18, // Adjust this value to match your design
+            breakpoints: {
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 18,
+                },
+                992: {
+                    slidesPerView: 3,
+                    spaceBetween: 18,
+                },
+                1200: {
+                    slidesPerView: 4,
+                    spaceBetween: 18,
+                },
+            },
+            on: {
+                init: function() {
+                    setEqualHeight('.infographics__slide');
+                },
+                resize: function() {
+                    setEqualHeight('.infographics__slide');
                 }
             }
-        ]
+        });
+
+        window.addEventListener('load', setEqualHeight('.infographics__slide'));
+
     });
-})(jQuery);
 </script>
-    <?php
-},9999);
+<?php
+}, 9999);
 
 get_footer();
