@@ -257,14 +257,13 @@ the_post();
                     ));
                     while ($w->have_posts()) {
                         $w->the_post();
-                        $img = get_the_post_thumbnail_url( $w->ID, 'large' );
-                        if (!$img) {
-                            $img = catch_that_image(get_post($w->ID));
-                        }
                         ?>
-                    <a href="<?=get_the_permalink($w->ID)?>">
-                        <div class="latest__image" style="background-image:url('<?=$img?>')"></div>
-                        <h3><?=get_the_title()?></h3>   
+                    <a href="<?=get_the_permalink($l->ID)?>" class="whitepapers__card h-auto">
+                        <div class="whitepapers__image">
+                            <?=get_the_post_thumbnail(get_the_ID(), 'large', array('class' => 'whitepapers__img'))?>
+                            <div class="flash flash--guide">Whitepaper</div>
+                        </div>
+                        <h3 class="mb-2"><?=get_the_title()?></h3>
                     </a>
                         <?php
                     }
@@ -285,14 +284,13 @@ the_post();
                     ));
                     while ($l->have_posts()) {
                         $l->the_post();
-                        $img = get_the_post_thumbnail_url( $l->ID, 'large' );
-                        if (!$img) {
-                            $img = catch_that_image(get_post($l->ID));
-                        }
+                        $img = get_the_post_thumbnail( $l->ID, 'large');
                         ?>
-                    <a href="<?=get_the_permalink($l->ID)?>">
-                        <div class="latest__image" style="background-image:url('<?=$img?>')"></div>
-                        <h3><?=get_the_title()?></h3>   
+                    <a href="<?=get_the_permalink($l->ID)?>" class="latest__card h-auto">
+                        <div class="latest__image">
+                            <?=get_the_post_thumbnail(get_the_ID(), 'large')?>
+                        </div>
+                        <h3 class="mb-2"><?=get_the_title()?></h3>
                     </a>
                         <?php
                     }
