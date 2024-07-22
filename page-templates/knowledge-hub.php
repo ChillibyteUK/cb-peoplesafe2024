@@ -158,6 +158,13 @@ the_post();
                         if (!$img) {
                             $img = catch_that_image(get_post($n->ID));
                         }
+                        $content = get_field('left_content', $n->ID) ?? null;
+                        if ($content) {
+                            $content = wp_trim_words($content, 20);
+                        } else {
+                            // Fallback to regular content if the ACF field is not found
+                            $content = wp_trim_words(get_the_content($n->ID), 20);
+                        }
                         ?>
                         <div class="col-lg-3 col-md-6">
                             <a href="<?=get_the_permalink($n->ID)?>" class="guide_card">
@@ -165,7 +172,7 @@ the_post();
                                     <?=get_the_post_thumbnail(get_the_ID(), 'large', array('class' => 'guide_card__img'))?>
                                 </div>
                                 <h3><?=get_the_title()?></h3>
-                                <div class="guide_card__content"><?=wp_trim_words(get_the_content($n->ID),20)?></div>
+                                <div class="guide_card__content"><?=$content?></div>
                             </a>
                         </div>
                         <?php
