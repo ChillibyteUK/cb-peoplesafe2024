@@ -23,24 +23,23 @@ get_header();
                 <?=get_field('infographics_intro', 'options')?>
             </div>
         </div>
-        <div id="infographics" class="w-100">
-            <div class="row">
+        <div id="infographics" class="infographics w-100">
+            <div class="row g-4">
                 <?php
 while (have_posts()) {
     the_post();
-    $image = wp_get_attachment_image_url(get_field('file', get_the_ID()), 'large');
-    /* <!-- <a href="<?=get_the_permalink(get_field('file', get_the_ID()))?>" class="noline" download> --> */
+    $image = wp_get_attachment_image(get_field('file', get_the_ID()), 'large');
     ?>
-                <div class="col-md-6 col-lg-4 col-xl-3 p-0">
+                <div class="col-md-6 col-lg-4 col-xl-3">
                     <a href="<?=get_the_permalink(get_the_ID())?>"
-                        class="noline">
+                        class="infographics__card">
                         <div class="infographics__slide">
-                            <div class="infographics__image"
-                                style="background-image:url(<?=$image?>)">
+                            <div class="infographics__image">
+                                <?=$image?>
                             </div>
-                            <div class="infographics__title">
+                            <h3>
                                 <?=get_the_title()?>
-                            </div>
+                            </h3>
                         </div>
                     </a>
                 </div>
