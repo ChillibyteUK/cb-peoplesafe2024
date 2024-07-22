@@ -158,12 +158,12 @@ the_post();
                         if (!$img) {
                             $img = catch_that_image(get_post($n->ID));
                         }
-                        $content = get_field('left_content', $n->ID) ?? null;
+                        $content = get_field('left_content', $n->ID);
                         if ($content) {
                             $content = wp_trim_words($content, 20);
                         } else {
-                            // Fallback to regular content if the ACF field is not found
-                            $content = wp_trim_words(get_the_content($n->ID), 20);
+                            $content = 'ACF field not found';
+                            $content .= wp_trim_words(get_the_content($n->ID), 20);
                         }
                         ?>
                         <div class="col-lg-3 col-md-6">
