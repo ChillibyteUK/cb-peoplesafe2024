@@ -21832,7 +21832,7 @@ a.text--yellow:hover {
   box-shadow: var(--shadow-in);
 }
 .guide_card__card:hover .guide_card__img {
-  transform: scale3d(0.9, 1, 1) rotateX(0) rotateZ(0) translate3d(0, -1rem, 0);
+  transform: scale3d(0.85, 0.85, 1) rotateX(0) rotateZ(0) translate3d(0, -1rem, 0);
 }
 .guide_card__card h3, .guide_card__card .h3, .guide_card__card .three_col_cards__content h2, .three_col_cards__content .guide_card__card h2, .guide_card__card .three_col_cards__content .h2, .three_col_cards__content .guide_card__card .h2 {
   padding: 1rem;
@@ -21855,7 +21855,7 @@ a.text--yellow:hover {
   mask-position: center bottom;
 }
 .guide_card__img {
-  transform: scale3d(0.75, 1, 1) rotateX(58deg) rotateY(0) rotateZ(340deg) translate3d(0, -1rem, 0) skew(0deg, 0deg);
+  transform: scale3d(0.75, 0.75, 1) rotateX(58deg) rotateY(0) rotateZ(340deg) translate3d(0, -1rem, 0) skew(0deg, 0deg);
   transition: transform var(--transition);
 }
 
