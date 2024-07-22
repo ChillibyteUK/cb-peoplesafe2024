@@ -162,6 +162,7 @@ the_post();
                         $content = get_the_content(null, false, $n->ID);
                         $blocks = parse_blocks($content);
                         $left_content = '';
+                        $content = '';
                         foreach ($blocks as $block) {
                             if ($block['blockName'] === 'acf/cb_two_cols') {
                                 // Get the left_content field from the block's inner content
