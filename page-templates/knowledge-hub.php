@@ -221,13 +221,15 @@ the_post();
 
                 while ($q->have_posts()) {
                     $q->the_post();
-                    $image = wp_get_attachment_image_url( get_field('file',get_the_ID()), 'large' );
+                    $image = wp_get_attachment_image( get_field('file',get_the_ID()), 'large' );
                     ?>
                 <div>
-                    <a href="<?=get_the_permalink(get_field('file',get_the_ID()))?>" download>
+                    <a href="<?=get_the_permalink(get_field('file',get_the_ID()))?>" download class="infographics">
                         <div class="infographics__slide">
-                            <div class="infographics__image" style="background-image:url(<?=$image?>)"></div>
-                            <div class="infographics__title"><?=get_the_title()?></div>
+                            <div class="infographics__image">
+                                <?=$image?>
+                            </div>
+                            <h3><?=get_the_title()?></h3>
                         </div>
                     </a>
                 </div>
