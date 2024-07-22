@@ -301,7 +301,7 @@ the_post();
             </div>
         </section>
         <section class="gradient_cta py-5 bg_grad--orange">
-            <div class="gradient_cta__image" style="--bg-url:url(<?=$img?>)"></div>
+            <div class="gradient_cta__image" style="--bg-url:url(/wp-content/uploads/2024/06/Group-43.png)"></div>
             <div class="container">
                 <div class="row">
                     <div class="col-lg-7 offset-lg-5">
