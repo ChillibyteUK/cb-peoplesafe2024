@@ -144,7 +144,7 @@ the_post();
                 <h2 class="mb-0">Guides</h2>
                 <a href="/guides/" class="align-self-center kh_link">View all &gt;</a>
             </div>
-            <div class="row">
+            <div class="row g-4">
                 <?php
                     $n = new WP_Query(array(
                         'post_type' => 'guides',
