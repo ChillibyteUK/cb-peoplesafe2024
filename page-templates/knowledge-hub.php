@@ -160,7 +160,8 @@ the_post();
                         }
                         $content = get_field('left_content', $n->ID);
                         if ($content) {
-                            $content = wp_trim_words($content, 20);
+                            $content = 'ACF content';
+                            $content .= wp_trim_words($content, 20);
                         } else {
                             $content = 'ACF field not found';
                             $content .= wp_trim_words(get_the_content($n->ID), 20);
