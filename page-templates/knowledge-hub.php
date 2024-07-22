@@ -185,7 +185,7 @@ the_post();
                             <a href="<?=get_the_permalink($n->ID)?>" class="guide_card">
                                 <div class="guide_card__image">
                                     <?=get_the_post_thumbnail(get_the_ID(), 'large', array('class' => 'guide_card__img'))?>
-                                    <div class="flash flash--news">Guide</div>
+                                    <div class="flash flash--guide">Guide</div>
                                 </div>
                                 <h3><?=get_the_title()?></h3>
                                 <div class="guide_card__content"><?=$content?></div>

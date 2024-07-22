@@ -21859,6 +21859,21 @@ a.text--yellow:hover {
   -webkit-mask-position: center bottom;
   mask-position: center bottom;
 }
+.guide_card .flash {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  padding: 0.5rem;
+  border-radius: 100vw;
+  text-transform: uppercase;
+  font-size: var(--fs-100);
+  font-weight: var(--fw-900);
+  line-height: 1;
+  color: var(--col-black);
+}
+.guide_card .flash--guide {
+  background-color: var(--col-orange-400);
+}
 .guide_card__img {
   transform: scale3d(0.75, 0.75, 1) rotateX(58deg) rotateY(0) rotateZ(340deg) translate3d(0, -1rem, 0) skew(0deg, 0deg);
   transition: transform var(--transition);
