@@ -165,7 +165,7 @@ the_post();
                                     <?=get_the_post_thumbnail(get_the_ID(), 'large', array('class' => 'guide_card__img'))?>
                                 </div>
                                 <h3><?=get_the_title()?></h3>
-                                <div class="card__content"><?=wp_trim_words(get_the_content($n->ID),20)?></div>
+                                <div class="guide_card__content"><?=wp_trim_words(get_the_content($n->ID),20)?></div>
                             </a>
                         </div>
                         <?php
