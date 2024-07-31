@@ -243,7 +243,7 @@ the_post();
 
         <section class="whitepapers pb-5">
             <div class="row">
-                <div class="col-lg-6">
+                <div class="col-md-6">
                     <div class="d-flex justify-content-between align-content-center mb-4">
                         <h2 class="mb-0">Whitepapers</h2>
                         <a href="/whitepapers/" class="align-self-center kh_link">View all &gt;</a>
@@ -261,7 +261,6 @@ the_post();
                     <a href="<?=get_the_permalink($l->ID)?>" class="whitepapers__card h-auto">
                         <div class="whitepapers__image">
                             <?=get_the_post_thumbnail(get_the_ID(), 'large', array('class' => 'whitepapers__img'))?>
-                            <div class="flash flash--guide">Whitepaper</div>
                         </div>
                         <h3 class="mb-2"><?=get_the_title()?></h3>
                     </a>
@@ -270,7 +269,7 @@ the_post();
                     wp_reset_postdata();
                     ?>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-md-6">
                     <div class="d-flex justify-content-between align-content-center mb-4">
                         <h2 class="mb-0">Video</h2>
                         <a href="/video/" class="align-self-center kh_link">View all &gt;</a>
@@ -287,8 +286,8 @@ the_post();
                         // $img = get_the_post_thumbnail( $l->ID, 'large');
                         $img = get_vimeo_data_from_id(get_field('vimeo_id', get_the_ID()), 'thumbnail_url') ?: get_stylesheet_directory_uri() . '/img/ps-logo-placeholder.png';
                         ?>
-                    <a href="<?=get_the_permalink($l->ID)?>" class="latest__card h-auto">
-                        <div class="latest__image">
+                    <a href="<?=get_the_permalink($l->ID)?>" class="video__card h-auto">
+                        <div class="video__image">
                             <img src="<?=$img?>" alt="">
                         </div>
                         <h3 class="mb-2"><?=get_the_title()?></h3>
