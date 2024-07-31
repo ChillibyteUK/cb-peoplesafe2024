@@ -55,7 +55,7 @@
                     <?php
                     if (get_sub_field('link')) {
                         ?>
-                    <div class="text-right"><a href="<?=get_the_permalink(get_sub_field('link')[0])?>">Read more</a></div>
+                    <div class="text-right"><a href="<?=get_the_permalink(get_sub_field('link')[0])?>">Read More</a></div>
                         <?php
                     }
                     ?>

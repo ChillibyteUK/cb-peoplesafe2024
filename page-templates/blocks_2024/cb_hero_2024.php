@@ -37,7 +37,7 @@
 					// <a href="/contact-us/" class="btn btn-primary">Book Demo</a>
                 }
                 if (get_field('brochure')) {
-                    echo '<a href="' . get_field('brochure') . '" target="_blank" class="button button-outline">Download brochure</a>';
+                    echo '<a href="' . get_field('brochure') . '" target="_blank" class="button button-outline">Download Brochure</a>';
                 }
 
                 if (get_field('ebook')) {

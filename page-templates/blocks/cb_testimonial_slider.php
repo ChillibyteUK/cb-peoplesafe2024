@@ -26,7 +26,7 @@ foreach (get_field('case_studies') as $c) {
             <div class="col-md-9">
                 <div class="text-center h3"><?=get_the_title($c)?></div>
                 <div class="big_quote__quote fs-8"><?=apply_filters('the_content',$quote)?></div>
-                <div class="big_quote__link"><a href="<?=get_the_permalink($c)?>">Read more</a></div>
+                <div class="big_quote__link"><a href="<?=get_the_permalink($c)?>">Read More</a></div>
             </div>
         </div>
     </div>

@@ -117,7 +117,7 @@ function jobs_func2022($atts)
                     </div>
                     <div class="job__intro">
                         <?=wp_trim_words(get_field('banner'), 20)?>
-						<div class="job__link">Read more</div>
+						<div class="job__link">Read More</div>
                     </div>
                 </div>
                 <div class="col-md-5 job__image"

@@ -16,6 +16,7 @@
     padding: calc(var(--_padding-inline) + var(--_button-border)) calc(var(--_padding-block) + var(--_button-border));
     border: none;
     color: black;
+    transition: color var(--transition);
     position: relative;
     overflow: hidden;
     isolation: isolate;
@@ -34,8 +35,8 @@
         background-color: var(--col-orange-400);
         transition: width var(--transition);
         transform: translateX(-50%);
-        z-index: 0;
         border-radius: inherit;
+        z-index: -1;
     }
     &:hover {
         color: white;

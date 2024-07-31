@@ -146,7 +146,7 @@ function recent_posts($post)
                             <div class="news__inner">
                                 <div class="news__date"><?=get_the_date()?></div>
                                 <div class="news__title"><?=get_the_title()?></div>
-                                <div class="news__link">Read more</div>
+                                <div class="news__link">Read More</div>
                             </div>
                         </a>
                     </div>
@@ -217,7 +217,7 @@ function related_posts() {
                             <div class="news__inner">
                                 <div class="news__date"><?=get_the_date()?></div>
                                 <div class="news__title"><?=get_the_title()?></div>
-                                <div class="news__link">Read more</div>
+                                <div class="news__link">Read More</div>
                             </div>
                         </a>
                     </div>
@@ -268,7 +268,7 @@ function related_posts_by_cat($cat_id) {
                             <div class="news__inner">
                                 <div class="news__date"><?=get_the_date()?></div>
                                 <div class="news__title"><?=get_the_title()?></div>
-                                <div class="news__link">Read more</div>
+                                <div class="news__link">Read More</div>
                             </div>
                         </a>
                     </div>
@@ -367,7 +367,7 @@ function recent_projects() {
                                 <div class="news__title"><a href="<?=get_the_permalink()?>"><?=get_the_title()?></a></div>
                                 <div class="news__date"><?=get_the_date('j M, Y')?></div>
                                 <div class="news__intro"><?=wp_trim_words(get_the_content(),30)?></div>
-                                <div class="news__link"><a href="<?=get_the_permalink()?>">Read more</a></div>
+                                <div class="news__link"><a href="<?=get_the_permalink()?>">Read More</a></div>
                             </div>
                         </div>
                     </div>
@@ -411,7 +411,7 @@ function latest_projects() {
                         <a href="<?=get_the_permalink()?>">
                             <img src="<?=$img?>" class="img-fluid">
                             <div class="project__title"><?=get_the_title()?></div>
-                            <div class="project__link">Read more +</div>
+                            <div class="project__link">Read More +</div>
                         </a>
                     </div>
                     <?php
@@ -457,7 +457,7 @@ function latest_tips() {
                         <a href="<?=get_the_permalink()?>">
                             <img src="<?=$img?>" class="img-fluid">
                             <div class="project__title"><?=get_the_title()?></div>
-                            <div class="project__link">Read more +</div>
+                            <div class="project__link">Read More +</div>
                         </a>
                     </div>
                     <?php
