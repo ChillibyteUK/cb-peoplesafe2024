@@ -19,11 +19,12 @@ $title = get_field('title') ?: 'Protection you can count on';
                         $endval = get_sub_field('stat');
                         $endval = preg_replace('/,/', '.', $endval);
                         $decimals = strlen(substr(strrchr($endval, "."), 1));
-                        $suffix = get_sub_field('suffix');
+                        $prefix = get_sub_field('prefix') ?? null;
+                        $suffix = get_sub_field('suffix') ?? null;
                         ?>
                     <div class="stat__stat">
                         <div class="stat__value text-orange">
-                            <?=do_shortcode("[countup start='0' end='{$endval}' decimals='{$decimals}' duration='3' scroll='true']")?><?=$suffix?>
+                            <?=$prefix?><?=do_shortcode("[countup start='0' end='{$endval}' decimals='{$decimals}' duration='3' scroll='true']")?><?=$suffix?>
                         </div>
                         <div class="stat__qualifier">
                             <?=get_sub_field('title')?>

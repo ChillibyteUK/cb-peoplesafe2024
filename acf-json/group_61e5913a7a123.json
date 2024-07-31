@@ -88,6 +88,27 @@
             "rows_per_page": 20,
             "sub_fields": [
                 {
+                    "key": "field_66aa41d004107",
+                    "label": "Prefix",
+                    "name": "prefix",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "10",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_61e5914f8581c"
+                },
+                {
                     "key": "field_61e591908581d",
                     "label": "Value",
                     "name": "stat",
@@ -194,5 +215,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1722433722
+    "modified": 1722434024
 }
