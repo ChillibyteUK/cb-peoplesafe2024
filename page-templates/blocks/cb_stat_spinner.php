@@ -1,15 +1,17 @@
 <?php
 $class = $block['className'] ?? 'pt-5';
+$img = get_field('image') ?: get_stylesheet_directory_uri() . '/img/2024/cutouts/cutout4.png';
+$title = get_field('title') ?: 'Protection you can count on';
 ?>
 <section class="stat_spinner <?=$class?>">
     <div class="container-xl">
         <div class="row g-5">
             <div class="col-md-4 order-2 order-md-1">
-                <img src="<?=get_stylesheet_directory_uri()?>/img/2024/cutouts/cutout4.png"
+                <img src="<?=$img?>"
                     alt="">
             </div>
             <div class="col-md-8 order-1 order-md-2">
-                <h3>Protection you can count on</h3>
+                <h3><?=$title?></h3>
                 <div class="stats">
                     <?php
                     while (have_rows('spinner_stats')) {
