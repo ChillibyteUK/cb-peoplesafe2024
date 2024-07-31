@@ -1,8 +1,9 @@
 .accreditation {
     text-align: center;
     a {
-        color: $black;
+        color: var(--col-greyish);
         text-decoration: none;
+        font-weight: var(--fw-400);
     }
     &__image {
         width: 100%;

@@ -20589,6 +20589,8 @@ readers do not read off random characters that represent icons */
   --col-orange-400: #DF4305;
   --col-pink-400: #DE007D;
   --col-blue-200: #D5E1E5;
+  --col-greyish: #343432
+  $ps-teal: #0484A1;
   --gradient-pink: linear-gradient( var(--col-pink-400), var(--col-orange-400) );
   --gradient-orange: linear-gradient( var(--col-orange-400), var(--col-yellow-400) );
   --gradient-blue: linear-gradient( var(--col-blue-400), var(--col-teal-400) );
@@ -21985,8 +21987,9 @@ a.text--yellow:hover {
   text-align: center;
 }
 .accreditation a {
-  color: hsl(60, 2%, 20%);
+  color: var(--col-greyish);
   text-decoration: none;
+  font-weight: var(--fw-400);
 }
 .accreditation__image {
   width: 100%;
