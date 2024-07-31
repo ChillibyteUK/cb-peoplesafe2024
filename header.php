@@ -280,6 +280,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                 <div class="item__desc">Entry level solution for low-risk workers</div>
                             </div>
                         </a>
+                        <a class="item" href="/products/cat-phones/">
+                            <img class="item__image" src="<?=get_stylesheet_directory_uri()?>/img/2024/products/CatPhone.png">
+                            <div class="item__inner">
+                                <div class="item__title">Cat Phone</div>
+                                <div class="item__desc">Protect workers even in the harshest environments</div>
+                            </div>
+                        </a>
                     </div>
                     <div class="w-50 ms-auto">
                         <a href="/products/" class="products-link"><span>View all products</span><i class="fa-solid fa-arrow-right"></i></a>
