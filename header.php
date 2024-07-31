@@ -415,11 +415,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             <div class="item__desc">Lorem ipsum dolor sit amet</div>
                         </div>
                     </a>
-                    <a class="item" href="/legislation/">
-                        <img class="item__icon" src="<?=get_stylesheet_directory_uri()?>/img/2024/icons/legislation.png">
+                    <a class="item" href="/video/">
+                        <img class="item__icon" src="<?=get_stylesheet_directory_uri()?>/img/2024/icons/videos.png">
                         <div class="item__inner">
-                            <div class="item__title">Legislation Information</div>
-                            <div class="item__desc">Up-to-date legislation information</div>
+                            <div class="item__title">Video</div>
+                            <div class="item__desc">Lorem ipsum dolor sit amet</div>
                         </div>
                     </a>
                     <a class="item" href="/brochures/">
