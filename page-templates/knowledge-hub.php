@@ -272,19 +272,20 @@ the_post();
                 </div>
                 <div class="col-lg-6">
                     <div class="d-flex justify-content-between align-content-center mb-4">
-                        <h2 class="mb-0">Legislation Information</h2>
-                        <a href="/legislation/" class="align-self-center kh_link">View all &gt;</a>
+                        <h2 class="mb-0">Video</h2>
+                        <a href="/video/" class="align-self-center kh_link">View all &gt;</a>
                     </div>
                     <?php
                     $l = new WP_Query(array(
-                        'post_type' => 'legislation',
+                        'post_type' => 'video',
                         'posts_per_page' => 1,
                         'post_status' => 'publish',
                         'post__not_in' => get_field('hidden_posts','options')
                     ));
                     while ($l->have_posts()) {
                         $l->the_post();
-                        $img = get_the_post_thumbnail( $l->ID, 'large');
+                        // $img = get_the_post_thumbnail( $l->ID, 'large');
+                        $img = get_vimeo_data_from_id(get_field('vimeo_id', get_the_ID()), 'thumbnail_url') ?: get_stylesheet_directory_uri() . '/img/ps-logo-placeholder.png';
                         ?>
                     <a href="<?=get_the_permalink($l->ID)?>" class="latest__card h-auto">
                         <div class="latest__image">
