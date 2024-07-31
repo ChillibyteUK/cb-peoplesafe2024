@@ -283,7 +283,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <a class="item" href="/products/cat-phones/">
                             <img class="item__image" src="<?=get_stylesheet_directory_uri()?>/img/2024/products/CatPhone.png">
                             <div class="item__inner">
-                                <div class="item__title">Cat Phone</div>
+                                <div class="item__title">Cat Phones</div>
                                 <div class="item__desc">Protect workers even in the harshest environments</div>
                             </div>
                         </a>
