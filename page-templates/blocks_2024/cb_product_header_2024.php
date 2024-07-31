@@ -41,12 +41,12 @@
 					// <a href="/contact-us/" class="btn btn-primary">Book Demo</a>
                 }
                 if (get_field('brochure')) {
-                    echo '<a href="' . get_field('brochure') . '" target="_blank" class="button button-outline">Download product brochure</a>';
+                    echo '<a href="' . get_field('brochure') . '" target="_blank" class="button button-outline">Download Product Brochure</a>';
                 }
 
                 if (get_field('ebook')) {
 					// https://insights.peoplesafe.co.uk/story/peoplesafe-alert-e-book/
-                    echo ' <a href="' . get_field('ebook') . '" target="_blank" class="button button-outline">Download product e-book</a>';
+                    echo ' <a href="' . get_field('ebook') . '" target="_blank" class="button button-outline">Download Product e-book</a>';
                 }
                 ?>
             </div>
