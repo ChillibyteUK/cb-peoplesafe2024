@@ -36,7 +36,7 @@
                 }
                 if (get_field('hide_cta')[0] != 'Yes') {
                     ?>
-				<button type="button" class="button button-outline me-3" data-bs-toggle="modal" data-bs-target="#demoModal">Book a Demo</button>
+				<button type="button" class="button button-yellow me-3" data-bs-toggle="modal" data-bs-target="#demoModal">Book a Demo</button>
                     <?php
 					// <a href="/contact-us/" class="btn btn-primary">Book Demo</a>
                 }
