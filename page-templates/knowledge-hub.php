@@ -289,7 +289,7 @@ the_post();
                         ?>
                     <a href="<?=get_the_permalink($l->ID)?>" class="latest__card h-auto">
                         <div class="latest__image">
-                            <?=get_the_post_thumbnail(get_the_ID(), 'large')?>
+                            <?=$img?>
                         </div>
                         <h3 class="mb-2"><?=get_the_title()?></h3>
                     </a>
