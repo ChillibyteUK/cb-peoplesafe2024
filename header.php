@@ -412,14 +412,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <img class="item__icon" src="<?=get_stylesheet_directory_uri()?>/img/2024/icons/whitepapers.png">
                         <div class="item__inner">
                             <div class="item__title">Whitepapers</div>
-                            <div class="item__desc">Lorem ipsum dolor sit amet</div>
+                            <div class="item__desc">Thought leadership research</div>
                         </div>
                     </a>
                     <a class="item" href="/video/">
                         <img class="item__icon" src="<?=get_stylesheet_directory_uri()?>/img/2024/icons/videos.png">
                         <div class="item__inner">
                             <div class="item__title">Video</div>
-                            <div class="item__desc">Lorem ipsum dolor sit amet</div>
+                            <div class="item__desc">Watch our latest content</div>
                         </div>
                     </a>
                     <a class="item" href="/brochures/">
