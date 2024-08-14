@@ -43,21 +43,21 @@ function contact_email() {
 add_shortcode('social_in_icon', function () {
     $s = get_field('social','options') ?? null;
     if ($s['linkedin_url'] ?? null) {
-        return '<a href="' . get_field('linkedin_url', 'options') . '" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>';
+        return '<a href="' . $s['linkedin_url'] . '" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>';
     }
     return;
 });
 add_shortcode('social_yt_icon', function () {
     $s = get_field('social','options') ?? null;
     if ($s['youtube_url'] ?? null) {
-    return '<a href="' . get_field('youtube_url', 'options') . '" target="_blank"><i class="fa-brands fa-youtube"></i></a>';
+        return '<a href="' . $s['youtube_url'] . '" target="_blank"><i class="fa-brands fa-youtube"></i></a>';
     }
     return;
 });
 add_shortcode('social_tw_icon', function () {
     $s = get_field('social','options') ?? null;
     if ($s['twitter_url'] ?? null) {
-        return '<a href="' . get_field('twitter_url', 'options') . '" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>';
+        return '<a href="' . $s['twitter_url'] . '" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>';
     }
     return;
 });
