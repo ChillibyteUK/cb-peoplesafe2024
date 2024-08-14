@@ -14,7 +14,7 @@ $vid_margin = get_field('vid_title') == '' ? 'py-auto' : '';
 ?>    
 <!-- text_video -->
 <section class="text_video py-5 bg--<?=$theme?>">
-    <div class="container">
+    <div class="container-xl">
         <?php
         if (get_field('vid_title')){
             ?>

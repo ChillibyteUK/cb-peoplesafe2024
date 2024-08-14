@@ -19,9 +19,9 @@ $extra_classes = get_field('extra_classes');
         </h1>
         <?php
         }?>
-        <div class="row">
+        <div class="row g-4">
             <div
-                class="<?=$cols_text?> text_video_2024__content my-auto <?=$order_text?>">
+                class="<?=$cols_text?> text_video_2024__content py-auto <?=$order_text?>">
                 <?php
                 if (get_field('pre_title') ?? null) {
                     echo '<div class="fs-400 fw-900 text-blue mb-3">' . get_field('pre_title') . '</div>';
@@ -39,7 +39,7 @@ if (get_field('cta')) {
 ?>
             </div>
             <div
-                class="<?=$cols_image?> text_video_2024__container my-auto text-center <?=$order_image?>">
+                class="<?=$cols_image?> text_video_2024__container py-auto text-center <?=$order_image?>">
                 <div class="position-relative pointer">
                     <?php
     if (get_field('video_provider') == 'Vimeo') {
