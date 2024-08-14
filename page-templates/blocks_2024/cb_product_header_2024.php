@@ -32,21 +32,21 @@
                 <div class="product__intro mb-4"><?=get_field('intro')?></div>
                 <?php
                 if (get_field('buy_now')) {
-                    echo '<a href="' . get_field('buy_now') . '" class="button button-yellow me-3 mr-3"><span>Buy Now</span></a>';
+                    echo '<a href="' . get_field('buy_now') . '" class="w-100 w-md-auto mb-2 mb-md-0 button button-yellow me-3 mr-3"><span>Buy Now</span></a>';
                 }
                 if (get_field('hide_cta')[0] != 'Yes') {
                     ?>
-				<button type="button" class="button button-yellow me-3" data-bs-toggle="modal" data-bs-target="#demoModal">Book a Demo</button>
+				<button type="button" class="w-100 w-md-auto mb-2 mb-md-0 button button-yellow me-3" data-bs-toggle="modal" data-bs-target="#demoModal">Book a Demo</button>
                     <?php
 					// <a href="/contact-us/" class="btn btn-primary">Book Demo</a>
                 }
                 if (get_field('brochure')) {
-                    echo '<a href="' . get_field('brochure') . '" target="_blank" class="button button-outline">Download Product Brochure</a>';
+                    echo '<a href="' . get_field('brochure') . '" target="_blank" class="w-100 w-md-auto mb-2 mb-md-0 button button-outline">Download Product Brochure</a>';
                 }
 
                 if (get_field('ebook')) {
 					// https://insights.peoplesafe.co.uk/story/peoplesafe-alert-e-book/
-                    echo ' <a href="' . get_field('ebook') . '" target="_blank" class="button button-outline">Download Product e-book</a>';
+                    echo ' <a href="' . get_field('ebook') . '" target="_blank" class="w-100 w-md-auto mb-2 mb-md-0 button button-outline">Download Product e-book</a>';
                 }
                 ?>
             </div>

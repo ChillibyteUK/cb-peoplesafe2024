@@ -344,3 +344,9 @@ li {
         min-height: 4rem;
     }
 }
+
+.w-md-auto {
+    @media (min-width:768px) {
+        width: auto !important;
+    }
+}

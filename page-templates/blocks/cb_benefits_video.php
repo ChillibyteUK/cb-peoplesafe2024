@@ -1,7 +1,7 @@
 <?php
 $order_image = (get_field('order') == 'text_left') ? 'order-1 order-lg-2' : 'order-1 order-lg-1';
 $order_text = (get_field('order') == 'text_left') ? 'order-2 order-lg-1' : 'order-2 order-lg-2';
-$modal = random_str(8);
+$modal = 'x' . random_str(8);
 
 $cols_text = 'col-lg-6';
 $cols_image = 'col-lg-6';

@@ -48,7 +48,7 @@
             </div>
             <div class="swiper-pagination swiper-pagination-news"></div>
         </div>
-        <div class="text-center"><a href="#" class="button button-outline">View All Articles</a></div>
+        <div class="text-center"><a href="/resources/" class="button button-outline">View All Articles</a></div>
     </div>
 </section>
 <?php

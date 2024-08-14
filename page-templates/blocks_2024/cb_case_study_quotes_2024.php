@@ -6,7 +6,7 @@
                 <div class="fs-300 text-blue fw-900 mb-3">Case Studies</div>
                 <h2>Hear directly from our customers</h2>
                 <p>Don’t just take it from us. Explore what our customers have to say about their experience with Peoplesafe's employee protection services and how it's helped keep their people safe.</p>
-                <a href="#" class="button button-outline">View all Case Studies</a>
+                <a href="/case-studies/" class="button button-outline">View all Case Studies</a>
             </div>
             <div class="col-lg-7">
                 <div class="quotes_slider">

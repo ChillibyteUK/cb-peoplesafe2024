@@ -24687,6 +24687,12 @@ li {
   min-height: 4rem;
 }
 
+@media (min-width: 768px) {
+  .w-md-auto {
+    width: auto !important;
+  }
+}
+
 .has-blue-color,
 .has-blue-color:visited {
   color: #0d6efd;
