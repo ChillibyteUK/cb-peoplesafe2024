@@ -23397,6 +23397,7 @@ ul.ps-check li::before {
 
 header {
   position: relative;
+  z-index: 999;
 }
 header::before {
   content: "";
@@ -23407,7 +23408,7 @@ header::before {
   height: 98px;
   background-color: transparent;
   transition: background-color var(--transition);
-  z-index: 9999;
+  z-index: 999;
 }
 header.scrolled::before {
   background-color: #fff;
@@ -23418,7 +23419,7 @@ nav {
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 9999;
+  z-index: 999;
 }
 nav .navbar {
   display: flex;

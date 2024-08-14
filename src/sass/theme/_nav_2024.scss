@@ -1,5 +1,6 @@
 header {
   position: relative;
+  z-index: 999;
   &::before {
     content: "";
     position: fixed;
@@ -9,7 +10,7 @@ header {
     height: 98px;
     background-color: transparent;
     transition: background-color var(--transition);
-    z-index: 9999;
+    z-index: 999;
   }
   &.scrolled::before {
     background-color: #fff;
@@ -21,7 +22,7 @@ nav {
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: 9999;
+    z-index: 999;
 
 
     .navbar {
