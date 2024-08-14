@@ -32,17 +32,17 @@
                 <?php
                 if (get_field('hide_cta')[0] != 'Yes') {
                     ?>
-				<button type="button" class="button button-yellow me-3" data-bs-toggle="modal" data-bs-target="#demoModal">Book a Demo</button>
+				<button type="button" class="button button-yellow text-center me-3 w-100 w-md-auto" data-bs-toggle="modal" data-bs-target="#demoModal">Book a Demo</button>
                     <?php
 					// <a href="/contact-us/" class="btn btn-primary">Book Demo</a>
                 }
                 if (get_field('brochure')) {
-                    echo '<a href="' . get_field('brochure') . '" target="_blank" class="button button-outline">Download Brochure</a>';
+                    echo '<a href="' . get_field('brochure') . '" target="_blank" class="button button-outline text-center me-3 w-100 w-md-auto">Download Brochure</a>';
                 }
 
                 if (get_field('ebook')) {
 					// https://insights.peoplesafe.co.uk/story/peoplesafe-alert-e-book/
-                    echo ' <a href="' . get_field('ebook') . '" target="_blank" class="button button-outline">Download e-book</a>';
+                    echo ' <a href="' . get_field('ebook') . '" target="_blank" class="button button-outline text-center me-3 w-100 w-md-auto">Download e-book</a>';
                 }
                 ?>
             </div>
