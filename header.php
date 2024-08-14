@@ -147,8 +147,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <a class="toggle" aria-controls="dropdownPlatform" data-href="/platform/">Platform</a>
                 <a class="toggle" aria-controls="dropdownKnowledge" data-href="/knowledge/">Knowledge Hub</a>
                 <div class="navbar__extras me-xl-2">
-                    <a href="#">Support</a>
-                    <a href="#">Login</a>
+                    <a class="toggle" aria-controls="dropdownSupport" data-href="/support/">Support</a>
+                    <a href="/portal-login/">Login</a>
                     <span role="button" data-bs-toggle="modal" data-bs-target="#demoModal" class="button button-yellow mb-2"><span>Book a Demo</span></span>
                 </div>
             </div>
@@ -447,6 +447,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <div class="w-50 ms-auto">
                     <a href="/resources/" class="knowledge-link"><span>View all Knowledge Hub</span><i class="fa-solid fa-arrow-right"></i></a>
                 </div>
+            </div>
+            
+            <div id="dropdownSupport" class="dropdownMenu">
+                <ul>
+                    <li><a href="https://nexussupport.peoplesafe.co.uk/hc/en-gb" target="_blank">Helpcentre</a></li>
+                    <li><a href="/service-status/">Service Status</a></li>
+                    <li><a href="/contact-us/">Contact Us</a></li>
+                    <li><a href="/portal-login/">Portal Login</a></li>
+                </ul>
             </div>
         </div>
     </div>
