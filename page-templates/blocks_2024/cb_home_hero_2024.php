@@ -20,25 +20,25 @@ $bg = null;
                     <?php
                     if (get_field('cta_book_a_demo')) {
                         ?>
-                    <button type="button" class="button button-yellow mb-2 me-2" data-bs-toggle="modal" data-bs-target="#demoModal"><span>Book a Demo</span></button>
+                    <button type="button" class="button button-yellow mb-2 me-2 text-center w-100 w-md-auto" data-bs-toggle="modal" data-bs-target="#demoModal"><span>Book a Demo</span></button>
                         <?php
                     }
                     else if (get_field('cta')) {
                         $cta = get_field('cta');
                         ?>
-                    <a class="button button-yellow mb-2 me-2" href="<?=$cta['url']?>" target="<?=$cta['target']?>"><span><?=$cta['title']?></span></a>
+                    <a class="button button-yellow mb-2 me-2 text-center w-100 w-md-auto" href="<?=$cta['url']?>" target="<?=$cta['target']?>"><span><?=$cta['title']?></span></a>
                         <?php
                     }
                     if (get_field('cta2')) {
                         $cta2 = get_field('cta2');
                         ?>
-                    <a class="button button-outline mb-2 me-2" href="<?=$cta2['url']?>" target="<?=$cta2['target']?>"><?=$cta2['title']?></a>
+                    <a class="button button-outline mb-2 me-2 text-center w-100 w-md-auto" href="<?=$cta2['url']?>" target="<?=$cta2['target']?>"><?=$cta2['title']?></a>
                         <?php
                     }
                     if (get_field('modal_cta') != '') {
                         $id = get_field('modal_cta');
                         ?>
-                    <button type="button" class="button button-yellow mb-2" data-bs-toggle="modal" data-bs-target="#<?=$id?>"><span>Watch Video</span></button>
+                    <button type="button" class="button button-yellow mb-2 text-center w-100 w-md-auto" data-bs-toggle="modal" data-bs-target="#<?=$id?>"><span>Watch Video</span></button>
                         <?php
                     }
                     ?>
