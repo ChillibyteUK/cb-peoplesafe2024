@@ -9,7 +9,7 @@ $cols_image = 'col-lg-6';
 $theme = get_field('theme');
 $iconTheme = get_field('icon_theme');
 
-$vid_margin = get_field('vid_title') == '' ? 'my-auto' : '';
+$vid_margin = get_field('vid_title') == '' ? 'py-auto' : '';
 
 ?>    
 <!-- text_video -->
@@ -21,8 +21,8 @@ $vid_margin = get_field('vid_title') == '' ? 'my-auto' : '';
             <h1 class="h2 mb-5"><?=get_field('vid_title')?></h1>
             <?php
         }?>
-        <div class="row">
-            <div class="<?=$cols_text?> text_video__content my-auto <?=$order_text?>">
+        <div class="row g-4">
+            <div class="<?=$cols_text?> text_video__content py-auto <?=$order_text?>">
                 <div class="bg_grad--<?=$iconTheme?> h3 p-3">Key benefits</div>
                 <?php
                 while(have_rows('icon_usps')) {

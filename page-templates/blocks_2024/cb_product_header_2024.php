@@ -20,7 +20,7 @@
                 <div class="product_header_2024__imgbg"></div>
                 <img src="<?=get_the_post_thumbnail_url(get_the_ID(),'full')?>" class="product_header_2024__img">
             </div>
-            <div class="col-md-8 order-md-1 my-auto">
+            <div class="col-md-8 order-md-1 py-auto">
                 <h1><?php
                 if (get_field('alt_title')) {
                     echo get_field('alt_title');

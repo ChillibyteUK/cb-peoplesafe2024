@@ -9,9 +9,9 @@ $cols_image = (get_field('split') == '5050' || get_field('split') == '') ? 'col-
 <!-- text_image -->
 <section class="text_image py-5 <?=$theme?>">
     <div class="container-xl">
-        <div class="row">
+        <div class="row g-4">
             <div
-                class="<?=$cols_text?> text_image__content my-auto <?=$order_text?>">
+                class="<?=$cols_text?> text_image__content py-auto <?=$order_text?>">
                 <?php
                 if (get_field('pre_title') ?? null) {
                     echo '<div class="fs-300 fw-900 text-blue mb-3">' . get_field('pre_title') . '</div>';
@@ -29,7 +29,7 @@ if (get_field('cta')) {
 ?>
             </div>
             <div
-                class="<?=$cols_image?> text-center my-auto <?=$order_image?>">
+                class="<?=$cols_image?> text-center py-auto <?=$order_image?>">
                 <?=wp_get_attachment_image(get_field('image'), 'large', false, array('class' => 'text_image__image'))?>
             </div>
         </div>
