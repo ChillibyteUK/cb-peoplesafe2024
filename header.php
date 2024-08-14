@@ -120,13 +120,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <?php
 do_action('wp_body_open'); 
 
-if (get_field('gtm_property','options')) {
-    ?>
+if (get_field('gtm_property', 'options')) {
+    if (!is_user_logged_in()) {
+        ?>
 <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=<?=get_field('ga_property', 'options')?>"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<noscript><iframe
+        src="https://www.googletagmanager.com/ns.html?id=<?=get_field('gtm_property', 'options')?>"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
-    <?php
+        <?php
+    }
 }
 ?>
 <div class="site" id="page">
