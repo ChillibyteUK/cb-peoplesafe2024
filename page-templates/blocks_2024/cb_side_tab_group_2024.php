@@ -1,5 +1,5 @@
 <?php
-$i = random_str(4);
+$i = 'x' . random_str(4);
 $tab1Link = get_field('tab_1_link') ?? null;
 $tab2Link = get_field('tab_2_link') ?? null;
 $tab3Link = get_field('tab_3_link') ?? null;
