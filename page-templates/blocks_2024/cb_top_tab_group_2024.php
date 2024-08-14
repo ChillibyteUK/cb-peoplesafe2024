@@ -2,7 +2,7 @@
     <div class="container-xl">
         <div class="top_tab_group_2024__inner">
             <?php
-            $i = random_str(4);
+            $i = 'x' . random_str(4);
             $active = 'active';
             $c = 1;
             while (have_rows('tabs')) {
