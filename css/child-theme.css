@@ -23661,17 +23661,20 @@ nav #dropdownProducts {
   width: 800px;
   margin-left: 320px;
 }
-nav #dropdownPlatform {
+nav #dropdownPlatform,
+nav #dropdownSupport {
   width: 200px;
   margin-left: 420px;
   padding: 1rem;
 }
-nav #dropdownPlatform ul {
+nav #dropdownPlatform ul,
+nav #dropdownSupport ul {
   list-style: none;
   padding-inline-start: 0;
   margin-bottom: 0;
 }
-nav #dropdownPlatform a {
+nav #dropdownPlatform a,
+nav #dropdownSupport a {
   font-weight: var(--fw-900);
   color: var(--col-black);
   text-decoration: none;
@@ -23679,11 +23682,16 @@ nav #dropdownPlatform a {
   display: block;
   padding-block: 0.2rem;
 }
-nav #dropdownPlatform a:hover {
+nav #dropdownPlatform a:hover,
+nav #dropdownSupport a:hover {
   color: var(--col-blue-400);
 }
-nav #dropdownPlatform.active {
+nav #dropdownPlatform.active,
+nav #dropdownSupport.active {
   display: block;
+}
+nav #dropdownSupport {
+  margin-left: 800px;
 }
 nav #dropdownKnowledge {
   width: 600px;

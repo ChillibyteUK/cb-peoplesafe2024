@@ -270,7 +270,8 @@ nav {
       width: 800px;
       margin-left: 320px;
     }
-    #dropdownPlatform {
+    #dropdownPlatform,
+    #dropdownSupport {
       width: 200px;
       margin-left: 420px;
       padding: 1rem;
@@ -293,6 +294,9 @@ nav {
       &.active {
         display: block;
       }
+    }
+    #dropdownSupport {
+      margin-left: 800px;
     }
     #dropdownKnowledge {
       width: 600px;
