@@ -24431,6 +24431,12 @@ body {
   background-size: 100%;
   background-repeat: repeat-y;
 }
+@media (max-width: 768px) {
+  body {
+    background-size: 200%;
+    background-position: center;
+  }
+}
 
 a.anchor {
   display: block;

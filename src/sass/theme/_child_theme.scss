@@ -45,6 +45,10 @@ html {
 
 body {
     background-image: url(../img/background.svg);
+    @media (max-width:768px) {
+        background-size: 200%;
+        background-position: center;
+    }
     background-size: 100%;
     background-repeat: repeat-y;
 }
