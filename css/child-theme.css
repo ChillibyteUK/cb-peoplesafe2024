@@ -20595,7 +20595,7 @@ readers do not read off random characters that represent icons */
   --gradient-orange: linear-gradient( var(--col-orange-400), var(--col-yellow-400) );
   --gradient-blue: linear-gradient( var(--col-blue-400), var(--col-teal-400) );
   --gradient-green: linear-gradient( var(--col-teal-400), var(--col-blue-400) );
-  --fs-900: 72px;
+  --fs-900: clamp(56px, calc(3.5rem + ((1vw - 7.68px) * 1.3889)), 72px);
   --fs-800: 56px;
   --fs-700: 40px;
   --fs-600: 24px;

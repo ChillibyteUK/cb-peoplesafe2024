@@ -23,7 +23,9 @@
 
     --gradient-green: linear-gradient( var(--col-teal-400), var(--col-blue-400) );
 
-    --fs-900: 72px; // huge title
+    // --fs-900: 72px; // huge title
+    --fs-900: clamp(56px, calc(3.5rem + ((1vw - 7.68px) * 1.3889)), 72px);
+
     --fs-800: 56px; // large title
     --fs-700: 40px; // medium title
     --fs-600: 24px; // small title
