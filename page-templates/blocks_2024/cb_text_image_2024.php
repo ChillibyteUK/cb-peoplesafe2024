@@ -14,7 +14,7 @@ $l = get_field('cta') ?? null;
                 <?php
                 if (!empty($l)) {
                     ?>
-                <a href="<?=$l['url']?>" target="<?=$l['target']?>" class="button button-yellow"><span><?=$l['title']?></span></a>
+                <a href="<?=$l['url']?>" target="<?=$l['target']?>" class="button button-yellow text-center w-100 w-md-auto"><span><?=$l['title']?></span></a>
                     <?php
                 }
                 ?>
