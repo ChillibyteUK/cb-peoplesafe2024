@@ -19,9 +19,9 @@ $extra_classes = get_field('extra_classes');
         </h1>
         <?php
         }?>
-        <div class="row">
+        <div class="row g-4">
             <div
-                class="<?=$cols_text?> text_video__content my-auto <?=$order_text?>">
+                class="<?=$cols_text?> text_video__content py-auto <?=$order_text?>">
                 <?php
                 if (get_field('pre_title') ?? null) {
                     echo '<div class="fs-300 fw-900 text-blue mb-3">' . get_field('pre_title') . '</div>';
