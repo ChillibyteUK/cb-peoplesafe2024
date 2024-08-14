@@ -219,6 +219,7 @@ if (get_field('gtm_property', 'options')) {
                         <li><a href="/sectors/hospitality/">Hospitality</a></li>
                         <li><a href="/sectors/construction/">Construction</a></li>
                         <li><a href="/sectors/police/">Police</a></li>
+                        <li><a href="/sectors/">All Sectors</a></li>
                     </ul>
                 </div>
             </div>
