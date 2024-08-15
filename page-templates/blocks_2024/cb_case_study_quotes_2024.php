@@ -66,10 +66,10 @@ var quotesSlider = new Swiper('.quotes_slider', {
     spaceBetween: 18, // Adjust this value to match your design
     on: {
         init: function() {
-            setEqualHeight('.quotes__slide');
+            setEqualHeight('.quotes_slide');
         },
         resize: function() {
-            setEqualHeight('.quotes__slide');
+            setEqualHeight('.quotes_slide');
         }
     }
 });
