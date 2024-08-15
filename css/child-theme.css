@@ -24004,7 +24004,7 @@ nav #dropdownKnowledge .knowledge-link:hover {
   position: relative;
   isolation: isolate;
   overflow: clip;
-  height: 320px;
+  min-height: 320px;
 }
 .quotes::before {
   content: "";
@@ -24025,7 +24025,7 @@ nav #dropdownKnowledge .knowledge-link:hover {
   width: auto;
 }
 .quotes__inner {
-  padding: 1.5rem 0 1.5rem 1.5rem;
+  padding: 1.5rem 1.5rem 1.5rem 1.5rem;
   width: 50%;
   height: 100%;
   display: grid;

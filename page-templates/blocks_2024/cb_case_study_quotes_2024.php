@@ -52,10 +52,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
 var quotesSlider = new Swiper('.quotes_slider', {
     loop: true,
-    autoplay: {
-        delay: 4000,
-        disableOnInteraction: true,
-    },
+    // autoplay: {
+    //     delay: 4000,
+    //     disableOnInteraction: true,
+    // },
     pagination: {
         el: '.swiper-pagination-quotes',
         clickable: true,
