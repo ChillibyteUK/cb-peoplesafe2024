@@ -275,7 +275,7 @@ if (is_front_page()) {
 <script>
     // swiper equal height
     function setEqualHeight(slider) {
-        console.log('resizing '+slider);
+        // console.log('resizing '+slider);
         let maxHeight = 0;
         const slides = document.querySelectorAll(slider);
 
