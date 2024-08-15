@@ -1,4 +1,9 @@
-.quote_slide {
+.quotes_slider {
+    .swiper-wrapper {
+        margin-bottom: 1rem;
+    }
+}
+.quotes_slide {
     padding: 0 1rem 2rem 1rem;
 }
 
@@ -82,6 +87,7 @@
             }
         }
     }
+
 }
 
 .quotes--blue::before {

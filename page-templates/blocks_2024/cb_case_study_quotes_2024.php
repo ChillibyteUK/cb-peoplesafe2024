@@ -9,33 +9,37 @@
                 <a href="/case-studies/" class="button button-outline text-center w-100 w-md-auto">View all Case Studies</a>
             </div>
             <div class="col-lg-7">
-                <div class="quotes_slider">
-                <?php
-            $classes = ['quotes--blue', 'quotes--orange', 'quotes--pink'];
-            $classIndex = 0; // Initialize the class index
+                <div class="swiper quotes_slider mb-4">
+                    <div class="swiper-wrapper">
+                        <?php
+                        $classes = ['quotes--blue', 'quotes--orange', 'quotes--pink'];
+                        $classIndex = 0; // Initialize the class index
 
-        while (have_rows('quotes')) {
-            the_row();
+                        while (have_rows('quotes')) {
+                            the_row();
 
-            $class = $classes[$classIndex % count($classes)];
+                            $class = $classes[$classIndex % count($classes)];
 
-            ?>
-                <div class="quote_slide">
-                    <div class="quotes quotes--large <?=$class?>">
-                        <?=wp_get_attachment_image( get_sub_field('image'), 'large', false, array('class' => 'quotes__image'))?>
-                        <div class="quotes__inner">
-                            <div class="quotes__quote">
-                                <?=get_sub_field('quote')?>
-                            </div>
-                            <div class="quotes__cite"><?=get_sub_field('attribution')?></div>
-                            <?=wp_get_attachment_image( get_sub_field('logo'), 'medium', false, array('class' => 'quotes__logo'))?>
-                        </div>
+                            ?>
+                                <div class="swiper-slide quotes_slide">
+                                    <div class="quotes quotes--large <?=$class?>">
+                                        <?=wp_get_attachment_image( get_sub_field('image'), 'large', false, array('class' => 'quotes__image'))?>
+                                        <div class="quotes__inner">
+                                            <div class="quotes__quote">
+                                                <?=get_sub_field('quote')?>
+                                            </div>
+                                            <div class="quotes__cite"><?=get_sub_field('attribution')?></div>
+                                            <?=wp_get_attachment_image( get_sub_field('logo'), 'medium', false, array('class' => 'quotes__logo'))?>
+                                        </div>
+                                    </div>
+                                </div>
+                            <?php
+                            $classIndex++;
+                        }
+                        ?>
                     </div>
+                    <div class="swiper-pagination swiper-pagination-quotes"></div>
                 </div>
-            <?php
-            $classIndex++;
-        }
-            ?>
             </div>
         </div>
     </div>
@@ -44,17 +48,36 @@
 add_action('wp_footer',function(){
     ?>
 <script>
-(function($){
-    $('.quotes_slider').slick({
-        infinite: true,
-        dots: true,
-        arrows: false,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 6000,
-    });
-})(jQuery);
+document.addEventListener('DOMContentLoaded', function() {
+
+var quotesSlider = new Swiper('.quotes_slider', {
+    loop: true,
+    autoplay: {
+        delay: 4000,
+        disableOnInteraction: true,
+    },
+    pagination: {
+        el: '.swiper-pagination-quotes',
+        clickable: true,
+        dynamicBullets: true,
+    },
+    slidesPerView: 1,
+    slidesPerGroup: 1,
+    spaceBetween: 18, // Adjust this value to match your design
+    on: {
+        init: function() {
+            setEqualHeight('.quotes__slide');
+        },
+        resize: function() {
+            setEqualHeight('.quotes__slide');
+        }
+    }
+});
+
+window.addEventListener('load', setEqualHeight('.quotes_slide'));
+
+});
+
 </script>
     <?php
 },9999);
