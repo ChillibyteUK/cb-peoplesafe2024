@@ -383,7 +383,6 @@ if (get_field('gtm_property', 'options')) {
 
             <div id="dropdownPlatform" class="dropdownMenu">
                 <ul>
-                    <li><a href="/the-service/">How We Protect</a></li>
                     <li><a href="/nexus/">Nexus</a></li>
                     <li><a href="/alarm-receiving-centre/">ARC</a></li>
                 </ul>
