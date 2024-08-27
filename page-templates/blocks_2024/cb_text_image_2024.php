@@ -26,7 +26,7 @@ $l = get_field('cta') ?? null;
                 }
                 elseif (get_field('vimeo_id') ?? null) {
                     ?>
-                <lite-vimeo videoid="<?=get_field('vimeo_id')?>">
+                <lite-vimeo videoid="<?=get_field('vimeo_id')?>" allowfullscreen>
                     <div class="ltv-playbtn"></div>
                 </lite-vimeo>
                     <?php
