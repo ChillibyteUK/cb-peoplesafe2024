@@ -88,11 +88,11 @@ $header_theme = get_field('title_theme');
         }
         ?>
             </div>
-			<a class="d-none d-xl-flex carousel-control-prev" href="#bannerSlideshow" role="button" data-slide="prev">
+			<a class="d-none d-xl-flex carousel-control-prev" href="#bannerSlideshow" role="button" data-bs-slide="prev">
 				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
 				<span class="sr-only">Previous</span>
 		  	</a>
-		  	<a class="d-none d-xl-flex carousel-control-next" href="#bannerSlideshow" role="button" data-slide="next">
+		  	<a class="d-none d-xl-flex carousel-control-next" href="#bannerSlideshow" role="button" data-bs-slide="next">
 				<span class="carousel-control-next-icon" aria-hidden="true"></span>
 				<span class="sr-only">Next</span>
 		  	</a>
