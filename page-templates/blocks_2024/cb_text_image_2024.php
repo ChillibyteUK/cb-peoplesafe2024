@@ -26,9 +26,12 @@ $l = get_field('cta') ?? null;
                 }
                 elseif (get_field('vimeo_id') ?? null) {
                     ?>
+                <iframe src="https://player.vimeo.com/video/<?=get_field('vimeo_id')?>?byline=0&portrait=0" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+<!--
                 <lite-vimeo videoid="<?=get_field('vimeo_id')?>" allowfullscreen>
                     <div class="ltv-playbtn"></div>
                 </lite-vimeo>
+-->
                     <?php
                 }
                 ?>
@@ -39,6 +42,6 @@ $l = get_field('cta') ?? null;
 <?php
 add_action('wp_footer', function() {
     ?>
-<script type="module" src="https://cdn.jsdelivr.net/npm/lite-vimeo-embed/+esm" defer></script>
+<!-- <script type="module" src="https://cdn.jsdelivr.net/npm/lite-vimeo-embed/+esm" defer></script> -->
     <?php
 });
