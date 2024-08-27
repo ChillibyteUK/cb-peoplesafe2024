@@ -24389,12 +24389,16 @@ lite-vimeo img {
 .text_image_2024 iframe .ltv-playbtn,
 .vimeo-embed .ltv-playbtn,
 lite-vimeo .ltv-playbtn {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 80px !important;
   height: 80px !important;
   background-image: url(../img/2024/icons/play-button.png) !important;
   background-size: contain !important;
   background-repeat: no-repeat !important;
   background-color: transparent !important;
+  pointer-events: none;
 }
 .text_image_2024 iframe .ltv-playbtn::before,
 .vimeo-embed .ltv-playbtn::before,

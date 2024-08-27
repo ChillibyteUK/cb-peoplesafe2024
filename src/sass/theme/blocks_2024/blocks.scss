@@ -16,12 +16,16 @@ lite-vimeo {
     border-radius: 1rem;
     box-shadow: var(--shadow-out);   
     .ltv-playbtn {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
         width: 80px !important;
         height: 80px !important;
         background-image: url(../img/2024/icons/play-button.png) !important;
         background-size: contain !important;
         background-repeat: no-repeat !important;
         background-color: transparent !important;
+        pointer-events: none;
         &::before {
             display: none;
         }
