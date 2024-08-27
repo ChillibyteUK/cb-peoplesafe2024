@@ -27,6 +27,8 @@ $l = get_field('cta') ?? null;
                 elseif (get_field('vimeo_id') ?? null) {
                     ?>
                 <div class="vimeo-embed ratio ratio-16x9" id="<?=get_field('vimeo_id')?>" title="VIDEO">
+                    <div class="ltv-playbtn"></div>
+                </div>
                 <!-- <iframe src="https://player.vimeo.com/video/<?=get_field('vimeo_id')?>?byline=0&portrait=0" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe> -->
 <!--
                 <lite-vimeo videoid="<?=get_field('vimeo_id')?>" allowfullscreen>
