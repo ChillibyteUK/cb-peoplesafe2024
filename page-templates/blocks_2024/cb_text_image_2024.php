@@ -27,7 +27,6 @@ $l = get_field('cta') ?? null;
                 elseif (get_field('vimeo_id') ?? null) {
                     ?>
                 <div class="vimeo-embed ratio ratio-16x9" id="<?=get_field('vimeo_id')?>" title="VIDEO">
-                    <div class="ltv-playbtn"></div>
                 </div>
                 <!-- <iframe src="https://player.vimeo.com/video/<?=get_field('vimeo_id')?>?byline=0&portrait=0" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe> -->
 <!--
@@ -51,7 +50,7 @@ document.querySelectorAll('.vimeo-embed, .youtube-embed').forEach(v => {
     [`vumbnail.com/${v.id}.jpg`, 'player.vimeo.com/video'] :
     [`i.ytimg.com/vi/${v.id}/hqdefault.jpg`, 'www.youtube.com/embed'];
 
-  v.innerHTML = `<img loading="lazy" src="https://${poster}" alt="${v.title}" aria-label="Play">`;
+  v.innerHTML = `<img loading="lazy" src="https://${poster}" alt="${v.title}" aria-label="Play"><div class="ltv-playbtn"></div>`;
 
   v.children[0].addEventListener('click', () => {
       v.innerHTML = `<iframe allow="autoplay" src="https://${src}/${v.id}?autoplay=1" allowfullscreen></iframe>`;
