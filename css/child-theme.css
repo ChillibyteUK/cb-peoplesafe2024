@@ -24374,10 +24374,12 @@ nav #dropdownKnowledge .knowledge-link:hover {
   height: 100%;
 }
 
+.text_image_2024 iframe,
 lite-vimeo {
   border-radius: 1rem;
   box-shadow: var(--shadow-out);
 }
+.text_image_2024 iframe .ltv-playbtn,
 lite-vimeo .ltv-playbtn {
   width: 80px !important;
   height: 80px !important;
@@ -24386,6 +24388,7 @@ lite-vimeo .ltv-playbtn {
   background-repeat: no-repeat !important;
   background-color: transparent !important;
 }
+.text_image_2024 iframe .ltv-playbtn::before,
 lite-vimeo .ltv-playbtn::before {
   display: none;
 }
