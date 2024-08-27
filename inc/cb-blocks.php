@@ -557,7 +557,10 @@ function acf_blocks()
             'category'          => 'layout',
             'icon'              => 'columns',
             'mode'  => 'edit',
-            'supports' => array('mode' => false),
+            'supports' => array(
+                'mode' => false,
+                'switch_mode' => false,
+            ),
         ));
 
         // 2024 Blocks below
@@ -569,7 +572,10 @@ function acf_blocks()
             'category'			=> 'layout',
             'icon'				=> 'cover-image',
             'mode'	=> 'edit',
-            // 'supports' => array('mode' => false),
+            'supports' => array(
+                'mode' => false,
+                'switch_mode' => false,
+            ),
         ));
         acf_register_block(array(
             'name'				=> 'cb_hero_2024',
