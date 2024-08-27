@@ -24375,13 +24375,19 @@ nav #dropdownKnowledge .knowledge-link:hover {
 }
 
 .text_image_2024 iframe,
-.vimeo-embed img,
+.vimeo-embed,
 lite-vimeo {
   border-radius: 1rem;
   box-shadow: var(--shadow-out);
 }
+.text_image_2024 iframe img,
+.vimeo-embed img,
+lite-vimeo img {
+  border-radius: 1rem;
+  box-shadow: var(--shadow-out);
+}
 .text_image_2024 iframe .ltv-playbtn,
-.vimeo-embed img .ltv-playbtn,
+.vimeo-embed .ltv-playbtn,
 lite-vimeo .ltv-playbtn {
   width: 80px !important;
   height: 80px !important;
@@ -24391,7 +24397,7 @@ lite-vimeo .ltv-playbtn {
   background-color: transparent !important;
 }
 .text_image_2024 iframe .ltv-playbtn::before,
-.vimeo-embed img .ltv-playbtn::before,
+.vimeo-embed .ltv-playbtn::before,
 lite-vimeo .ltv-playbtn::before {
   display: none;
 }

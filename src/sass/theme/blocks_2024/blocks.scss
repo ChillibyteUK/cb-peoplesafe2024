@@ -7,8 +7,12 @@
 
 
 .text_image_2024 iframe,
-.vimeo-embed img,
+.vimeo-embed,
 lite-vimeo {
+    img {
+        border-radius: 1rem;
+        box-shadow: var(--shadow-out);
+    }
     border-radius: 1rem;
     box-shadow: var(--shadow-out);   
     .ltv-playbtn {
