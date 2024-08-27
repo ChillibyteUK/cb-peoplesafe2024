@@ -15,7 +15,17 @@ if (get_field('side_title')) {
     ?>
         <div class="row">
             <div class="col-md-4">
-                <h2><?=get_field('title')?></h2>
+                <?php
+                $content = get_field('title');
+                if (preg_match('/<h[1-6][^>]*>(.*?)<\/h[1-6]>/', $content)) {
+                    // If it contains H tags, return the content as it is
+                    echo $content;
+                } else {
+                    // If no H tags are found, wrap the content in an <h2> tag
+                    echo '<h2>' . esc_html($content) . '</h2>';
+                }
+            }
+            ?>
             </div>
             <div class="col-md-8">
                 <?php
