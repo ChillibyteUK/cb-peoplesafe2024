@@ -17,6 +17,7 @@ if (get_field('side_title')) {
             <div class="col-md-4">
                 <?php
                 $content = get_field('title') ?? null;
+                echo '<pre>' . $content . '</pre>';
                 if (preg_match('/<h[1-6][^>]*>(.*?)<\/h[1-6]>/', $content)) {
                     // If it contains H tags, return the content as it is
                     echo $content;
