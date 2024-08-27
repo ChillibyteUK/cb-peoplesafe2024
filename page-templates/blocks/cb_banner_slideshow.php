@@ -59,7 +59,7 @@ $header_theme = get_field('title_theme');
     if (have_rows('slides')) {
         $active = 'active';
         ?>
-    <div class="slides carousel slide <?=$slides_theme?>" id="bannerSlideshow" data-ride="carousel" data-interval="4000" data-touch="true">
+    <div class="slides carousel slide <?=$slides_theme?>" id="bannerSlideshow" data-bs-ride="carousel" data-bs-interval="4000" data-touch="true">
         <div class="carousel-inner">
         <?php
         while (have_rows('slides')) {
