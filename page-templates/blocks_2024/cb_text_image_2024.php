@@ -26,7 +26,8 @@ $l = get_field('cta') ?? null;
                 }
                 elseif (get_field('vimeo_id') ?? null) {
                     ?>
-                <iframe src="https://player.vimeo.com/video/<?=get_field('vimeo_id')?>?byline=0&portrait=0" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                <div class="vimeo-embed ratio ratio-16x9" id="<?=get_field('vimeo_id')?>" title="VIDEO">
+                <!-- <iframe src="https://player.vimeo.com/video/<?=get_field('vimeo_id')?>?byline=0&portrait=0" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe> -->
 <!--
                 <lite-vimeo videoid="<?=get_field('vimeo_id')?>" allowfullscreen>
                     <div class="ltv-playbtn"></div>
@@ -40,8 +41,21 @@ $l = get_field('cta') ?? null;
     </div>
 </section>
 <?php
-add_action('wp_footer', function() {
+add_action('wp_footer', function(){
     ?>
-<!-- <script type="module" src="https://cdn.jsdelivr.net/npm/lite-vimeo-embed/+esm" defer></script> -->
+<script>
+document.querySelectorAll('.vimeo-embed, .youtube-embed').forEach(v => {
+  const [poster, src] = v.classList.contains('vimeo-embed') ?
+    [`vumbnail.com/${v.id}.jpg`, 'player.vimeo.com/video'] :
+    [`i.ytimg.com/vi/${v.id}/hqdefault.jpg`, 'www.youtube.com/embed'];
+
+  v.innerHTML = `<img loading="lazy" src="https://${poster}" alt="${v.title}" aria-label="Play">`;
+
+  v.children[0].addEventListener('click', () => {
+      v.innerHTML = `<iframe allow="autoplay" src="https://${src}/${v.id}?autoplay=1" allowfullscreen></iframe>`;
+      v.classList.add('video-loaded');
+  });
+});
+</script>
     <?php
 });
