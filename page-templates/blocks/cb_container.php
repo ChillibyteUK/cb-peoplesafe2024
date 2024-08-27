@@ -24,8 +24,7 @@ if (get_field('side_title')) {
                     // If no H tags are found, wrap the content in an <h2> tag
                     echo '<h2>' . esc_html($content) . '</h2>';
                 }
-            }
-            ?>
+                ?>
             </div>
             <div class="col-md-8">
                 <?php
