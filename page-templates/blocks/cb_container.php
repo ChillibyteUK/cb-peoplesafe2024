@@ -17,7 +17,6 @@ if (get_field('side_title')) {
             <div class="col-md-4">
                 <?php
                 $content = get_field('title') ?? null;
-                echo '<pre>' . $content . '</pre>';
                 if (preg_match('/<h[1-6][^>]*>(.*?)<\/h[1-6]>/', $content)) {
                     // If it contains H tags, return the content as it is
                     echo $content;
@@ -48,8 +47,13 @@ if (get_field('side_title')) {
     <?php
 }
 else {
-    if (get_field('title')) {
-        echo '<h2>' . get_field('title') . '</h2>';
+    $content = get_field('title') ?? null;
+    if (preg_match('/<h[1-6][^>]*>(.*?)<\/h[1-6]>/', $content)) {
+        // If it contains H tags, return the content as it is
+        echo $content;
+    } else {
+        // If no H tags are found, wrap the content in an <h2> tag
+        echo '<h2>' . esc_html($content) . '</h2>';
     }
     if (get_field('cta')) {
         echo '<div class="mb-4">';
