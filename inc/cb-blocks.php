@@ -569,7 +569,7 @@ function acf_blocks()
             'category'			=> 'layout',
             'icon'				=> 'cover-image',
             'mode'	=> 'edit',
-            'supports' => array('mode' => false),
+            // 'supports' => array('mode' => false),
         ));
         acf_register_block(array(
             'name'				=> 'cb_hero_2024',

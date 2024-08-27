@@ -10,6 +10,7 @@ require_once CB_THEME_DIR . '/inc/cb-woocommerce.php';
 require_once CB_THEME_DIR . '/inc/cb-careers.php';
 
 
+add_filter('use_block_editor_for_post', '__return_true');
 
 
 // rename posts to blog
