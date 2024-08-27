@@ -11,22 +11,10 @@ require_once CB_THEME_DIR . '/inc/cb-careers.php';
 
 
 add_filter('use_block_editor_for_post', '__return_true');
-function force_block_editor_to_edit_mode() {
-    ?>
-    <script type="text/javascript">
-        wp.domReady(function() {
-            // Loop through all blocks
-            wp.data.select('core/block-editor').getBlocks().forEach(function(block) {
-                // If the block has switched to preview mode, force it back to edit mode
-                if (wp.data.select('core/block-editor').getBlockMode(block.clientId) === 'preview') {
-                    wp.data.dispatch('core/block-editor').switchBlockMode(block.clientId, 'edit');
-                }
-            });
-        });
-    </script>
-    <?php
-}
-add_action('admin_footer', 'force_block_editor_to_edit_mode');
+
+add_filter('acf/settings/default_mode', function() {
+    return 'edit';
+});
 
 
 
