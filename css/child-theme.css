@@ -21447,7 +21447,7 @@ a.text--yellow:hover {
 .footer .menu {
   list-style: none;
   padding-inline-start: 0;
-  line-height: 2;
+  line-height: 1.1;
 }
 .footer img {
   max-width: 200px;
