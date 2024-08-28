@@ -163,13 +163,13 @@ if (get_field('gtm_property', 'options')) {
                     <li class="" aria-controls="bySector">By Sector</li>
                 </ul>
                 <div class="right right--cards active" id="byRole">
-                    <a class="item" href="/personal-safety/">
+                    <a class="item" href="/lone-workers/">
                         <div class="item__image">
-                            <img src="<?=get_stylesheet_directory_uri()?>/img/2024/all-employees.png" alt="All Employees">
+                            <img src="<?=get_stylesheet_directory_uri()?>/img/2024/lone-workers.png" alt="Lone Workers">
                         </div>
-                        <div class="item__title">All Employees</div>
+                        <div class="item__title">Lone Workers</div>
                         <div class="item__desc">
-                            Protect every employee with our dedicated solutions.
+                            Keep your lone workers safe 24/7, wherever they are, with the Peoplesafe Lone Worker Alarms.
                         </div>
                     </a>
                     <a class="item" href="/home-workers/">
@@ -181,13 +181,13 @@ if (get_field('gtm_property', 'options')) {
                             Our market-leading technology empowers home and hybrid workers to stay safe.
                         </div>
                     </a>
-                    <a class="item" href="/lone-workers/">
+                    <a class="item" href="/personal-safety/">
                         <div class="item__image">
-                            <img src="<?=get_stylesheet_directory_uri()?>/img/2024/lone-workers.png" alt="Lone Workers">
+                            <img src="<?=get_stylesheet_directory_uri()?>/img/2024/all-employees.png" alt="All Employees">
                         </div>
-                        <div class="item__title">Lone Workers</div>
+                        <div class="item__title">All Employees</div>
                         <div class="item__desc">
-                            Keep your lone workers safe 24/7, wherever they are, with the Peoplesafe Lone Worker Alarms.
+                            Protect every employee with our dedicated solutions.
                         </div>
                     </a>
                     <a class="item" href="/international-workers/">
