@@ -104,27 +104,23 @@ defined('ABSPATH') || exit;
                 <div class="nav-title">Sectors</div>
                 <ul class="menu">
                     <?php
-                    // $terms = get_terms( array(
-                    //     'taxonomy' => 'sectors',
-                    //     'hide_empty' => true,
-                    // ) );
-            
-                    // foreach ($terms as $c) {
-                    //     echo '<li><a href="/sectors/' . $c->slug . '/">' . $c->name . '</a></li>';
-                    // }
                     $parent = get_page_by_path('sectors');
-$q = new WP_Query(array(
-    'post_type' => 'page',
-    'post_parent' => $parent->ID,
-    'posts_per_page' => -1
-));
-while ($q->have_posts()) {
-    $q->the_post();
-    echo '<li><a href="' . get_the_permalink() . '">' . get_the_title() . '</a></li>';
-}
-wp_reset_postdata();
-?>
+                    $q = new WP_Query(array(
+                        'post_type' => 'page',
+                        'post_parent' => $parent->ID,
+                        'posts_per_page' => -1
+                    ));
+                    while ($q->have_posts()) {
+                        $q->the_post();
+                        echo '<li><a href="' . get_the_permalink() . '">' . get_the_title() . '</a></li>';
+                    }
+                    wp_reset_postdata();
+                    ?>
                 </ul>
+            </div>
+            <div class="col-md-6 col-lg-3 text-center text-md-start">
+                <div class="nav-title">About Us</div>
+                <?php wp_nav_menu(array('theme_location' => 'footer_menu3')); ?>
             </div>
             <div class="col-md-6 col-lg-3 text-center text-md-start">
                 <div class="nav-title">Resources</div>

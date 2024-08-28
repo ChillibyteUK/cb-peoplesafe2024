@@ -70,9 +70,10 @@ function widgets_init()
         'primary_nav' => __('Primary Nav', 'cb-peoplesafe2024'),
         'footer_menu1' => __('Footer Products', 'cb-peoplesafe2024'),
         'footer_menu2' => __('Footer Resources', 'cb-peoplesafe2024'),
-        'footer-1' => __('Footer Col 1', 'cb-peoplesafe2024'),
-        'footer-2' => __('Footer Col 2', 'cb-peoplesafe2024'),
-        'footer-3' => __('Footer Col 3', 'cb-peoplesafe2024'),
+        'footer_menu3' => __('Footer About', 'cb-peoplesafe2024'),
+        // 'footer-1' => __('Footer Col 1', 'cb-peoplesafe2024'),
+        // 'footer-2' => __('Footer Col 2', 'cb-peoplesafe2024'),
+        // 'footer-3' => __('Footer Col 3', 'cb-peoplesafe2024'),
     ));
  
     unregister_sidebar('hero');
