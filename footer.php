@@ -121,8 +121,6 @@ defined('ABSPATH') || exit;
             <div class="col-md-6 col-lg-3 text-center text-md-start">
                 <div class="nav-title">About Us</div>
                 <?php wp_nav_menu(array('theme_location' => 'footer_menu3')); ?>
-            </div>
-            <div class="col-md-6 col-lg-3 text-center text-md-start">
                 <div class="nav-title">Resources</div>
                 <?php wp_nav_menu(array('theme_location' => 'footer_menu2')); ?>
             </div>
