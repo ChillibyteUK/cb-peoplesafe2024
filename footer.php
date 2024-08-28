@@ -112,7 +112,11 @@ defined('ABSPATH') || exit;
                     ));
                     while ($q->have_posts()) {
                         $q->the_post();
-                        echo '<li><a href="' . get_the_permalink() . '">' . get_the_title() . '</a></li>';
+                        $title = get_the_title();
+                        if ($title == 'Professional Services & Government') {
+                            $title = 'Prof. Services & Government';
+                        }
+                        echo '<li><a href="' . get_the_permalink() . '">' . $title . '</a></li>';
                     }
                     wp_reset_postdata();
                     ?>
