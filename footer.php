@@ -113,7 +113,8 @@ defined('ABSPATH') || exit;
                     while ($q->have_posts()) {
                         $q->the_post();
                         $title = get_the_title();
-                        if ($title == 'Professional Services &amp; Government') {
+                        var_dump($title);
+                        if ($title == 'Professional Services & Government') {
                             $title = 'Prof. Services &amp; Government';
                         }
                         echo '<li><a href="' . get_the_permalink() . '">' . $title . '</a></li>';
