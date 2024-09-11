@@ -156,7 +156,7 @@ if (get_field('gtm_property', 'options')) {
                     <?php
                     if ( WC()->cart->get_cart_contents_count() > 0 ) {
                     ?>
-                    <a href="/cart/"><i class="fas fa-shopping-basket"></i></a>
+                    <a href="/cart/" title="Basket"><i class="fas fa-shopping-basket"></i></a>
                     <?php
                     }
                     ?>
