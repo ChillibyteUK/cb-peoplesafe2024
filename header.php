@@ -153,6 +153,13 @@ if (get_field('gtm_property', 'options')) {
                     <a class="toggle" aria-controls="dropdownSupport" data-href="/support/">Support</a>
                     <a href="/portal-login/">Login</a>
                     <span role="button" data-bs-toggle="modal" data-bs-target="#demoModal" class="button button-yellow mb-2"><span>Book a Demo</span></span>
+                    <?php
+                    if ( WC()->cart->get_cart_contents_count() > 0 ) {
+                    ?>
+                    <a href="/cart/"><i class="fas fa-shopping-basket"></i></a>
+                    <?php
+                    }
+                    ?>
                 </div>
             </div>
         </div>
