@@ -24839,6 +24839,9 @@ li {
   z-index: 0;
   padding-top: 5rem;
 }
+#woocommerce-wrapper .woocommerce-breadcrumbs {
+  display: none;
+}
 
 .has-blue-color,
 .has-blue-color:visited {
