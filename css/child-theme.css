@@ -24422,6 +24422,123 @@ lite-vimeo .ltv-playbtn::before {
   background: var(--col-yellow-400);
 }
 
+/* ADDITIONAL CSS BROUGHT OVER FROM THE OLD SITE */
+#cookie-law-info-bar {
+  width: auto !important;
+  max-width: 99vw !important;
+  width: 550px !important;
+  padding: 1rem !important;
+}
+
+.cli-bar-message {
+  margin-bottom: 0.5rem;
+}
+
+.cli-bar-btn_container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.scroll {
+  scroll-padding: 5rem 0 0 0;
+}
+
+.break-out {
+  width: 100vw;
+  position: relative;
+  left: calc(-1 * (100vw - 100%) / 2);
+}
+
+.h2__link a {
+  color: #0a0f1c !important;
+  font-weight: 600;
+}
+
+.woocommerce .col2-set .col-1, .woocommerce-page .col2-set .col-1,
+.woocommerce .col2-set .col-2, .woocommerce-page .col2-set .col-2 {
+  max-width: 100%;
+}
+
+.woocommerce-shipping-totals.shipping .woocommerce-shipping-destination {
+  display: none;
+}
+
+.button.wc-forward {
+  background-color: #ffa823 !important;
+  color: #000 !important;
+}
+
+.page-id-7095 .woocommerce-order-details__title,
+.page-id-7095 table.woocommerce-table {
+  display: none;
+}
+
+.page-id-7095 .woocommerce-order-details .woocommerce-order-details__title,
+.page-id-7095 .woocommerce-order-details table.woocommerce-table {
+  display: block;
+}
+
+.woocommerce a.added_to_cart {
+  display: inline-block;
+  background-color: #0484a1;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1rem;
+  display: block;
+  padding: 0.375rem 0.75rem;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.hide_me {
+  display: block;
+}
+
+.postid-7117 .hide_me {
+  display: none;
+}
+
+.coupon label {
+  display: none;
+}
+
+#coupon_code {
+  min-width: 200px;
+}
+
+.new_timeline_progress_bar {
+  position: sticky !important;
+}
+
+@media (max-width: 768px) {
+  .woocommerce ul.products[class*=columns-] li.product,
+  .woocommerce-page ul.products[class*=columns-] li.product {
+    width: 100%;
+  }
+  #coupon_code {
+    min-width: 200px;
+    margin-bottom: 0.5rem;
+    float: right;
+    margin-right: 0;
+  }
+  .actions label,
+  .actions input,
+  .actions button,
+  .actions a,
+  #coupon_code {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+  .woocommerce-page table.cart td.actions .coupon {
+    padding-bottom: 0;
+  }
+}
+.clients__slide img,
+.logo__slide img {
+  filter: none !important;
+}
+
 *,
 input,
 select,
