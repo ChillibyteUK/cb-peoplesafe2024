@@ -354,3 +354,9 @@ li {
         width: auto !important;
     }
 }
+
+#woocommerce-wrapper {
+    position: relative;
+    z-index: 0;
+    padding-top: 5rem;
+}

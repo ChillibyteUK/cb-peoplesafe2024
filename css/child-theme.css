@@ -24719,6 +24719,12 @@ li {
   }
 }
 
+#woocommerce-wrapper {
+  position: relative;
+  z-index: 0;
+  padding-top: 5rem;
+}
+
 .has-blue-color,
 .has-blue-color:visited {
   color: #0d6efd;
