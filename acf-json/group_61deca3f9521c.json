@@ -613,6 +613,82 @@
                     "parent_repeater": "field_6549035c48a32"
                 }
             ]
+        },
+        {
+            "key": "field_66e30e8c10b59",
+            "label": "Salesforce Password",
+            "name": "sf_password",
+            "aria-label": "",
+            "type": "password",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_66e30e9f10b5a",
+            "label": "Salesforce Secret",
+            "name": "sf_secret",
+            "aria-label": "",
+            "type": "password",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_66e30eac10b5b",
+            "label": "Salesforce Client ID",
+            "name": "sf_client_id",
+            "aria-label": "",
+            "type": "password",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_66e30eb710b5c",
+            "label": "Salesforce Client Secret",
+            "name": "sf_client_secret",
+            "aria-label": "",
+            "type": "password",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
         }
     ],
     "location": [
@@ -633,5 +709,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1717431191
+    "modified": 1726156485
 }
