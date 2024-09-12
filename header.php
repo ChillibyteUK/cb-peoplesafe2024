@@ -148,7 +148,7 @@ if (get_field('gtm_property', 'options')) {
             <div class="navItems" id="navItems">
                 <a class="toggle" aria-controls="dropdownSolutions" data-href="/solutions/">Solutions</a>
                 <a class="toggle" aria-controls="dropdownProducts" data-href="/products/">Products</a>
-                <a class="toggle" aria-controls="dropdownPlatform" data-href="/platform/">Platform</a>
+                <a class="toggle" aria-controls="dropdownPlatform" data-href="/platform/">About</a>
                 <a class="toggle" aria-controls="dropdownKnowledge" data-href="/knowledge/">Knowledge Hub</a>
                 <div class="navbar__extras me-xl-2">
                     <a class="toggle" aria-controls="dropdownSupport" data-href="/support/">Support</a>
