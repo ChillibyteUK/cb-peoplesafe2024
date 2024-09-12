@@ -1,5 +1,4 @@
 <?php
-
 /* Salesforce/Pardot tracking code */
 add_action('wp_footer', 'pardot_tracking_func');
 function pardot_tracking_func(){
@@ -11,6 +10,10 @@ iframe.src = iframe.src + window.location.search;
 <script type="text/javascript">
 piAId = '831213';
 piCId = '99719';
+</script>
+<script type="text/javascript" src="https://pi.pardot.com/pd.js"></script>
+<script>
+/*
 piHostname = 'pi.pardot.com';
  
 (function() {
@@ -22,6 +25,7 @@ piHostname = 'pi.pardot.com';
                if(window.attachEvent) { window.attachEvent('onload', async_load); }
                else { window.addEventListener('load', async_load, false); }
 })();
+*/
 </script>
 <?php
 };
@@ -94,8 +98,8 @@ function billing_email_validation_check() {
         if ( !in_array($domain, $allowed_domains) ) {
             require __DIR__ . '/salesforce/another/vendor/autoload.php';
 
-            $password = "wyv4arh-BDX1bkx*pyr";
-            $secret = "hJ3CfSfn2H4XrZFlMPZ1RiXC";
+            $password = "ctj*zhr2arv9fbw7EQH";
+            $secret = "jxkNews82gOSUjYyBwp2X6bt";
 
             $options = [
                 'grant_type' => 'password',
@@ -126,8 +130,9 @@ function billing_email_validation_check() {
     }
 }
 
-add_action( 'woocommerce_thankyou', 'add_custom_content_to_thankyou', 10, 1 );
-function add_custom_content_to_thankyou( $order_id ) {
+//add_action( 'woocommerce_thankyou', 'add_custom_content_to_thankyou', 10, 1 );
+add_action( 'woocommerce_payment_complete', 'update_pardot_on_order_created', 10, 2 );
+function update_pardot_on_order_created( $order_id, $data ) {
 // Get an instance of the WC_Order object (same as before)
     $total_sans_recurring = 0;
     $order_details = "";
@@ -267,7 +272,7 @@ function add_custom_content_to_thankyou( $order_id ) {
                 if ( $product_price != $line_total_discounted ) {
                     $order_details .= "***- " . $product_name . " device (" . $product_sku . ") - Quantity " . $quantity . " - Price per device £" . $line_total_discounted . "\r\n";
                 } else {
-                    $order_details .= "- " . $product_name . " device (" . $product_sku . ") - Quantity " . $quantity . " - Price per device £" . $line_total . "\r\n";
+                    $order_details .= "- " . $product_name . " device (" . $product_sku . ") - Quantity " . $quantity . " - Price per device £" . $line_total_discounted . "\r\n";
                 }
                 $order_details .= "- " . $product_name . " - Tracking (Service_002) - Quantity " . $quantity . " - Price per unit/sub £0\r\n";
                 $order_details .= "- " . $product_name . " - Fall Detection (Service_001) - Quantity " . $quantity . " - Price per unit/sub £0\r\n";
@@ -279,7 +284,7 @@ function add_custom_content_to_thankyou( $order_id ) {
                 if ( $product_price != $line_total_discounted ) {
                     $order_details .= "***- " . $product_name . " device (" . $product_sku . ") - Quantity " . $quantity . " - Price per device £" . $line_total_discounted . "\r\n";
                 } else {
-                    $order_details .= "- " . $product_name . " device (" . $product_sku . ") - Quantity " . $quantity . " - Price per device £" . $line_total . "\r\n";
+                    $order_details .= "- " . $product_name . " device (" . $product_sku . ") - Quantity " . $quantity . " - Price per device £" . $line_total_discounted . "\r\n";
                 }
                 $order_details .= "- " . $product_name . " - Tracking (Service_002) - Quantity " . $quantity . " - Price per unit/sub £0\r\n";
             }
@@ -290,7 +295,7 @@ function add_custom_content_to_thankyou( $order_id ) {
             if ( $product_price != $line_total_discounted ) {
                 $order_details .= "***- " . $product_name . " device (" . $product_sku . ") - Quantity " . $quantity . " - Price per device £" . $line_total_discounted . "\r\n";
             } else {
-                $order_details .= "- " . $product_name . " device (" . $product_sku . ") - Quantity " . $quantity . " - Price per device £" . $line_total . "\r\n";
+                $order_details .= "- " . $product_name . " device (" . $product_sku . ") - Quantity " . $quantity . " - Price per device £" . $line_total_discounted . "\r\n";
             }
             $order_details .= "- " . $product_name . " - Tracking (Service_002) - Quantity " . $quantity . " - Price per unit/sub £0\r\n";
 
@@ -376,7 +381,8 @@ function add_custom_content_to_thankyou( $order_id ) {
     $pardotpixel = get_post_meta($order_id, 'pardotpixel-'.$order->get_order_number(),true);
     if ( ( empty( $pardotpixel ) ) ) :
         update_post_meta($order_id, 'pardotpixel-'.$order->get_order_number(),1);
-        echo '<iframe src="' . $src . '" class="d-none"></iframe>'; // Just for testing
+        //echo '<iframe src="' . $src . '" class="d-none"></iframe>'; // Just for testing
+        $data = wp_remote_post( $src );
     endif;
 }
 
@@ -746,7 +752,7 @@ function subscribe_banner() {
                 <div class="col-md-1">
                 </div>
                 <div class="col-md-5">
-                    <img src="/wp-content/themes/cb-peoplesafe2024/img/Newsletter.png" class="img-fluid">
+                    <img src="/wp-content/themes/cb-peoplesafe/img/Newsletter.png" class="img-fluid">
                 </div>
             </div>
         </div>
