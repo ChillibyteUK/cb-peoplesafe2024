@@ -35,6 +35,7 @@ piHostname = 'pi.pardot.com';
 <?php
 };
 
+
 //add_action('fl_body_open', 'custom_total_cart_items_count');
 function custom_total_cart_items_count() {
     // Below your category term ids, slugs or names to be excluded
