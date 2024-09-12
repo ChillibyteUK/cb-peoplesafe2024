@@ -10,7 +10,7 @@ require_once CB_THEME_DIR . '/inc/cb-careers.php';
 require_once CB_THEME_DIR . '/inc/cb-woocommerce.php';
 
 
-// add_filter('use_block_editor_for_post', '__return_true');
+// add_filter('use_block_editor_for_post', '__return_true'); // DO NOT USE WITH WOOCOMMERCE
 
 add_filter('acf/settings/default_mode', function() {
     return 'edit';
