@@ -114,6 +114,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
     ?>
 	<?php wp_head(); ?>
+    <script type="text/javascript" async src="//l.getsitecontrol.com/d7ol6g67.js"></script>
 </head>
 
 <body <?php body_class(); ?>>
