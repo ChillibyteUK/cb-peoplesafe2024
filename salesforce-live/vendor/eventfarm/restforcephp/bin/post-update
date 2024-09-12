@@ -1,4 +1,0 @@
-#!/bin/bash
-# post-update
-
-.git/hooks/update-composer.sh
