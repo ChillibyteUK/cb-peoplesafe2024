@@ -96,7 +96,7 @@ function billing_email_validation_check() {
         //$allowed_domains = array("gmail.com", "outlook.com", "yahoo.com", "hotmail.com", "hotmail.co.uk", "aol.com");
 
         if ( !in_array($domain, $allowed_domains) ) {
-            require __DIR__ . '/salesforce/another/vendor/autoload.php';
+            require __DIR__ . '/../salesforce/another/vendor/autoload.php';
 
             $password = "ctj*zhr2arv9fbw7EQH";
             $secret = "jxkNews82gOSUjYyBwp2X6bt";
