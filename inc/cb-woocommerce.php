@@ -11,17 +11,26 @@ iframe.src = iframe.src + window.location.search;
 <script type="text/javascript">
 piAId = '831213';
 piCId = '99719';
+</script>
+<script type="text/javascript" src="https://pi.pardot.com/pd.js"></script>
+<script>
+    /*
 piHostname = 'pi.pardot.com';
  
 (function() {
-               function async_load(){
-                              var s = document.createElement('script'); s.type = 'text/javascript';
-                              s.src = ('https:' == document.location.protocol ? 'https://pi' : 'http://cdn') + '.pardot.com/pd.js';
-                              var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
-               }
-               if(window.attachEvent) { window.attachEvent('onload', async_load); }
-               else { window.addEventListener('load', async_load, false); }
+    function async_load(){
+        var s = document.createElement('script'); s.type = 'text/javascript';
+        s.src = ('https:' == document.location.protocol ? 'https://pi' : 'http://cdn') + '.pardot.com/pd.js';
+        var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
+    }
+    if(window.attachEvent) {
+        window.attachEvent('onload', async_load);
+    }
+    else {
+        window.addEventListener('load', async_load, false);
+    }
 })();
+    */
 </script>
 <?php
 };
