@@ -104,8 +104,8 @@ function billing_email_validation_check() {
         if ( !in_array($domain, $allowed_domains) ) {
             require __DIR__ . '/../salesforce/another/vendor/autoload.php';
 
-            $password = "wyv4arh-BDX1bkx*pyr";
-            $secret = "hJ3CfSfn2H4XrZFlMPZ1RiXC";
+            $password = "ctj*zhr2arv9fbw7EQH";
+            $secret = "jxkNews82gOSUjYyBwp2X6bt";
 
             $options = [
                 'grant_type' => 'password',
