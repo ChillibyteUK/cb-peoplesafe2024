@@ -104,14 +104,14 @@ function billing_email_validation_check() {
         if ( !in_array($domain, $allowed_domains) ) {
             require __DIR__ . '/../salesforce/another/vendor/autoload.php';
 
-            $password = "ctj*zhr2arv9fbw7EQH";
-            $secret = "jxkNews82gOSUjYyBwp2X6bt";
+            $password = get_field('sf_password', 'options');
+            $secret = get_field('sf_secret', 'options');
 
             $options = [
                 'grant_type' => 'password',
                 //'grant_type'=> 'client_credentials',
-                'client_id' => '3MVG9tzQRhEbH_K3YV8vaYgeGjHnbHf6rZOwvEDqscs5P0hg6fnZE8JjhqChIoZwwW3p1HWJTf.9a3L.UEuMw',
-                'client_secret' => 'F00904887D9EC6B974F8D999384CB24DA5A15558F2357D46E7C24931FEDD6A61',
+                'client_id' => get_field('sf_client_id', 'options'),
+                'client_secret' => get_field('sf_client_secret', 'options'),
                 'username' => 'peoplesafe@chillibyte.co.uk',
                 'password' => $password . $secret
             ];
