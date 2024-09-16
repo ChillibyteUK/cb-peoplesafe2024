@@ -312,7 +312,7 @@ function other_videos($id)
 
     ?>
 <style>
-    .h2__container::before {
+    /* .h2__container::before {
         content: '';
         position: absolute;
         height: 1px;
@@ -320,7 +320,7 @@ function other_videos($id)
         left: 16px;
         right: 0;
         top: 24px;
-    }
+    } */
 
     .h2__container {
         position: relative;
@@ -331,7 +331,6 @@ function other_videos($id)
     .h2__link {
         font-size: 0.8rem;
         margin-top: 0.9rem;
-        background-color: white;
         z-index: 99;
         padding-left: 0.5rem;
     }
@@ -347,7 +346,6 @@ function other_videos($id)
 
     .h2__container h2 {
         position: relative;
-        background-color: #fff;
         display: inline-block;
         padding-right: 0.5rem;
     }
