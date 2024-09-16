@@ -75,7 +75,7 @@ if (get_field('cta')) {
                         <div class="modal-content product-modal">
                             <div class="modal-body">
                                 <div type="button" class="modal-close" data-bs-dismiss="modal"><i
-                                        class="fas fa-times"></i></button>
+                                        class="fas fa-times"></i></div>
                                 <div class="ratio ratio-16x9">
                                     <?php
                     if (get_field('video_provider') == 'YouTube') {
