@@ -3,13 +3,13 @@ $order_image = (get_field('order') == 'text_left') ? 'order-1 order-lg-2' : 'ord
 $order_text = (get_field('order') == 'text_left') ? 'order-2 order-lg-1' : 'order-2 order-lg-2';
 $modal = 'x' . random_str(8);
 
-$cols_text = (get_field('split') == '5050' || get_field('split') == '') ? 'col-lg-8' : 'col-lg-8';
-$cols_image = (get_field('split') == '5050' || get_field('split') == '') ? 'col-lg-8' : 'col-lg-6';
+$cols_text = (get_field('split') == '5050' || get_field('split') == '') ? 'col-lg-6' : 'col-lg-8';
+$cols_image = (get_field('split') == '5050' || get_field('split') == '') ? 'col-lg-6' : 'col-lg-4';
 
 $extra_classes = get_field('extra_classes');
 ?>
-<!-- text_video_2024 -->
-<section class="text_video_2024 py-5 <?=$extra_classes?>">
+<!-- text_video -->
+<section class="text_video py-5 <?=$extra_classes?>">
     <div class="container-xl">
         <?php
         if (get_field('vid_title')) {
@@ -21,7 +21,7 @@ $extra_classes = get_field('extra_classes');
         }?>
         <div class="row g-4">
             <div
-                class="<?=$cols_text?> text_video_2024__content py-auto <?=$order_text?>">
+                class="<?=$cols_text?> text_video__content py-auto <?=$order_text?>">
                 <?php
                 if (get_field('pre_title') ?? null) {
                     echo '<div class="fs-300 fw-900 text-blue mb-3">' . get_field('pre_title') . '</div>';
@@ -40,7 +40,7 @@ if (get_field('cta')) {
 ?>
             </div>
             <div
-                class="<?=$cols_image?> text_video_2024__container <?=$vid_margin?> text-center <?=$order_image?>">
+                class="<?=$cols_image?> text_video__container <?=$vid_margin?> text-center <?=$order_image?>">
                 <div class="position-relative pointer">
                     <?php
     if (get_field('video_provider') == 'Vimeo') {
