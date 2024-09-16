@@ -73,12 +73,10 @@ if (get_field('cta')) {
                     tabindex="-1" role="dialog">
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content product-modal">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-bs-dismiss="modal"><i
-                                        class="fas fa-times"></i></button>
-                            </div>
                             <div class="modal-body">
-                                <div class="embed-responsive embed-responsive-16by9">
+                                <div type="button" class="modal-close" data-bs-dismiss="modal"><i
+                                        class="fas fa-times"></i></button>
+                                <div class="ratio ratio-16x9">
                                     <?php
                     if (get_field('video_provider') == 'YouTube') {
                         ?>
