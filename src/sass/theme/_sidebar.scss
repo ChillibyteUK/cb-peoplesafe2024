@@ -39,7 +39,8 @@
     // /* Closed submenu icon */
     .menu-item-has-children > a.nav-link::after {
         content: " \f0d7";
-        font-family: FontAwesome;
+        font-family: var(--ff-fa);
+        font-weight: 600;
         display: inline;
         text-align: right;
         padding-left: 10px;
@@ -47,7 +48,8 @@
     // /* Opened submenu icon */
     .menu-item-has-children > a.nav-link.collapsed::after {
         content: " \f0da";
-        font-family: FontAwesome;
+        font-family: var(--ff-fa);
+        font-weight: 600;
         display: inline;
         text-align: right;
         padding-left: 10px;

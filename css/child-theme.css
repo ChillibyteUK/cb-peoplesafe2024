@@ -22214,14 +22214,16 @@ a.text--yellow:hover {
 }
 #sidebar-container .menu-item-has-children > a.nav-link::after {
   content: " \f0d7";
-  font-family: FontAwesome;
+  font-family: var(--ff-fa);
+  font-weight: 600;
   display: inline;
   text-align: right;
   padding-left: 10px;
 }
 #sidebar-container .menu-item-has-children > a.nav-link.collapsed::after {
   content: " \f0da";
-  font-family: FontAwesome;
+  font-family: var(--ff-fa);
+  font-weight: 600;
   display: inline;
   text-align: right;
   padding-left: 10px;
@@ -22719,7 +22721,8 @@ li.cross::before {
   top: -1rem;
   left: -1rem;
   content: "\f10d";
-  font-family: fontawesome;
+  font-family: var(--ff-fa);
+  font-weight: 600;
   font-size: 4rem;
   color: rgba(0, 0, 0, 0.1568627451);
 }
@@ -23338,7 +23341,8 @@ li.cross::before {
 .testimonial_slider .big_quote__link a::after {
   position: absolute;
   content: "\f105";
-  font-family: fontawesome;
+  font-family: var(--ff-fa);
+  font-weight: 600;
   right: -1rem;
   transition: all 0.3s ease;
 }

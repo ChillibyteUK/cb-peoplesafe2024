@@ -11,7 +11,8 @@
             &::after {
                 position: absolute;
                 content: "\f105";
-                font-family: fontawesome;
+                font-family: var(--ff-fa);
+                font-weight: 600;
                 right: -1rem;
                 transition: all 0.3s ease;
             }

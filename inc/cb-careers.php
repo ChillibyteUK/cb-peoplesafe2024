@@ -75,7 +75,8 @@ function jobs_func2022($atts)
 	}
 	.joblisting2022 .job__link::after {
 		content: "\f105";
-		font-family: fontawesome;
+		font-family: var(--ff-fa);
+        font-weight: 600;
 		width: 1rem;
 		padding-left: 0rem;
 		position: absolute;
