@@ -3,8 +3,8 @@ $order_image = (get_field('order') == 'text_left') ? 'order-1 order-lg-2' : 'ord
 $order_text = (get_field('order') == 'text_left') ? 'order-2 order-lg-1' : 'order-2 order-lg-2';
 $modal = 'x' . random_str(8);
 
-$cols_text = (get_field('split') == '5050' || get_field('split') == '') ? 'col-lg-8' : 'col-lg-8';
-$cols_image = (get_field('split') == '5050' || get_field('split') == '') ? 'col-lg-8' : 'col-lg-6';
+$cols_text = (get_field('split') == '5050' || get_field('split') == '') ? 'col-lg-6' : 'col-lg-8';
+$cols_image = (get_field('split') == '5050' || get_field('split') == '') ? 'col-lg-6' : 'col-lg-4';
 
 $extra_classes = get_field('extra_classes');
 ?>
