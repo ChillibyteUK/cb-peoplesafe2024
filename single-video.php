@@ -32,7 +32,7 @@ $posttags = get_the_tags();
         </div>
         <h1 class="news__title"><?=get_the_title()?></h1>
         <div class="py-4">
-            <div class="embed-responsive embed-responsive-16by9 mb-4">
+            <div class="ratio ratio-16x9 mb-4">
                 <iframe id="vid<?=$modal?>" class="embed-responsive-item" src="https://player.vimeo.com/video/<?=get_field('vimeo_id')?>?byline=0&portrait=0" allow="autoplay; fullscreen; picture-in-picture" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
             </div>
             <?=apply_filters('the_content', get_the_content())?>

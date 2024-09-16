@@ -24023,6 +24023,8 @@ header #burger-menu.open span:nth-child(4) {
   isolation: isolate;
   overflow: clip;
   min-height: 320px;
+  margin-bottom: 2rem;
+  margin-inline: 1rem;
 }
 .quotes::before {
   content: "";
