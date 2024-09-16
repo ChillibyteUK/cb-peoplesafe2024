@@ -41,8 +41,9 @@
                 }
 
                 if (get_field('ebook')) {
+                    $title = get_field('cta_title') ?: 'Download e-book';
 					// https://insights.peoplesafe.co.uk/story/peoplesafe-alert-e-book/
-                    echo ' <a href="' . get_field('ebook') . '" target="_blank" class="button button-outline text-center me-3 w-100 w-md-auto">Download e-book</a>';
+                    echo ' <a href="' . get_field('ebook') . '" target="_blank" class="button button-outline text-center me-3 w-100 w-md-auto">' . $title . '</a>';
                 }
                 ?>
             </div>
