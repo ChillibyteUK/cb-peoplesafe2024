@@ -53,4 +53,17 @@
             position: relative;
         }
     }
+
+    .modal-content {
+        position: relative;
+        background-color: transparent;
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.2rem;
+            z-index: 9;
+            text-shadow: 0 0 3px white;
+        }
+    }
 }

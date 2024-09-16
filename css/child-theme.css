@@ -22810,6 +22810,22 @@ li.cross::before {
   border-radius: 1rem;
   position: relative;
 }
+.full_video .modal-content,
+.text_video .modal-content,
+.text_video_2024 .modal-content {
+  position: relative;
+  background-color: transparent;
+}
+.full_video .modal-content .modal-close,
+.text_video .modal-content .modal-close,
+.text_video_2024 .modal-content .modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.2rem;
+  z-index: 9;
+  text-shadow: 0 0 3px white;
+}
 
 .two_cards__content {
   min-height: 5rem;
