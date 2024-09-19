@@ -11,7 +11,7 @@ defined('ABSPATH') || exit;
 get_header();
 ?>
 <main id="main" class="pt-5">
-    <div class="container py-3">
+    <div class="container-xl pt-5 pb-3">
         <div class="page-meta">
             <h1>Accreditations</h1>
             <?php
@@ -63,7 +63,7 @@ $grad = 'orange';
 ?>
 <!-- gradient_cta -->
 <section class="gradient_cta py-5 bg_grad--<?=$grad?>">
-    <div class="container">
+    <div class="container-xl">
         <div class="row">
             <div class="col-md-6 offset-md-6">
                 <h2>Contact us</h2>

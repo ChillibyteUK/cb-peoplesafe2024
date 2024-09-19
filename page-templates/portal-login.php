@@ -25,8 +25,8 @@ the_post();
 }
 </style>
 <main id="main" class="pt-5">
-<section class="bg--navy">
-    <div class="container py-5 text-center">
+<section>
+    <div class="container-xl py-5 text-center">
         <h1 class="h2"><?=get_the_title()?></h1>
         <div class="pb-4">
             <?=get_the_content()?>
@@ -34,7 +34,7 @@ the_post();
     </div>
 </section>
 <section class="portal">
-    <div class="container pt-4 pb-5">
+    <div class="container-xl pt-4 pb-5">
         <div class="row">
             <div class="col-md-6">
                 <div class="portal__card bg_grad--green">
@@ -54,7 +54,7 @@ the_post();
     </div>
 </section>
 <section class="gradient_cta py-5 bg_grad--orange">
-    <div class="container">
+    <div class="container-xl">
         <div class="row">
             <div class="col-md-6 offset-md-6">
                 <h2>Having trouble logging in?</h2>
