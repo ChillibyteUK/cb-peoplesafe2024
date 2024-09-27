@@ -14,6 +14,17 @@ function acf_blocks()
             'supports' => array('mode' => false),
         ));
         acf_register_block(array(
+            'name'             => 'CB Latest Posts Author',
+            'title'                => __('CB Latest Posts Author'),
+            'description'      => __(''),
+            'render_template'  => 'page-templates/blocks/cb_latest_posts_author.php',
+            'category'         => 'layout',
+            'icon'             => 'excerpt-view',
+            'keywords'         => array( 'latest','posts' ),
+            'mode' => 'edit',
+            'supports' => array('mode' => false),
+        ));
+        acf_register_block(array(
             'name'				=> 'cb_infographics',
             'title'				=> __('CB Infographics'),
             'description'		=> __(''),
