@@ -50,39 +50,27 @@ $author_obj = get_user_by('id', $author);
             'author' => $author
         ));
         ?>
-        <div class="row">
+        <div id="blogs" class="w-100">
             <?php
-            $c = 1;
             while ($l->have_posts()) {
                 $l->the_post();
-                if ($c == 1) {
-                    echo '<div class="col-lg-6 mb-4 mb-lg-0 latest__preview">';
-                }
-                else {
-                    echo '<div class="col-lg-3 mb-4 mb-lg-0 latest__preview">';
-                }
-                $type = get_post_type($l->ID) == 'post' ? 'blog' : get_post_type($l->ID);
-                $img = get_the_post_thumbnail_url( $l->ID, 'large' );
+                $img = get_the_post_thumbnail_url( get_the_ID(), 'large' );
                 if (!$img) {
-                    $img = catch_that_image(get_post($l->ID));
+                    $img = catch_that_image($post);
                 }
                 ?>
-                <a href="<?=get_the_permalink($l->ID)?>">
-                    <div class="latest__container">
-                        <div class="latest__image" style="background-image:url('<?=$img?>')">
-                            <div class="flash"><?=ucfirst($type)?></div>
-                        </div>
-                        <div class="latest__content">
-                            <h3><?=get_the_title()?></h3>
-                            <div class="latest__excerpt mb-2">
-                                <?=wp_trim_words(get_the_content($l->ID),20)?>
-                            </div>
+                <div class="blog-item mb-4 pt-2 pb-4">
+                    <div class="row">
+                        <div class="col-md-2 news__image"><img src="<?=$img?>" class="img-fluid"></div>
+                        <div class="col-md-10 news__inner">
+                            <div class="news__title"><a href="<?=get_the_permalink()?>"><?=get_the_title()?></a></div>
+                            <div class="news__date"><?=get_the_date('j M, Y')?></div>
+                            <div class="news__intro"><?=wp_trim_words(get_the_content(),30)?></div>
+                            <div class="news__link"><a href="<?=get_the_permalink()?>">Read More</a></div>
                         </div>
                     </div>
-                </a>
-            </div>
-            <?php
-                $c++;
+                </div>
+                <?php
             }
             ?>
         </div>
