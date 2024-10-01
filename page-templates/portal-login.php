@@ -25,6 +25,7 @@ the_post();
 }
 </style>
 <main id="main" class="pt-5">
+<div style="height:100px" aria-hidden="true" class="wp-block-spacer"></div>
 <section>
     <div class="container-xl py-5 text-center">
         <h1 class="h2"><?=get_the_title()?></h1>

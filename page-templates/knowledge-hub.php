@@ -11,6 +11,7 @@ the_post();
 
 ?>
 <main id="main" class="pt-5">
+    <div style="height:100px" aria-hidden="true" class="wp-block-spacer"></div>
     <div class="container-xl py-5" id="knowledge">
         <div class="text-center">
             <h1><?=get_the_title()?></h1>
