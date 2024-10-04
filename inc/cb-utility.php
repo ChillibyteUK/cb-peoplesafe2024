@@ -189,9 +189,9 @@ function cb_social_share($id) {
     ?>
     <div class="text-larger text--yellow mb-5">
         <div class="h4 text-dark">Share</div>
-        <a target='_blank' href='https://twitter.com/share?url=<?=$url?>' class="mr-2"><i class='fab fa-twitter'></i></a>
-        <a target='_blank' href='http://www.linkedin.com/shareArticle?url=<?=$url?>' class="mr-2"><i class='fab fa-linkedin-in'></i></a>
-        <a target='_blank' href='http://www.facebook.com/sharer.php?u=<?=$url?>'><i class='fab fa-facebook-f'></i></a>
+        <a target='_blank' href='https://twitter.com/share?url=<?=$url?>' class="mr-2"><i class='fa-brands fa-x-twitter'></i></a>
+        <a target='_blank' href='http://www.linkedin.com/shareArticle?url=<?=$url?>' class="mr-2"><i class='fa-brands fa-linkedin-in'></i></a>
+        <a target='_blank' href='http://www.facebook.com/sharer.php?u=<?=$url?>'><i class='fa-brands fa-facebook-f'></i></a>
     </div>
     <?php
     
