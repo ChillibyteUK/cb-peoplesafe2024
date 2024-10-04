@@ -49,25 +49,31 @@
     z-index: 1;
 }
 
+// tl--grey : Founded : same
+// tl--yellow : Milestone : #FFB422
+// tl--pink : Product : #06BEA9
+// tl--green : Partnership : #043950
+// tl--orange : Staff : #DF4305
 .timeline__container.tl--grey::after {
     background-color: $grey-100;
     border: 4px solid $grey-700;
 }
 .timeline__container.tl--pink::after {
-    background-color: $ps-pink-100;
-    border: 4px solid $ps-pink-700;
+    background-color: #06BEA9; // $ps-pink-100;
+    border: 4px solid $grey-700;
 }
 .timeline__container.tl--green::after {
-    background-color: $ps-green-100;
-    border: 4px solid $ps-green-700;
+    background-color: #043950; // $ps-green-100;
+    border: 4px solid $grey-700;
+    color: white;
 }
 .timeline__container.tl--yellow::after {
-    background-color: $ps-yellow-100;
-    border: 4px solid $ps-yellow-700;
+    background-color: #FFB422; // $ps-yellow-100;
+    border: 4px solid $grey-700;
 }
 .timeline__container.tl--orange::after {
-    background-color: $ps-orange-100;
-    border: 4px solid $ps-orange-700;
+    background-color: #DF4305; // $ps-orange-100;
+    border: 4px solid $grey-700;
 }
 
 /* Place the container to the left */
@@ -108,64 +114,72 @@
     border-color: transparent $grey-100 transparent transparent;
 }
 
+// tl--grey : Founded : same
+// tl--yellow : Milestone : #FFB422
+// tl--pink : Product : #06BEA9
+// tl--green : Partnership : #043950
+// tl--orange : Staff : #DF4305
+
 .timeline__container.left.tl--yellow::before {
-    border: medium solid $ps-yellow-100;
+    border: medium solid #FFB422;
     border-width: 10px 0 10px 10px;
-    border-color: transparent transparent transparent $ps-yellow-100;
+    border-color: transparent transparent transparent #FFB422;
     @media screen and (max-width: 768px) {
         border-width: 10px 10px 10px 0;
-        border-color: transparent $ps-yellow-100 transparent transparent;   
+        border-color: transparent #FFB422 transparent transparent;   
     }
 }
 .timeline__container.right.tl--yellow::before {
-    border: medium solid $ps-yellow-100;
+    border: medium solid #FFB422;
     border-width: 10px 10px 10px 0;
-    border-color: transparent $ps-yellow-100 transparent transparent;
+    border-color: transparent #FFB422 transparent transparent;
 }
 
 .timeline__container.left.tl--pink::before {
-    border: medium solid $ps-pink-100;
+    border: medium solid #06BEA9;
     border-width: 10px 0 10px 10px;
-    border-color: transparent transparent transparent $ps-pink-100;
+    border-color: transparent transparent transparent #06BEA9;
     @media screen and (max-width: 768px) {
         border-width: 10px 10px 10px 0;
-        border-color: transparent $ps-pink-100 transparent transparent;
+        border-color: transparent #06BEA9 transparent transparent;
     }
 }
 .timeline__container.right.tl--pink::before {
-    border: medium solid $ps-pink-100;
+    border: medium solid #06BEA9;
     border-width: 10px 10px 10px 0;
-    border-color: transparent $ps-pink-100 transparent transparent;
+    border-color: transparent #06BEA9 transparent transparent;
 }
 
 .timeline__container.left.tl--green::before {
-    border: medium solid $ps-green-100;
+    border: medium solid #043950;
     border-width: 10px 0 10px 10px;
-    border-color: transparent transparent transparent $ps-green-100;
+    border-color: transparent transparent transparent #043950;
+    color: white;
     @media screen and (max-width: 768px) {
         border-width: 10px 10px 10px 0;
-        border-color: transparent $ps-green-100 transparent transparent;
+        border-color: transparent #043950 transparent transparent;
     }
 }
 .timeline__container.right.tl--green::before {
-    border: medium solid $ps-green-100;
+    border: medium solid #043950;
     border-width: 10px 10px 10px 0;
-    border-color: transparent $ps-green-100 transparent transparent;
+    border-color: transparent #043950 transparent transparent;
+    color: white;
 }
 
 .timeline__container.left.tl--orange::before {
-    border: medium solid $ps-orange-100;
+    border: medium solid #DF4305;
     border-width: 10px 0 10px 10px;
-    border-color: transparent transparent transparent $ps-orange-100;
+    border-color: transparent transparent transparent #DF4305;
     @media screen and (max-width: 768px) {
         border-width: 10px 10px 10px 0;
-        border-color: transparent $ps-orange-100 transparent transparent;
+        border-color: transparent #DF4305 transparent transparent;
     }
 }
 .timeline__container.right.tl--orange::before {
-    border: medium solid $ps-orange-100;
+    border: medium solid #DF4305;
     border-width: 10px 10px 10px 0;
-    border-color: transparent $ps-orange-100 transparent transparent;
+    border-color: transparent #DF4305 transparent transparent;
 }
 
 
@@ -183,20 +197,33 @@
     box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.25);
 }
 
+// tl--grey : Founded : same
+// tl--yellow : Milestone : #FFB422
+// tl--pink : Product : #06BEA9
+// tl--green : Partnership : #043950
+// tl--orange : Staff : #DF4305
 .timeline__content.tl--grey {
     background-color: $grey-100;
 }
 .timeline__content.tl--yellow {
-    background-color: $ps-yellow-100;
+    background-color: #FFB422; // $ps-yellow-100;
 }
 .timeline__content.tl--pink {
-    background-color: $ps-pink-100;
+    background-color: #06BEA9; // $ps-pink-100;
 }
 .timeline__content.tl--green {
-    background-color: $ps-green-100;
+    background-color: #043950; // $ps-green-100;
+    color: white;
+    a {
+        color: white !important;
+    }
 }
 .timeline__content.tl--orange {
-    background-color: $ps-orange-100;
+    background-color: #DF4305; //$ps-orange-100;
+    color: white;
+    a {
+        color: white !important;
+    }
 }
 
 /* Media queries - Responsive timeline on screens less than 600px wide */
