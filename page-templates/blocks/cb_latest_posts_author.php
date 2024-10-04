@@ -8,6 +8,24 @@ $photo = get_field('photo');
 $linkedin = get_field('linkedin');
 $author_obj = get_user_by('id', $author);
 ?>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "<?=$author_name?>",
+  "jobTitle": "<?=$title?>",
+  "url": "<?=get_permalink( get_the_ID() );?>",
+  "sameAs": [
+    "<?=$linkedin?>"
+  ],
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Peoplesafe",
+    "url": "https://peoplesafe.co.uk/"
+  },
+  "description": "<?=sanitize_text_field($text)?>"
+}
+</script>
 <section class="py-5">
     <div class="container-xl">
         <div class="h1__container">
