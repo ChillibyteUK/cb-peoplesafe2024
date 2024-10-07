@@ -21,6 +21,27 @@
             "esc_html": 0
         },
         {
+            "key": "field_6703f20e2904c",
+            "label": "H1 Title",
+            "name": "h1_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Displayed before the page (product) title.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_667addfd57279",
             "label": "Alt Title",
             "name": "alt_title",
@@ -179,6 +200,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "show_in_rest": 0,
-    "modified": 1719483437
+    "show_in_rest": 0
 }
