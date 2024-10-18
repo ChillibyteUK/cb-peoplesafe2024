@@ -21,7 +21,7 @@
                 <img src="<?= get_the_post_thumbnail_url(get_the_ID(), 'full') ?>" class="product_header_2024__img">
             </div>
             <div class="col-md-8 order-md-1 my-auto">
-                <h1 class="fs-300 fw-900 text-blue mb-1">
+                <h1 class="fs-300 fw-900 text-blue">
                     <?= get_field('h1_title') ?? null ?>
                 </h1>
                 <h2 class="h1"><?php
