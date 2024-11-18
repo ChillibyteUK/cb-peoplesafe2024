@@ -24,7 +24,7 @@ $title = get_field('title') ?: 'Protection you can count on';
                         ?>
                     <div class="stat__stat">
                         <div class="stat__value text-orange">
-                            <?=$prefix?><?=do_shortcode("[countup start='0' end='{$endval}' decimals='{$decimals}' duration='3' scroll='true']")?><?=$suffix?>
+                            <?=$prefix?><div class="counter" data-count="<?=$endval?>">0</div><?=$suffix?>
                         </div>
                         <div class="stat__qualifier">
                             <?=get_sub_field('title')?>
@@ -41,3 +41,29 @@ $title = get_field('title') ?: 'Protection you can count on';
         </div>
     </div>
 </section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/countup.js/2.0.0/countUp.min.js"></script>
+<script>
+jQuery( document ).ready(function($) {
+    $('.counter').each(function() {
+      var $this = $(this),
+          countTo = $this.attr('data-count');
+      
+      $({ countNum: $this.text()}).animate({
+        countNum: countTo
+      },
+      {
+        duration: 4000,
+        easing:'linear',
+        step: function() {
+          $this.text(Math.floor(this.countNum));
+        },
+        complete: function() {
+          $this.text(this.countNum);
+          //alert('finished');
+        }
+
+      }); 
+    });
+});
+</script>
