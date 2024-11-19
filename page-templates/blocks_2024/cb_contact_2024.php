@@ -32,7 +32,8 @@
                     <div class="contact__links">
                         <div><strong>Text:</strong> 07401 233426</div>
                         <div><strong>Phone:</strong> <a href="tel:+448009903562">0800 990 3562</a></div>
-                        <div><strong>Email:</strong> <a href="mailto:customer.support@peoplesafe.co.uk">customer.support@peoplesafe.co.uk</a></div>
+                        <div class="mb-2"><strong>Email:</strong> <a href="mailto:customer.support@peoplesafe.co.uk">customer.support@peoplesafe.co.uk</a></div>
+                        <iframe width="250" height="50" style="border: 0" src="https://cdn.smooch.io/message-us/index.html?channel=whatsapp&color=green&size=standard&radius=4px&label=Message us on WhatsApp&number=447401233426"></iframe>
                     </div>
                     <div class="contact__address">
                         Skyguard Ltd. T/A Peoplesafe<br>
