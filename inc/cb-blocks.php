@@ -687,6 +687,15 @@ function acf_blocks()
             'mode'	=> 'edit',
             'supports' => array('mode' => false),
         ));
+        acf_register_block(array(
+            'name'				=> 'cb_contact_2024',
+            'title'				=> __('CB Contact Cards (2024)'),
+            'render_template'	=> 'page-templates/blocks_2024/cb_contact_2024.php',
+            'category'			=> 'layout',
+            'icon'				=> 'cover-image',
+            'mode'	=> 'edit',
+            'supports' => array('mode' => false),
+        ));
 
     }
 }

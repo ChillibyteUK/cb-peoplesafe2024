@@ -1,0 +1,29 @@
+.contact {
+    &__card {
+        padding: 1rem;
+        border-radius: 0.5rem;
+        box-shadow: var(--shadow-out);
+        height: 100%;
+        div {
+            font-size: var(--fs-300);
+        }
+    }
+
+    &__card--white {
+        background-color: white;
+        display: grid;
+        grid-template-rows: 2rem 1fr auto;
+        gap: 0.5rem;
+    }
+
+    &__card--blue {
+        background-color: var(--col-navy-400);
+        color: white;
+        display: grid;
+        grid-template-rows: 2rem auto auto;
+        gap: 0.5rem;
+        .contact__links {
+            color: var(--col-yellow-400);
+        }
+    }
+}
