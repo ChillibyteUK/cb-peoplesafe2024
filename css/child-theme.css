@@ -24428,7 +24428,7 @@ header #burger-menu.open span:nth-child(4) {
   gap: 0.5rem;
 }
 .contact__card--blue .contact__links {
-  color: var(--col-yellow-400);
+  color: var(--col-white);
 }
 
 .text_image_2024 iframe,
