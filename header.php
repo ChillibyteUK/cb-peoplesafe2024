@@ -165,73 +165,6 @@ if (get_field('gtm_property', 'options')) {
             </div>
         </div>
         <div class="navMenus" id="navMenus">
-            <div id="dropdownSolutions" class="dropdownMenu">
-                <ul class="left">
-                    <li class="active" aria-controls="byRole">By Role</li>
-                    <li class="" aria-controls="bySector">By Sector</li>
-                </ul>
-                <div class="right right--cards active" id="byRole">
-                    <a class="item" href="/lone-workers/">
-                        <div class="item__image">
-                            <img src="<?=get_stylesheet_directory_uri()?>/img/2024/lone-workers.png" alt="Lone Workers">
-                        </div>
-                        <div class="item__title">Lone Workers</div>
-                        <div class="item__desc">
-                            Keep your lone workers safe 24/7, wherever they are, with the Peoplesafe Lone Worker Alarms.
-                        </div>
-                    </a>
-                    <a class="item" href="/home-workers/">
-                        <div class="item__image">
-                            <img src="<?=get_stylesheet_directory_uri()?>/img/2024/home-hybrid.png" alt="Home & Hybrid Workers">
-                        </div>
-                        <div class="item__title">Home & Hybrid Workers</div>
-                        <div class="item__desc">
-                            Our market-leading technology empowers home and hybrid workers to stay safe.
-                        </div>
-                    </a>
-                    <a class="item" href="/personal-safety/">
-                        <div class="item__image">
-                            <img src="<?=get_stylesheet_directory_uri()?>/img/2024/all-employees.png" alt="All Employees">
-                        </div>
-                        <div class="item__title">All Employees</div>
-                        <div class="item__desc">
-                            Protect every employee with our dedicated solutions.
-                        </div>
-                    </a>
-                    <a class="item" href="/international-workers/">
-                        <div class="item__image">
-                            <img src="<?=get_stylesheet_directory_uri()?>/img/2024/international-workers.png" alt="International Workers">
-                        </div>
-                        <div class="item__title">International Workers</div>
-                        <div class="item__desc">
-                            Ensure the safety of your staff even when they are not in the UK.
-                        </div>
-                    </a>
-                </div>
-                <div class="right right--cols" id="bySector">
-                    <div class="h3">By Sector</div>
-                    <div>Whatever the risks your staff face at work, our fully accredited service will support them in an emergency.</div>
-                    <ul>
-                        <li><a href="/sectors/nhs/">NHS</a></li>
-                        <li><a href="/sectors/housing/">Housing</a></li>
-                        <li><a href="/sectors/retail/">Retail</a></li>
-                        <li><a href="/sectors/transport/">Transport</a></li>
-                        <li><a href="/sectors/education/">Education</a></li>
-                        <li><a href="/sectors/estate-agents/">Estate Agents</a></li>
-                        <li><a href="/sectors/manufacturing/">Manufacturing</a></li>
-                        <li><a href="/sectors/professional-services-government/">Professional Services &amp; Government</a></li>
-                        <li><a href="/sectors/councils/">Councils</a></li>
-                        <li><a href="/sectors/utilities-telecoms/">Utilities</a></li>
-                        <li><a href="/sectors/haulage-distribution/">Haulage &amp; Distribution</a></li>
-                        <li><a href="/sectors/charity/">Charity</a></li>
-                        <li><a href="/sectors/hospitality/">Hospitality</a></li>
-                        <li><a href="/sectors/construction/">Construction</a></li>
-                        <li><a href="/sectors/police/">Police</a></li>
-                        <li><a href="/sectors/">All Sectors</a></li>
-                    </ul>
-                </div>
-            </div>
-
             <div id="dropdownProducts" class="dropdownMenu">
                 <ul class="left">
                     <li class="active" aria-controls="safetyDevices">Safety Devices</li>
@@ -392,7 +325,72 @@ if (get_field('gtm_property', 'options')) {
                     </div>
                 </div>
             </div>
-
+            <div id="dropdownSolutions" class="dropdownMenu">
+                <ul class="left">
+                    <li class="active" aria-controls="byRole">By Role</li>
+                    <li class="" aria-controls="bySector">By Sector</li>
+                </ul>
+                <div class="right right--cards active" id="byRole">
+                    <a class="item" href="/lone-workers/">
+                        <div class="item__image">
+                            <img src="<?=get_stylesheet_directory_uri()?>/img/2024/lone-workers.png" alt="Lone Workers">
+                        </div>
+                        <div class="item__title">Lone Workers</div>
+                        <div class="item__desc">
+                            Keep your lone workers safe 24/7, wherever they are, with the Peoplesafe Lone Worker Alarms.
+                        </div>
+                    </a>
+                    <a class="item" href="/home-workers/">
+                        <div class="item__image">
+                            <img src="<?=get_stylesheet_directory_uri()?>/img/2024/home-hybrid.png" alt="Home & Hybrid Workers">
+                        </div>
+                        <div class="item__title">Home & Hybrid Workers</div>
+                        <div class="item__desc">
+                            Our market-leading technology empowers home and hybrid workers to stay safe.
+                        </div>
+                    </a>
+                    <a class="item" href="/personal-safety/">
+                        <div class="item__image">
+                            <img src="<?=get_stylesheet_directory_uri()?>/img/2024/all-employees.png" alt="All Employees">
+                        </div>
+                        <div class="item__title">All Employees</div>
+                        <div class="item__desc">
+                            Protect every employee with our dedicated solutions.
+                        </div>
+                    </a>
+                    <a class="item" href="/international-workers/">
+                        <div class="item__image">
+                            <img src="<?=get_stylesheet_directory_uri()?>/img/2024/international-workers.png" alt="International Workers">
+                        </div>
+                        <div class="item__title">International Workers</div>
+                        <div class="item__desc">
+                            Ensure the safety of your staff even when they are not in the UK.
+                        </div>
+                    </a>
+                </div>
+                <div class="right right--cols" id="bySector">
+                    <div class="h3">By Sector</div>
+                    <div>Whatever the risks your staff face at work, our fully accredited service will support them in an emergency.</div>
+                    <ul>
+                        <li><a href="/sectors/nhs/">NHS</a></li>
+                        <li><a href="/sectors/housing/">Housing</a></li>
+                        <li><a href="/sectors/retail/">Retail</a></li>
+                        <li><a href="/sectors/transport/">Transport</a></li>
+                        <li><a href="/sectors/education/">Education</a></li>
+                        <li><a href="/sectors/estate-agents/">Estate Agents</a></li>
+                        <li><a href="/sectors/manufacturing/">Manufacturing</a></li>
+                        <li><a href="/sectors/professional-services-government/">Professional Services &amp; Government</a></li>
+                        <li><a href="/sectors/councils/">Councils</a></li>
+                        <li><a href="/sectors/utilities-telecoms/">Utilities</a></li>
+                        <li><a href="/sectors/haulage-distribution/">Haulage &amp; Distribution</a></li>
+                        <li><a href="/sectors/charity/">Charity</a></li>
+                        <li><a href="/sectors/hospitality/">Hospitality</a></li>
+                        <li><a href="/sectors/construction/">Construction</a></li>
+                        <li><a href="/sectors/police/">Police</a></li>
+                        <li><a href="/sectors/">All Sectors</a></li>
+                    </ul>
+                </div>
+            </div>
             <div id="dropdownPlatform" class="dropdownMenu">
                 <ul>
                     <li><a href="/about/">About Us</a></li>
