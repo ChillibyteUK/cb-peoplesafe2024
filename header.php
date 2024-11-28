@@ -146,8 +146,8 @@ if (get_field('gtm_property', 'options')) {
             </div>
             <a href="/" class="logo"><img src="<?=get_stylesheet_directory_uri()?>/img/ps-logo-full--dark.svg"></a>
             <div class="navItems" id="navItems">
-                <a class="toggle" aria-controls="dropdownSolutions" data-href="/solutions/">Solutions</a>
                 <a class="toggle" aria-controls="dropdownProducts" data-href="/products/">Products</a>
+                <a class="toggle" aria-controls="dropdownSolutions" data-href="/solutions/">Solutions</a>
                 <a class="toggle" aria-controls="dropdownPlatform" data-href="/about-menu/">About</a>
                 <a class="toggle" aria-controls="dropdownKnowledge" data-href="/resources/">Knowledge Hub</a>
                 <div class="navbar__extras me-xl-2">
