@@ -17,22 +17,22 @@
         $d+=100;
         ?>
         <div class="swiper logo__slider mb-5">
-            <div class="swiper-wrapper">
+            <div class="swiper-wrapper" data-aos="fade" data-aos-delay="<?=$d?>">
                 <?php
         while (have_rows('logos')) {
             the_row();
             ?>
-                <div class="swiper-slide logo__slide" data-aos="fade" data-aos-delay="<?=$d?>">
+                <div class="swiper-slide logo__slide">
                     <?=wp_get_attachment_image(get_sub_field('logo'), 'thumbnail')?>
                 </div>
             <?php
-            $d+=100;
         }
         ?>
             </div>
             <div class="swiper-pagination swiper-pagination-logos"></div>
         </div>
         <?php
+        $d+=100;
         if (get_field('show_case_study_link')) {
             ?>
         <div class="text-center" data-aos="fade" data-aos-delay="<?=$d?>">
