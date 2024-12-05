@@ -7009,7 +7009,9 @@
 	      });
 	    });
 	  });
-	  AOS.init();
+	  AOS.init({
+	    once: true
+	  });
 	});
 
 	exports.Alert = alert;
