@@ -24157,6 +24157,7 @@ header #burger-menu.open span:nth-child(4) {
   border-radius: 1rem;
   box-shadow: var(--shadow-out);
   transition: opacity var(--transition), transform var(--transition), border-color var(--transition), background-color var(--transition), box-shadow var(--transition);
+  transition-delay: 0;
 }
 .top_tab_group_2024 .pill.active, .top_tab_group_2024 .pill:hover {
   border-color: var(--col-orange-400);
