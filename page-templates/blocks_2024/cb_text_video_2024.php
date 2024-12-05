@@ -6,8 +6,8 @@ $modal = 'x' . random_str(8);
 $cols_text = (get_field('split') == '5050' || get_field('split') == '') ? 'col-lg-6' : 'col-lg-8';
 $cols_image = (get_field('split') == '5050' || get_field('split') == '') ? 'col-lg-6' : 'col-lg-4';
 
-$text_fade = (get_field('order') == 'text_left') ? 'fade-left' : 'fade-right';
-$image_fade = (get_field('order') == 'text_left') ? 'fade-right' : 'fade-left';
+$text_fade = (get_field('order') == 'text_left') ? 'fade-right' : 'fade-left';
+$image_fade = (get_field('order') == 'text_left') ? 'fade-left' : 'fade-right';
 
 $extra_classes = get_field('extra_classes');
 ?>
