@@ -1,6 +1,6 @@
-<section class="top_tab_group_2024 py-5">
+<section class="top_tab_group_2024 py-5" data-aos="fade">
     <div class="container-xl">
-        <div class="top_tab_group_2024__inner" data-aos="fade">
+        <div class="top_tab_group_2024__inner">
             <?php
             $i = 'x' . random_str(4);
             $active = 'active';
