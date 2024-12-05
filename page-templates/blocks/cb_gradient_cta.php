@@ -5,10 +5,10 @@ $img = wp_get_attachment_image_url(get_field('image'),'full');
 ?>
 <!-- gradient_cta -->
 <section class="gradient_cta py-5 bg_grad--<?=$grad?>">
-    <div class="gradient_cta__image" style="--bg-url:url(<?=$img?>)"></div>
+    <div class="gradient_cta__image" data-aos="fade" style="--bg-url:url(<?=$img?>)"></div>
     <div class="container">
         <div class="row">
-            <div class="col-lg-7 offset-lg-5">
+            <div class="col-lg-7 offset-lg-5" data-aos="fade-left">
                 <h2><?=get_field('title')?></h2>
                 <div class="mb-4"><?=get_field('content')?></div>
                 <?php
