@@ -15,7 +15,7 @@
                 $link = get_sub_field('link');
                 $image = wp_get_attachment_image(get_sub_field('image'), 'large', false, array('class' => 'content__image', 'width' => 500, 'height' => 500, 'alt' => $tab_title));
                 ?>
-            <div class="pill <?=$active?>" aria-controls="<?=$i?>_tab_<?=$c?>" data-aos="fade" data-aos-delay="<?=$d?>>
+            <div class="pill <?=$active?>" aria-controls="<?=$i?>_tab_<?=$c?>" data-aos="fade" data-aos-delay="<?=$d?>">
                 <img class="pill__icon" src="<?=$icon?>">
                 <div class="pill__title"><?=$tab_title?></div>
             </div>
