@@ -24157,12 +24157,12 @@ header #burger-menu.open span:nth-child(4) {
   border-radius: 1rem;
   box-shadow: var(--shadow-out);
 }
-.top_tab_group_2024 .pill.active {
+.top_tab_group_2024 .pill.active, .top_tab_group_2024 .pill:hover {
   border-color: var(--col-orange-400);
   background-color: color-mix(in srgb, var(--col-orange-400), var(--col-white) 80%);
   box-shadow: var(--shadow-in);
 }
-.top_tab_group_2024 .pill.active .pill__title::after {
+.top_tab_group_2024 .pill.active .pill__title::after, .top_tab_group_2024 .pill:hover .pill__title::after {
   content: "\f106";
 }
 .top_tab_group_2024 .pill__icon {
