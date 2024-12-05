@@ -12,15 +12,17 @@ document.addEventListener('DOMContentLoaded', function() {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-            entry.target.classList.add('aos-animate');
+                entry.target.classList.add('aos-animate');
             } else {
-            entry.target.classList.remove('aos-animate');
+                entry.target.classList.remove('aos-animate');
             }
         });
+    }, {
+        rootMargin: '0px 0px -150px 0px' // Adjusts the threshold to trigger 100px before the bottom of the element
     });
-
+    
     document.querySelectorAll('.aos-init').forEach((el) => {
-            observer.observe(el);
+        observer.observe(el);
     });
 
   const toggles = document.querySelectorAll('.toggle');
