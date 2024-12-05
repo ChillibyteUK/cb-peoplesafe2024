@@ -2,8 +2,8 @@
 $orderText = get_field('order') == 'Text Image' ? 'order-2 order-md-1' : 'order-2 order-md-2';
 $orderImage = get_field('order') == 'Text Image' ? 'order-1 order-md-2' : 'order-1 order-md-1';
 
-$text_fade = (get_field('order') == 'text_left') ? 'fade-left' : 'fade-right';
-$image_fade = (get_field('order') == 'text_left') ? 'fade-right' : 'fade-left';
+$text_fade = (get_field('order') == 'text_left') ? 'fade-right' : 'fade-left';
+$image_fade = (get_field('order') == 'text_left') ? 'fade-left' : 'fade-right';
 
 $l = get_field('cta') ?? null;
 ?>
