@@ -1,7 +1,7 @@
 <!-- latest_posts -->
 <section class="latest bg-blue-200 py-5">
     <div class="container-xl">
-        <h2 class="text-center mb-4">Latest News &amp; Blogs</h2>
+        <h2 class="text-center mb-4" data-aos="fade">Latest News &amp; Blogs</h2>
         <?php
         $excluded = get_field('hidden_posts', 'options');
 
@@ -11,6 +11,7 @@
             'post_status' => 'publish',
             'post__not_in'    => $excluded,
         ));
+        $d=50;
         ?>
         <div class="swiper latest__slider mb-4">
             <div class="swiper-wrapper">
@@ -24,7 +25,7 @@
                 $img = catch_that_image(get_post($l->ID));
             }
             ?>
-                <div class="swiper-slide latest__slide pb-4">
+                <div class="swiper-slide latest__slide pb-4" data-aos="fade" data-aos-delay="<?=$d?>">
                     <a class="latest__card"
                         href="<?=get_the_permalink($l->ID)?>">
                         <div class="latest__image">
@@ -43,6 +44,7 @@
                     </a>
                 </div>
                 <?php
+                $d+=50;
         }
         ?>
             </div>
