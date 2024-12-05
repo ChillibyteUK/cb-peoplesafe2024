@@ -1,5 +1,11 @@
 // new WOW().init();
 
+AOS.init({
+    duration: 600,
+    easing: "ease-in-out",
+    once: true
+});
+
 document.addEventListener('DOMContentLoaded', function() {
   const toggles = document.querySelectorAll('.toggle');
   const burgerMenu = document.getElementById('burger-menu');
@@ -170,11 +176,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 section.querySelector(`#${contentId}`).classList.add('active');
             });
         });
-    });
-
-    AOS.init({
-        once: true,
-        
     });
 
 });
