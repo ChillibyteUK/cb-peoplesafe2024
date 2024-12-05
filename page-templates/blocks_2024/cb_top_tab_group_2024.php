@@ -1,6 +1,6 @@
 <section class="top_tab_group_2024 py-5">
     <div class="container-xl">
-        <div class="top_tab_group_2024__inner">
+        <div class="top_tab_group_2024__inner" data-aos="fade">
             <?php
             $i = 'x' . random_str(4);
             $active = 'active';
@@ -15,11 +15,11 @@
                 $link = get_sub_field('link');
                 $image = wp_get_attachment_image(get_sub_field('image'), 'large', false, array('class' => 'content__image', 'width' => 500, 'height' => 500, 'alt' => $tab_title));
                 ?>
-            <div class="pill <?=$active?>" aria-controls="<?=$i?>_tab_<?=$c?>" data-aos="fade" data-aos-delay="<?=$d?>">
+            <div class="pill <?=$active?>" aria-controls="<?=$i?>_tab_<?=$c?>">
                 <img class="pill__icon" src="<?=$icon?>">
                 <div class="pill__title"><?=$tab_title?></div>
             </div>
-            <div class="content <?=$active?>" id="<?=$i?>_tab_<?=$c?>" data-aos="fade">
+            <div class="content <?=$active?>" id="<?=$i?>_tab_<?=$c?>">
                 <?=$image?>
                 <div class="content__inner">
                     <div class="fs-300 fw-900 text-orange"><?=$pre_title?></div>
