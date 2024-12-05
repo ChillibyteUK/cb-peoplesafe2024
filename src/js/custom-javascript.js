@@ -3,7 +3,8 @@
 AOS.init({
     duration: 600,
     easing: "ease-in-out",
-    once: true
+    once: true,
+    offset: 100, // Trigger the animation when the element is 100px from the viewport
 });
 
 document.addEventListener('DOMContentLoaded', function() {
