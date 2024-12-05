@@ -16,8 +16,8 @@
         }
         $d+=100;
         ?>
-        <div class="swiper logo__slider mb-5">
-            <div class="swiper-wrapper" data-aos="fade" data-aos-delay="<?=$d?>">
+        <div class="swiper logo__slider mb-5" data-aos="fade" data-aos-delay="<?=$d?>">
+            <div class="swiper-wrapper">
                 <?php
         while (have_rows('logos')) {
             the_row();
