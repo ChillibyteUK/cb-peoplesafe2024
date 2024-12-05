@@ -3,7 +3,7 @@ $class = $block['className'] ?? 'pt-5';
 $img = get_field('image') ?: get_stylesheet_directory_uri() . '/img/2024/cutouts/cutout4.png';
 $title = get_field('title') ?: 'Protection you can count on';
 ?>
-<section class="stat_spinner <?=$class?>">
+<section class="stat_spinner <?=$class?>" data-aos="fade">
     <div class="container-xl">
         <div class="row g-5">
             <div class="col-md-4 order-2 order-md-1">
