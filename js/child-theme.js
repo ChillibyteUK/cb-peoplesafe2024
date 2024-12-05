@@ -7009,6 +7009,7 @@
 	      });
 	    });
 	  });
+	  AOS.init();
 	});
 
 	exports.Alert = alert;
