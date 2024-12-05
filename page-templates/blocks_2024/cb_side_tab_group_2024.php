@@ -29,11 +29,11 @@ $d = 0;
                 <?=wp_get_attachment_image(get_field('tab_2_image'),'large',false,array('class' => 'content', 'alt' => '', 'id' => $i . '_tab2'))?>
                 <?=wp_get_attachment_image(get_field('tab_3_image'),'large',false,array('class' => 'content', 'alt' => '', 'id' => $i . '_tab3'))?>
             </div>
-            <div class="pills">
-                <?php
-                $d += 200;
-                ?>
-                <div class="pill active" aria-controls="<?=$i?>_tab1" data-aos="fade" data-aos-delay="<?=$d?>">
+            <?php
+            $d += 200;
+            ?>
+            <div class="pills" data-aos="fade" data-aos-delay="<?=$d?>">
+                <div class="pill active" aria-controls="<?=$i?>_tab1">
                     <h3 class="pill__title"><?=get_field('tab_1_title')?></h3>
                     <div class="pill__content">
                         <p><?=get_field('tab_1_content')?><p>
@@ -46,10 +46,7 @@ $d = 0;
                         ?>
                     </div>
                 </div>
-                <?php
-                $d += 200;
-                ?>
-                <div class="pill" aria-controls="<?=$i?>_tab2" data-aos="fade" data-aos-delay="<?=$d?>">
+                <div class="pill" aria-controls="<?=$i?>_tab2" data-aos="fade">
                     <h3 class="pill__title"><?=get_field('tab_2_title')?></h3>
                     <div class="pill__content">
                         <p><?=get_field('tab_2_content')?><p>
@@ -62,10 +59,7 @@ $d = 0;
                         ?>
                     </div>
                 </div>
-                <?php
-                $d += 200;
-                ?>
-                <div class="pill" aria-controls="<?=$i?>_tab3" data-aos="fade" data-aos-delay="<?=$d?>"> 
+                <div class="pill" aria-controls="<?=$i?>_tab3" data-aos="fade"> 
                     <h3 class="pill__title"><?=get_field('tab_3_title')?></h3>
                     <div class="pill__content">
                         <p><?=get_field('tab_3_content')?><p>
