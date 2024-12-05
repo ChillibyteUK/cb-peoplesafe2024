@@ -6,9 +6,11 @@
             $active = 'active';
             $c = 1;
             $d=0;
+            $fade = 'data-aos="fade" data-aos-delay="' . $d . '"';
             while (have_rows('tabs')) {
                 the_row();
 
+                
                 $icon = wp_get_attachment_image_url(get_sub_field('tab_icon'), 'medium', false);
                 $tab_title = get_sub_field('tab_title');
                 $pre_title = get_sub_field('pre_title');
@@ -19,7 +21,7 @@
                 <img class="pill__icon" src="<?=$icon?>">
                 <div class="pill__title"><?=$tab_title?></div>
             </div>
-            <div class="content <?=$active?>" id="<?=$i?>_tab_<?=$c?>">
+            <div class="content <?=$active?>" id="<?=$i?>_tab_<?=$c?>" <?=$fade?>>
                 <?=$image?>
                 <div class="content__inner">
                     <div class="fs-300 fw-900 text-orange"><?=$pre_title?></div>
@@ -32,6 +34,7 @@
                 $c++;
                 $d+=50;
                 $active = '';
+                $fade = '';
             }
             ?>
         </div>
