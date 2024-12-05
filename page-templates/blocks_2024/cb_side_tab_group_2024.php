@@ -14,13 +14,13 @@ $d = 0;
             ?>
         <h2 class="<?=$titleClass?> mb-4 text-center" data-aos="fade"><?=get_field('title')?></h2>
             <?php
-            $d+=200;
+            $d+=100;
         }
         if (get_field('intro') ?? null) {
             ?>
         <div class="text-center mb-5" data-aos="fade" data-aos-delay="<?=$d?>"><?=get_field('intro')?></div>
             <?php
-            $d+=200;
+            $d+=100;
         }
         ?>
         <div class="side_tab_group_2024__inner">
@@ -30,7 +30,7 @@ $d = 0;
                 <?=wp_get_attachment_image(get_field('tab_3_image'),'large',false,array('class' => 'content', 'alt' => '', 'id' => $i . '_tab3'))?>
             </div>
             <?php
-            $d += 200;
+            $d += 100;
             ?>
             <div class="pills" data-aos="fade" data-aos-delay="<?=$d?>">
                 <div class="pill active" aria-controls="<?=$i?>_tab1">
