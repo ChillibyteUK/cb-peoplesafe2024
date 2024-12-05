@@ -9,12 +9,11 @@ AOS.init({
 document.addEventListener('DOMContentLoaded', function() {
 
 
-    const observer = new IntersectionObserver((entries) => {
+    const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('aos-animate');
-            } else {
-                entry.target.classList.remove('aos-animate');
+                entry.target.classList.add('aos-animate'); // Add the class when in view
+                observer.unobserve(entry.target); // Stop observing once triggered
             }
         });
     }, {
