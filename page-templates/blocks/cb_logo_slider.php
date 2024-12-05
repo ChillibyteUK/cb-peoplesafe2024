@@ -2,17 +2,19 @@
 <section class="logos py-5">
     <div class="container-xl">
         <?php
+        $d=0;
         if (get_field('title')) {
             ?>
-        <h2 class="text-center">
+        <h2 class="text-center" data-aos="fade">
             <?=get_field('title')?>
         </h2>
-        <?php
+            <?php
         } else {
             ?>
-        <h2 class="text-center">Some of our clients</h2>
+        <h2 class="text-center" data-aos="fade">Some of our clients</h2>
         <?php
         }
+        $d+=100;
         ?>
         <div class="swiper logo__slider mb-5">
             <div class="swiper-wrapper">
@@ -20,10 +22,11 @@
         while (have_rows('logos')) {
             the_row();
             ?>
-                <div class="swiper-slide logo__slide">
+                <div class="swiper-slide logo__slide" data-aos="fade" data-aos-delay="<?=$d?>">
                     <?=wp_get_attachment_image(get_sub_field('logo'), 'thumbnail')?>
                 </div>
-                <?php
+            <?php
+            $d+=100;
         }
         ?>
             </div>
@@ -32,7 +35,7 @@
         <?php
         if (get_field('show_case_study_link')) {
             ?>
-        <div class="text-center">
+        <div class="text-center" data-aos="fade" data-aos-delay="<?=$d?>">
             <a href="/case-studies/" class="button button-yellow"><span>View our case studies</span></a>
         </div>
         <?php
