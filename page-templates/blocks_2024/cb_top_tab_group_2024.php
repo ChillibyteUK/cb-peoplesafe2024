@@ -1,11 +1,10 @@
-<section class="top_tab_group_2024 py-5" data-aos="fade">
-    <div class="container-xl">
+<section class="top_tab_group_2024 py-5">
+    <div class="container-xl" data-aos="fade">
         <div class="top_tab_group_2024__inner">
             <?php
             $i = 'x' . random_str(4);
             $active = 'active';
             $c = 1;
-            $d = 50;
             while (have_rows('tabs')) {
                 the_row();
 
@@ -30,7 +29,6 @@
             </div>
                 <?php
                 $c++;
-                $d+=100;
                 $active = '';
             }
             ?>
