@@ -5,7 +5,7 @@
             $i = 'x' . random_str(4);
             $active = 'active';
             $c = 1;
-            $d = 0;
+            $d = 50;
             while (have_rows('tabs')) {
                 the_row();
 
