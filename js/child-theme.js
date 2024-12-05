@@ -6849,10 +6849,21 @@
 	AOS.init({
 	  duration: 600,
 	  easing: "ease-in-out",
-	  once: true,
-	  offset: 100 // Trigger the animation when the element is 100px from the viewport
+	  once: true
 	});
 	document.addEventListener('DOMContentLoaded', function () {
+	  const observer = new IntersectionObserver(entries => {
+	    entries.forEach(entry => {
+	      if (entry.isIntersecting) {
+	        entry.target.classList.add('aos-animate');
+	      } else {
+	        entry.target.classList.remove('aos-animate');
+	      }
+	    });
+	  });
+	  document.querySelectorAll('.aos-init').forEach(el => {
+	    observer.observe(el);
+	  });
 	  const toggles = document.querySelectorAll('.toggle');
 	  const burgerMenu = document.getElementById('burger-menu');
 	  const navItems = document.getElementById('navItems');
