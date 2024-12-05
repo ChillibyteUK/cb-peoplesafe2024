@@ -6,6 +6,9 @@ $modal = 'x' . random_str(8);
 $cols_text = (get_field('split') == '5050' || get_field('split') == '') ? 'col-lg-6' : 'col-lg-8';
 $cols_image = (get_field('split') == '5050' || get_field('split') == '') ? 'col-lg-6' : 'col-lg-4';
 
+$text_fade = (get_field('order') == 'text_left') ? 'fade-right' : 'fade-left';
+$image_fade = (get_field('order') == 'text_left') ? 'fade-left' : 'fade-right';
+
 $extra_classes = get_field('extra_classes');
 ?>
 <!-- text_video_2024 -->
@@ -21,7 +24,8 @@ $extra_classes = get_field('extra_classes');
         }?>
         <div class="row g-4">
             <div
-                class="<?=$cols_text?> text_video_2024__content py-auto <?=$order_text?>">
+                class="<?=$cols_text?> text_video_2024__content py-auto <?=$order_text?>"
+                data-aos="<?=$text_fade?>">
                 <?php
                 if (get_field('pre_title') ?? null) {
                     echo '<div class="fs-300 fw-900 text-blue mb-3">' . get_field('pre_title') . '</div>';
@@ -40,7 +44,8 @@ if (get_field('cta')) {
 ?>
             </div>
             <div
-                class="<?=$cols_image?> text_video_2024__container <?=$vid_margin?> text-center <?=$order_image?>">
+                class="<?=$cols_image?> text_video_2024__container <?=$vid_margin?> text-center <?=$order_image?>"
+                data-aos="<?=$image_fade?>">
                 <div class="position-relative pointer">
                     <?php
     if (get_field('video_provider') == 'Vimeo') {
