@@ -6861,7 +6861,7 @@
 	      }
 	    });
 	  }, {
-	    rootMargin: '0px 0px -150px 0px' // Adjusts the threshold to trigger 100px before the bottom of the element
+	    rootMargin: '0px 0px -125px 0px' // Adjusts the threshold to trigger 100px before the bottom of the element
 	  });
 	  document.querySelectorAll('.aos-init').forEach(el => {
 	    observer.observe(el);
