@@ -705,6 +705,17 @@ function acf_blocks()
             'mode'    => 'edit',
             'supports' => array('mode' => false),
         ));
+        acf_register_block(array(
+            'name'                => 'CB Caption Slider 2024',
+            'title'                => __('CB Caption Slider 2024'),
+            'description'        => __(''),
+            'render_template'    => 'page-templates/blocks_2024/cb_caption_slider_2024.php',
+            'category'            => 'layout',
+            'icon'                => 'slides',
+            'keywords'            => array('caption', 'slider'),
+            'mode'    => 'edit',
+            'supports' => array('mode' => false),
+        ));
     }
 }
 add_action('acf/init', 'acf_blocks');
