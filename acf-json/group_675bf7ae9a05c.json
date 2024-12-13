@@ -116,7 +116,7 @@
                     "label": "Page",
                     "name": "page",
                     "aria-label": "",
-                    "type": "page_link",
+                    "type": "link",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -125,13 +125,8 @@
                         "class": "",
                         "id": ""
                     },
-                    "post_type": "",
-                    "post_status": "",
-                    "taxonomy": "",
-                    "allow_archives": 0,
-                    "multiple": 0,
-                    "allow_null": 0,
-                    "allow_in_bindings": 0,
+                    "return_format": "array",
+                    "allow_in_bindings": 1,
                     "parent_repeater": "field_675bf7aeb4a00"
                 }
             ]
