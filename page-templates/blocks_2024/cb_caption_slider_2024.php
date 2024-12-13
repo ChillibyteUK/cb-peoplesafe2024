@@ -21,7 +21,7 @@
                 ?>
                     <div class="swiper-slide captions__slide">
                         <a href="<?= $l['url'] ?>">
-                            <?= wp_get_attachment_image(get_sub_field('image'), 'thumbnail') ?>
+                            <?= wp_get_attachment_image(get_sub_field('image'), 'thumbnail', false, array('class' => 'mb-2')) ?>
                             <div><?= get_sub_field('caption') ?></div>
                         </a>
                     </div>
