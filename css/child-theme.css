@@ -24557,6 +24557,7 @@ lite-vimeo .ltv-playbtn::before {
 .captions__slider .captions__slide a {
   text-decoration: none;
   color: var(--col-black);
+  text-align: center;
 }
 
 .swiper-pagination-bullet-active {
