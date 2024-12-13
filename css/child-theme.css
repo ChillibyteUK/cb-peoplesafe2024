@@ -23701,11 +23701,11 @@ header nav .dropdownMenu .right--products .products-link:hover {
 }
 header nav #dropdownSolutions {
   width: 850px;
-  margin-left: 210px;
+  margin-left: 320px;
 }
 header nav #dropdownProducts {
   width: 800px;
-  margin-left: 320px;
+  margin-left: 210px;
 }
 header nav #dropdownPlatform,
 header nav #dropdownSupport {
@@ -24171,13 +24171,14 @@ header #burger-menu.open span:nth-child(4) {
   border: 4px solid var(--col-white);
   border-radius: 1rem;
   box-shadow: var(--shadow-out);
+  transition: border-color var(--transition) 0ms, background-color var(--transition) 0ms, box-shadow var(--transition) 0ms;
 }
-.top_tab_group_2024 .pill.active {
+.top_tab_group_2024 .pill.active, .top_tab_group_2024 .pill:hover {
   border-color: var(--col-orange-400);
   background-color: color-mix(in srgb, var(--col-orange-400), var(--col-white) 80%);
   box-shadow: var(--shadow-in);
 }
-.top_tab_group_2024 .pill.active .pill__title::after {
+.top_tab_group_2024 .pill.active .pill__title::after, .top_tab_group_2024 .pill:hover .pill__title::after {
   content: "\f106";
 }
 .top_tab_group_2024 .pill__icon {
@@ -24443,7 +24444,7 @@ header #burger-menu.open span:nth-child(4) {
   gap: 0.5rem;
 }
 .contact__card--blue .contact__links {
-  color: var(--col-yellow-400);
+  color: var(--col-white);
 }
 
 .solutions_nav__grid {

@@ -6846,7 +6846,25 @@
 
 	// new WOW().init();
 
+	AOS.init({
+	  duration: 600,
+	  easing: "ease-in-out",
+	  once: true
+	});
 	document.addEventListener('DOMContentLoaded', function () {
+	  const observer = new IntersectionObserver((entries, observer) => {
+	    entries.forEach(entry => {
+	      if (entry.isIntersecting) {
+	        entry.target.classList.add('aos-animate'); // Add the class when in view
+	        observer.unobserve(entry.target); // Stop observing once triggered
+	      }
+	    });
+	  }, {
+	    rootMargin: '0px 0px -125px 0px' // Adjusts the threshold to trigger 100px before the bottom of the element
+	  });
+	  document.querySelectorAll('.aos-init').forEach(el => {
+	    observer.observe(el);
+	  });
 	  const toggles = document.querySelectorAll('.toggle');
 	  const burgerMenu = document.getElementById('burger-menu');
 	  const navItems = document.getElementById('navItems');

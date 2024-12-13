@@ -45,7 +45,8 @@ function jobs_func2022($atts)
     $q = new WP_Query(array(
         'posts_per_page' => -1,
         'post_type' => 'careers',
-        'post_status' => 'publish'
+        'post_status' => 'publish',
+        'suppress_filters' => true
     ));
 
     ?>

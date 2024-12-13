@@ -18,7 +18,12 @@
         border: 4px solid var(--col-white);
         border-radius: 1rem;
         box-shadow: var(--shadow-out);
-        &.active {
+        transition: border-color var(--transition) 0ms,
+                    background-color var(--transition) 0ms,
+                    box-shadow var(--transition) 0ms;
+
+        &.active,
+        &:hover {
             border-color: var(--col-orange-400);
             background-color: color-mix(in srgb, var(--col-orange-400), var(--col-white) 80%);
             box-shadow: var(--shadow-in);

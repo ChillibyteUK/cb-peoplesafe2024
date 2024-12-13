@@ -2,13 +2,13 @@
 <section class="case_study_quotes py-5">
     <div class="container-xl" data-aos="fade">
         <div class="row g-5">
-            <div class="col-lg-5">
+            <div class="col-lg-5" data-aos="fade-right">
                 <div class="fs-300 text-blue fw-900 mb-3">Case Studies</div>
                 <h2>Hear directly from our customers</h2>
                 <p>Don’t just take it from us. Explore what our customers have to say about their experience with Peoplesafe's employee protection services and how it's helped keep their people safe.</p>
                 <a href="/case-studies/" class="button button-outline text-center w-100 w-md-auto">View all Case Studies</a>
             </div>
-            <div class="col-lg-7">
+            <div class="col-lg-7" data-aos="fade-left">
                 <div class="swiper quotes_slider mb-4">
                     <div class="swiper-wrapper">
                         <?php
