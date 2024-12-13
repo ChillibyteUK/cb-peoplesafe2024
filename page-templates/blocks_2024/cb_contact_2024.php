@@ -1,5 +1,5 @@
 <section class="contact">
-    <div class="container-xl">
+    <div class="container-xl" data-aos="fade">
         <div class="row">
             <div class="col-md-4">
                 <div class="contact__card contact__card--white">
@@ -59,7 +59,7 @@
             </div>
             <div class="modal-body">
                 <div>To book a consultation with one of our personal safety experts or receive more information about our service, please fill in the form below. <strong>This form is for new customers only.</strong></div>
-                    <iframe style="border: 0;" src="https://safe.peoplesafe.co.uk/l/830213/2020-08-11/xm9r" width="100%" height="1600" frameborder="0" scrolling="auto"></iframe>
+                <iframe style="border: 0;" src="https://safe.peoplesafe.co.uk/l/830213/2020-08-11/xm9r" width="100%" height="1600" frameborder="0" scrolling="auto"></iframe>
             </div>
         </div>
     </div>

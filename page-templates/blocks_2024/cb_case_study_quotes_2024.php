@@ -1,6 +1,6 @@
 <!-- case_study/quotes -->
 <section class="case_study_quotes py-5">
-    <div class="container-xl">
+    <div class="container-xl" data-aos="fade">
         <div class="row g-5">
             <div class="col-lg-5">
                 <div class="fs-300 text-blue fw-900 mb-3">Case Studies</div>
@@ -20,20 +20,20 @@
 
                             $class = $classes[$classIndex % count($classes)];
 
-                            ?>
-                                <div class="swiper-slide quotes_slide">
-                                    <div class="quotes quotes--large <?=$class?>">
-                                        <?=wp_get_attachment_image( get_sub_field('image'), 'large', false, array('class' => 'quotes__image'))?>
-                                        <div class="quotes__inner">
-                                            <div class="quotes__quote">
-                                                <?=get_sub_field('quote')?>
-                                            </div>
-                                            <div class="quotes__cite"><?=get_sub_field('attribution')?></div>
-                                            <?=wp_get_attachment_image( get_sub_field('logo'), 'medium', false, array('class' => 'quotes__logo'))?>
+                        ?>
+                            <div class="swiper-slide quotes_slide">
+                                <div class="quotes quotes--large <?= $class ?>">
+                                    <?= wp_get_attachment_image(get_sub_field('image'), 'large', false, array('class' => 'quotes__image')) ?>
+                                    <div class="quotes__inner">
+                                        <div class="quotes__quote">
+                                            <?= get_sub_field('quote') ?>
                                         </div>
+                                        <div class="quotes__cite"><?= get_sub_field('attribution') ?></div>
+                                        <?= wp_get_attachment_image(get_sub_field('logo'), 'medium', false, array('class' => 'quotes__logo')) ?>
                                     </div>
                                 </div>
-                            <?php
+                            </div>
+                        <?php
                             $classIndex++;
                         }
                         ?>
@@ -45,41 +45,40 @@
     </div>
 </section>
 <?php
-add_action('wp_footer',function(){
-    ?>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
+add_action('wp_footer', function () {
+?>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
 
-var quotesSlider = new Swiper('.quotes_slider', {
-    loop: true,
-    // autoplay: {
-    //     delay: 4000,
-    //     disableOnInteraction: true,
-    // },
-    pagination: {
-        el: '.swiper-pagination-quotes',
-        clickable: true,
-        dynamicBullets: true,
-    },
-    slidesPerView: 1,
-    slidesPerGroup: 1,
-    spaceBetween: 18, // Adjust this value to match your design
-    on: {
-        init: function() {
-            setEqualHeight('.quotes_slide');
-        },
-        resize: function() {
-            setEqualHeight('.quotes_slide');
-        }
-    }
-});
+            var quotesSlider = new Swiper('.quotes_slider', {
+                loop: true,
+                // autoplay: {
+                //     delay: 4000,
+                //     disableOnInteraction: true,
+                // },
+                pagination: {
+                    el: '.swiper-pagination-quotes',
+                    clickable: true,
+                    dynamicBullets: true,
+                },
+                slidesPerView: 1,
+                slidesPerGroup: 1,
+                spaceBetween: 18, // Adjust this value to match your design
+                on: {
+                    init: function() {
+                        setEqualHeight('.quotes_slide');
+                    },
+                    resize: function() {
+                        setEqualHeight('.quotes_slide');
+                    }
+                }
+            });
 
-window.addEventListener('load', setEqualHeight('.quotes_slide'));
+            window.addEventListener('load', setEqualHeight('.quotes_slide'));
 
-});
-
-</script>
-    <?php
-},9999);
+        });
+    </script>
+<?php
+}, 9999);
 
 ?>
