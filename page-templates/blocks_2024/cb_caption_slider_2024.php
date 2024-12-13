@@ -12,14 +12,14 @@
             $d += 100;
         }
         ?>
-        <div class="swiper captions_slider mb-5" data-aos="fade" data-aos-delay="<?= $d ?>">
+        <div class="swiper captions__slider mb-5" data-aos="fade" data-aos-delay="<?= $d ?>">
             <div class="swiper-wrapper">
                 <?php
                 while (have_rows('cards')) {
                     the_row();
                     $l = get_sub_field('page') ?? null;
                 ?>
-                    <div class="swiper-slide captions_slide">
+                    <div class="swiper-slide captions__slide">
                         <a href="<?= $l['url'] ?>">
                             <?= wp_get_attachment_image(get_sub_field('image'), 'thumbnail') ?>
                             <div><?= get_sub_field('caption') ?></div>
@@ -38,7 +38,7 @@ add_action('wp_footer', function () {
 ?>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            var logoSlider = new Swiper('.captions_slider', {
+            var logoSlider = new Swiper('.captions__slider', {
                 loop: true,
                 autoplay: {
                     delay: 3000,
