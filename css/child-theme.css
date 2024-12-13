@@ -24543,6 +24543,22 @@ lite-vimeo .ltv-playbtn::before {
   place-content: center;
 }
 
+.captions__slider .swiper-wrapper {
+  margin-bottom: 2rem;
+}
+.captions__slider .captions__slide {
+  aspect-ratio: 1;
+  border: 2px solid #C6D9DF;
+  background-color: var(--col-white);
+  border-radius: 0.75rem;
+  display: grid;
+  place-content: center;
+}
+.captions__slider .captions__slide a {
+  text-decoration: none;
+  color: var(--col-black);
+}
+
 .swiper-pagination-bullet-active {
   background: var(--col-yellow-400);
 }
