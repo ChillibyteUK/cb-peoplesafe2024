@@ -13,13 +13,14 @@ $class = $block['className'] ?? 'py-5';
         ?>
         <div class="row justify-content-center">
             <?php
+            $c = 0;
             foreach (get_field('related_products') as $r) {
                 // $img = get_the_post_thumbnail_url( $r->ID, 'large' );
                 // if (!$img) {
                 //     $img = catch_that_image($r);
                 // }
                 ?>
-            <div class="col-md-6 col-lg-3 mb-4">
+            <div class="col-md-6 col-lg-3 mb-4" data-aos="fade" data-aos-delay="<?=$c?>">
                 <a href="<?=get_the_permalink($r->ID)?>"
                     class="related_products__card">
                     <?=get_the_post_thumbnail($r->ID, 'large', array('class' => 'related_products__image'))?>
@@ -45,6 +46,7 @@ $class = $block['className'] ?? 'py-5';
                 </a>
             </div>
             <?php
+                $c += 100;
             }
         ?>
         </div>
