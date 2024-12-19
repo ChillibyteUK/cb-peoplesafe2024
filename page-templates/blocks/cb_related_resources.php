@@ -17,13 +17,14 @@ $title = get_field('title');
 ?>
         <div class="row justify-content-center">
             <?php
+            $c = 0;
     foreach (get_field('related_resources') as $r) {
         // $img = get_the_post_thumbnail_url($r->ID, 'large');
         // if (!$img) {
         //     $img = catch_that_image($r);
         // }
         ?>
-            <div class="col-md-4">
+            <div class="col-md-4" data-aos="fade" data-aos-delay="<?=$c?>">
                 <a href="<?=get_the_permalink($r->ID)?>"
                     class="related_resources__card">
                     <?=get_the_post_thumbnail($r->ID, 'large', array('class' => 'related_resources__image'))?>
