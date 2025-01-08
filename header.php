@@ -346,7 +346,7 @@ defined('ABSPATH') || exit;
                                     <a href="/products/" class="products-link"><span>View all products</span><i class="fa-solid fa-arrow-right"></i></a>
                                 </div>
                             </div>
-                            <div class="right right--products" id="safetyCameras">
+                            <div class="right right--products" id="api">
                                 <div class="h3">API</div>
                                 <div></div>
                                 <div class="items">
