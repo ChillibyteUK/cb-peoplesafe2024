@@ -98,6 +98,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <?php
 }
 ?>
+<header></header>
 <div class="site" id="page">
     <div id="header">
         <div class="py-2 d-none d-lg-flex justify-content-between container-xl px-4 px-xl-2">
