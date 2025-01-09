@@ -83,10 +83,10 @@
         },
         {
             "key": "field_667addfd628d2",
-            "label": "Buy Now",
+            "label": "Buy Now CTA",
             "name": "buy_now",
             "aria-label": "",
-            "type": "url",
+            "type": "link",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -95,8 +95,8 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
-            "placeholder": ""
+            "return_format": "array",
+            "allow_in_bindings": 1
         },
         {
             "key": "field_667addfd66533",

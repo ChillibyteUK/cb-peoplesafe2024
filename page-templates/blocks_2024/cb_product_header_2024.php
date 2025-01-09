@@ -25,16 +25,17 @@
                     <?= get_field('h1_title') ?? null ?>
                 </h1>
                 <h2 class="h1"><?php
-                                if (get_field('alt_title')) {
-                                    echo get_field('alt_title');
-                                } else {
-                                    echo get_the_title();
-                                }
-                                ?></h2>
+                    if (get_field('alt_title')) {
+                        echo get_field('alt_title');
+                    } else {
+                        echo get_the_title();
+                    }
+                ?></h2>
                 <div class="product__intro mb-4"><?= get_field('intro') ?></div>
                 <?php
-                if (get_field('buy_now')) {
-                    echo '<a href="' . get_field('buy_now') . '" class="w-100 w-md-auto mb-2 mb-md-0 button button-yellow me-3 text-center"><span>Buy Now</span></a>';
+                if (get_field('buy_now') ?? null) {
+                    $l = get_field('buy_now');
+                    echo '<a href="' . $l['url'] . '" target="' . $l['target'] . '" class="w-100 w-md-auto mb-2 mb-md-0 button button-yellow me-3 text-center"><span>' . $l['title'] . '</span></a>';
                 }
                 if (get_field('hide_cta')[0] != 'Yes') {
                 ?>
