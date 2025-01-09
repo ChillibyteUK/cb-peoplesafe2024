@@ -183,9 +183,9 @@ defined('ABSPATH') || exit;
                             <ul class="left">
                                 <li class="active" aria-controls="safetyDevices">Safety Devices</li>
                                 <li class="" aria-controls="safetyApps">Safety Apps</li>
+                                <li class="" aria-controls="api">API</li>
                                 <li class="" aria-controls="emergencyNotification">Emergency Notification System</li>
                                 <li class="" aria-controls="safetyCameras">Safety Cameras</li>
-                                <li class="" aria-controls="api">API</li>
                             </ul>
                             <div class="right right--products active" id="safetyDevices">
                                 <div class="h3">Safety Devices</div>
@@ -307,6 +307,26 @@ defined('ABSPATH') || exit;
                                     <a href="/products/" class="products-link"><span>View all products</span><i class="fa-solid fa-arrow-right"></i></a>
                                 </div>
                             </div>
+                            <div class="right right--products" id="api">
+                                <div class="h3">API</div>
+                                <div>Streamline operations and reduce admin time</div>
+                                <div class="items">
+                                    <a class="item" href="/products/services-api/">
+                                        <img class="item__image" src="/wp-content/uploads/2025/01/Nexus-API-hero.png">
+                                        <div class="item__inner">
+                                            <div class="item__title">Service API</div>
+                                            <div class="item__desc">For workforce management systems</div>
+                                        </div>
+                                    </a>
+                                    <a class="item" href="/products/user-management-api/">
+                                        <img class="item__image" src="/wp-content/uploads/2025/01/Nexus-API-hero.png">
+                                        <div class="item__inner">
+                                            <div class="item__title">User Management API</div>
+                                            <div class="item__desc">For HR systems</div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
                             <div class="right right--products" id="emergencyNotification">
                                 <div class="h3">Emergency Notification System</div>
                                 <div>Simple and dedicated emergency communication platform.</div>
@@ -344,26 +364,6 @@ defined('ABSPATH') || exit;
                                 </div>
                                 <div class="w-50 ms-auto">
                                     <a href="/products/" class="products-link"><span>View all products</span><i class="fa-solid fa-arrow-right"></i></a>
-                                </div>
-                            </div>
-                            <div class="right right--products" id="api">
-                                <div class="h3">API</div>
-                                <div>Protect staff and streamline HR with one comprehensive API solution</div>
-                                <div class="items">
-                                    <a class="item" href="/products/services-api/">
-                                        <img class="item__image" src="/wp-content/uploads/2025/01/Nexus-API-hero.png">
-                                        <div class="item__inner">
-                                            <div class="item__title">Service API</div>
-                                            <div class="item__desc">For workforce management systems</div>
-                                        </div>
-                                    </a>
-                                    <a class="item" href="/products/user-management-api/">
-                                        <img class="item__image" src="/wp-content/uploads/2025/01/Nexus-API-hero.png">
-                                        <div class="item__inner">
-                                            <div class="item__title">User Management API</div>
-                                            <div class="item__desc">For HR systems</div>
-                                        </div>
-                                    </a>
                                 </div>
                             </div>
                         </div>
