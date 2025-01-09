@@ -348,6 +348,7 @@ defined('ABSPATH') || exit;
                             </div>
                             <div class="right right--products" id="api">
                                 <div class="h3">API</div>
+                                <div>Protect staff and streamline HR with one comprehensive API solution</div>
                                 <div class="items">
                                     <a class="item" href="/products/services-api/">
                                         <img class="item__image" src="/wp-content/uploads/2025/01/Nexus-API-hero.png">
