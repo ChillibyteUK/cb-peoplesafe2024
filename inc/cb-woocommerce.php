@@ -620,11 +620,37 @@ function getCookie(name) {
 // Here
 storeUtmParameters();
 
-var UTM_Cookie = JSON.parse(getCookie('FbAdUTMCookie'));
-document.querySelector("#utm_content").value = UTM_Cookie.utm_content;
-document.querySelector("#utm_source").value = UTM_Cookie.utm_source;
-document.querySelector("#utm_medium").value = UTM_Cookie.utm_medium;
-document.querySelector("#utm_campaign").value = UTM_Cookie.utm_campaign;
+// var UTM_Cookie = JSON.parse(getCookie('FbAdUTMCookie'));
+// document.querySelector("#utm_content").value = UTM_Cookie.utm_content;
+// document.querySelector("#utm_source").value = UTM_Cookie.utm_source;
+// document.querySelector("#utm_medium").value = UTM_Cookie.utm_medium;
+// document.querySelector("#utm_campaign").value = UTM_Cookie.utm_campaign;
+
+// Fetch the cookie value
+var UTM_Cookie = getCookie('FbAdUTMCookie');
+
+// Check if the cookie exists and is valid JSON
+if (UTM_Cookie) {
+    try {
+        // Parse the cookie
+        UTM_Cookie = JSON.parse(UTM_Cookie);
+
+        // Safely update the fields if the elements exist
+        if (UTM_Cookie) {
+            const utmContentField = document.querySelector("#utm_content");
+            const utmSourceField = document.querySelector("#utm_source");
+            const utmMediumField = document.querySelector("#utm_medium");
+            const utmCampaignField = document.querySelector("#utm_campaign");
+
+            if (utmContentField) utmContentField.value = UTM_Cookie.utm_content || "";
+            if (utmSourceField) utmSourceField.value = UTM_Cookie.utm_source || "";
+            if (utmMediumField) utmMediumField.value = UTM_Cookie.utm_medium || "";
+            if (utmCampaignField) utmCampaignField.value = UTM_Cookie.utm_campaign || "";
+        }
+    } catch (e) {
+        console.error("Failed to parse UTM cookie:", e);
+    }
+}
 </script>
 <?php
 }
