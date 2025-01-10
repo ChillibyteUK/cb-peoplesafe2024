@@ -172,6 +172,7 @@ defined('ABSPATH') || exit;
 <?php
 
 if (is_front_page()) {
+    /*
     ?>
 <style>
     .countryModal {
@@ -240,8 +241,6 @@ if (is_front_page()) {
         </div>
     </div>
 </div>
-<?php
-    ?>
 <script>
     var modal = document.querySelector("#countryModal");
     var container = modal.querySelector(".modalContainer");
@@ -267,6 +266,7 @@ if (is_front_page()) {
 </script>
 <?php
 }
+*/
 
 // TODO: SORT THIS NONSENSE OUT.
 ?>
