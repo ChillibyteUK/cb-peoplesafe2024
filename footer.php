@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The template for displaying the footer
  *
@@ -66,7 +67,7 @@ defined('ABSPATH') || exit;
         <div class="row px-4 px-md-0">
             <div class="col-md-6 col-lg-3 text-center text-md-start mb-4">
                 <img
-                    src="<?=get_stylesheet_directory_uri()?>/img/ps-logo-full.svg">
+                    src="<?= get_stylesheet_directory_uri() ?>/img/ps-logo-full.svg">
                 <?php /*
                 <div class="gf">
                     <p class="nav-title">Signup to our Newsletter:</p>
@@ -76,9 +77,9 @@ defined('ABSPATH') || exit;
                 <div class="py-4">The UK's leading provider of technology-enabled employee safety solutions.</div>
                 <a href="/contact-us/" class="btn btn-primary">Get in touch</a>
                 <div class="social mb-4">
-                    <?=do_shortcode('[social_in_icon]')?>
-                    <?=do_shortcode('[social_yt_icon]')?>
-                    <?=do_shortcode('[social_tw_icon]')?>
+                    <?= do_shortcode('[social_in_icon]') ?>
+                    <?= do_shortcode('[social_yt_icon]') ?>
+                    <?= do_shortcode('[social_tw_icon]') ?>
                 </div>
                 <div class="">
                     <div class="nav-title">Newsletter Sign Up</div>
@@ -132,7 +133,7 @@ defined('ABSPATH') || exit;
     </div>
     <div class="colophon">
         <div class="container d-flex justify-content-between flex-wrap py-2">
-            <div>&copy; <?=date('Y')?> Skyguard
+            <div>&copy; <?= date('Y') ?> Skyguard
                 Ltd T/A Peoplesafe. Company Registration Number: 04107459. All rights reserved. Peoplesafe is part of
                 the Send for Help Group.</div>
             <a href="https://www.chillibyte.co.uk/" rel="nofollow noopener" target="_blank" class="cb"
@@ -171,8 +172,8 @@ defined('ABSPATH') || exit;
 </div>
 <?php
 
+/*
 if (is_front_page()) {
-    /*
     ?>
 <style>
     .countryModal {
