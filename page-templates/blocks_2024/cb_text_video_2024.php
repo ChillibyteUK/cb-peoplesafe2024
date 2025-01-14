@@ -76,7 +76,12 @@ if (get_field('cta')) {
 ?>
 
 <?php
+$video_provider = get_field('video_provider');
+$video_id = get_field('video_id');
 add_action('wp_footer',function(){
+    global $modal;
+    global $video_provider;
+    global $video_id;
 ?>
                 <div class="modal fade" id="modal<?=$modal?>"
                     tabindex="-1" role="dialog">
@@ -87,16 +92,16 @@ add_action('wp_footer',function(){
                                         class="fas fa-times"></i></div>
                                 <div class="ratio ratio-16x9">
                                     <?php
-                    if (get_field('video_provider') == 'YouTube') {
+                    if ($video_provider == 'YouTube') {
                         ?>
                                     <iframe id="vid<?=$modal?>"
                                         class="embed-responsive-item"
-                                        src="https://www.youtube-nocookie.com/embed/<?=get_field('video_id')?>?autoplay=1"
+                                        src="https://www.youtube-nocookie.com/embed/<?=$video_id?>?autoplay=1"
                                         allow="autoplay; fullscreen; picture-in-picture" webkitallowfullscreen
                                         mozallowfullscreen allowfullscreen></iframe>
                                     <?php
                     } else {
-                        $video_id_array = explode("/", get_field('video_id'));
+                        $video_id_array = explode("/", $video_id);
                         ?>
                                     <iframe id="vid<?=$modal?>"
                                         class="embed-responsive-item"
