@@ -92,10 +92,11 @@ if (get_field('cta')) {
                                         mozallowfullscreen allowfullscreen></iframe>
                                     <?php
                     } else {
+                        $video_id_array = explode("/", get_field('video_id'));
                         ?>
                                     <iframe id="vid<?=$modal?>"
                                         class="embed-responsive-item"
-                                        src="https://player.vimeo.com/video/<?=get_field('video_id')?>?byline=0&portrait=0&fullscreen=1"
+                                        src="https://player.vimeo.com/video/<?=$video_id_array[0]?>?byline=0&portrait=0&fullscreen=1&h=<?=$video_id_array[1]?>"
                                         allow="autoplay; fullscreen; picture-in-picture" webkitallowfullscreen
                                         mozallowfullscreen allowfullscreen></iframe>
                                     <?php
