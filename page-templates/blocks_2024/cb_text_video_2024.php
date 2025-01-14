@@ -75,50 +75,6 @@ if (get_field('cta')) {
                 }
 ?>
 
-<?php
-$video_provider = get_field('video_provider');
-$video_id = get_field('video_id');
-add_action('wp_footer',function(){
-    global $modal;
-    global $video_provider;
-    global $video_id;
-?>
-                <div class="modal fade" id="modal<?=$modal?>"
-                    tabindex="-1" role="dialog">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
-                        <div class="modal-content product-modal">
-                            <div class="modal-body">
-                                <div type="button" class="modal-close" data-bs-dismiss="modal"><i
-                                        class="fas fa-times"></i></div>
-                                <div class="ratio ratio-16x9">
-                                    <?php
-                    if ($video_provider == 'YouTube') {
-                        ?>
-                                    <iframe id="vid<?=$modal?>"
-                                        class="embed-responsive-item"
-                                        src="https://www.youtube-nocookie.com/embed/<?=$video_id?>?autoplay=1"
-                                        allow="autoplay; fullscreen; picture-in-picture" webkitallowfullscreen
-                                        mozallowfullscreen allowfullscreen></iframe>
-                                    <?php
-                    } else {
-                        $video_id_array = explode("/", $video_id);
-                        ?>
-                                    <iframe id="vid<?=$modal?>"
-                                        class="embed-responsive-item"
-                                        src="https://player.vimeo.com/video/<?=$video_id_array[0]?>?byline=0&portrait=0&fullscreen=1&h=<?=$video_id_array[1]?>"
-                                        allow="autoplay; fullscreen; picture-in-picture" webkitallowfullscreen
-                                        mozallowfullscreen allowfullscreen></iframe>
-                                    <?php
-                    }
-?>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-<?php
-});
-?>
                 <?php
                 if (get_field('video_provider') == 'Vimeo') {
                     ?>
@@ -219,3 +175,37 @@ add_action('wp_footer',function(){
 ?>
     </div>
 </section>
+
+                <div class="modal fade" id="modal<?=$modal?>"
+                    tabindex="-1" role="dialog">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content product-modal">
+                            <div class="modal-body">
+                                <div type="button" class="modal-close" data-bs-dismiss="modal"><i
+                                        class="fas fa-times"></i></div>
+                                <div class="ratio ratio-16x9">
+                                    <?php
+                    if (get_field('video_provider') == 'YouTube') {
+                        ?>
+                                    <iframe id="vid<?=$modal?>"
+                                        class="embed-responsive-item"
+                                        src="https://www.youtube-nocookie.com/embed/<?=get_field('video_id')?>?autoplay=1"
+                                        allow="autoplay; fullscreen; picture-in-picture" webkitallowfullscreen
+                                        mozallowfullscreen allowfullscreen></iframe>
+                                    <?php
+                    } else {
+                        $video_id_array = explode("/", get_field('video_id'));
+                        ?>
+                                    <iframe id="vid<?=$modal?>"
+                                        class="embed-responsive-item"
+                                        src="https://player.vimeo.com/video/<?=$video_id_array[0]?>?byline=0&portrait=0&fullscreen=1&h=<?=$video_id_array[1]?>"
+                                        allow="autoplay; fullscreen; picture-in-picture" webkitallowfullscreen
+                                        mozallowfullscreen allowfullscreen></iframe>
+                                    <?php
+                    }
+?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
