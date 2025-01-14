@@ -75,38 +75,7 @@ if (get_field('cta')) {
                 <?php
                 }
 ?>
-                <div class="modal fade" id="modal<?=$modal?>"
-                    tabindex="-1" role="dialog">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
-                        <div class="modal-content product-modal">
-                            <div class="modal-body">
-                                <div type="button" class="modal-close" data-bs-dismiss="modal"><i
-                                        class="fas fa-times"></i></div>
-                                <div class="ratio ratio-16x9">
-                                    <?php
-                    if (get_field('video_provider') == 'YouTube') {
-                        ?>
-                                    <iframe id="vid<?=$modal?>"
-                                        class="embed-responsive-item"
-                                        src="https://www.youtube-nocookie.com/embed/<?=get_field('video_id')?>?autoplay=1"
-                                        allow="autoplay; fullscreen; picture-in-picture" webkitallowfullscreen
-                                        mozallowfullscreen allowfullscreen></iframe>
-                                    <?php
-                    } else {
-                        ?>
-                                    <iframe id="vid<?=$modal?>"
-                                        class="embed-responsive-item"
-                                        src="https://player.vimeo.com/video/<?=get_field('video_id')?>?byline=0&portrait=0"
-                                        allow="autoplay; fullscreen; picture-in-picture" webkitallowfullscreen
-                                        mozallowfullscreen allowfullscreen></iframe>
-                                    <?php
-                    }
-?>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
                 <?php
                 if (get_field('video_provider') == 'Vimeo') {
                     ?>
@@ -207,3 +176,37 @@ if (get_field('cta')) {
 ?>
     </div>
 </section>
+
+<div class="modal fade" id="modal<?=$modal?>"
+    tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content product-modal">
+            <div class="modal-body">
+                <div type="button" class="modal-close" data-bs-dismiss="modal"><i
+                        class="fas fa-times"></i></div>
+                <div class="ratio ratio-16x9">
+                    <?php
+    if (get_field('video_provider') == 'YouTube') {
+        ?>
+                    <iframe id="vid<?=$modal?>"
+                        class="embed-responsive-item"
+                        src="https://www.youtube-nocookie.com/embed/<?=get_field('video_id')?>?autoplay=1"
+                        allow="autoplay; fullscreen; picture-in-picture" webkitallowfullscreen
+                        mozallowfullscreen allowfullscreen></iframe>
+                    <?php
+    } else {
+        $video_id_array = explode("/", get_field('video_id'));
+        ?>
+                    <iframe id="vid<?=$modal?>"
+                        class="embed-responsive-item"
+                        src="https://player.vimeo.com/video/<?=$video_id_array[0]?>?byline=0&portrait=0&fullscreen=1&h=<?=$video_id_array[1]?>"
+                        allow="autoplay; fullscreen; picture-in-picture" webkitallowfullscreen
+                        mozallowfullscreen allowfullscreen></iframe>
+                    <?php
+    }
+?>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
