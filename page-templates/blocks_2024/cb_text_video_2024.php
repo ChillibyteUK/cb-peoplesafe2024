@@ -74,6 +74,10 @@ if (get_field('cta')) {
                 <?php
                 }
 ?>
+
+<?php
+add_action('wp_footer',function(){
+?>
                 <div class="modal fade" id="modal<?=$modal?>"
                     tabindex="-1" role="dialog">
                     <div class="modal-dialog modal-dialog-centered" role="document">
@@ -107,6 +111,9 @@ if (get_field('cta')) {
                         </div>
                     </div>
                 </div>
+<?php
+});
+?>
                 <?php
                 if (get_field('video_provider') == 'Vimeo') {
                     ?>
