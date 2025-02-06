@@ -1,5 +1,5 @@
 <section class="contact">
-    <div class="container-xl" data-aos="fade">
+    <div class="container-xl">
         <div class="row">
             <div class="col-md-4">
                 <div class="contact__card contact__card--white">
