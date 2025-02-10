@@ -48,6 +48,17 @@ if($user && isset($user->user_login) && 'chillibyte' == $user->user_login) {
                     $c = 0;
                     while (have_posts()) {
                         the_post();
+                        $types = get_the_terms(get_the_ID(),'ptypes');
+                        // $type = $types ? $types[0]->slug : '';
+                        $type = $types ? implode(" ", wp_list_pluck($types,'slug')) : '';
+
+                        $img = get_the_post_thumbnail_url( get_the_ID(), 'large' );
+                        if (get_field('alternative_product_image')) {
+                            $img = wp_get_attachment_image_url(get_field('alternative_product_image'), 'large');
+                        }
+                        elseif (!$img) {
+                            $img = catch_that_image($post);
+                        }
                         ?>
                     <div class="col-md-6 col-lg-3 mb-4 <?=$type?>" data-aos="fade" data-aos-delay="<?=$c?>">
                         <a href="<?=get_the_permalink($post->ID)?>"
