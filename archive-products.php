@@ -171,6 +171,9 @@ add_action('wp_footer',function(){
     var $grid = $('#products').isotope({
 		itemSelector: '.sproduct',
         layoutMode: 'fitRows',
+        fitRows: {
+            equalheight: true
+        }
 	});
 
     <?php
