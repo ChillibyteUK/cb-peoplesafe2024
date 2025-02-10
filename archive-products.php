@@ -60,7 +60,7 @@ if($user && isset($user->user_login) && 'chillibyte' == $user->user_login) {
                             $img = catch_that_image($post);
                         }
                         ?>
-                    <div class="col-md-6 col-lg-3 mb-4 <?=$type?>" data-aos="fade" data-aos-delay="<?=$c?>">
+                    <div class="col-md-6 col-lg-3 mb-4 sproduct <?=$type?>" data-aos="fade" data-aos-delay="<?=$c?>">
                         <a href="<?=get_the_permalink($post->ID)?>"
                             class="related_products__card">
                             <?=get_the_post_thumbnail($post->ID, 'large', array('class' => 'related_products__image'))?>
