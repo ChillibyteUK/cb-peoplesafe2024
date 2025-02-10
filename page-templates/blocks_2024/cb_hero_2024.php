@@ -36,7 +36,12 @@
                     <a type="button" href="https://peoplesafe.co.uk/get-a-quote/" class="button button-yellow text-center me-3 w-100 w-md-auto">Get a Quote</a>
                     <?php
                     } else {
-                    ?>
+                        if ( is_page(array(9300,9311,9307,9270)) ) {
+                        ?>
+                        <a type="button" href="https://peoplesafe.co.uk/get-a-quote/" class="button button-yellow text-center me-3 w-100 w-md-auto">Get a Quote</a>
+                        <?php
+                        }
+                        ?>
                     <button type="button" class="button button-yellow text-center me-3 w-100 w-md-auto" data-bs-toggle="modal" data-bs-target="#demoModal">Book a Demo</button>
                     <?php
                     }
