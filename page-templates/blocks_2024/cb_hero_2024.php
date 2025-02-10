@@ -31,10 +31,15 @@
                 <div class="product__intro mb-4"><?=get_field('intro')?></div>
                 <?php
                 if (get_field('hide_cta')[0] != 'Yes') {
+                    if ( get_the_ID(() == 10366 ) {
                     ?>
-				<button type="button" class="button button-yellow text-center me-3 w-100 w-md-auto" data-bs-toggle="modal" data-bs-target="#demoModal">Book a Demo</button>
+                    <a type="button" href="https://peoplesafe.co.uk/get-a-quote/" class="button button-yellow text-center me-3 w-100 w-md-auto">Get a Quote</a>
                     <?php
-					// <a href="/contact-us/" class="btn btn-primary">Book Demo</a>
+                    } else {
+                    ?>
+                    <button type="button" class="button button-yellow text-center me-3 w-100 w-md-auto" data-bs-toggle="modal" data-bs-target="#demoModal">Book a Demo</button>
+                    <?php
+                    }
                 }
                 if (get_field('brochure')) {
                     echo '<a href="' . get_field('brochure') . '" target="_blank" class="button button-outline text-center me-3 w-100 w-md-auto">Download Brochure</a>';
