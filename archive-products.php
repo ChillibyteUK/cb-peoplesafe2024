@@ -36,6 +36,53 @@ if($user && isset($user->user_login) && 'chillibyte' == $user->user_login) {
             }
             ?>
         </div>
+
+
+
+<section class="related_products py-5">
+    <div class="container-xl">
+        <div class="row justify-content-center">
+            <?php
+            $c = 0;
+            while (have_posts()) {
+                the_post();
+                ?>
+            <div class="col-md-6 col-lg-3 mb-4" data-aos="fade" data-aos-delay="<?=$c?>">
+                <a href="<?=get_the_permalink($post->ID)?>"
+                    class="related_products__card">
+                    <?=get_the_post_thumbnail($post->ID, 'large', array('class' => 'related_products__image'))?>
+                    <div class="related_products__inner">
+                        <h3><?=get_the_title($post->ID)?></h3>
+                        <div class="fs-300">
+                        <?php
+                        $content = get_the_content(null, false, $post->ID);
+                        $blocks = parse_blocks($content);
+                    
+                        // Loop through the blocks
+                        foreach ($blocks as $block) {
+                            // Check if the block name is 'acf/cb-product-header-2024'
+                            if ($block['blockName'] === 'acf/cb-product-header-2024' || $block['blockName'] === 'acf/cb-product-header') {
+                                // Return the content of the 'intro' field
+                                echo isset($block['attrs']['data']['intro']) ? $block['attrs']['data']['intro'] : null;
+                                break;
+                            }
+                        }
+                        ?>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <?php
+                $c += 100;
+            }
+        ?>
+        </div>
+    </div>
+</section>
+
+
+
+
         <div id="products" class="row">
             <?php
             while (have_posts()) {
