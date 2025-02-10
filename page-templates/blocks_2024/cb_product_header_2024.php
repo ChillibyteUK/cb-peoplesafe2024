@@ -41,13 +41,6 @@
                 ?>
                     <button type="button" class="w-100 w-md-auto mb-2 mb-md-0 button button-yellow me-3 text-center" data-bs-toggle="modal" data-bs-target="#demoModal">Book a Demo</button>
                 <?php
-
-                        if ( is_page(array(9300,9311,9307,9270)) ) {
-                        ?>
-                        <a type="button" href="https://peoplesafe.co.uk/get-a-quote/" class="button button-yellow text-center me-3 w-100 w-md-auto">Get a Quote</a>
-                        <?php
-                        }
-                        
                     // <a href="/contact-us/" class="btn btn-primary">Book Demo</a>
                 }
                 if (get_field('brochure')) {
