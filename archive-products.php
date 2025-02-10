@@ -10,9 +10,7 @@ defined('ABSPATH') || exit;
 
 get_header();
 
-$user = wp_get_current_user();
-
-if($user && isset($user->user_login) && 'chillibyte' == $user->user_login) {
+if( is_user_logged_in() ) {
 ?>
 <style>
 .btn-secondary--sm_old.active {
