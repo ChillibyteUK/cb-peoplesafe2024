@@ -31,7 +31,7 @@
                 <div class="product__intro mb-4"><?=get_field('intro')?></div>
                 <?php
                 if (get_field('hide_cta')[0] != 'Yes') {
-                    if ( get_the_ID( == 10366 ) {
+                    if ( get_the_ID() == 10366 ) {
                     ?>
                     <a type="button" href="https://peoplesafe.co.uk/get-a-quote/" class="button button-yellow text-center me-3 w-100 w-md-auto">Get a Quote</a>
                     <?php
