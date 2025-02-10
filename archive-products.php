@@ -29,7 +29,7 @@ if($user && isset($user->user_login) && 'chillibyte' == $user->user_login) {
 
 @media (min-width: 768px) {
     h1 {
-        font-size: 3rem;
+        font-size: 4rem;
     }
 }
 </style>
