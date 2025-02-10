@@ -26,21 +26,27 @@ if($user && isset($user->user_login) && 'chillibyte' == $user->user_login) {
 .related_products_new .related_products__card {
     min-height: 450px;
 }
+
+@media (min-width: 768px) {
+    h1 {
+        font-size: 3rem;
+    }
+}
 </style>
 <main id="main" class="pt-5">
     <div class="container py-3">
-        <div class="page-meta text-center">
+        <div class="page-meta text-center mt-md-5">
             <h1>Safety Products</h1>
         </div>
         <div class="pb-4 text-center">
             <?=apply_filters('the_content',get_field('products_intro','options'))?>
         </div>
         <div class="button-group filter-button-group mb-4 text-center">
-            <button class="btn btn-secondary btn-secondary--sm_old active mb-1" data-filter="*">All</button>
+            <button class="btn btn-secondary btn-secondary--sm_old active mb-1 p-2 px-3" data-filter="*">All</button>
             <?php
             $terms = get_terms( 'ptypes', array('orderby' => 'menu_order', 'order' => 'desc') );
             foreach ($terms as $t) {
-                echo '  <button class="btn btn-secondary btn-secondary--sm mb-1" data-filter=".' . $t->slug . '">' . $t->name . '</button>';
+                echo '  <button class="btn btn-secondary btn-secondary--sm mb-1 p-2 px-3" data-filter=".' . $t->slug . '">' . $t->name . '</button>';
             }
             ?>
         </div>
