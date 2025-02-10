@@ -22,6 +22,10 @@ if($user && isset($user->user_login) && 'chillibyte' == $user->user_login) {
 .related_products_new .related_products__inner ul {
     display: none;
 }
+
+.related_products_new .related_products__card {
+    min-height: 450px;
+}
 </style>
 <main id="main" class="pt-5">
     <div class="container py-3">
