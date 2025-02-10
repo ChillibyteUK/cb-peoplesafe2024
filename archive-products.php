@@ -41,9 +41,9 @@ if($user && isset($user->user_login) && 'chillibyte' == $user->user_login) {
             ?>
         </div>
 
-        <section class="related_products related_products_new py-5" id="products">
+        <section class="related_products related_products_new py-5">
             <div class="container-xl">
-                <div class="row justify-content-center">
+                <div class="row justify-content-center" id="products">
                     <?php
                     $c = 0;
                     while (have_posts()) {
