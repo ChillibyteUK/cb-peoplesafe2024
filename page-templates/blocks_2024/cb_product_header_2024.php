@@ -44,7 +44,11 @@
                     // <a href="/contact-us/" class="btn btn-primary">Book Demo</a>
                 }
                 if (get_field('brochure')) {
-                    echo '<a href="' . get_field('brochure') . '" target="_blank" class="w-100 w-md-auto mb-2 mb-md-0 button button-outline me-3 text-center">Download Product Brochure</a>';
+                    if ( is_singular("products")  ) {
+                        echo '<a href="https://peoplesafe.co.uk/get-your-quote/" class="w-100 w-md-auto mb-2 mb-md-0 button button-outline me-3 text-center">Get a Quote</a>';
+                    } else {
+                        echo '<a href="' . get_field('brochure') . '" target="_blank" class="w-100 w-md-auto mb-2 mb-md-0 button button-outline me-3 text-center">Download Product Brochure</a>';
+                    }
                 }
 
                 if (get_field('ebook')) {
