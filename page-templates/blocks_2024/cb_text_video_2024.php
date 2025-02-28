@@ -78,7 +78,7 @@ if (get_field('cta')) {
                 <?php
                 if (get_field('video_provider') == 'Vimeo') {
                     ?>
-                <script>
+                <script nitro-exclude>
                     (function($) {
                         function stopVideo() {
                             var $frame = $('iframe#vid<?=$modal?>');
@@ -106,7 +106,7 @@ if (get_field('cta')) {
                 <?php
                 } else {
                     ?>
-                <script>
+                <script nitro-exclude>
                     (function($) {
                         var $frame = $('iframe#vid<?=$modal?>');
                         const url = $frame.attr('src');
