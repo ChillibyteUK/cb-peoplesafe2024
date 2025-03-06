@@ -52,8 +52,12 @@
                 }
 
                 if (get_field('ebook')) {
-                    // https://insights.peoplesafe.co.uk/story/peoplesafe-alert-e-book/
-                    echo ' <a href="' . get_field('ebook') . '" target="_blank" class="w-100 w-md-auto mb-2 mb-md-0 button button-outline me-3 text-center">Download Product e-book</a>';
+                    if ( is_singular("products")  ) {
+                        echo '<a href="https://peoplesafe.co.uk/get-your-quote/" class="w-100 w-md-auto mb-2 mb-md-0 button button-outline me-3 text-center">Get a Quote</a>';
+                    } else {
+                        // https://insights.peoplesafe.co.uk/story/peoplesafe-alert-e-book/
+                        echo ' <a href="' . get_field('ebook') . '" target="_blank" class="w-100 w-md-auto mb-2 mb-md-0 button button-outline me-3 text-center">Download Product e-book</a>';
+                    }
                 }
                 ?>
             </div>
