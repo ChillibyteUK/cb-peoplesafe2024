@@ -39,9 +39,14 @@
                     ?>
                     <button type="button" class="button button-yellow text-center me-3 w-100 w-md-auto" data-bs-toggle="modal" data-bs-target="#demoModal">Book a Demo</button>
                     <?php
-                        if ( get_the_ID() == 10319 || get_the_ID() == 9324 ) {
+                        if ( get_the_ID() == 10319 ) {
                     ?>
                     <a href="https://peoplesafe.co.uk/get-your-quote/" class="button button-outline text-center me-3 w-100 w-md-auto">Get a Quote</a>
+                    <?php
+                        }
+                        if ( get_the_ID() == 9324 ) {
+                    ?>
+                    <a href="https://peoplesafe.co.uk/get-a-quote/" class="button button-outline text-center me-3 w-100 w-md-auto">Get a Quote</a>
                     <?php
                         }
                     }
