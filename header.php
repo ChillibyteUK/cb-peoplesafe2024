@@ -205,13 +205,6 @@ defined('ABSPATH') || exit;
                                             <div class="item__desc">Discreet personal safety ID badge</div>
                                         </div>
                                     </a>
-                                    <a class="item" href="/products/microsos/">
-                                        <img class="item__image" src="<?= get_stylesheet_directory_uri() ?>/img/2024/products/MicroSOS.png">
-                                        <div class="item__inner">
-                                            <div class="item__title">MicroSOS</div>
-                                            <div class="item__desc">Our smallest and lightest device</div>
-                                        </div>
-                                    </a>
                                     <a class="item" href="/products/spot-gen4/">
                                         <img class="item__image" src="<?= get_stylesheet_directory_uri() ?>/img/2024/products/SpotGen4.png">
                                         <div class="item__inner">
