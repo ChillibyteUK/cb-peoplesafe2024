@@ -433,6 +433,7 @@ defined('ABSPATH') || exit;
                                 <li><a href="/nexus/">Nexus</a></li>
                                 <li><a href="/alarm-receiving-centre/">ARC</a></li>
                                 <li><a href="/accreditations/">Accreditations</a></li>
+                                <li><a href="/contact-us/">Contact us</a></li>
                             </ul>
                         </div>
 
