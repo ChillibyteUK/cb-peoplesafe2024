@@ -93,6 +93,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Click event handler for toggles
   function handleToggleClick(event) {
+    const isSimpleLink = event.currentTarget.getAttribute('aria-controls') === 'link';
+
+    if (isSimpleLink) {
+        const url = event.currentTarget.getAttribute('data-href');
+        if (url) {
+            window.location.href = url;
+        }
+        return;
+    }
       event.preventDefault();
       event.stopPropagation();
 

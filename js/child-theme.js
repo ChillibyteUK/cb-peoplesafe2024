@@ -1,6 +1,6 @@
 /*!
   * Understrap v1.2.0 (https://understrap.com)
-  * Copyright 2013-2024 The Understrap Authors (https://github.com/understrap/understrap/graphs/contributors)
+  * Copyright 2013-2025 The Understrap Authors (https://github.com/understrap/understrap/graphs/contributors)
   * Licensed under GPL-3.0 (undefined)
   */
 (function (global, factory) {
@@ -6932,6 +6932,14 @@
 
 	  // Click event handler for toggles
 	  function handleToggleClick(event) {
+	    const isSimpleLink = event.currentTarget.getAttribute('aria-controls') === 'link';
+	    if (isSimpleLink) {
+	      const url = event.currentTarget.getAttribute('data-href');
+	      if (url) {
+	        window.location.href = url;
+	      }
+	      return;
+	    }
 	    event.preventDefault();
 	    event.stopPropagation();
 	    const dropdownId = event.currentTarget.getAttribute('aria-controls');
