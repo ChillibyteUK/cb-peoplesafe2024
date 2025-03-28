@@ -162,7 +162,7 @@ defined('ABSPATH') || exit;
                         <div class="navItems" id="navItems">
                             <a class="toggle" aria-controls="dropdownProducts" data-href="/products/">Products</a>
                             <a class="toggle" aria-controls="dropdownSolutions" data-href="/solutions/">Solutions</a>
-                            <a class="toggle" aria-controls="" data-href="/pricing/">Pricing</a>
+                            <a class="toggle" href="/pricing/" aria-controls="" data-href="/pricing/">Pricing</a>
                             <a class="toggle" aria-controls="dropdownPlatform" data-href="/about-menu/">About</a>
                             <a class="toggle" aria-controls="dropdownKnowledge" data-href="/resources/">Knowledge Hub</a>
                             <div class="navbar__extras me-xl-2">
