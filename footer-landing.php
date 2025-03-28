@@ -64,6 +64,11 @@ defined('ABSPATH') || exit;
         <div class="side-button enquire-button">Enquire</div>
     </a>
 </div> -->
+
+<!-- Start of nexusportal Zendesk Widget script -->
+<script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=a841da69-bcf5-4be4-b159-ffcbd20bcfe7"> </script>
+<!-- End of nexusportal Zendesk Widget script -->
+
 <?php wp_footer();
 if (get_field('gtm_property', 'options')) {
     ?>
