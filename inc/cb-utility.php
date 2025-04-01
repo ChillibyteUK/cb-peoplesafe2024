@@ -250,7 +250,7 @@ function add_security_headers() {
     header( 'Referrer-Policy: no-referrer-when-downgrade' );
     header( 'Permissions-Policy: camera=(), microphone=(), geolocation=()' );
 }
-add_action( 'send_headers', 'add_security_headers' );
+// add_action( 'send_headers', 'add_security_headers' );
 
 
 
