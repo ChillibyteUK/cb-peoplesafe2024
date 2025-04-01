@@ -234,10 +234,25 @@ function formatBytes($bytes, $precision = 2) {
     return round($bytes, $precision) . ' ' . $units[$pow]; 
 }
 
-function enable_strict_transport_security_hsts_header() {
+/**
+ * Adds security headers to HTTP responses to enhance security.
+ *
+ * This function sets various HTTP headers such as Strict-Transport-Security,
+ * X-Frame-Options, X-Content-Type-Options, Referrer-Policy, and Permissions-Policy
+ * to improve the security of the application.
+ *
+ * @return void
+ */
+function add_security_headers() {
     header( 'Strict-Transport-Security: max-age=31536000; includeSubDomains; preload' );
+    header( 'X-Frame-Options: SAMEORIGIN' );
+    header( 'X-Content-Type-Options: nosniff' );
+    header( 'Referrer-Policy: no-referrer-when-downgrade' );
+    header( 'Permissions-Policy: camera=(), microphone=(), geolocation=()' );
 }
-add_action( 'send_headers', 'enable_strict_transport_security_hsts_header' );
+add_action( 'send_headers', 'add_security_headers' );
+
+
 
 // REMOVE TAG AND COMMENT SUPPORT
 
