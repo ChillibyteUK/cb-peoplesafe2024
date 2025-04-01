@@ -250,8 +250,7 @@ function add_security_headers() {
     header( 'Referrer-Policy: no-referrer-when-downgrade' );
     header( 'Permissions-Policy: camera=(), microphone=(), geolocation=()' );
 
-	header( "Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:;" );
-	
+	// header( "Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:;" );
 }
 add_action( 'send_headers', 'add_security_headers' );
 
