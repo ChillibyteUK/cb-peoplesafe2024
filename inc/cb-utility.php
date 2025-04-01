@@ -235,7 +235,7 @@ function formatBytes($bytes, $precision = 2) {
 }
 
 function enable_strict_transport_security_hsts_header() {
-    header( 'Strict-Transport-Security: max-age=31536000' );
+    header( 'Strict-Transport-Security: max-age=31536000; includeSubDomains; preload' );
 }
 add_action( 'send_headers', 'enable_strict_transport_security_hsts_header' );
 
