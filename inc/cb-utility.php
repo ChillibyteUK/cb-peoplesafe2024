@@ -244,13 +244,14 @@ function formatBytes($bytes, $precision = 2) {
  * @return void
  */
 function add_security_headers() {
-    header( 'Strict-Transport-Security: max-age=31536000; includeSubDomains; preload' );
-    header( 'X-Frame-Options: SAMEORIGIN' );
-    header( 'X-Content-Type-Options: nosniff' );
-    header( 'Referrer-Policy: no-referrer-when-downgrade' );
-    header( 'Permissions-Policy: camera=(), microphone=(), geolocation=()' );
+    // header( 'Strict-Transport-Security: max-age=31536000; includeSubDomains; preload' );
+    header( 'Strict-Transport-Security: max-age=31536000;' ); // includeSubDomains; preload' );.
+    // header( 'X-Frame-Options: SAMEORIGIN' );
+    // header( 'X-Content-Type-Options: nosniff' );
+    // header( 'Referrer-Policy: no-referrer-when-downgrade' );
+    // header( 'Permissions-Policy: camera=(), microphone=(), geolocation=()' );
 }
-// add_action( 'send_headers', 'add_security_headers' );
+add_action( 'send_headers', 'add_security_headers' );
 
 
 
