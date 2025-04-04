@@ -333,7 +333,7 @@ defined('ABSPATH') || exit;
                                         </div>
                                     </a>
                                     <a class="item" href="/products/team-broadcast/">
-                                        <img class="item__image" src="/wp-content/uploads/2022/01/Team-Broadcast.png">
+                                        <img class="item__image" src="/wp-content/uploads/2025/04/team-broadcast-sm.png">
                                         <div class="item__inner">
                                             <div class="item__title">Team Broadcast</div>
                                             <div class="item__desc">In-app mass notifications to keep your team safe</div>
