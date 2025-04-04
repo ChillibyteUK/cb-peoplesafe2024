@@ -332,6 +332,13 @@ defined('ABSPATH') || exit;
                                             <div class="item__desc">Send multichannel notifications to keep your people safe and connected</div>
                                         </div>
                                     </a>
+                                    <a class="item" href="/products/team-broadcast/">
+                                        <img class="item__image" src="/wp-content/uploads/2022/01/Team-Broadcast.png">
+                                        <div class="item__inner">
+                                            <div class="item__title">Team Broadcast</div>
+                                            <div class="item__desc">In-app mass notifications to keep your team safe</div>
+                                        </div>
+                                    </a>
                                 </div>
                                 <div class="w-50 ms-auto">
                                     <a href="/products/" class="products-link"><span>View all products</span><i class="fa-solid fa-arrow-right"></i></a>
