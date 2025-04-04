@@ -250,7 +250,7 @@ function add_security_headers() {
     header( 'Referrer-Policy: no-referrer-when-downgrade' );
     header( 'Permissions-Policy: camera=(), microphone=(), geolocation=()' );
 
-	// header( "Content-Security-Policy: default-src 'self'; script-src 'report-sample' 'self' https://nitroscripts.com/eulBUeTRPXdJpchrXpSNGxHEOxDkbzHn; style-src 'report-sample' 'self'; object-src 'none'; base-uri 'self'; connect-src 'self' https://l.getsitecontrol.com https://static.zdassets.com https://to.getnitropack.com https://www.googletagmanager.com; font-src 'self'; frame-src 'self'; img-src 'self' data:; manifest-src 'self'; media-src 'self'; report-uri https://67ebf8f9748d52e1dc5476b7.endpoint.csper.io?builder=true&v=2; worker-src blob:;" );
+	// header( "Content-Security-Policy: default-src 'self'; script-src 'report-sample' 'self' https://nitroscripts.com/eulBUeTRPXdJpchrXpSNGxHEOxDkbzHn; style-src 'report-sample' 'self'; object-src 'none'; base-uri 'self'; connect-src 'self' https://l.getsitecontrol.com https://static.zdassets.com https://to.getnitropack.com https://www.googletagmanager.com; font-src 'self'; frame-src 'self'; img-src 'self' data:; manifest-src 'self'; media-src 'self'; worker-src blob:;" );
 	
 	// header( "Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:;" );
 }

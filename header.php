@@ -431,6 +431,7 @@ defined('ABSPATH') || exit;
                             <ul>
                                 <li><a href="/about/">About Us</a></li>
                                 <li><a href="/about/senior-management/">Our Team</a></li>
+                                <li><a href="/about/our-history/">Our History</a></li>
                                 <li><a href="/nexus/">Nexus</a></li>
                                 <li><a href="/alarm-receiving-centre/">ARC</a></li>
                                 <li><a href="/accreditations/">Accreditations</a></li>
