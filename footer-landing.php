@@ -67,12 +67,13 @@ defined('ABSPATH') || exit;
 
 <!-- Forced Zendesk loader -->
 <script>
-window.zESettings = {
-    key: 'a841da69-bcf5-4be4-b159-ffcbd20bcfe7'
-};
 window.addEventListener('load', function () {
+    window.zESettings = {
+        key: 'a841da69-bcf5-4be4-b159-ffcbd20bcfe7'
+    };
+    
     var zendeskScript = document.createElement('script');
-    zendeskScript.src = 'https://static.zdassets.com/ekr/snippet.js?key=a841da69-bcf5-4be4-b159-ffcbd20bcfe7';
+    zendeskScript.src = 'https://static.zdassets.com/ekr/snippet.js';
     zendeskScript.onload = function () {
         if (typeof zE !== 'undefined') {
             zE('webWidget', 'show');
