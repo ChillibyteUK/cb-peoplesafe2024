@@ -298,7 +298,6 @@ if (is_front_page()) {
 </script>
 <?php
 $show_footer_block = false;
-global $post;
 
 // Homepage
 if (is_front_page()) {
