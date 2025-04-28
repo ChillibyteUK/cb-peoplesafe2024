@@ -65,21 +65,25 @@ defined('ABSPATH') || exit;
     </a>
 </div> -->
 
-<!-- Start of nexusportal Zendesk Widget script -->
+<!-- Forced Zendesk loader -->
 <script>
+window.zESettings = {
+    key: 'a841da69-bcf5-4be4-b159-ffcbd20bcfe7'
+};
 window.addEventListener('load', function () {
     var zendeskScript = document.createElement('script');
     zendeskScript.src = 'https://static.zdassets.com/ekr/snippet.js?key=a841da69-bcf5-4be4-b159-ffcbd20bcfe7';
     zendeskScript.onload = function () {
-        // Wait for Zendesk to fully initialise
         if (typeof zE !== 'undefined') {
-            // Force open the widget or initialise it manually
             zE('webWidget', 'show');
+        } else {
+            console.warn('Zendesk widget API not available.');
         }
     };
     document.body.appendChild(zendeskScript);
 });
-</script><!-- End of nexusportal Zendesk Widget script -->
+</script>
+<!-- End of nexusportal Zendesk Widget script -->
 <?php
 wp_footer();
 ?>
