@@ -325,6 +325,11 @@ if ($show_footer_block) {
 <!-- End of nexusportal Zendesk Widget script -->
     <?php
 }
+else {
+    ?>
+<!-- do not load Zendesk -->
+    <?php
+}
 
 wp_footer();
 ?>
