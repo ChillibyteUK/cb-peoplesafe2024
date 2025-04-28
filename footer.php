@@ -311,11 +311,10 @@ elseif (is_page('contact-us')) {
 }
 
 // Sub-page of /products/
-elseif (is_page() && $post && $post->post_parent) {
-    $parent = get_post($post->post_parent);
-    if ($parent && $parent->post_name === 'products') {
-        $show_footer_block = true;
-    }
+$request_uri = $_SERVER['REQUEST_URI'];
+
+if (strpos($request_uri, '/products/') !== false) {
+    $show_footer_block = true;
 }
 
 
