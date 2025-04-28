@@ -31,11 +31,11 @@ defined('ABSPATH') || exit;
             </div>
         </div>
     </div>
-</div>
-<div class="colophon">
-    <div class="container d-flex justify-content-between flex-wrap py-2">
-        <div>&copy; <?=date('Y')?> Skyguard Ltd T/A Peoplesafe. Company Registration Number: 04107459. All rights reserved. Peoplesafe is part of the Send for Help Group.</div>
-        <a href="https://www.chillibyte.co.uk/" rel="nofollow noopener" target="_blank" class="cb" title="Digital Marketing by Chillibyte"></a>
+    <div class="colophon">
+        <div class="container d-flex justify-content-between flex-wrap py-2">
+            <div>&copy; <?=date('Y')?> Skyguard Ltd T/A Peoplesafe. Company Registration Number: 04107459. All rights reserved. Peoplesafe is part of the Send for Help Group.</div>
+            <a href="https://www.chillibyte.co.uk/" rel="nofollow noopener" target="_blank" class="cb" title="Digital Marketing by Chillibyte"></a>
+        </div>
     </div>
 </div>
 <!-- modal_form -->
@@ -69,14 +69,8 @@ defined('ABSPATH') || exit;
 <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=a841da69-bcf5-4be4-b159-ffcbd20bcfe7"> </script>
 <!-- End of nexusportal Zendesk Widget script -->
 
-<?php wp_footer();
-if (get_field('gtm_property', 'options')) {
-    ?>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=<?=get_field('gtm_property', 'options')?>" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-    <?php
-}
+<?php
+wp_footer();
 ?>
 </body>
 
