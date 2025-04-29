@@ -31,7 +31,7 @@ $d = 0;
                 <?=wp_get_attachment_image(get_field('tab_3_image'),'large',false,array('class' => 'content', 'alt' => '', 'id' => $i . '_tab3'))?>
                 <?php
                 if ( ! empty( get_field('tab_4_title') ) ) {
-                    echo wp_get_attachment_image(get_field('tab_4_image'),'large',false,array('class' => 'content', 'alt' => '', 'id' => $i . '_tab4'))?>
+                    echo wp_get_attachment_image(get_field('tab_4_image'),'large',false,array('class' => 'content', 'alt' => '', 'id' => $i . '_tab4'));
                 }
                 ?>
             </div>
@@ -94,7 +94,7 @@ $d = 0;
                         ?>
                     </div>
                 </div>
-                <?php
+                    <?php
                 }
                 ?>
             </div>
