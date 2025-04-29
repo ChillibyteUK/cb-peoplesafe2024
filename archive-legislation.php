@@ -37,7 +37,7 @@ get_header();
                         <div class="col-md-10 news__inner">
                             <div class="news__title"><a href="<?=get_the_permalink()?>"><?=get_the_title()?></a></div>
                             <div class="news__date"><?=get_the_date('j M, Y')?></div>
-                            <div class="news__intro"><?=wp_trim_words(get_the_content(),30)?></div>
+                            <div class="news__intro"><?=wp_trim_words(apply_filters('the_content', get_the_content()), 30)?></div>
                             <div class="news__link"><a href="<?=get_the_permalink()?>">Read More</a></div>
                         </div>
                     </div>
