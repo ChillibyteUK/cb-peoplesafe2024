@@ -1,7 +1,8 @@
 <?php
+$class = $block['className'] ?? 'py-5';
 ?>
 <div class="product_header_2024">
-    <div class="container-xl py-5">
+    <div class="container-xl <?=$class?>">
         <?php
         if (get_field('hide_breadcrumbs')[0] != 'Yes') {
             ?>
