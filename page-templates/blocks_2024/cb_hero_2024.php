@@ -20,14 +20,21 @@
                 <img src="<?=get_the_post_thumbnail_url(get_the_ID(),'full')?>" class="img-fluid d-flex mx-auto">
             </div>
             <div class="col-md-8 order-md-1 my-auto">
-                <h1><?php
-                if (get_field('alt_title')) {
-                    echo get_field('alt_title');
+                <?php
+                $field = get_field('hide_title');
+                if (empty($field) || $field[0] !== 'Yes') {
+                    ?>
+                    <h1><?php
+                    if (get_field('alt_title')) {
+                        echo get_field('alt_title');
+                    }
+                    else {
+                        echo get_the_title();
+                    }
+                    ?></h1>
+                    <?php
                 }
-                else {
-                    echo get_the_title();
-                }
-                ?></h1>
+                ?>
                 <div class="product__intro mb-4"><?=get_field('intro')?></div>
                 <?php
                 if (get_field('hide_cta')[0] != 'Yes') {
