@@ -296,6 +296,13 @@ defined('ABSPATH') || exit;
                                             <div class="item__desc">Get a signal anywhere to call for help</div>
                                         </div>
                                     </a>
+                                    <a class="item" href="https://www.okaloneworker.com/" target="_blank">
+                                        <img class="item__image" src="/wp-content/uploads/2025/04/okalone.png">
+                                        <div class="item__inner">
+                                            <div class="item__title">OK Alone</div>
+                                            <div class="item__desc">Monitor and protect your people</div>
+                                        </div>
+                                    </a>
                                 </div>
                                 <div class="w-50 ms-auto">
                                     <a href="/products/" class="products-link"><span>View all products</span><i class="fa-solid fa-arrow-right"></i></a>
