@@ -730,18 +730,6 @@ function acf_blocks()
 }
 add_action('acf/init', 'acf_blocks');
 
-// remove the default buttons component.
-add_filter('allowed_block_types_all', function($allowed_blocks, $editor_context) {
-	if (!empty($editor_context->post)) {
-		$blocked = [
-			'core/buttons', // this is the parent wrapper
-			'core/button',  // this is the inner block
-		];
-		$allowed_blocks = array_diff($allowed_blocks, $blocked);
-	}
-	return $allowed_blocks;
-}, 10, 2);
-
 // Gutenburg core modifications
 add_filter('register_block_type_args', 'core_image_block_type_args', 10, 3);
 function core_image_block_type_args($args, $name)
