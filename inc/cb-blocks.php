@@ -716,11 +716,31 @@ function acf_blocks()
             'mode'    => 'edit',
             'supports' => array('mode' => false),
         ));
+        acf_register_block(array(
+            'name'                => 'CB Buttons',
+            'title'                => __('CB Buttons'),
+            'description'        => __(''),
+            'render_template'    => 'page-templates/blocks_2024/cb_buttons.php',
+            'category'            => 'layout',
+            'icon'                => 'slides',
+            'mode'    => 'edit',
+            'supports' => array('mode' => false),
+        ));
     }
 }
 add_action('acf/init', 'acf_blocks');
 
-
+// remove the default buttons component.
+add_filter('allowed_block_types_all', function($allowed_blocks, $editor_context) {
+	if (!empty($editor_context->post)) {
+		$blocked = [
+			'core/buttons', // this is the parent wrapper
+			'core/button',  // this is the inner block
+		];
+		$allowed_blocks = array_diff($allowed_blocks, $blocked);
+	}
+	return $allowed_blocks;
+}, 10, 2);
 
 // Gutenburg core modifications
 add_filter('register_block_type_args', 'core_image_block_type_args', 10, 3);
