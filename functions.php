@@ -85,3 +85,63 @@ function remove_draft_widget()
 // function remove_default_post_type() {
 //     remove_menu_page( 'edit.php' );
 // }
+
+function pardot_head_script() {
+    ?>
+    <script>
+        function getParamFromParentURL(p) {
+            var match = RegExp('[?&]' + p + '=([^&]*)').exec(window.location.search);
+            return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
+        }
+
+        function passGclidToAllPardotIframes() {
+            var gclidParam = getParamFromParentURL('gclid');
+            var gclsrcParam = getParamFromParentURL('gclsrc');
+
+            if (!gclidParam) {
+                console.log('No GCLID parameter found in parent URL. Skipping iframe updates.');
+                return; // Exit if no GCLID to pass
+            }
+
+            // Get all iframe elements on the page
+            var iframes = document.querySelectorAll('iframe');
+            var pardotDomainPrefix = 'https://safe.peoplesafe.co.uk/l/'; // Adjust if you use go.pardot.com or other subdomains
+
+            iframes.forEach(function(iframe) {
+                var iframeSrc = iframe.src;
+
+                // Check if the iframe's src starts with the Pardot form URL prefix
+                if (iframeSrc.startsWith(pardotDomainPrefix)) {
+                    var separator = iframeSrc.indexOf('?') === -1 ? '?' : '&';
+                    var newIframeSrc = iframeSrc;
+
+                    // Only append if GCLID is not already present to avoid duplicates
+                    if (iframeSrc.indexOf('gclid=') === -1) {
+                        newIframeSrc += separator + 'gclid=' + encodeURIComponent(gclidParam);
+                        separator = '&'; // For subsequent parameters
+                    }
+                    
+                    // Only append gclsrc if not already present
+                    if (gclsrcParam && iframeSrc.indexOf('gclsrc=') === -1) {
+                        newIframeSrc += separator + 'gclsrc=' + encodeURIComponent(gclsrcParam);
+                    }
+
+                    if (newIframeSrc !== iframeSrc) { // Only update if it actually changed
+                        iframe.src = newIframeSrc;
+                        console.log('Pardot iframe src updated:', iframe.src);
+                    } else {
+                        console.log('Pardot iframe already contains GCLID or no GCLID to update.');
+                    }
+                }
+            });
+        }
+
+        // Run this function when the parent page has loaded
+        window.addEventListener('load', passGclidToAllPardotIframes);
+        // You might also consider 'DOMContentLoaded' if the iframe is present early in the HTML
+        // and you want to modify its src as early as possible before it fully loads.
+        // document.addEventListener('DOMContentLoaded', passGclidToAllPardotIframes);
+    </script>
+    <?php
+}
+add_action('wp_head', 'pardot_head_script');
