@@ -57,7 +57,7 @@ $bg = null;
                 </div>
             </div>
             <div class="col-lg-4 order-1 order-lg-2 d-md-none">
-                <img src="/wp-content/uploads/2025/06/Peoplesafe-Hero-Image-Mobile.png" alt="" class="phone3">
+                <img src="/wp-content/uploads/2025/06/Peoplesafe-Hero-Image-Mobile.png" alt="Protect your people" class="img-fluid" width="648" height="620">
             </div>
         </div>
     </div>
