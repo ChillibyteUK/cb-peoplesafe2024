@@ -44,7 +44,7 @@ $bg = null;
                     ?>
                 </div>
             </div>
-            <div class="col-lg-4 order-1 order-lg-2">
+            <div class="col-lg-4 order-1 order-lg-2 d-none d-md-block">
                 <div class="heroAnim">
                     <img src="<?=get_stylesheet_directory_uri()?>/img/2024/heroAnim/circle.png" alt="" class="circle">
                     <img src="<?=get_stylesheet_directory_uri()?>/img/2024/heroAnim/dots.png" alt="" class="dots">
@@ -54,6 +54,11 @@ $bg = null;
                     <img src="<?=get_stylesheet_directory_uri()?>/img/2024/heroAnim/phone1.png" alt="" class="phone1">
                     <img src="<?=get_stylesheet_directory_uri()?>/img/2024/heroAnim/phone2.png" alt="" class="phone2">
                     <img src="<?=get_stylesheet_directory_uri()?>/img/2024/heroAnim/phone3.png" alt="" class="phone3">
+                </div>
+            </div>
+            <div class="col-lg-4 order-1 order-lg-2 d-md-none">
+                <div class="heroAnim">
+                    <img src="/wp-content/uploads/2025/06/Peoplesafe-Hero-Image-Mobile.png" alt="" class="phone3">
                 </div>
             </div>
         </div>
