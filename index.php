@@ -38,8 +38,25 @@ $delay = 1;
             </select>
         </div>
 
+        <div class="catnav d-flex flex-wrap mb-4">
+            <form class="d-flex mb-4" role="search" method="get" action="">
+                <input class="form-control me-2" type="search" name="search" placeholder="Search articles..." aria-label="Search" value="<?php echo esc_attr(get_query_var('search')); ?>">
+                <button class="button button-yellow" type="submit">Search</button>
+            </form>
+        </div>
+
         <div id="blogs" class="w-100">
             <?php
+
+            global $wp_query;
+            $search_term = isset($_GET['search']) ? sanitize_text_field($_GET['search']) : '';
+
+            query_posts(array_merge($wp_query->query, array(
+                'orderby' => 'date',
+                'order' => 'DESC',
+                's' => $search_term,
+            )));
+
             $counter = 1;
             while (have_posts()) {
                 the_post();
