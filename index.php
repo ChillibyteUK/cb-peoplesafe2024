@@ -38,7 +38,7 @@ $delay = 1;
             </select>
         </div>
 
-        <div class="catnav d-flex flex-wrap mb-4">
+        <div class="row mb-4">
             <form class="d-flex mb-4" role="search" method="get" action="">
                 <input class="form-control me-2" type="search" name="search" placeholder="Search articles..." aria-label="Search" value="<?php echo esc_attr(get_query_var('search')); ?>">
                 <button class="button button-yellow" type="submit">Search</button>
