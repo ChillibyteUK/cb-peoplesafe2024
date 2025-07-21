@@ -145,3 +145,46 @@ function pardot_head_script() {
     <?php
 }
 add_action('wp_head', 'pardot_head_script');
+
+add_action('woocommerce_thankyou', 'custom_push_purchase_data_to_datalayer', 10, 1);
+function custom_push_purchase_data_to_datalayer($order_id) {
+    if (!$order_id) return;
+
+    $order = wc_get_order($order_id);
+    if (!$order) return;
+
+    $items = [];
+    foreach ($order->get_items() as $item) {
+        $product = $item->get_product();
+        if (!$product) continue;
+
+        $items[] = [
+            'item_id'     => $product->get_sku() ?: $product->get_id(),
+            'item_name'   => $product->get_name(),
+            'item_category' => $product->get_type(), // or use category logic if needed
+            'quantity'    => $item->get_quantity(),
+            'price'       => wc_format_decimal($order->get_item_total($item, false), 2),
+        ];
+    }
+
+    $payment_method = $order->get_payment_method_title();
+
+    ?>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: "purchase",
+        ecommerce: {
+          transaction_id: "<?php echo esc_js($order->get_order_number()); ?>",
+          affiliation: "Peoplesafe WooCommerce Store",
+          value: <?php echo esc_js($order->get_total()); ?>,
+          currency: "<?php echo esc_js($order->get_currency()); ?>",
+          tax: <?php echo esc_js($order->get_total_tax()); ?>,
+          shipping: <?php echo esc_js($order->get_shipping_total()); ?>,
+          payment_type: "<?php echo esc_js($payment_method); ?>",
+          items: <?php echo json_encode($items); ?>
+        }
+      });
+    </script>
+    <?php
+}
