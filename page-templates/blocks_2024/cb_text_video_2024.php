@@ -202,8 +202,9 @@ if (get_field('cta')) {
                                     <div type="button" class="modal-close" data-bs-dismiss="modal"><i class="fas fa-times"></i></div>
                                     <div class="ratio ratio-16x9">
                                       <div class="lazy-video-wrapper"
-                                           data-provider="<?= esc_attr($video_provider) ?>"
-                                           data-video-id="<?= esc_attr($video_id) ?>">
+                                           data-provider="<?= esc_attr(get_field('video_provider')) ?>"
+                                           data-video-id="<?= esc_attr(get_field('video_id')) ?>">
+                                        <!-- Optional: thumbnail fallback or noscript iframe -->
                                       </div>
                                     </div>
                                   </div>
@@ -229,8 +230,9 @@ if (get_field('cta')) {
                                     <div type="button" class="modal-close" data-bs-dismiss="modal"><i class="fas fa-times"></i></div>
                                     <div class="ratio ratio-16x9">
                                       <div class="lazy-video-wrapper"
-                                           data-provider="<?= esc_attr($video_provider) ?>"
+                                           data-provider="<?= esc_attr(get_field('video_provider')) ?>"
                                            data-video-id="<?= esc_attr($video_id_array[0]) ?>">
+                                        <!-- Optional: thumbnail fallback or noscript iframe -->
                                       </div>
                                     </div>
                                   </div>
@@ -250,9 +252,9 @@ if (get_field('cta')) {
 (function($){
   function buildIframe(provider, videoId) {
     let src = '';
-    if (provider === 'YouTube') {
+    if (provider.toLowerCase() === 'youtube') {
       src = 'https://www.youtube-nocookie.com/embed/' + videoId + '?autoplay=1';
-    } else if (provider === 'Vimeo') {
+    } else if (provider.toLowerCase() === 'vimeo') {
       const parts = videoId.split('/');
       src = 'https://player.vimeo.com/video/' + parts[0] + '?autoplay=1&h=' + (parts[1] || '');
     }
@@ -263,26 +265,29 @@ if (get_field('cta')) {
       allowfullscreen: true,
       frameborder: 0,
       width: '100%',
-      height: '100%'
+      height: '100%',
+      class: 'embed-responsive-item'
     });
   }
 
-  // Handle all modals on page
   $(document).on('shown.bs.modal', function (e) {
     const $modal = $(e.target);
-    const $wrapper = $modal.find('.lazy-video-wrapper');
-
-    if ($wrapper.length && $wrapper.children('iframe').length === 0) {
-      const provider = $wrapper.data('provider');
-      const videoId = $wrapper.data('video-id');
-      const $iframe = buildIframe(provider, videoId);
-      $wrapper.html($iframe);
-    }
+    $modal.find('.lazy-video-wrapper').each(function () {
+      const $wrapper = $(this);
+      if ($wrapper.children('iframe').length === 0) {
+        const provider = $wrapper.data('provider');
+        const videoId = $wrapper.data('video-id');
+        const $iframe = buildIframe(provider, videoId);
+        $wrapper.html($iframe);
+      }
+    });
   });
 
   $(document).on('hide.bs.modal', function (e) {
     const $modal = $(e.target);
-    $modal.find('.lazy-video-wrapper').empty();
+    $modal.find('.lazy-video-wrapper').each(function () {
+      $(this).empty(); // removes the iframe, stopping the video
+    });
   });
 
 })(jQuery);
