@@ -198,7 +198,7 @@ function video_facade_shortcode($atts) {
 
     $id = sanitize_text_field($atts['id']);
     $type = sanitize_text_field(strtolower($atts['type']));
-    $ratio_class = 'ratio ratio-' . esc_attr($atts['aspect_ratio']);
+    $ratio_class = 'video-ratio video-ratio-' . esc_attr($atts['aspect_ratio']);
 
     if (!$id || !in_array($type, ['youtube', 'vimeo'])) return '';
 
