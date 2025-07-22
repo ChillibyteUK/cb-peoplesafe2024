@@ -176,77 +176,35 @@ if (get_field('cta')) {
     </div>
 </section>
 
-                <div class="modal fade" id="modal<?=$modal?>"
-                    tabindex="-1" role="dialog">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
-                        <div class="modal-content product-modal">
-                            <div class="modal-body">
-                                <div type="button" class="modal-close" data-bs-dismiss="modal"><i
-                                        class="fas fa-times"></i></div>
-                                <div class="ratio ratio-16x9">
-                                    <?php
-                    if (get_field('video_provider') == 'YouTube') {
-                        ?>
-                            <?php $video_provider = get_field('video_provider'); ?>
-                            <?php $video_id = get_field('video_id'); ?>
-                            <?php $modal_id = 'modal_' . random_str(8); ?>
-
-                            <!-- ...existing modal trigger HTML... -->
-
-                            <div class="modal fade"
-                                 id="<?= esc_attr($modal_id) ?>"
-                                 tabindex="-1" role="dialog">
-                              <div class="modal-dialog modal-dialog-centered" role="document">
-                                <div class="modal-content product-modal">
-                                  <div class="modal-body">
-                                    <div type="button" class="modal-close" data-bs-dismiss="modal"><i class="fas fa-times"></i></div>
-                                    <div class="ratio ratio-16x9">
-                                      <div class="lazy-video-wrapper"
-                                           data-provider="<?= esc_attr(get_field('video_provider')) ?>"
-                                           data-video-id="<?= esc_attr(get_field('video_id')) ?>">
-                                        <!-- Optional: thumbnail fallback or noscript iframe -->
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                                    <?php
-                    } else {
-                        $video_id_array = explode("/", get_field('video_id'));
-                        ?>
-                            <?php $video_provider = get_field('video_provider'); ?>
-                            <?php $video_id = get_field('video_id'); ?>
-                            <?php $modal_id = 'modal_' . random_str(8); ?>
-
-                            <!-- ...existing modal trigger HTML... -->
-
-                            <div class="modal fade"
-                                 id="<?= esc_attr($modal_id) ?>"
-                                 tabindex="-1" role="dialog">
-                              <div class="modal-dialog modal-dialog-centered" role="document">
-                                <div class="modal-content product-modal">
-                                  <div class="modal-body">
-                                    <div type="button" class="modal-close" data-bs-dismiss="modal"><i class="fas fa-times"></i></div>
-                                    <div class="ratio ratio-16x9">
-                                      <div class="lazy-video-wrapper"
-                                           data-provider="<?= esc_attr(get_field('video_provider')) ?>"
-                                           data-video-id="<?= esc_attr($video_id_array[0]) ?>">
-                                        <!-- Optional: thumbnail fallback or noscript iframe -->
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                                    <?php
-                    }
+<?php
+$video_provider = get_field('video_provider'); // 'YouTube' or 'Vimeo'
+$video_id = get_field('video_id'); // Just the ID or ID/hash for Vimeo
+$modal_id = 'modal_' . random_str(8); // Unique per block
 ?>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+<img src="<?= ($video_provider === 'Vimeo')
+    ? get_vimeo_data_from_id($video_id, 'thumbnail_url')
+    : 'https://img.youtube.com/vi/' . $video_id . '/hqdefault.jpg'; ?>"
+    class="img-fluid product_video pointer"
+    data-bs-toggle="modal"
+    data-bs-target="#<?= $modal_id ?>">
+
+<!-- MODAL -->
+<div class="modal fade" id="<?= $modal_id ?>" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content product-modal">
+      <div class="modal-body">
+        <div type="button" class="modal-close" data-bs-dismiss="modal"><i class="fas fa-times"></i></div>
+        <div class="ratio ratio-16x9">
+          <div class="lazy-video-wrapper"
+               data-provider="<?= esc_attr($video_provider) ?>"
+               data-video-id="<?= esc_attr($video_id) ?>">
+            <!-- iframe is inserted here via JS -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
                 
 <script nitro-exclude>
 (function($){
@@ -270,24 +228,20 @@ if (get_field('cta')) {
     });
   }
 
+  // On modal open → insert iframe
   $(document).on('shown.bs.modal', function (e) {
-    const $modal = $(e.target);
-    $modal.find('.lazy-video-wrapper').each(function () {
-      const $wrapper = $(this);
-      if ($wrapper.children('iframe').length === 0) {
-        const provider = $wrapper.data('provider');
-        const videoId = $wrapper.data('video-id');
-        const $iframe = buildIframe(provider, videoId);
-        $wrapper.html($iframe);
-      }
-    });
+    const $wrapper = $(e.target).find('.lazy-video-wrapper');
+    if ($wrapper.length && $wrapper.children('iframe').length === 0) {
+      const provider = $wrapper.data('provider');
+      const videoId = $wrapper.data('video-id');
+      const $iframe = buildIframe(provider, videoId);
+      $wrapper.html($iframe);
+    }
   });
 
+  // On modal close → remove iframe
   $(document).on('hide.bs.modal', function (e) {
-    const $modal = $(e.target);
-    $modal.find('.lazy-video-wrapper').each(function () {
-      $(this).empty(); // removes the iframe, stopping the video
-    });
+    $(e.target).find('.lazy-video-wrapper').empty();
   });
 
 })(jQuery);
