@@ -188,3 +188,57 @@ function custom_push_purchase_data_to_datalayer($order_id) {
     </script>
     <?php
 }
+
+function video_facade_shortcode($atts) {
+    $atts = shortcode_atts([
+        'id' => '',
+        'type' => 'youtube', // youtube or vimeo
+        'aspect_ratio' => '16by9'
+    ], $atts, 'video_facade');
+
+    $id = sanitize_text_field($atts['id']);
+    $type = sanitize_text_field(strtolower($atts['type']));
+    $ratio_class = 'ratio ratio-' . esc_attr($atts['aspect_ratio']);
+
+    if (!$id || !in_array($type, ['youtube', 'vimeo'])) return '';
+
+    if ($type === 'youtube') {
+        $thumb_url = "https://i.ytimg.com/vi/$id/hqdefault.jpg";
+        $embed_url = "https://www.youtube.com/embed/$id?autoplay=1";
+    } else {
+        $thumb_url = "https://vumbnail.com/$id.jpg";
+        $embed_url = "https://player.vimeo.com/video/$id?autoplay=1";
+    }
+
+    ob_start();
+    ?>
+    <div class="video-facade-wrapper <?php echo esc_attr($ratio_class); ?>"
+         data-embed-url="<?php echo esc_url($embed_url); ?>"
+         style="cursor:pointer;position:relative;background:#000;overflow:hidden;">
+        <img src="<?php echo esc_url($thumb_url); ?>"
+             alt="Video Thumbnail"
+             style="width:100%;display:block;object-fit:cover;">
+        <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:white;font-size:3em;">▶</div>
+    </div>
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll('.video-facade-wrapper').forEach(wrapper => {
+            wrapper.addEventListener('click', function () {
+                const embedUrl = wrapper.getAttribute('data-embed-url');
+                const iframe = document.createElement('iframe');
+                iframe.setAttribute('src', embedUrl);
+                iframe.setAttribute('frameborder', '0');
+                iframe.setAttribute('allow', 'autoplay; fullscreen; picture-in-picture');
+                iframe.setAttribute('allowfullscreen', '');
+                iframe.style.width = '100%';
+                iframe.style.height = '100%';
+                wrapper.innerHTML = '';
+                wrapper.appendChild(iframe);
+            });
+        });
+    });
+    </script>
+    <?php
+    return ob_get_clean();
+}
+add_shortcode('video_facade', 'video_facade_shortcode');
