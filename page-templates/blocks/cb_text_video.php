@@ -177,73 +177,36 @@ if (get_field('cta')) {
     </div>
 </section>
 
-<?php
-$video_provider = get_field('video_provider'); // 'YouTube' or 'Vimeo'
-$video_id = get_field('video_id'); // Just the ID or ID/hash for Vimeo
-$modal_id = 'modal_' . random_str(8); // Unique per block
+<div class="modal fade" id="modal<?=$modal?>"
+    tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content product-modal">
+            <div class="modal-body">
+                <div type="button" class="modal-close" data-bs-dismiss="modal"><i
+                        class="fas fa-times"></i></div>
+                <div class="ratio ratio-16x9">
+                    <?php
+    if (get_field('video_provider') == 'YouTube') {
+        ?>
+                    <iframe id="vid<?=$modal?>"
+                        class="embed-responsive-item"
+                        src="https://www.youtube-nocookie.com/embed/<?=get_field('video_id')?>?autoplay=1"
+                        allow="autoplay; fullscreen; picture-in-picture" webkitallowfullscreen
+                        mozallowfullscreen allowfullscreen></iframe>
+                    <?php
+    } else {
+        $video_id_array = explode("/", get_field('video_id'));
+        ?>
+                    <iframe id="vid<?=$modal?>"
+                        class="embed-responsive-item"
+                        src="https://player.vimeo.com/video/<?=$video_id_array[0]?>?byline=0&portrait=0&fullscreen=1&h=<?=$video_id_array[1]?>"
+                        allow="autoplay; fullscreen; picture-in-picture" webkitallowfullscreen
+                        mozallowfullscreen allowfullscreen></iframe>
+                    <?php
+    }
 ?>
-<img src="<?= ($video_provider === 'Vimeo')
-    ? get_vimeo_data_from_id($video_id, 'thumbnail_url')
-    : 'https://img.youtube.com/vi/' . $video_id . '/hqdefault.jpg'; ?>"
-    class="img-fluid product_video pointer"
-    data-bs-toggle="modal"
-    data-bs-target="#<?= $modal_id ?>">
-
-<!-- MODAL -->
-<div class="modal fade" id="<?= $modal_id ?>" tabindex="-1" role="dialog">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content product-modal">
-      <div class="modal-body">
-        <div type="button" class="modal-close" data-bs-dismiss="modal"><i class="fas fa-times"></i></div>
-        <div class="ratio ratio-16x9">
-          <div class="lazy-video-wrapper"
-               data-provider="<?= esc_attr($video_provider) ?>"
-               data-video-id="<?= esc_attr($video_id) ?>">
-            <!-- iframe is inserted here via JS -->
-          </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </div>
-
-<script nitro-exclude>
-(function($){
-  function buildIframe(provider, videoId) {
-    let src = '';
-    if (provider.toLowerCase() === 'youtube') {
-      src = 'https://www.youtube-nocookie.com/embed/' + videoId + '?autoplay=1';
-    } else if (provider.toLowerCase() === 'vimeo') {
-      const parts = videoId.split('/');
-      src = 'https://player.vimeo.com/video/' + parts[0] + '?autoplay=1&h=' + (parts[1] || '');
-    }
-
-    return $('<iframe>', {
-      src: src,
-      allow: 'autoplay; fullscreen; picture-in-picture',
-      allowfullscreen: true,
-      frameborder: 0,
-      width: '100%',
-      height: '100%',
-      class: 'embed-responsive-item'
-    });
-  }
-
-  // On modal open → insert iframe
-  $(document).on('shown.bs.modal', function (e) {
-    const $wrapper = $(e.target).find('.lazy-video-wrapper');
-    if ($wrapper.length && $wrapper.children('iframe').length === 0) {
-      const provider = $wrapper.data('provider');
-      const videoId = $wrapper.data('video-id');
-      const $iframe = buildIframe(provider, videoId);
-      $wrapper.html($iframe);
-    }
-  });
-
-  // On modal close → remove iframe
-  $(document).on('hide.bs.modal', function (e) {
-    $(e.target).find('.lazy-video-wrapper').empty();
-  });
-
-})(jQuery);
-</script>
