@@ -140,18 +140,14 @@ if (get_field('cta')) {
 </div>
 
 <script nitro-exclude>
-(function($){
-  function buildIframe(provider, videoId, videoHash) {
+jQuery(function($){
+  function buildIframe(provider, videoId, hash) {
     let src = '';
-    if (provider.toLowerCase() === 'youtube') {
+    if (provider === 'youtube') {
       src = 'https://www.youtube-nocookie.com/embed/' + videoId + '?autoplay=1';
-    } else if (provider.toLowerCase() === 'vimeo') {
-      src = 'https://player.vimeo.com/video/' + videoId + '?autoplay=1&byline=0&portrait=0&fullscreen=1';
-      if (videoHash) {
-        src += '&h=' + videoHash;
-      }
+    } else if (provider === 'vimeo') {
+      src = 'https://player.vimeo.com/video/' + videoId + '?autoplay=1&h=' + hash;
     }
-
     return $('<iframe>', {
       src: src,
       allow: 'autoplay; fullscreen; picture-in-picture',
@@ -168,10 +164,10 @@ if (get_field('cta')) {
     $modal.find('.lazy-video-wrapper').each(function () {
       const $wrapper = $(this);
       if ($wrapper.children('iframe').length === 0) {
-        const provider = $wrapper.data('provider');
+        const provider = $wrapper.data('provider').toLowerCase();
         const videoId = $wrapper.data('video-id');
-        const videoHash = $wrapper.data('video-hash');
-        const $iframe = buildIframe(provider, videoId, videoHash);
+        const hash = $wrapper.data('hash') || '';
+        const $iframe = buildIframe(provider, videoId, hash);
         $wrapper.html($iframe);
       }
     });
@@ -179,9 +175,7 @@ if (get_field('cta')) {
 
   $(document).on('hide.bs.modal', function (e) {
     const $modal = $(e.target);
-    $modal.find('.lazy-video-wrapper').each(function () {
-      $(this).empty();
-    });
+    $modal.find('.lazy-video-wrapper').empty();
   });
-})(jQuery);
+});
 </script>
