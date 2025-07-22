@@ -187,20 +187,56 @@ if (get_field('cta')) {
                                     <?php
                     if (get_field('video_provider') == 'YouTube') {
                         ?>
-                                    <iframe id="vid<?=$modal?>"
-                                        class="embed-responsive-item"
-                                        src="https://www.youtube-nocookie.com/embed/<?=get_field('video_id')?>?autoplay=1"
-                                        allow="autoplay; fullscreen; picture-in-picture" webkitallowfullscreen
-                                        mozallowfullscreen allowfullscreen></iframe>
+                            <?php $video_provider = get_field('video_provider'); ?>
+                            <?php $video_id = get_field('video_id'); ?>
+                            <?php $modal_id = 'modal_' . random_str(8); ?>
+
+                            <!-- ...existing modal trigger HTML... -->
+
+                            <div class="modal fade"
+                                 id="<?= esc_attr($modal_id) ?>"
+                                 tabindex="-1" role="dialog">
+                              <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content product-modal">
+                                  <div class="modal-body">
+                                    <div type="button" class="modal-close" data-bs-dismiss="modal"><i class="fas fa-times"></i></div>
+                                    <div class="ratio ratio-16x9">
+                                      <div class="lazy-video-wrapper"
+                                           data-provider="<?= esc_attr($video_provider) ?>"
+                                           data-video-id="<?= esc_attr($video_id) ?>">
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
                                     <?php
                     } else {
                         $video_id_array = explode("/", get_field('video_id'));
                         ?>
-                                    <iframe id="vid<?=$modal?>"
-                                        class="embed-responsive-item"
-                                        src="https://player.vimeo.com/video/<?=$video_id_array[0]?>?byline=0&portrait=0&fullscreen=1&h=<?=$video_id_array[1]?>"
-                                        allow="autoplay; fullscreen; picture-in-picture" webkitallowfullscreen
-                                        mozallowfullscreen allowfullscreen></iframe>
+                            <?php $video_provider = get_field('video_provider'); ?>
+                            <?php $video_id = get_field('video_id'); ?>
+                            <?php $modal_id = 'modal_' . random_str(8); ?>
+
+                            <!-- ...existing modal trigger HTML... -->
+
+                            <div class="modal fade"
+                                 id="<?= esc_attr($modal_id) ?>"
+                                 tabindex="-1" role="dialog">
+                              <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content product-modal">
+                                  <div class="modal-body">
+                                    <div type="button" class="modal-close" data-bs-dismiss="modal"><i class="fas fa-times"></i></div>
+                                    <div class="ratio ratio-16x9">
+                                      <div class="lazy-video-wrapper"
+                                           data-provider="<?= esc_attr($video_provider) ?>"
+                                           data-video-id="<?= esc_attr($video_id_array[0]) ?>">
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
                                     <?php
                     }
 ?>
@@ -209,3 +245,45 @@ if (get_field('cta')) {
                         </div>
                     </div>
                 </div>
+                
+<script nitro-exclude>
+(function($){
+  function buildIframe(provider, videoId) {
+    let src = '';
+    if (provider === 'YouTube') {
+      src = 'https://www.youtube-nocookie.com/embed/' + videoId + '?autoplay=1';
+    } else if (provider === 'Vimeo') {
+      const parts = videoId.split('/');
+      src = 'https://player.vimeo.com/video/' + parts[0] + '?autoplay=1&h=' + (parts[1] || '');
+    }
+
+    return $('<iframe>', {
+      src: src,
+      allow: 'autoplay; fullscreen; picture-in-picture',
+      allowfullscreen: true,
+      frameborder: 0,
+      width: '100%',
+      height: '100%'
+    });
+  }
+
+  // Handle all modals on page
+  $(document).on('shown.bs.modal', function (e) {
+    const $modal = $(e.target);
+    const $wrapper = $modal.find('.lazy-video-wrapper');
+
+    if ($wrapper.length && $wrapper.children('iframe').length === 0) {
+      const provider = $wrapper.data('provider');
+      const videoId = $wrapper.data('video-id');
+      const $iframe = buildIframe(provider, videoId);
+      $wrapper.html($iframe);
+    }
+  });
+
+  $(document).on('hide.bs.modal', function (e) {
+    const $modal = $(e.target);
+    $modal.find('.lazy-video-wrapper').empty();
+  });
+
+})(jQuery);
+</script>
