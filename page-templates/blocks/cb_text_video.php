@@ -11,7 +11,10 @@ $image_fade = (get_field('order') == 'text_left') ? 'fade-left' : 'fade-right';
 
 $extra_classes = get_field('extra_classes');
 $video_provider = get_field('video_provider');
-$video_id = get_field('video_id');
+$video_id_raw = get_field('video_id');
+$video_id_parts = explode('/', $video_id_raw);
+$video_id = $video_provider === 'Vimeo' ? $video_id_parts[0] : $video_id_raw;
+$video_hash = $video_provider === 'Vimeo' ? ($video_id_parts[1] ?? '') : '';
 ?>
 <!-- text_video_2024 -->
 <section class="text_video_2024 py-5 <?=$extra_classes?>">
@@ -123,15 +126,13 @@ if (get_field('cta')) {
     </div>
 </section>
 
-<div class="modal fade" id="modal<?=$modal?>"
-    tabindex="-1" role="dialog">
+<div class="modal fade" id="modal<?=$modal?>" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content product-modal">
             <div class="modal-body">
-                <div type="button" class="modal-close" data-bs-dismiss="modal"><i
-                        class="fas fa-times"></i></div>
+                <div type="button" class="modal-close" data-bs-dismiss="modal"><i class="fas fa-times"></i></div>
                 <div class="ratio ratio-16x9">
-                    <div class="lazy-video-wrapper" data-provider="<?= esc_attr($video_provider) ?>" data-video-id="<?= esc_attr($video_id) ?>"></div>
+                    <div class="lazy-video-wrapper" data-provider="<?= esc_attr($video_provider) ?>" data-video-id="<?= esc_attr($video_id) ?>" data-video-hash="<?= esc_attr($video_hash) ?>"></div>
                 </div>
             </div>
         </div>
@@ -140,13 +141,15 @@ if (get_field('cta')) {
 
 <script nitro-exclude>
 (function($){
-  function buildIframe(provider, videoId) {
+  function buildIframe(provider, videoId, videoHash) {
     let src = '';
     if (provider.toLowerCase() === 'youtube') {
       src = 'https://www.youtube-nocookie.com/embed/' + videoId + '?autoplay=1';
     } else if (provider.toLowerCase() === 'vimeo') {
-      const parts = videoId.split('/');
-      src = 'https://player.vimeo.com/video/' + parts[0] + '?autoplay=1&h=' + (parts[1] || '');
+      src = 'https://player.vimeo.com/video/' + videoId + '?autoplay=1&byline=0&portrait=0&fullscreen=1';
+      if (videoHash) {
+        src += '&h=' + videoHash;
+      }
     }
 
     return $('<iframe>', {
@@ -167,7 +170,8 @@ if (get_field('cta')) {
       if ($wrapper.children('iframe').length === 0) {
         const provider = $wrapper.data('provider');
         const videoId = $wrapper.data('video-id');
-        const $iframe = buildIframe(provider, videoId);
+        const videoHash = $wrapper.data('video-hash');
+        const $iframe = buildIframe(provider, videoId, videoHash);
         $wrapper.html($iframe);
       }
     });
