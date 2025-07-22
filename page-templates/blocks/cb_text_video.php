@@ -10,6 +10,8 @@ $text_fade = (get_field('order') == 'text_left') ? 'fade-right' : 'fade-left';
 $image_fade = (get_field('order') == 'text_left') ? 'fade-left' : 'fade-right';
 
 $extra_classes = get_field('extra_classes');
+$video_provider = get_field('video_provider');
+$video_id = get_field('video_id');
 ?>
 <!-- text_video_2024 -->
 <section class="text_video_2024 py-5 <?=$extra_classes?>">
@@ -47,23 +49,11 @@ if (get_field('cta')) {
                 class="<?=$cols_image?> text_video_2024__container <?=$vid_margin?> text-center <?=$order_image?>"
                 data-aos="<?=$image_fade?>">
                 <div class="position-relative pointer">
-                    <?php
-    if (get_field('video_provider') == 'Vimeo') {
-        ?>
-                    <img src="<?=get_vimeo_data_from_id(get_field('video_id'), 'thumbnail_url')?>"
-                        class="<?=$image_margin?> img-fluid product_video pointer"
-                        data-bs-toggle="modal"
-                        data-bs-target="#modal<?=$modal?>">
-                    <?php
-    } else {
-        ?>
-                    <img src="https://img.youtube.com/vi/<?=get_field('video_id')?>/hqdefault.jpg"
-                        class="<?=$image_margin?> img-fluid product_video pointer"
-                        data-bs-toggle="modal"
-                        data-bs-target="#modal<?=$modal?>">
-                    <?php
-    }
-?>
+                    <?php if ($video_provider === 'Vimeo') : ?>
+                        <img src="<?= get_vimeo_data_from_id($video_id, 'thumbnail_url') ?>" class="img-fluid product_video pointer" data-bs-toggle="modal" data-bs-target="#modal<?= $modal ?>">
+                    <?php else : ?>
+                        <img src="https://img.youtube.com/vi/<?= $video_id ?>/hqdefault.jpg" class="img-fluid product_video pointer" data-bs-toggle="modal" data-bs-target="#modal<?= $modal ?>">
+                    <?php endif; ?>
                     <div class="play"><span></span></div>
                 </div>
                 <?php
@@ -79,53 +69,9 @@ if (get_field('cta')) {
                 <?php
                 if (get_field('video_provider') == 'Vimeo') {
                     ?>
-                <script>
-                    (function($) {
-                        function stopVideo() {
-                            var $frame = $('iframe#vid<?=$modal?>');
-                            // saves the current iframe source
-                            var vidsrc = $frame.attr('src');
-                            // strip autoplay
-                            vidsrc = vidsrc.replace('&autoplay=1', '');
-                            // sets the source to nothing, stopping the video
-                            $frame.attr('src', '');
-                            // sets it back to the correct link so that it reloads immediately on the next window open
-                            $frame.attr('src', vidsrc);
-                        }
-                        $('#modal<?=$modal?>').on('hidden.bs.modal',
-                            function(e) {
-                                stopVideo();
-                            })
-                        $('#modal<?=$modal?>').on('shown.bs.modal',
-                            function(e) {
-                                $("iframe#vid<?=$modal?>")[0].src +=
-                                    "&autoplay=1";
-                            })
-
-                    })(jQuery);
-                </script>
                 <?php
                 } else {
                     ?>
-                <script>
-                    (function($) {
-                        var $frame = $('iframe#vid<?=$modal?>');
-                        const url = $frame.attr('src');
-                        $frame.attr('src', '');
-                        /* Assign the initially stored url back to the iframe src
-                        attribute when modal is displayed */
-                        $("#modal<?=$modal?>").on('shown.bs.modal',
-                            function() {
-                                $frame.attr('src', url);
-                            });
-                        /* Assign empty url value to the iframe src attribute when
-    modal hide, which stop the video playing */
-                        $("#modal<?=$modal?>").on('hide.bs.modal',
-                            function() {
-                                $frame.attr('src', '');
-                            });
-                    })(jQuery);
-                </script>
                 <script type="application/ld+json">
                     {
                         "@context": "http://schema.org",
@@ -185,28 +131,53 @@ if (get_field('cta')) {
                 <div type="button" class="modal-close" data-bs-dismiss="modal"><i
                         class="fas fa-times"></i></div>
                 <div class="ratio ratio-16x9">
-                    <?php
-    if (get_field('video_provider') == 'YouTube') {
-        ?>
-                    <iframe id="vid<?=$modal?>"
-                        class="embed-responsive-item"
-                        src="https://www.youtube-nocookie.com/embed/<?=get_field('video_id')?>?autoplay=1"
-                        allow="autoplay; fullscreen; picture-in-picture" webkitallowfullscreen
-                        mozallowfullscreen allowfullscreen></iframe>
-                    <?php
-    } else {
-        $video_id_array = explode("/", get_field('video_id'));
-        ?>
-                    <iframe id="vid<?=$modal?>"
-                        class="embed-responsive-item"
-                        src="https://player.vimeo.com/video/<?=$video_id_array[0]?>?byline=0&portrait=0&fullscreen=1&h=<?=$video_id_array[1]?>"
-                        allow="autoplay; fullscreen; picture-in-picture" webkitallowfullscreen
-                        mozallowfullscreen allowfullscreen></iframe>
-                    <?php
-    }
-?>
+                    <div class="lazy-video-wrapper" data-provider="<?= esc_attr($video_provider) ?>" data-video-id="<?= esc_attr($video_id) ?>"></div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<script nitro-exclude>
+(function($){
+  function buildIframe(provider, videoId) {
+    let src = '';
+    if (provider.toLowerCase() === 'youtube') {
+      src = 'https://www.youtube-nocookie.com/embed/' + videoId + '?autoplay=1';
+    } else if (provider.toLowerCase() === 'vimeo') {
+      const parts = videoId.split('/');
+      src = 'https://player.vimeo.com/video/' + parts[0] + '?autoplay=1&h=' + (parts[1] || '');
+    }
+
+    return $('<iframe>', {
+      src: src,
+      allow: 'autoplay; fullscreen; picture-in-picture',
+      allowfullscreen: true,
+      frameborder: 0,
+      width: '100%',
+      height: '100%',
+      class: 'embed-responsive-item'
+    });
+  }
+
+  $(document).on('shown.bs.modal', function (e) {
+    const $modal = $(e.target);
+    $modal.find('.lazy-video-wrapper').each(function () {
+      const $wrapper = $(this);
+      if ($wrapper.children('iframe').length === 0) {
+        const provider = $wrapper.data('provider');
+        const videoId = $wrapper.data('video-id');
+        const $iframe = buildIframe(provider, videoId);
+        $wrapper.html($iframe);
+      }
+    });
+  });
+
+  $(document).on('hide.bs.modal', function (e) {
+    const $modal = $(e.target);
+    $modal.find('.lazy-video-wrapper').each(function () {
+      $(this).empty();
+    });
+  });
+})(jQuery);
+</script>
