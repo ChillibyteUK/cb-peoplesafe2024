@@ -133,7 +133,7 @@ $cta = get_field('cta');
                 <h2>An industry leading UK-based technology business</h2>
                 <div class="mb-4">
                     <p>Peoplesafe is an industry leading UK-based technology business centred around the safety of lone and at-risk workers across both public and private sectors.</p>
-                    <p>Protecting over 330,000 employees, our customer base includes more than 100 NHS trusts, 150 local authorities, 200 housing associations and hundreds of commercial organisations in sectors including utilities, facilities management, distribution and care.</p>
+                    <p>Protecting over 350,000 employees, our customer base includes more than 100 NHS trusts, 150 local authorities, 200 housing associations and hundreds of commercial organisations in sectors including utilities, facilities management, distribution and care.</p>
                 </div>
                 <a href="/about/" class="btn">Learn more about Peoplesafe</a>    
             </div>
