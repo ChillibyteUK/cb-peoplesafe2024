@@ -356,7 +356,7 @@ defined('ABSPATH') || exit;
                                 <div>Overt protection for frontline workers.</div>
                                 <div class="items">
                                     <a class="item" href="/products/body-worn-camera/">
-                                        <img class="item__image" src="/wp-content/uploads/2024/07/Body-Worn-Camera.png">
+                                        <img class="item__image" src="/wp-content/uploads/2025/10/Body-Worn-Camera-menu-image.png">
                                         <div class="item__inner">
                                             <div class="item__title">Body Worn Camera</div>
                                             <div class="item__desc">Deterrent for verbal and physical abuse</div>
