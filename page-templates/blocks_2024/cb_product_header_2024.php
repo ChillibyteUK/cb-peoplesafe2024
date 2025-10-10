@@ -38,9 +38,15 @@
                     echo '<a href="' . $l['url'] . '" target="' . $l['target'] . '" class="w-100 w-md-auto mb-2 mb-md-0 button button-yellow me-3 text-center"><span>' . $l['title'] . '</span></a>';
                 }
                 if (get_field('hide_cta')[0] != 'Yes') {
-                ?>
-                    <button type="button" class="w-100 w-md-auto mb-2 mb-md-0 button button-yellow me-3 text-center" data-bs-toggle="modal" data-bs-target="#demoModal">Book a Demo</button>
-                <?php
+                    if ( is_page(4904) ) {
+                    ?>
+                        <a type="button" class="w-100 w-md-auto mb-2 mb-md-0 button button-yellow me-3 text-center" href="/get-your-quote/">Get a Quote</a>
+                    <?php
+                    } else {
+                    ?>
+                        <button type="button" class="w-100 w-md-auto mb-2 mb-md-0 button button-yellow me-3 text-center" data-bs-toggle="modal" data-bs-target="#demoModal">Book a Demo</button>
+                    <?php
+                    }
                     // <a href="/contact-us/" class="btn btn-primary">Book Demo</a>
                 }
                 if (get_field('brochure')) {
