@@ -125,283 +125,148 @@ the_post();
                 </div>
 
 
+
+
 <?php
 /**
- * Status timeline (ACF repeater: status_history)
- * - status_title (text)
- * - status_description (text)
- * - status_time (date time)
+ * Status timeline (ACF repeater `status_history`)
+ *  - status_title (text)
+ *  - status_description (text)
+ *  - status_time (date time)
  */
-
 $rows = get_field('status_history');
+if ($rows && is_array($rows)) {
+
+  // Newest first
+  usort($rows, function($a,$b){
+    $ta = !empty($a['status_time']) ? strtotime($a['status_time']) : 0;
+    $tb = !empty($b['status_time']) ? strtotime($b['status_time']) : 0;
+    return $tb <=> $ta;
+  });
+
+  // helper: make a class from the title (Resolved → resolved, etc.)
+  $slug = static function($s){
+    $s = strtolower(trim((string)$s));
+    $s = preg_replace('~[^a-z0-9]+~','-',$s);
+    return trim($s,'-') ?: 'update';
+  };
 ?>
-
-  <?php if (!empty($rows) && is_array($rows)) : ?>
-<section class="status-timeline-wrap mt-4">
-  <div class="status-timeline__heading h3">Updates</div>
-
 <style>
-/* ===== Rail layout (grid) ===== */
-.status-timeline {                /* wraps all items */
+/* ===== Timeline (Bootstrap 5 friendly) ===== */
+.tl{
+  --tl-left: 230px;           /* width of left column (pill side) */
+  --tl-rail: 2px;             /* rail thickness */
+  --tl-rail-color: var(--bs-border-color);
   position: relative;
-  padding-left: 200px;            /* width of the left column */
-  z-index: 0;
+  padding-left: var(--tl-left);
 }
 
-/* vertical rail */
-.status-timeline::before {
-  content: "";
-  position: absolute;
-  left: 100px;                    /* center of the left column */
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background: rgba(var(--bs-secondary-rgb,108,117,125), .25);
+/* continuous rail inside the timeline only */
+.tl::before{
+  content:"";
+  position:absolute;
+  left: calc(var(--tl-left) / 2);
+  top: .75rem;                  /* start a little below the first pill */
+  bottom: .75rem;
+  width: var(--tl-rail);
+  background: var(--tl-rail-color);
+  border-radius: var(--tl-rail);
 }
 
-/* each entry */
-.status-timeline__item {
+/* each entry uses a 2-col grid: pill (left) + content (right) */
+.tl-item{
   display: grid;
-  grid-template-columns: 200px 1fr; /* left column + right content */
+  grid-template-columns: var(--tl-left) 1fr;
   column-gap: 24px;
-  padding: 12px 0 24px;
+  padding: 10px 0 28px;
+}
+
+/* left column: centres the pill over the rail */
+.tl-left{
   position: relative;
+  display: flex;
+  justify-content: center;
 }
 
-/* left column sits over the rail */
-.status-timeline__left { position: relative; min-height: 56px; }
-
-/* dot on the rail */
-.status-timeline__dot {
-  position: absolute;
-  left: 100px;
-  top: 12px;
-  transform: translateX(-50%);
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  background: #fff;
-  border: 3px solid rgba(var(--bs-secondary-rgb,108,117,125), .35);
-  z-index: 1;
-}
-
-/* pill (status label) */
-.status-timeline__badge {
-  display: inline-block;
-  padding: .35rem .85rem;
-  border: 1px solid rgba(var(--bs-secondary-rgb,108,117,125), .25);
+/* pill */
+.tl-pill{
+  display:inline-block;
+  padding: .5rem 1.25rem;
+  border: 1px solid var(--bs-border-color);
   border-radius: 999px;
   background: #fff;
   color: var(--bs-body-color);
   font-weight: 500;
-  position: relative;
-  top: -2px;
-  margin-left: 44px;              /* offset from the rail */
+  box-shadow: 0 0 0 6px #fff;     /* “punch” the rail behind the pill */
 }
 
 /* right column */
-.status-timeline__right { padding-top: 2px; }
-.status-timeline__meta time {
-  display: block;
+.tl-time{
   font-size: .95rem;
-  color: var(--bs-secondary-color, #6c757d);
-  margin-bottom: .25rem;
+  color: var(--bs-secondary-color);
+  margin-bottom: .35rem;
 }
-.status-timeline__body { line-height: 1.6; }
-
-/* latest item emphasis */
-.status-timeline__item.is-active .status-timeline__badge {
-  background: var(--bs-dark);
-  color: #fff;
-  border-color: var(--bs-dark);
-}
-.status-timeline__item.is-active .status-timeline__dot {
-  background: var(--bs-dark);
-  border-color: var(--bs-dark);
-}
-
-/* optional status colours (if you add status--resolved etc.) */
-.status--resolved .status-timeline__dot,
-.status--resolved .status-timeline__badge { border-color: var(--bs-success); }
-.status--resolved .status-timeline__badge { background: rgba(var(--bs-success-rgb), .1); color: var(--bs-success); }
-
-.status--investigating .status-timeline__dot,
-.status--investigating .status-timeline__badge { border-color: var(--bs-warning); }
-.status--investigating .status-timeline__badge { background: rgba(var(--bs-warning-rgb), .1); color: var(--bs-warning); }
-
-.status--identified .status-timeline__dot,
-.status--identified .status-timeline__badge { border-color: var(--bs-info); }
-.status--identified .status-timeline__badge { background: rgba(var(--bs-info-rgb), .1); color: var(--bs-info); }
-
-.status--monitoring .status-timeline__dot,
-.status--monitoring .status-timeline__badge { border-color: var(--bs-secondary); }
-.status--monitoring .status-timeline__badge { background: rgba(var(--bs-secondary-rgb), .1); color: var(--bs-secondary); }
-
-.status--update .status-timeline__dot,
-.status--update .status-timeline__badge { border-color: var(--bs-primary); }
-.status--update .status-timeline__badge { background: rgba(var(--bs-primary-rgb), .1); color: var(--bs-primary); }
-
-/* ========= TIMELINE (variable based) ========= */
-.status-timeline {
-  /* Tune these two to fit your page column */
-  --col-left: 160px;                 /* width of the left column (rail + pill)  */
-  --rail-x: calc(var(--col-left)/2); /* rail center relative to the timeline box */
-
-  position: relative;
-  padding-left: var(--col-left);
-  z-index: 0;                        /* create a stacking context */
-}
-
-/* vertical rail */
-.status-timeline::before {
-  content: "";
-  position: absolute;
-  left: var(--rail-x);
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background: rgba(var(--bs-secondary-rgb,108,117,125), .25);
-  z-index: 0;                        /* keep it behind everything */
-}
-
-/* each entry */
-.status-timeline__item {
-  display: grid;
-  grid-template-columns: var(--col-left) 1fr;
-  column-gap: 24px;
-  padding: 12px 0 24px;
-  position: relative;
-}
-
-.status-timeline__left {
-  position: relative;
-  min-height: 56px;
-  z-index: 2;                        /* make sure it’s above the rail */
-}
-
-/* rail dot */
-.status-timeline__dot {
-  position: absolute;
-  left: var(--rail-x);
-  top: 12px;
-  transform: translateX(-50%);
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  background: #fff;
-  border: 3px solid rgba(var(--bs-secondary-rgb,108,117,125), .35);
-  z-index: 2;
-}
-
-/* status pill */
-.status-timeline__badge {
-  display: inline-block;
-  padding: .35rem .85rem;
-  border: 1px solid rgba(var(--bs-secondary-rgb,108,117,125), .25);
-  border-radius: 999px;
-  background: #fff;
+.tl-body{
   color: var(--bs-body-color);
-  font-weight: 500;
-  position: relative;
-  top: -2px;
-  margin-left: 36px;                 /* gap from the rail */
-  white-space: nowrap;               /* keep pill on one line */
-  z-index: 2;                        /* above the rail */
+  line-height: 1.55;
 }
 
-/* right side */
-.status-timeline__right { padding-top: 2px; }
-.status-timeline__meta time {
-  display: block;
-  font-size: .95rem;
-  color: var(--bs-secondary-color, #6c757d);
-  margin-bottom: .25rem;
-}
-.status-timeline__body { line-height: 1.6; }
-
-/* latest item emphasis */
-.status-timeline__item.is-active .status-timeline__badge {
+/* highlight the latest entry */
+.tl-item.is-active .tl-pill{
   background: var(--bs-dark);
   color: #fff;
   border-color: var(--bs-dark);
 }
-.status-timeline__item.is-active .status-timeline__dot {
-  background: var(--bs-dark);
-  border-color: var(--bs-dark);
-}
 
-/* optional: status colours (if you add status--resolved etc.) */
-.status--resolved .status-timeline__dot,
-.status--resolved .status-timeline__badge { border-color: var(--bs-success); }
-.status--resolved .status-timeline__badge { background: rgba(var(--bs-success-rgb), .1); color: var(--bs-success); }
+/* optional colour mapping by status */
+.tl-item.status-resolved   .tl-pill{ background: rgba(var(--bs-success-rgb),.12); color: var(--bs-success); border-color: rgba(var(--bs-success-rgb),.35); }
+.tl-item.status-monitoring .tl-pill{ background: rgba(var(--bs-secondary-rgb),.12); color: var(--bs-secondary); border-color: rgba(var(--bs-secondary-rgb),.35); }
+.tl-item.status-identified .tl-pill{ background: rgba(var(--bs-info-rgb),.12); color: var(--bs-info); border-color: rgba(var(--bs-info-rgb),.35); }
+.tl-item.status-update     .tl-pill{ background: rgba(var(--bs-primary-rgb),.12); color: var(--bs-primary); border-color: rgba(var(--bs-primary-rgb),.35); }
+.tl-item.status-investigating .tl-pill{ background: rgba(var(--bs-warning-rgb),.12); color: var(--bs-warning); border-color: rgba(var(--bs-warning-rgb),.35); }
 
-/* responsive */
-@media (max-width: 768px) {
-  .status-timeline {
-    --col-left: 44px;
-    --rail-x: 22px;
-  }
-  .status-timeline__item { grid-template-columns: 1fr; }
-  .status-timeline__badge { margin-left: 28px; }
-}
-
-/* ===== Responsive (stack on mobile) ===== */
-@media (max-width: 768px) {
-  .status-timeline { padding-left: 42px; }
-  .status-timeline::before { left: 21px; }
-  .status-timeline__item { grid-template-columns: 1fr; }
-  .status-timeline__dot { left: 21px; }
-  .status-timeline__badge { margin-left: 32px; }
+/* responsive: tighten the left column on small screens */
+@media (max-width: 768px){
+  .tl{ --tl-left: 180px; }
 }
 </style>
-    <?php
-    // newest first
-    usort($rows, function ($a, $b) {
-        $ta = isset($a['status_time']) ? strtotime($a['status_time']) : 0;
-        $tb = isset($b['status_time']) ? strtotime($b['status_time']) : 0;
-        return $tb <=> $ta;
-    });
-    ?>
+<section class="tl my-4">
+  <?php foreach ($rows as $i => $r):
+    $title   = trim($r['status_title'] ?? '') ?: 'Update';
+    $desc    = trim($r['status_description'] ?? '');
+    $raw     = $r['status_time'] ?? '';
+    $ts      = $raw ? strtotime($raw) : 0;
+    $display = $ts ? date_i18n('d m Y \a\t g:i A', $ts) : '';
+    $iso     = $ts ? gmdate('c', $ts) : '';
+    $cls     = 'tl-item status-'.$slug($title).($i === 0 ? ' is-active' : '');
+  ?>
+    <article class="<?php echo esc_attr($cls); ?>">
+      <div class="tl-left">
+        <span class="tl-pill"><?php echo esc_html($title); ?></span>
+      </div>
 
-    <div class="status-timeline">
-      <?php foreach ($rows as $i => $r) :
-        $title = isset($r['status_title']) ? trim($r['status_title']) : '';
-        $desc  = isset($r['status_description']) ? trim($r['status_description']) : '';
-        $raw   = isset($r['status_time']) ? $r['status_time'] : '';
-        $ts    = $raw ? strtotime($raw) : 0;
-
-        $display = $ts ? date_i18n('d m Y \a\t g:i A', $ts) : '';
-        $iso     = $ts ? gmdate('c', $ts) : '';
-      ?>
-        <article class="status-timeline__item<?php echo $i === 0 ? ' is-active' : ''; ?>">
-          <div class="status-timeline__left">
-            <span class="status-timeline__dot" aria-hidden="true"></span>
-            <span class="status-timeline__badge">
-              <?php echo esc_html($title); ?>
-            </span>
+      <div class="tl-right">
+        <?php if ($display): ?>
+          <div class="tl-time">
+            <time datetime="<?php echo esc_attr($iso); ?>"><?php echo esc_html($display); ?></time>
           </div>
+        <?php endif; ?>
 
-          <div class="status-timeline__right">
-            <?php if ($display !== ''): ?>
-              <div class="status-timeline__meta">
-                <time datetime="<?php echo esc_attr($iso); ?>">
-                  <?php echo esc_html($display); ?>
-                </time>
-              </div>
-            <?php endif; ?>
-
-            <?php if ($desc !== ''): ?>
-              <div class="status-timeline__body">
-                <?php echo wp_kses_post(wpautop($desc)); ?>
-              </div>
-            <?php endif; ?>
+        <?php if ($desc): ?>
+          <div class="tl-body">
+            <?php echo wp_kses_post(wpautop($desc)); ?>
           </div>
-        </article>
-      <?php endforeach; ?>
-    </div>
+        <?php endif; ?>
+      </div>
+    </article>
+  <?php endforeach; ?>
 </section>
+<?php } ?>
 
-  <?php endif; ?>
+
+
+
+
 			</div>
             <div class="col-md-6 bg--grey p-4">
                 <h2 class="h3">Report a service problem</h2>
