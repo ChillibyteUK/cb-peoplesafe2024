@@ -129,137 +129,164 @@ the_post();
 
 <?php
 /**
- * Status timeline (ACF repeater `status_history`)
- *  - status_title (text)
- *  - status_description (text)
- *  - status_time (date time)
+ * Status timeline (ACF repeater: status_history)
+ * - status_title        (text)
+ * - status_description  (text)
+ * - status_time         (date time)
  */
 $rows = get_field('status_history');
+
 if ($rows && is_array($rows)) {
 
-  // Newest first
-  usort($rows, function($a,$b){
+  // Newest first (so the latest entry is at the top)
+  usort($rows, function ($a, $b) {
     $ta = !empty($a['status_time']) ? strtotime($a['status_time']) : 0;
     $tb = !empty($b['status_time']) ? strtotime($b['status_time']) : 0;
     return $tb <=> $ta;
   });
 
-  // helper: make a class from the title (Resolved → resolved, etc.)
-  $slug = static function($s){
+  // simple slug for optional colour hooks
+  $slugify = static function ($s) {
     $s = strtolower(trim((string)$s));
-    $s = preg_replace('~[^a-z0-9]+~','-',$s);
-    return trim($s,'-') ?: 'update';
+    $s = preg_replace('~[^a-z0-9]+~', '-', $s);
+    return trim($s, '-') ?: 'update';
   };
 ?>
 <style>
-/* ===== Timeline (Bootstrap 5 friendly) ===== */
-.tl{
-  --tl-left: 230px;           /* width of left column (pill side) */
-  --tl-rail: 2px;             /* rail thickness */
-  --tl-rail-color: var(--bs-border-color);
+/* ===== Clean vertical timeline (Bootstrap 5) ===== */
+.status-tl{
+  /* left column width and rail x-position */
+  --left-col: 220px;
+  --rail-x:   110px;           /* center of the rail within the section */
+  --rail-w:   2px;
+
   position: relative;
-  padding-left: var(--tl-left);
+  padding-left: var(--left-col);
 }
 
-/* continuous rail inside the timeline only */
-.tl::before{
+/* continuous rail within the timeline */
+.status-tl::before{
   content:"";
   position:absolute;
-  left: calc(var(--tl-left) / 2);
-  top: .75rem;                  /* start a little below the first pill */
-  bottom: .75rem;
-  width: var(--tl-rail);
-  background: var(--tl-rail-color);
-  border-radius: var(--tl-rail);
+  left: var(--rail-x);
+  top: 0.5rem;
+  bottom: 0.5rem;
+  width: var(--rail-w);
+  background: var(--bs-border-color);
+  border-radius: var(--rail-w);
 }
 
-/* each entry uses a 2-col grid: pill (left) + content (right) */
-.tl-item{
+.status-tl__item{
   display: grid;
-  grid-template-columns: var(--tl-left) 1fr;
+  grid-template-columns: var(--left-col) 1fr;  /* left pill + right content */
   column-gap: 24px;
-  padding: 10px 0 28px;
-}
-
-/* left column: centres the pill over the rail */
-.tl-left{
+  margin: 18px 0 26px;
   position: relative;
-  display: flex;
-  justify-content: center;
 }
 
-/* pill */
-.tl-pill{
-  display:inline-block;
-  padding: .5rem 1.25rem;
+/* left column holds the dot and the pill, without stretching */
+.status-tl__left{
+  position: relative;
+  min-height: 1px; /* don't force any height */
+}
+
+/* the small dot on the rail */
+.status-tl__dot{
+  position: absolute;
+  left: var(--rail-x);
+  top: 8px;                      /* aligns with the pill */
+  transform: translateX(-50%);
+  width: 12px; height: 12px;
+  background: #fff;
+  border-radius: 50%;
+  border: 2px solid rgba(0,0,0,.15);
+  z-index: 2;
+}
+
+/* status pill (compact, not stretched) */
+.status-tl__pill{
+  display: inline-block;
+  padding: .4rem .95rem;
   border: 1px solid var(--bs-border-color);
   border-radius: 999px;
   background: #fff;
   color: var(--bs-body-color);
   font-weight: 500;
-  box-shadow: 0 0 0 6px #fff;     /* “punch” the rail behind the pill */
+
+  /* place the pill just to the right of the rail */
+  position: relative;
+  left: calc(var(--rail-x) - 60px); /* tweak 40–70px to taste */
+  box-shadow: 0 0 0 6px #fff;       /* cut the rail visually behind */
 }
 
-/* right column */
-.tl-time{
+/* right side: timestamp then text */
+.status-tl__time{
   font-size: .95rem;
   color: var(--bs-secondary-color);
-  margin-bottom: .35rem;
+  margin-bottom: .25rem;
 }
-.tl-body{
-  color: var(--bs-body-color);
-  line-height: 1.55;
+.status-tl__text{
+  line-height: 1.6;
 }
 
 /* highlight the latest entry */
-.tl-item.is-active .tl-pill{
+.status-tl__item.is-latest .status-tl__pill{
   background: var(--bs-dark);
   color: #fff;
   border-color: var(--bs-dark);
 }
+.status-tl__item.is-latest .status-tl__dot{
+  background: var(--bs-dark);
+  border-color: var(--bs-dark);
+}
 
-/* optional colour mapping by status */
-.tl-item.status-resolved   .tl-pill{ background: rgba(var(--bs-success-rgb),.12); color: var(--bs-success); border-color: rgba(var(--bs-success-rgb),.35); }
-.tl-item.status-monitoring .tl-pill{ background: rgba(var(--bs-secondary-rgb),.12); color: var(--bs-secondary); border-color: rgba(var(--bs-secondary-rgb),.35); }
-.tl-item.status-identified .tl-pill{ background: rgba(var(--bs-info-rgb),.12); color: var(--bs-info); border-color: rgba(var(--bs-info-rgb),.35); }
-.tl-item.status-update     .tl-pill{ background: rgba(var(--bs-primary-rgb),.12); color: var(--bs-primary); border-color: rgba(var(--bs-primary-rgb),.35); }
-.tl-item.status-investigating .tl-pill{ background: rgba(var(--bs-warning-rgb),.12); color: var(--bs-warning); border-color: rgba(var(--bs-warning-rgb),.35); }
+/* Optional colour hooks by status text (Resolved/Update/etc.) */
+.status-tl__item.status-resolved   .status-tl__pill{ background: rgba(var(--bs-success-rgb),.12); color: var(--bs-success); border-color: rgba(var(--bs-success-rgb),.35);}
+.status-tl__item.status-monitoring .status-tl__pill{ background: rgba(var(--bs-secondary-rgb),.12); color: var(--bs-secondary); border-color: rgba(var(--bs-secondary-rgb),.35);}
+.status-tl__item.status-identified .status-tl__pill{ background: rgba(var(--bs-info-rgb),.12); color: var(--bs-info); border-color: rgba(var(--bs-info-rgb),.35);}
+.status-tl__item.status-update     .status-tl__pill{ background: rgba(var(--bs-primary-rgb),.12); color: var(--bs-primary); border-color: rgba(var(--bs-primary-rgb),.35);}
+.status-tl__item.status-investigating .status-tl__pill{ background: rgba(var(--bs-warning-rgb),.12); color: var(--bs-warning); border-color: rgba(var(--bs-warning-rgb),.35);}
 
-/* responsive: tighten the left column on small screens */
+/* responsive: bring the pill closer on small screens */
 @media (max-width: 768px){
-  .tl{ --tl-left: 180px; }
+  .status-tl{ --left-col: 190px; --rail-x: 95px; }
 }
 </style>
-<section class="tl my-4">
-  <?php foreach ($rows as $i => $r):
-    $title   = trim($r['status_title'] ?? '') ?: 'Update';
-    $desc    = trim($r['status_description'] ?? '');
-    $raw     = $r['status_time'] ?? '';
-    $ts      = $raw ? strtotime($raw) : 0;
-    $display = $ts ? date_i18n('d m Y \a\t g:i A', $ts) : '';
-    $iso     = $ts ? gmdate('c', $ts) : '';
-    $cls     = 'tl-item status-'.$slug($title).($i === 0 ? ' is-active' : '');
-  ?>
-    <article class="<?php echo esc_attr($cls); ?>">
-      <div class="tl-left">
-        <span class="tl-pill"><?php echo esc_html($title); ?></span>
-      </div>
+<section class="status-tl my-4">
+  <ul class="status-tl__list list-unstyled m-0">
+    <?php foreach ($rows as $i => $r):
+      $title   = trim($r['status_title'] ?? '') ?: 'Update';
+      $desc    = trim($r['status_description'] ?? '');
+      $raw     = $r['status_time'] ?? '';
+      $ts      = $raw ? strtotime($raw) : 0;
+      $display = $ts ? date_i18n('d m Y \a\t g:i A', $ts) : '';  // <<< TIMESTAMP VISIBLE
+      $iso     = $ts ? gmdate('c', $ts) : '';
+      $cls     = 'status-tl__item status-' . $slugify($title) . ($i === 0 ? ' is-latest' : '');
+    ?>
+      <li class="<?php echo esc_attr($cls); ?>">
+        <div class="status-tl__left">
+          <span class="status-tl__dot" aria-hidden="true"></span>
+          <span class="status-tl__pill"><?php echo esc_html($title); ?></span>
+        </div>
 
-      <div class="tl-right">
-        <?php if ($display): ?>
-          <div class="tl-time">
-            <time datetime="<?php echo esc_attr($iso); ?>"><?php echo esc_html($display); ?></time>
-          </div>
-        <?php endif; ?>
+        <div class="status-tl__right">
+          <?php if ($display): ?>
+            <div class="status-tl__time">
+              <time datetime="<?php echo esc_attr($iso); ?>">
+                <?php echo esc_html($display); ?>
+              </time>
+            </div>
+          <?php endif; ?>
 
-        <?php if ($desc): ?>
-          <div class="tl-body">
-            <?php echo wp_kses_post(wpautop($desc)); ?>
-          </div>
-        <?php endif; ?>
-      </div>
-    </article>
-  <?php endforeach; ?>
+          <?php if ($desc): ?>
+            <div class="status-tl__text">
+              <?php echo wp_kses_post(wpautop($desc)); ?>
+            </div>
+          <?php endif; ?>
+        </div>
+      </li>
+    <?php endforeach; ?>
+  </ul>
 </section>
 <?php } ?>
 
