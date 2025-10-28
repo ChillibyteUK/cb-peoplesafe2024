@@ -183,13 +183,6 @@ $rows = get_field('status_history');
         </article>
       <?php endforeach; ?>
     </div>
-
-  <?php else : ?>
-
-    <p class="status-timeline__empty text-muted">
-      No updates have been posted yet.
-    </p>
-
   <?php endif; ?>
 </section>
 
