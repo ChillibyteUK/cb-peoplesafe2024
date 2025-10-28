@@ -141,194 +141,51 @@ $rows = get_field('status_history');
   <div class="status-timeline__heading h3">Updates</div>
 
 <style>
-/* ===== Timeline base ===== */
-.status-timeline-wrap {
-  --tl-rail-w: 2px;
-  --tl-dot: 12px;
-  --tl-gap: 1rem;
-}
-
-.status-timeline {
+/* ===== Rail layout (grid) ===== */
+.status-timeline {                /* wraps all items */
   position: relative;
-  margin-left: calc(var(--tl-dot) + .5rem);
-  padding-left: 1rem;
+  padding-left: 200px;            /* width of the left column */
+  z-index: 0;
 }
 
-/* Vertical rail */
+/* vertical rail */
 .status-timeline::before {
   content: "";
   position: absolute;
-  left: calc(-1rem - var(--tl-dot) / 2 + var(--tl-rail-w) / 2);
-  top: 0.25rem;
-  bottom: 0.25rem;
-  width: var(--tl-rail-w);
-  background: var(--bs-border-color);
-  border-radius: var(--tl-rail-w);
-}
-
-/* Individual items */
-.status-timeline__item {
-  position: relative;
-  padding: .25rem 0 .75rem 0;
-  margin-bottom: var(--tl-gap);
-}
-
-/* Dot (left) */
-.status-timeline__item::before {
-  content: "";
-  position: absolute;
-  left: calc(-1rem - var(--tl-dot) / 2);
-  top: .6rem;            /* tweak if your header font size differs */
-  width: var(--tl-dot);
-  height: var(--tl-dot);
-  border-radius: 50%;
-  border: 2px solid var(--bs-border-color);
-  background: var(--bs-body-bg);
-  box-shadow: 0 0 0 2px var(--bs-body-bg); /* “cut” the rail behind */
-}
-
-/* Active (latest) item accent */
-.status-timeline__item.is-active::before {
-  background: var(--bs-success);
-  border-color: var(--bs-success);
-}
-.status-timeline__item.is-active .status-timeline__badge {
-  background: rgba(var(--bs-success-rgb), .1);
-  color: var(--bs-success);
-  border-color: rgba(var(--bs-success-rgb), .25);
-}
-
-/* Header layout */
-.status-timeline__header {
-  display: flex;
-  align-items: center;
-  gap: .5rem;
-  flex-wrap: wrap;
-}
-
-/* Badge (status label) */
-.status-timeline__badge {
-  display: inline-block;
-  padding: .15rem .5rem;
-  border: 1px solid var(--bs-border-color);
-  border-radius: 2rem;
-  font-size: .875rem;
-  line-height: 1.25rem;
-  background: var(--bs-body-bg);
-  color: var(--bs-body-color);
-}
-
-/* Time */
-.status-timeline__time {
-  margin-left: auto;
-  font-size: .875rem;
-  color: var(--bs-secondary-color);
-}
-
-/* Body text */
-.status-timeline__body {
-  margin-top: .5rem;
-  color: var(--bs-body-color);
-}
-
-/* ===== Optional: colour mapping by status (add a class in PHP) ===== */
-/* We’ll add .status--resolved / .status--investigating / etc. to the <article> */
-
-.status-timeline__item.status--resolved::before {
-  background: var(--bs-success);
-  border-color: var(--bs-success);
-}
-.status-timeline__item.status--investigating::before {
-  background: var(--bs-warning);
-  border-color: var(--bs-warning);
-}
-.status-timeline__item.status--identified::before {
-  background: var(--bs-info);
-  border-color: var(--bs-info);
-}
-.status-timeline__item.status--monitoring::before {
-  background: var(--bs-secondary);
-  border-color: var(--bs-secondary);
-}
-.status-timeline__item.status--update::before {
-  background: var(--bs-primary);
-  border-color: var(--bs-primary);
-}
-
-/* Match the badge to the dot colour (light pill w/ coloured text) */
-.status-timeline__item.status--resolved .status-timeline__badge {
-  background: rgba(var(--bs-success-rgb), .1);
-  color: var(--bs-success);
-  border-color: rgba(var(--bs-success-rgb), .25);
-}
-.status-timeline__item.status--investigating .status-timeline__badge {
-  background: rgba(var(--bs-warning-rgb), .1);
-  color: var(--bs-warning);
-  border-color: rgba(var(--bs-warning-rgb), .25);
-}
-.status-timeline__item.status--identified .status-timeline__badge {
-  background: rgba(var(--bs-info-rgb), .1);
-  color: var(--bs-info);
-  border-color: rgba(var(--bs-info-rgb), .25);
-}
-.status-timeline__item.status--monitoring .status-timeline__badge {
-  background: rgba(var(--bs-secondary-rgb), .1);
-  color: var(--bs-secondary);
-  border-color: rgba(var(--bs-secondary-rgb), .25);
-}
-.status-timeline__item.status--update .status-timeline__badge {
-  background: rgba(var(--bs-primary-rgb), .1);
-  color: var(--bs-primary);
-  border-color: rgba(var(--bs-primary-rgb), .25);
-}
-
-/* === Rail container === */
-.status-timeline {
-  position: relative;
-  padding-left: 240px;          /* room for the left column (rail + pills) */
-}
-
-/* The vertical rail spanning the whole timeline */
-.status-timeline::before {
-  content: "";
-  position: absolute;
-  left: 120px;                  /* center of the left column */
+  left: 100px;                    /* center of the left column */
   top: 0;
   bottom: 0;
   width: 2px;
-  background: rgba(var(--bs-secondary-rgb, 108,117,125), .25);
+  background: rgba(var(--bs-secondary-rgb,108,117,125), .25);
 }
 
-/* === Each entry === */
+/* each entry */
 .status-timeline__item {
-  position: relative;
   display: grid;
-  grid-template-columns: 240px 1fr; /* left (rail/pill) + right (content) */
+  grid-template-columns: 200px 1fr; /* left column + right content */
   column-gap: 24px;
-  padding: 8px 0 24px;
-}
-
-/* Left column lives “over” the rail */
-.status-timeline__left {
+  padding: 12px 0 24px;
   position: relative;
-  min-height: 56px;            /* keeps rail visible between tight items */
 }
 
-/* Dot on the rail */
+/* left column sits over the rail */
+.status-timeline__left { position: relative; min-height: 56px; }
+
+/* dot on the rail */
 .status-timeline__dot {
   position: absolute;
-  left: 120px;
+  left: 100px;
   top: 12px;
   transform: translateX(-50%);
   width: 16px;
   height: 16px;
   border-radius: 50%;
   background: #fff;
-  border: 3px solid rgba(var(--bs-secondary-rgb, 108,117,125), .35);
-  z-index: 2;
+  border: 3px solid rgba(var(--bs-secondary-rgb,108,117,125), .35);
+  z-index: 1;
 }
 
-/* Status pill (the label that sits on the rail) */
+/* pill (status label) */
 .status-timeline__badge {
   display: inline-block;
   padding: .35rem .85rem;
@@ -339,37 +196,58 @@ $rows = get_field('status_history');
   font-weight: 500;
   position: relative;
   top: -2px;
-  margin-left: 44px; /* shifts pill to the right of the rail */
+  margin-left: 44px;              /* offset from the rail */
 }
 
-/* Right column (time + text) */
-.status-timeline__right {
-  padding-top: 4px;
-}
-
+/* right column */
+.status-timeline__right { padding-top: 2px; }
 .status-timeline__meta time {
   display: block;
   font-size: .95rem;
   color: var(--bs-secondary-color, #6c757d);
   margin-bottom: .25rem;
 }
+.status-timeline__body { line-height: 1.6; }
 
-.status-timeline__body {
-  font-size: 1rem;
-  color: var(--bs-body-color);
-  line-height: 1.6;
-}
-
-/* Latest (first) item emphasis — dark pill + filled dot */
+/* latest item emphasis */
 .status-timeline__item.is-active .status-timeline__badge {
   background: var(--bs-dark);
   color: #fff;
   border-color: var(--bs-dark);
 }
-
 .status-timeline__item.is-active .status-timeline__dot {
   background: var(--bs-dark);
   border-color: var(--bs-dark);
+}
+
+/* optional status colours (if you add status--resolved etc.) */
+.status--resolved .status-timeline__dot,
+.status--resolved .status-timeline__badge { border-color: var(--bs-success); }
+.status--resolved .status-timeline__badge { background: rgba(var(--bs-success-rgb), .1); color: var(--bs-success); }
+
+.status--investigating .status-timeline__dot,
+.status--investigating .status-timeline__badge { border-color: var(--bs-warning); }
+.status--investigating .status-timeline__badge { background: rgba(var(--bs-warning-rgb), .1); color: var(--bs-warning); }
+
+.status--identified .status-timeline__dot,
+.status--identified .status-timeline__badge { border-color: var(--bs-info); }
+.status--identified .status-timeline__badge { background: rgba(var(--bs-info-rgb), .1); color: var(--bs-info); }
+
+.status--monitoring .status-timeline__dot,
+.status--monitoring .status-timeline__badge { border-color: var(--bs-secondary); }
+.status--monitoring .status-timeline__badge { background: rgba(var(--bs-secondary-rgb), .1); color: var(--bs-secondary); }
+
+.status--update .status-timeline__dot,
+.status--update .status-timeline__badge { border-color: var(--bs-primary); }
+.status--update .status-timeline__badge { background: rgba(var(--bs-primary-rgb), .1); color: var(--bs-primary); }
+
+/* ===== Responsive (stack on mobile) ===== */
+@media (max-width: 768px) {
+  .status-timeline { padding-left: 42px; }
+  .status-timeline::before { left: 21px; }
+  .status-timeline__item { grid-template-columns: 1fr; }
+  .status-timeline__dot { left: 21px; }
+  .status-timeline__badge { margin-left: 32px; }
 }
 </style>
     <?php
