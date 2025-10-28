@@ -146,11 +146,11 @@ if ($rows && is_array($rows)) {
       $raw     = $r['status_time'] ?? '';
     ?>
     <div class="row">
-        <div class="col-3">
-            <?php echo esc_html($title); ?>
+        <div class="col-12 col-lg-3">
+            <span class="badge rounded-pill bg-primary mb-2"><?php echo esc_html($title); ?></span>
         </div>
-        <div class="col-9">
-            <div class="status-tl__time"><?php echo esc_html($raw); ?></div>
+        <div class="col-12 col-lg-9">
+            <div class="status-tl__time text-muted small"><?php echo esc_html($raw); ?></div>
           <?php if ($desc): ?>
             <div class="status-tl__text">
               <?php echo wp_kses_post(wpautop($desc)); ?>
