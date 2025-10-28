@@ -136,10 +136,10 @@ the_post();
 $rows = get_field('status_history');
 ?>
 
+  <?php if (!empty($rows) && is_array($rows)) : ?>
 <section class="status-timeline-wrap">
   <h3 class="status-timeline__heading">Updates</h3>
 
-  <?php if (!empty($rows) && is_array($rows)) : ?>
 
     <?php
     // newest first
@@ -183,9 +183,9 @@ $rows = get_field('status_history');
         </article>
       <?php endforeach; ?>
     </div>
-  <?php endif; ?>
 </section>
 
+  <?php endif; ?>
 			</div>
             <div class="col-md-6 bg--grey p-4">
                 <h2 class="h3">Report a service problem</h2>
