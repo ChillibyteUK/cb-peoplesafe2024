@@ -281,6 +281,96 @@ $rows = get_field('status_history');
   color: var(--bs-primary);
   border-color: rgba(var(--bs-primary-rgb), .25);
 }
+
+/* === Rail container === */
+.status-timeline {
+  position: relative;
+  padding-left: 240px;          /* room for the left column (rail + pills) */
+}
+
+/* The vertical rail spanning the whole timeline */
+.status-timeline::before {
+  content: "";
+  position: absolute;
+  left: 120px;                  /* center of the left column */
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: rgba(var(--bs-secondary-rgb, 108,117,125), .25);
+}
+
+/* === Each entry === */
+.status-timeline__item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 240px 1fr; /* left (rail/pill) + right (content) */
+  column-gap: 24px;
+  padding: 8px 0 24px;
+}
+
+/* Left column lives “over” the rail */
+.status-timeline__left {
+  position: relative;
+  min-height: 56px;            /* keeps rail visible between tight items */
+}
+
+/* Dot on the rail */
+.status-timeline__dot {
+  position: absolute;
+  left: 120px;
+  top: 12px;
+  transform: translateX(-50%);
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #fff;
+  border: 3px solid rgba(var(--bs-secondary-rgb, 108,117,125), .35);
+  z-index: 2;
+}
+
+/* Status pill (the label that sits on the rail) */
+.status-timeline__badge {
+  display: inline-block;
+  padding: .35rem .85rem;
+  border: 1px solid rgba(var(--bs-secondary-rgb,108,117,125), .25);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--bs-body-color);
+  font-weight: 500;
+  position: relative;
+  top: -2px;
+  margin-left: 44px; /* shifts pill to the right of the rail */
+}
+
+/* Right column (time + text) */
+.status-timeline__right {
+  padding-top: 4px;
+}
+
+.status-timeline__meta time {
+  display: block;
+  font-size: .95rem;
+  color: var(--bs-secondary-color, #6c757d);
+  margin-bottom: .25rem;
+}
+
+.status-timeline__body {
+  font-size: 1rem;
+  color: var(--bs-body-color);
+  line-height: 1.6;
+}
+
+/* Latest (first) item emphasis — dark pill + filled dot */
+.status-timeline__item.is-active .status-timeline__badge {
+  background: var(--bs-dark);
+  color: #fff;
+  border-color: var(--bs-dark);
+}
+
+.status-timeline__item.is-active .status-timeline__dot {
+  background: var(--bs-dark);
+  border-color: var(--bs-dark);
+}
 </style>
     <?php
     // newest first
@@ -302,25 +392,28 @@ $rows = get_field('status_history');
         $iso     = $ts ? gmdate('c', $ts) : '';
       ?>
         <article class="status-timeline__item<?php echo $i === 0 ? ' is-active' : ''; ?>">
-          <span class="status-timeline__dot" aria-hidden="true"></span>
-          <span class="status-timeline__line" aria-hidden="true"></span>
+          <div class="status-timeline__left">
+            <span class="status-timeline__dot" aria-hidden="true"></span>
+            <span class="status-timeline__badge">
+              <?php echo esc_html($title); ?>
+            </span>
+          </div>
 
-          <header class="status-timeline__header">
-            <?php if ($title !== '') : ?>
-              <span class="status-timeline__badge"><?php echo esc_html($title); ?></span>
+          <div class="status-timeline__right">
+            <?php if ($display !== ''): ?>
+              <div class="status-timeline__meta">
+                <time datetime="<?php echo esc_attr($iso); ?>">
+                  <?php echo esc_html($display); ?>
+                </time>
+              </div>
             <?php endif; ?>
-            <?php if ($display !== '') : ?>
-              <time class="status-timeline__time" datetime="<?php echo esc_attr($iso); ?>">
-                <?php echo esc_html($display); ?>
-              </time>
-            <?php endif; ?>
-          </header>
 
-          <?php if ($desc !== '') : ?>
-            <div class="status-timeline__body">
-              <?php echo wp_kses_post(wpautop($desc)); ?>
-            </div>
-          <?php endif; ?>
+            <?php if ($desc !== ''): ?>
+              <div class="status-timeline__body">
+                <?php echo wp_kses_post(wpautop($desc)); ?>
+              </div>
+            <?php endif; ?>
+          </div>
         </article>
       <?php endforeach; ?>
     </div>
