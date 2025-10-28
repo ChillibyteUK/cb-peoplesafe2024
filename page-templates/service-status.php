@@ -137,13 +137,6 @@ the_post();
 $rows = get_field('status_history');
 
 if ($rows && is_array($rows)) {
-
-  // Newest first (so the latest entry is at the top)
-  usort($rows, function ($a, $b) {
-    $ta = !empty($a['status_time']) ? strtotime($a['status_time']) : 0;
-    $tb = !empty($b['status_time']) ? strtotime($b['status_time']) : 0;
-    return $tb <=> $ta;
-  });
 ?>
 <section class="my-4 row">
     <div class="h3">Updates</div>
@@ -151,17 +144,13 @@ if ($rows && is_array($rows)) {
       $title   = trim($r['status_title'] ?? '') ?: 'Update';
       $desc    = trim($r['status_description'] ?? '');
       $raw     = $r['status_time'] ?? '';
-      $ts      = $raw ? strtotime($raw) : 0;
-      $display = $ts ? date_i18n('d m Y \a\t g:i A', $ts) : '';  // <<< TIMESTAMP VISIBLE
-      $iso     = $ts ? gmdate('c', $ts) : '';
-      $cls     = 'status-tl__item status-' . $slugify($title) . ($i === 0 ? ' is-latest' : '');
     ?>
     <div class="row">
         <div class="col-3">
             <?php echo esc_html($title); ?>
         </div>
         <div class="col-9">
-            <div class="status-tl__time"><?php echo esc_html($ts); ?></div>
+            <div class="status-tl__time"><?php echo esc_html($raw); ?></div>
           <?php if ($desc): ?>
             <div class="status-tl__text">
               <?php echo wp_kses_post(wpautop($desc)); ?>
