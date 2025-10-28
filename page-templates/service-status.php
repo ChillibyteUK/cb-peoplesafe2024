@@ -137,10 +137,151 @@ $rows = get_field('status_history');
 ?>
 
   <?php if (!empty($rows) && is_array($rows)) : ?>
-<section class="status-timeline-wrap">
-  <h3 class="status-timeline__heading">Updates</h3>
+<section class="status-timeline-wrap mt-4">
+  <div class="status-timeline__heading h3">Updates</div>
 
+<style>
+/* ===== Timeline base ===== */
+.status-timeline-wrap {
+  --tl-rail-w: 2px;
+  --tl-dot: 12px;
+  --tl-gap: 1rem;
+}
 
+.status-timeline {
+  position: relative;
+  margin-left: calc(var(--tl-dot) + .5rem);
+  padding-left: 1rem;
+}
+
+/* Vertical rail */
+.status-timeline::before {
+  content: "";
+  position: absolute;
+  left: calc(-1rem - var(--tl-dot) / 2 + var(--tl-rail-w) / 2);
+  top: 0.25rem;
+  bottom: 0.25rem;
+  width: var(--tl-rail-w);
+  background: var(--bs-border-color);
+  border-radius: var(--tl-rail-w);
+}
+
+/* Individual items */
+.status-timeline__item {
+  position: relative;
+  padding: .25rem 0 .75rem 0;
+  margin-bottom: var(--tl-gap);
+}
+
+/* Dot (left) */
+.status-timeline__item::before {
+  content: "";
+  position: absolute;
+  left: calc(-1rem - var(--tl-dot) / 2);
+  top: .6rem;            /* tweak if your header font size differs */
+  width: var(--tl-dot);
+  height: var(--tl-dot);
+  border-radius: 50%;
+  border: 2px solid var(--bs-border-color);
+  background: var(--bs-body-bg);
+  box-shadow: 0 0 0 2px var(--bs-body-bg); /* “cut” the rail behind */
+}
+
+/* Active (latest) item accent */
+.status-timeline__item.is-active::before {
+  background: var(--bs-success);
+  border-color: var(--bs-success);
+}
+.status-timeline__item.is-active .status-timeline__badge {
+  background: rgba(var(--bs-success-rgb), .1);
+  color: var(--bs-success);
+  border-color: rgba(var(--bs-success-rgb), .25);
+}
+
+/* Header layout */
+.status-timeline__header {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  flex-wrap: wrap;
+}
+
+/* Badge (status label) */
+.status-timeline__badge {
+  display: inline-block;
+  padding: .15rem .5rem;
+  border: 1px solid var(--bs-border-color);
+  border-radius: 2rem;
+  font-size: .875rem;
+  line-height: 1.25rem;
+  background: var(--bs-body-bg);
+  color: var(--bs-body-color);
+}
+
+/* Time */
+.status-timeline__time {
+  margin-left: auto;
+  font-size: .875rem;
+  color: var(--bs-secondary-color);
+}
+
+/* Body text */
+.status-timeline__body {
+  margin-top: .5rem;
+  color: var(--bs-body-color);
+}
+
+/* ===== Optional: colour mapping by status (add a class in PHP) ===== */
+/* We’ll add .status--resolved / .status--investigating / etc. to the <article> */
+
+.status-timeline__item.status--resolved::before {
+  background: var(--bs-success);
+  border-color: var(--bs-success);
+}
+.status-timeline__item.status--investigating::before {
+  background: var(--bs-warning);
+  border-color: var(--bs-warning);
+}
+.status-timeline__item.status--identified::before {
+  background: var(--bs-info);
+  border-color: var(--bs-info);
+}
+.status-timeline__item.status--monitoring::before {
+  background: var(--bs-secondary);
+  border-color: var(--bs-secondary);
+}
+.status-timeline__item.status--update::before {
+  background: var(--bs-primary);
+  border-color: var(--bs-primary);
+}
+
+/* Match the badge to the dot colour (light pill w/ coloured text) */
+.status-timeline__item.status--resolved .status-timeline__badge {
+  background: rgba(var(--bs-success-rgb), .1);
+  color: var(--bs-success);
+  border-color: rgba(var(--bs-success-rgb), .25);
+}
+.status-timeline__item.status--investigating .status-timeline__badge {
+  background: rgba(var(--bs-warning-rgb), .1);
+  color: var(--bs-warning);
+  border-color: rgba(var(--bs-warning-rgb), .25);
+}
+.status-timeline__item.status--identified .status-timeline__badge {
+  background: rgba(var(--bs-info-rgb), .1);
+  color: var(--bs-info);
+  border-color: rgba(var(--bs-info-rgb), .25);
+}
+.status-timeline__item.status--monitoring .status-timeline__badge {
+  background: rgba(var(--bs-secondary-rgb), .1);
+  color: var(--bs-secondary);
+  border-color: rgba(var(--bs-secondary-rgb), .25);
+}
+.status-timeline__item.status--update .status-timeline__badge {
+  background: rgba(var(--bs-primary-rgb), .1);
+  color: var(--bs-primary);
+  border-color: rgba(var(--bs-primary-rgb), .25);
+}
+</style>
     <?php
     // newest first
     usort($rows, function ($a, $b) {
