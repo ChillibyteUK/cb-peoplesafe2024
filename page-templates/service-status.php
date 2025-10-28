@@ -147,7 +147,7 @@ if ($rows && is_array($rows)) {
     ?>
     <div class="row">
         <div class="col-12 col-lg-3">
-            <span class="badge rounded-pill bg-primary mb-2"><?php echo esc_html($title); ?></span>
+            <span class="badge rounded-pill bg-primary w-100 mb-2"><?php echo esc_html($title); ?></span>
         </div>
         <div class="col-12 col-lg-9">
             <div class="status-tl__time text-muted small"><?php echo esc_html($raw); ?></div>
