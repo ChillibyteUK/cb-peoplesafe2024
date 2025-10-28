@@ -241,6 +241,110 @@ $rows = get_field('status_history');
 .status--update .status-timeline__badge { border-color: var(--bs-primary); }
 .status--update .status-timeline__badge { background: rgba(var(--bs-primary-rgb), .1); color: var(--bs-primary); }
 
+/* ========= TIMELINE (variable based) ========= */
+.status-timeline {
+  /* Tune these two to fit your page column */
+  --col-left: 160px;                 /* width of the left column (rail + pill)  */
+  --rail-x: calc(var(--col-left)/2); /* rail center relative to the timeline box */
+
+  position: relative;
+  padding-left: var(--col-left);
+  z-index: 0;                        /* create a stacking context */
+}
+
+/* vertical rail */
+.status-timeline::before {
+  content: "";
+  position: absolute;
+  left: var(--rail-x);
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: rgba(var(--bs-secondary-rgb,108,117,125), .25);
+  z-index: 0;                        /* keep it behind everything */
+}
+
+/* each entry */
+.status-timeline__item {
+  display: grid;
+  grid-template-columns: var(--col-left) 1fr;
+  column-gap: 24px;
+  padding: 12px 0 24px;
+  position: relative;
+}
+
+.status-timeline__left {
+  position: relative;
+  min-height: 56px;
+  z-index: 2;                        /* make sure it’s above the rail */
+}
+
+/* rail dot */
+.status-timeline__dot {
+  position: absolute;
+  left: var(--rail-x);
+  top: 12px;
+  transform: translateX(-50%);
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #fff;
+  border: 3px solid rgba(var(--bs-secondary-rgb,108,117,125), .35);
+  z-index: 2;
+}
+
+/* status pill */
+.status-timeline__badge {
+  display: inline-block;
+  padding: .35rem .85rem;
+  border: 1px solid rgba(var(--bs-secondary-rgb,108,117,125), .25);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--bs-body-color);
+  font-weight: 500;
+  position: relative;
+  top: -2px;
+  margin-left: 36px;                 /* gap from the rail */
+  white-space: nowrap;               /* keep pill on one line */
+  z-index: 2;                        /* above the rail */
+}
+
+/* right side */
+.status-timeline__right { padding-top: 2px; }
+.status-timeline__meta time {
+  display: block;
+  font-size: .95rem;
+  color: var(--bs-secondary-color, #6c757d);
+  margin-bottom: .25rem;
+}
+.status-timeline__body { line-height: 1.6; }
+
+/* latest item emphasis */
+.status-timeline__item.is-active .status-timeline__badge {
+  background: var(--bs-dark);
+  color: #fff;
+  border-color: var(--bs-dark);
+}
+.status-timeline__item.is-active .status-timeline__dot {
+  background: var(--bs-dark);
+  border-color: var(--bs-dark);
+}
+
+/* optional: status colours (if you add status--resolved etc.) */
+.status--resolved .status-timeline__dot,
+.status--resolved .status-timeline__badge { border-color: var(--bs-success); }
+.status--resolved .status-timeline__badge { background: rgba(var(--bs-success-rgb), .1); color: var(--bs-success); }
+
+/* responsive */
+@media (max-width: 768px) {
+  .status-timeline {
+    --col-left: 44px;
+    --rail-x: 22px;
+  }
+  .status-timeline__item { grid-template-columns: 1fr; }
+  .status-timeline__badge { margin-left: 28px; }
+}
+
 /* ===== Responsive (stack on mobile) ===== */
 @media (max-width: 768px) {
   .status-timeline { padding-left: 42px; }
