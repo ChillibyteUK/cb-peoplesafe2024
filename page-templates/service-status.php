@@ -127,59 +127,71 @@ the_post();
 
 <?php
 /**
- * Timeline: ACF repeater `status_history`
- * sub fields: status_title, status_description, status_time
+ * Status timeline (ACF repeater: status_history)
+ * - status_title (text)
+ * - status_description (text)
+ * - status_time (date time)
  */
 
 $rows = get_field('status_history');
-
-// Bail if nothing to show
-if (empty($rows) || !is_array($rows)) {
-    return;
-}
-
-/* Sort by time (newest first) */
-usort($rows, function ($a, $b) {
-    $ta = isset($a['status_time']) ? strtotime($a['status_time']) : 0;
-    $tb = isset($b['status_time']) ? strtotime($b['status_time']) : 0;
-    return $tb <=> $ta; // newest first
-});
 ?>
-<div class="row">
-  <div class="status-timeline">
-    <?php foreach ($rows as $i => $r):
-      $title = isset($r['status_title']) ? trim($r['status_title']) : '';
-      $desc  = isset($r['status_description']) ? trim($r['status_description']) : '';
-      $raw   = isset($r['status_time']) ? $r['status_time'] : '';
-      $ts    = $raw ? strtotime($raw) : 0;
 
-      $display = $ts ? date_i18n('d m Y \a\t g:i A', $ts) : '';
-      $iso     = $ts ? gmdate('c', $ts) : '';
+<section class="status-timeline-wrap">
+  <h3 class="status-timeline__heading">Updates</h3>
+
+  <?php if (!empty($rows) && is_array($rows)) : ?>
+
+    <?php
+    // newest first
+    usort($rows, function ($a, $b) {
+        $ta = isset($a['status_time']) ? strtotime($a['status_time']) : 0;
+        $tb = isset($b['status_time']) ? strtotime($b['status_time']) : 0;
+        return $tb <=> $ta;
+    });
     ?>
-      <article class="status-timeline__item<?php echo $i === 0 ? ' is-active' : ''; ?>">
-        <span class="status-timeline__dot" aria-hidden="true"></span>
-        <span class="status-timeline__line" aria-hidden="true"></span>
 
-        <header class="status-timeline__header">
-          <?php if ($title !== ''): ?>
-            <span class="status-timeline__badge"><?php echo esc_html($title); ?></span>
-          <?php endif; ?>
-          <?php if ($display !== ''): ?>
-            <time class="status-timeline__time" datetime="<?php echo esc_attr($iso); ?>">
-              <?php echo esc_html($display); ?>
-            </time>
-          <?php endif; ?>
-        </header>
+    <div class="status-timeline">
+      <?php foreach ($rows as $i => $r) :
+        $title = isset($r['status_title']) ? trim($r['status_title']) : '';
+        $desc  = isset($r['status_description']) ? trim($r['status_description']) : '';
+        $raw   = isset($r['status_time']) ? $r['status_time'] : '';
+        $ts    = $raw ? strtotime($raw) : 0;
 
-        <?php if ($desc !== ''): ?>
-          <div class="status-timeline__body">
-            <?php echo wp_kses_post(wpautop($desc)); ?>
-          </div>
-        <?php endif; ?>
-      </article>
-    <?php endforeach; ?>
-  </div>
-</div>
+        $display = $ts ? date_i18n('d m Y \a\t g:i A', $ts) : '';
+        $iso     = $ts ? gmdate('c', $ts) : '';
+      ?>
+        <article class="status-timeline__item<?php echo $i === 0 ? ' is-active' : ''; ?>">
+          <span class="status-timeline__dot" aria-hidden="true"></span>
+          <span class="status-timeline__line" aria-hidden="true"></span>
+
+          <header class="status-timeline__header">
+            <?php if ($title !== '') : ?>
+              <span class="status-timeline__badge"><?php echo esc_html($title); ?></span>
+            <?php endif; ?>
+            <?php if ($display !== '') : ?>
+              <time class="status-timeline__time" datetime="<?php echo esc_attr($iso); ?>">
+                <?php echo esc_html($display); ?>
+              </time>
+            <?php endif; ?>
+          </header>
+
+          <?php if ($desc !== '') : ?>
+            <div class="status-timeline__body">
+              <?php echo wp_kses_post(wpautop($desc)); ?>
+            </div>
+          <?php endif; ?>
+        </article>
+      <?php endforeach; ?>
+    </div>
+
+  <?php else : ?>
+
+    <p class="status-timeline__empty text-muted">
+      No updates have been posted yet.
+    </p>
+
+  <?php endif; ?>
+</section>
 
 			</div>
             <div class="col-md-6 bg--grey p-4">
