@@ -123,6 +123,72 @@ the_post();
                     <div class="col-6"><strong>Devices</strong></div>
                     <div class="col-5"><?=$m?></div>
                 </div>
+
+
+<?php
+/**
+ * Timeline: prints ACF repeater `status_history`
+ * sub fields: status_title (text), status_description (text), status_time (date-time)
+ */
+
+$rows = get_field('status_history');
+
+// Nothing to show
+if (empty($rows) || !is_array($rows)) {
+
+/**
+ * Sort by time (newest first). If your Date Time Picker is stored as a string
+ * like "2025-10-09 14:22:00", strtotime() will parse it fine.
+ */
+usort($rows, function ($a, $b) {
+    $ta = isset($a['status_time']) ? strtotime($a['status_time']) : 0;
+    $tb = isset($b['status_time']) ? strtotime($b['status_time']) : 0;
+    return $tb <=> $ta; // newest first
+});
+?>
+<div class="row">
+    <div class="status-timeline">
+      <?php foreach ($rows as $i => $r):
+            $title = trim($r['status_title'] ?? '');
+            $desc  = trim($r['status_description'] ?? '');
+            $raw   = $r['status_time'] ?? '';
+            $ts    = $raw ? strtotime($raw) : 0;
+
+            // Format for display (uses site locale/timezone)
+            $display = $ts ? date_i18n('d m Y \a\t g:i A', $ts) : '';
+            // ISO for the <time datetime="">
+            $iso     = $ts ? gmdate('c', $ts) : '';
+      ?>
+        <article class="status-timeline__item<?php echo $i === 0 ? ' is-active' : ''; ?>">
+          <!-- left rail: dot + line (style with CSS) -->
+          <span class="status-timeline__dot" aria-hidden="true"></span>
+          <span class="status-timeline__line" aria-hidden="true"></span>
+
+          <header class="status-timeline__header">
+            <?php if ($title !== ''): ?>
+              <span class="status-timeline__badge"><?php echo esc_html($title); ?></span>
+            <?php endif; ?>
+
+            <?php if ($display !== ''): ?>
+              <time class="status-timeline__time" datetime="<?php echo esc_attr($iso); ?>">
+                <?php echo esc_html($display); ?>
+              </time>
+            <?php endif; ?>
+          </header>
+
+          <?php if ($desc !== ''): ?>
+            <div class="status-timeline__body">
+              <?php echo wp_kses_post(wpautop($desc)); ?>
+            </div>
+          <?php endif; ?>
+        </article>
+      <?php endforeach; ?>
+    </div>
+</div>
+<?php
+}
+?>
+
 			</div>
             <div class="col-md-6 bg--grey p-4">
                 <h2 class="h3">Report a service problem</h2>
