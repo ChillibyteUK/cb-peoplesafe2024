@@ -189,7 +189,7 @@ if (get_field('cta')) {
                         ?>
                                     <iframe id="vid<?=$modal?>"
                                         class="embed-responsive-item"
-                                        src="https://www.youtube-nocookie.com/embed/<?=get_field('video_id')?>?autoplay=1"
+                                        src="https://www.youtube-nocookie.com/embed/<?=get_field('video_id')?>?autoplay=0"
                                         allow="autoplay; fullscreen; picture-in-picture" webkitallowfullscreen
                                         mozallowfullscreen allowfullscreen></iframe>
                                     <?php
