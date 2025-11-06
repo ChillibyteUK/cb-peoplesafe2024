@@ -42,6 +42,10 @@
                     ?>
                         <a type="button" class="w-100 w-md-auto mb-2 mb-md-0 button button-yellow me-3 text-center" href="/get-your-quote/">Get a Quote</a>
                     <?php
+                    } elseif ( is_page(array(4357,9303,6634,10034)) ) {
+                    ?>
+                        <a type="button" class="w-100 w-md-auto mb-2 mb-md-0 button button-yellow me-3 text-center" href="https://safe.peoplesafe.co.uk/schedule_demo" target="_blank">Book a Demo</a>
+                    <?php
                     } else {
                     ?>
                         <button type="button" class="w-100 w-md-auto mb-2 mb-md-0 button button-yellow me-3 text-center" data-bs-toggle="modal" data-bs-target="#demoModal">Book a Demo</button>

@@ -43,6 +43,10 @@ $class = $block['className'] ?? 'py-5';
                     ?>
                     <a type="button" href="https://peoplesafe.co.uk/get-a-quote/" class="button button-yellow text-center me-3 w-100 w-md-auto">Get a Quote</a>
                     <?php
+                    } elseif ( is_page(array(4357,9303,6634,10034)) ) {
+                    ?>
+                        <a type="button" class="button button-yellow text-center me-3 w-100 w-md-auto" href="https://safe.peoplesafe.co.uk/schedule_demo" target="_blank">Book a Demo</a>
+                    <?php
                     } else {
                     ?>
                     <button type="button" class="button button-yellow text-center me-3 w-100 w-md-auto" data-bs-toggle="modal" data-bs-target="#demoModal">Book a Demo</button>
