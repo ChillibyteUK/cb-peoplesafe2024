@@ -42,28 +42,16 @@ $title = get_field('title') ?: 'Protection you can count on';
     </div>
 </section>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/countup.js/2.0.0/countUp.min.js"></script>
+<script src="<?= esc_url( get_stylesheet_directory_uri() . '/js/countUp.min.js' ); ?>"></script>
 <script>
-jQuery( document ).ready(function($) {
-    $('.counter').each(function() {
-      var $this = $(this),
-          countTo = $this.attr('data-count');
-      
-      $({ countNum: $this.text()}).animate({
-        countNum: countTo
-      },
-      {
-        duration: 4000,
-        easing:'linear',
-        step: function() {
-          $this.text(Math.floor(this.countNum));
-        },
-        complete: function() {
-          $this.text(this.countNum);
-          //alert('finished');
-        }
-
-      }); 
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.counter').forEach(function(counter) {
+        const countTo = parseFloat(counter.getAttribute('data-count'));
+        const countUp = new CountUp(counter, countTo, {
+            duration: 4,
+            useEasing: false
+        });
+        countUp.start();
     });
 });
 </script>
