@@ -289,7 +289,7 @@ function cb_theme_enqueue() {
     wp_enqueue_style( 'slick-theme-styles', get_stylesheet_directory_uri() . '/css/slick-theme.min.css', array(), true ); // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
     wp_enqueue_script( 'slick', get_stylesheet_directory_uri() . '/js/slick.min.js', array(), null, true ); // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
     wp_enqueue_style( 'aos-style', get_stylesheet_directory_uri() . '/css/aos.css', array() ); // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
-    wp_enqueue_script( 'aos', get_stylesheet_directory_uri() . '/js	/aos.js', array(), null, true ); // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
+    wp_enqueue_script( 'aos', get_stylesheet_directory_uri() . '/js/aos.js', array(), null, true ); // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
 
     wp_enqueue_style( 'swiper-style', get_stylesheet_directory_uri() . '/css/swiper-bundle.min.css', array() ); // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
     wp_enqueue_script( 'swiper', get_stylesheet_directory_uri() . '/js/swiper-bundle.min.js', array(), null, true ); // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion

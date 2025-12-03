@@ -42,16 +42,28 @@ $title = get_field('title') ?: 'Protection you can count on';
     </div>
 </section>
 
-<script src="<?= esc_url( get_stylesheet_directory_uri() . '/js/countUp.min.js' ); ?>"></script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.counter').forEach(function(counter) {
         const countTo = parseFloat(counter.getAttribute('data-count'));
-        const countUp = new CountUp(counter, countTo, {
-            duration: 4,
-            useEasing: false
-        });
-        countUp.start();
+        const duration = 4000;
+        const startTime = performance.now();
+        
+        function updateCounter(currentTime) {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            
+            const currentCount = progress * countTo;
+            counter.textContent = Math.floor(currentCount);
+            
+            if (progress < 1) {
+                requestAnimationFrame(updateCounter);
+            } else {
+                counter.textContent = countTo;
+            }
+        }
+        
+        requestAnimationFrame(updateCounter);
     });
 });
 </script>
