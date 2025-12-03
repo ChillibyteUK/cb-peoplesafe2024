@@ -72,7 +72,7 @@ add_action('wp_footer', function () {
             },
             slidesPerView: 1,
             slidesPerGroup: 1,
-            spaceBetween: 18, // Adjust this value to match your design
+            spaceBetween: 18,
             breakpoints: {
                 768: {
                     slidesPerView: 2,
@@ -89,15 +89,34 @@ add_action('wp_footer', function () {
             },
             on: {
                 init: function() {
-                    setEqualHeight('.latest__slide');
+                    setTimeout(() => setLatestHeight(), 100);
                 },
                 resize: function() {
-                    setEqualHeight('.latest__slide');
+                    setTimeout(() => setLatestHeight(), 100);
                 }
             }
         });
 
-        window.addEventListener('load', setEqualHeight('.latest__slide'));
+        function setLatestHeight() {
+            let maxHeight = 0;
+            const slides = document.querySelectorAll('.latest__slide:not(.swiper-slide-duplicate)');
+
+            slides.forEach(slide => {
+                slide.style.height = 'auto';
+            });
+
+            slides.forEach(slide => {
+                if (slide.offsetHeight > maxHeight) {
+                    maxHeight = slide.offsetHeight;
+                }
+            });
+
+            document.querySelectorAll('.latest__slide').forEach(slide => {
+                slide.style.height = `${maxHeight}px`;
+            });
+        }
+
+        window.addEventListener('load', () => setTimeout(() => setLatestHeight(), 100));
 
     });
 </script>
