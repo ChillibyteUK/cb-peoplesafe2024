@@ -86,37 +86,8 @@ add_action('wp_footer', function () {
                     slidesPerView: 4,
                     spaceBetween: 18,
                 },
-            },
-            on: {
-                init: function() {
-                    setTimeout(() => setLatestHeight(), 100);
-                },
-                resize: function() {
-                    setTimeout(() => setLatestHeight(), 100);
-                }
             }
         });
-
-        function setLatestHeight() {
-            let maxHeight = 0;
-            const slides = document.querySelectorAll('.latest__slide:not(.swiper-slide-duplicate)');
-
-            slides.forEach(slide => {
-                slide.style.height = 'auto';
-            });
-
-            slides.forEach(slide => {
-                if (slide.offsetHeight > maxHeight) {
-                    maxHeight = slide.offsetHeight;
-                }
-            });
-
-            document.querySelectorAll('.latest__slide').forEach(slide => {
-                slide.style.height = `${maxHeight}px`;
-            });
-        }
-
-        window.addEventListener('load', () => setTimeout(() => setLatestHeight(), 100));
 
     });
 </script>
