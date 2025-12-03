@@ -50,6 +50,7 @@ add_action('wp_footer', function () {
     document.addEventListener('DOMContentLoaded', function() {
         var logoSlider = new Swiper('.logo__slider', {
             loop: true,
+            autoHeight: false,
             autoplay: {
                 delay: 3000,
                 disableOnInteraction: false,
