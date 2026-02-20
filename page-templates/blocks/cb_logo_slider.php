@@ -16,7 +16,7 @@
         }
         $d+=100;
         ?>
-        <div class="swiper logo__slider mb-5" data-aos="fade" data-aos-delay="<?=$d?>">
+        <div class="swiper logo__slider mb-5">
             <div class="swiper-wrapper">
                 <?php
         while (have_rows('logos')) {
@@ -50,6 +50,7 @@ add_action('wp_footer', function () {
     document.addEventListener('DOMContentLoaded', function() {
         var logoSlider = new Swiper('.logo__slider', {
             loop: true,
+            autoHeight: false,
             autoplay: {
                 delay: 3000,
                 disableOnInteraction: false,

@@ -72,7 +72,7 @@ add_action('wp_footer', function () {
             },
             slidesPerView: 1,
             slidesPerGroup: 1,
-            spaceBetween: 18, // Adjust this value to match your design
+            spaceBetween: 18,
             breakpoints: {
                 768: {
                     slidesPerView: 2,
@@ -86,18 +86,8 @@ add_action('wp_footer', function () {
                     slidesPerView: 4,
                     spaceBetween: 18,
                 },
-            },
-            on: {
-                init: function() {
-                    setEqualHeight('.latest__slide');
-                },
-                resize: function() {
-                    setEqualHeight('.latest__slide');
-                }
             }
         });
-
-        window.addEventListener('load', setEqualHeight('.latest__slide'));
 
     });
 </script>
