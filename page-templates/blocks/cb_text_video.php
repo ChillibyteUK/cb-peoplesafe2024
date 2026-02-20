@@ -53,7 +53,10 @@ if (get_field('cta')) {
                 data-aos="<?=$image_fade?>">
                 <div class="position-relative pointer">
                     <?php if ($video_provider === 'Vimeo') : ?>
-                        <img src="<?= get_vimeo_data_from_id($video_id, 'thumbnail_url') ?>" class="img-fluid product_video pointer" data-bs-toggle="modal" data-bs-target="#modal<?= $modal ?>">
+                        <img src="<?=get_vimeo_data_from_id(get_field('video_id'), 'thumbnail_url')?>"
+                        class="img-fluid product_video pointer"
+                        data-bs-toggle="modal"
+                        data-bs-target="#modal<?=$modal?>">
                     <?php else : ?>
                         <img src="https://img.youtube.com/vi/<?= $video_id ?>/hqdefault.jpg" class="img-fluid product_video pointer" data-bs-toggle="modal" data-bs-target="#modal<?= $modal ?>">
                     <?php endif; ?>
@@ -132,7 +135,26 @@ if (get_field('cta')) {
             <div class="modal-body">
                 <div type="button" class="modal-close" data-bs-dismiss="modal"><i class="fas fa-times"></i></div>
                 <div class="ratio ratio-16x9">
-                    <div class="lazy-video-wrapper" data-provider="<?= esc_attr($video_provider) ?>" data-video-id="<?= esc_attr($video_id) ?>" data-video-hash="<?= esc_attr($video_hash) ?>"></div>
+                                    <?php
+                    if (get_field('video_provider') == 'YouTube') {
+                        ?>
+                                    <iframe id="vid<?=$modal?>"
+                                        class="embed-responsive-item"
+                                        src="https://www.youtube-nocookie.com/embed/<?=get_field('video_id')?>?autoplay=0"
+                                        allow="autoplay; fullscreen; picture-in-picture" webkitallowfullscreen
+                                        mozallowfullscreen allowfullscreen></iframe>
+                                    <?php
+                    } else {
+                        $video_id_array = explode("/", get_field('video_id'));
+                        ?>
+                                    <iframe id="vid<?=$modal?>"
+                                        class="embed-responsive-item"
+                                        src="https://player.vimeo.com/video/<?=$video_id_array[0]?>?byline=0&portrait=0&fullscreen=1&h=<?=$video_id_array[1]?>"
+                                        allow="autoplay; fullscreen; picture-in-picture" webkitallowfullscreen
+                                        mozallowfullscreen allowfullscreen></iframe>
+                                    <?php
+                    }
+?>
                 </div>
             </div>
         </div>
