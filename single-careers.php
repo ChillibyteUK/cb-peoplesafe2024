@@ -44,7 +44,7 @@ get_header();
                 }
 
                 if (get_field('job_description')) {
-                    echo '<div class="py-4">For the full job description <a href="' . get_field('job_description') . '">click here</a>.</div>';
+                    echo '<div class="py-4"><a href="' . get_field('job_description') . '">Download the Job Description</a>.</div>';
                 }
                 ?>
                 <div class="py-2">
