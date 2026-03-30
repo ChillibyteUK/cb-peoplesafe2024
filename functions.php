@@ -245,7 +245,7 @@ add_shortcode('video_facade', 'video_facade_shortcode');
 
 add_shortcode('trustpilot_slider', function () {
     ob_start(); ?>
-    <section class="trustpilot-widget py-5">
+    <section class="trustpilot-widget-holder py-5">
         <div class="container-xl">
             <div class="row g-4">
                 <div class="col-12">
