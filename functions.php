@@ -242,3 +242,32 @@ function video_facade_shortcode($atts) {
     return ob_get_clean();
 }
 add_shortcode('video_facade', 'video_facade_shortcode');
+
+add_shortcode('trustpilot_slider', function () {
+
+    ob_start(); ?>
+
+    <!-- TrustBox script -->
+    <script type="text/javascript" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script>
+    <!-- End TrustBox script -->
+
+    <!-- TrustBox widget - Slider -->
+    <div class="trustpilot-widget"
+        data-locale="en-GB"
+        data-template-id="54ad5defc6454f065c28af8b"
+        data-businessunit-id="60bf889cafe44a000151a439"
+        data-style-height="240px"
+        data-style-width="100%"
+        data-token="59d5c8ab-af42-4482-a081-2da101bfe5f8"
+        data-stars="5"
+        data-review-languages="en">
+        
+        <a href="https://uk.trustpilot.com/review/peoplesafe.co.uk" target="_blank" rel="noopener">
+            Trustpilot
+        </a>
+    </div>
+    <!-- End TrustBox widget -->
+
+    <?php
+    return ob_get_clean();
+});
