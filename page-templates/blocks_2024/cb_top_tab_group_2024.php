@@ -24,12 +24,28 @@
                 </div>
             </div>
             <div class="content <?=$active?>" id="<?=$i?>_tab_<?=$c?>" <?=$fade?>>
-                <?=$image?>
+                <?php if ( $image ) : ?>
+                    <?= $image; ?>
+                <?php endif; ?>
+
                 <div class="content__inner">
-                    <div class="fs-300 fw-900 text-orange"><?=$pre_title?></div>
-                    <h2><?=get_sub_field('title')?></h2>
-                    <p><?=get_sub_field('content')?></p>
-                    <a href="<?=$link['url']?>" class="button button-outline"><?=$link['title']?></a>
+                    <?php if ( $pre_title ) : ?>
+                        <div class="fs-300 fw-900 text-orange"><?= esc_html( $pre_title ); ?></div>
+                    <?php endif; ?>
+
+                    <?php if ( get_sub_field( 'title' ) ) : ?>
+                        <h2><?= esc_html( get_sub_field( 'title' ) ); ?></h2>
+                    <?php endif; ?>
+
+                    <?php if ( get_sub_field( 'content' ) ) : ?>
+                        <p><?= esc_html( get_sub_field( 'content' ) ); ?></p>
+                    <?php endif; ?>
+
+                    <?php if ( is_array( $link ) && ! empty( $link['url'] ) ) : ?>
+                        <a href="<?= esc_url( $link['url'] ); ?>" class="button button-outline">
+                            <?= esc_html( $link['title'] ?? 'Learn more' ); ?>
+                        </a>
+                    <?php endif; ?>
                 </div>
             </div>
                 <?php
