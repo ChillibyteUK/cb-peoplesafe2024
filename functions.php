@@ -264,3 +264,64 @@ add_shortcode('trustpilot_slider', function () {
     <?php
     return ob_get_clean();
 });
+
+/**
+ * Custom single XML sitemap
+ * URL: /all-urls-sitemap.xml
+ */
+add_action('template_redirect', function () {
+    $request_path = parse_url($_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH);
+
+    if ($request_path !== '/all-urls-sitemap.xml') {
+        return;
+    }
+
+    nocache_headers();
+    status_header(200);
+    header('Content-Type: application/xml; charset=UTF-8');
+
+    echo '<?xml version="1.0" encoding="UTF-8"?>' . "\n";
+    echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' . "\n";
+
+    $post_types = get_post_types([
+        'public' => true,
+    ], 'names');
+
+    unset($post_types['attachment']);
+
+    $q = new WP_Query([
+        'post_type'              => array_values($post_types),
+        'post_status'            => 'publish',
+        'posts_per_page'         => -1,
+        'orderby'                => 'modified',
+        'order'                  => 'DESC',
+        'fields'                 => 'ids',
+        'no_found_rows'          => true,
+        'update_post_meta_cache' => false,
+        'update_post_term_cache' => false,
+    ]);
+
+    // Homepage
+    echo "  <url>\n";
+    echo '    <loc>' . esc_xml(home_url('/')) . "</loc>\n";
+    echo "  </url>\n";
+
+    foreach ($q->posts as $post_id) {
+        $url = get_permalink($post_id);
+        if (!$url) {
+            continue;
+        }
+
+        $modified = get_post_modified_time('c', true, $post_id);
+
+        echo "  <url>\n";
+        echo '    <loc>' . esc_xml($url) . "</loc>\n";
+        if ($modified) {
+            echo '    <lastmod>' . esc_xml($modified) . "</lastmod>\n";
+        }
+        echo "  </url>\n";
+    }
+
+    echo '</urlset>';
+    exit;
+}, 0);
