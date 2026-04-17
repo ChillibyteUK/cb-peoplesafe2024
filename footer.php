@@ -334,6 +334,113 @@ wp_footer();
 ?>
 <!-- Accessibility Code for "peoplesafe.co.uk" -->
 <!-- <script> window.interdeal = { "sitekey": "1f0e18083807187773763e08407492ab", "Position": "Left", "Menulang": "EN-GB", "domains": { "js": "https://cdn.equalweb.com/", "acc": "https://access.equalweb.com/" }, "btnStyle": { "vPosition": [ "80%", null ], "scale": [ "0.8", "0.8" ], "color": { "main": "#1876c9" }, "icon": { "type": 7, "shape": "semicircle", "outline": false } } }; (function(doc, head, body){ var coreCall = doc.createElement('script'); coreCall.src = 'https://cdn.equalweb.com/core/4.3.7/accessibility.js'; coreCall.defer = true; coreCall.integrity = 'sha512-hGa5HZtFkT1M7+tUDtU/cbw6AG0ORz3oblztCoTZ/z2qPyr7dgwH3zoT8qpgj21MgcRsMFLD6NNKePGvVks3Ig=='; coreCall.crossOrigin = 'anonymous'; coreCall.setAttribute('data-cfasync', true ); body? body.appendChild(coreCall) : head.appendChild(coreCall); })(document, document.head, document.body); </script> -->
+
+
+<?php
+if ( is_page(11215) ) {
+?>
+<style>
+.chat-launcher {
+  position: fixed;
+    bottom: 14px;
+    right: 12px;
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  z-index: 99999999;
+}
+
+.chat-launcher img {
+  width: 70px;
+  height: auto;
+  transition: transform 0.2s ease;
+}
+
+.chat-launcher:hover img {
+  transform: scale(1.05);
+}
+
+.chat-launcher.open img {
+  transform: scale(1.1);
+}
+
+@media (max-width: 540px) {
+  .chat-launcher.open {
+    display: none !important;
+  }
+}
+</style>
+
+<button id="custom-zendesk-launcher" class="chat-launcher" type="button">
+  <img id="chat-icon" src="/wp-content/uploads/2026/04/closed-chat.png" alt="Chat">
+</button>
+
+<script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=a841da69-bcf5-4be4-b159-ffcbd20bcfe7"></script>
+
+<script>
+  function initZendeskLauncher() {
+    var launcher = document.getElementById('custom-zendesk-launcher');
+    var icon = document.getElementById('chat-icon');
+    if (!launcher || !icon) return;
+
+    var isOpen = false;
+    var closedImg = "/wp-content/uploads/2026/04/closed-chat.png";
+    var openImg   = "/wp-content/uploads/2026/04/Opened-chat.png";
+
+    var tries = 0;
+    var maxTries = 50;
+
+    var timer = setInterval(function () {
+      if (typeof zE !== 'undefined') {
+        clearInterval(timer);
+
+        // Hide the default Zendesk launcher
+        zE('messenger', 'hide');
+
+        launcher.addEventListener('click', function (e) {
+          e.preventDefault();
+
+          if (isOpen) {
+            zE('messenger', 'close');
+          } else {
+            zE('messenger', 'show');
+            zE('messenger', 'open');
+          }
+        });
+
+        zE('messenger:on', 'open', function () {
+          isOpen = true;
+          icon.src = openImg;
+          launcher.classList.add('open');
+        });
+
+        zE('messenger:on', 'close', function () {
+          isOpen = false;
+          icon.src = closedImg;
+          launcher.classList.remove('open');
+
+          // Hide the default launcher again after close
+          zE('messenger', 'hide');
+        });
+      }
+
+      tries++;
+      if (tries >= maxTries) {
+        clearInterval(timer);
+      }
+    }, 200);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initZendeskLauncher);
+  } else {
+    initZendeskLauncher();
+  }
+</script>
+<?php
+}
+?>
 </body>
 
 </html>
