@@ -342,8 +342,8 @@ if ( is_page(11215) ) {
 <style>
 .chat-launcher {
   position: fixed;
-    bottom: 14px;
-    right: 12px;
+  bottom: 14px;
+  right: 12px;
   border: none;
   background: none;
   padding: 0;
@@ -361,12 +361,12 @@ if ( is_page(11215) ) {
   transform: scale(1.05);
 }
 
-.chat-launcher.open img {
+.chat-launcher.is-open img {
   transform: scale(1.1);
 }
 
 @media (max-width: 540px) {
-  .chat-launcher.open {
+  .chat-launcher.is-open {
     display: none !important;
   }
 }
@@ -385,6 +385,9 @@ if ( is_page(11215) ) {
     if (!launcher || !icon) return;
 
     var isOpen = false;
+    var userHasClicked = false;
+    var ignoreInitialOpen = true;
+
     var closedImg = "/wp-content/uploads/2026/04/closed-chat.png";
     var openImg   = "/wp-content/uploads/2026/04/Opened-chat.png";
 
@@ -395,11 +398,17 @@ if ( is_page(11215) ) {
       if (typeof zE !== 'undefined') {
         clearInterval(timer);
 
-        // Hide the default Zendesk launcher
-        zE('messenger', 'hide');
+        // Force a known closed/hidden state on load
+        try { zE('messenger', 'close'); } catch (e) {}
+        try { zE('messenger', 'hide'); } catch (e) {}
+
+        isOpen = false;
+        launcher.classList.remove('is-open');
+        icon.src = closedImg;
 
         launcher.addEventListener('click', function (e) {
           e.preventDefault();
+          userHasClicked = true;
 
           if (isOpen) {
             zE('messenger', 'close');
@@ -410,19 +419,30 @@ if ( is_page(11215) ) {
         });
 
         zE('messenger:on', 'open', function () {
+          // Ignore the first startup/restore open-like event
+          if (ignoreInitialOpen && !userHasClicked) {
+            ignoreInitialOpen = false;
+            return;
+          }
+
+          ignoreInitialOpen = false;
           isOpen = true;
           icon.src = openImg;
-          launcher.classList.add('open');
+          launcher.classList.add('is-open');
         });
 
         zE('messenger:on', 'close', function () {
+          ignoreInitialOpen = false;
           isOpen = false;
           icon.src = closedImg;
-          launcher.classList.remove('open');
-
-          // Hide the default launcher again after close
+          launcher.classList.remove('is-open');
           zE('messenger', 'hide');
         });
+
+        // Safety: after init, stop ignoring future real opens
+        setTimeout(function () {
+          ignoreInitialOpen = false;
+        }, 1500);
       }
 
       tries++;
