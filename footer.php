@@ -340,15 +340,44 @@ wp_footer();
 if ( is_page(11215) ) {
 ?>
 <style>
-.chat-launcher {
+.chat-launcher-wrap {
   position: fixed;
   bottom: 14px;
   right: 12px;
+  z-index: 99999999;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.chat-prompt {
+  background: #fff;
+  color: #111;
+  border-radius: 999px;
+  padding: 16px 24px;
+  font-size: 18px;
+  line-height: 1;
+  box-shadow: 0 8px 24px rgba(0,0,0,.12);
+  white-space: nowrap;
+}
+
+.chat-prompt-close {
+  width: 48px;
+  height: 48px;
+  border: none;
+  border-radius: 50%;
+  background: #fff;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(0,0,0,.12);
+}
+
+.chat-launcher {
   border: none;
   background: none;
   padding: 0;
   cursor: pointer;
-  z-index: 99999999;
 }
 
 .chat-launcher img {
@@ -365,24 +394,99 @@ if ( is_page(11215) ) {
   transform: scale(1.1);
 }
 
+.chat-launcher-wrap.is-open .chat-prompt,
+.chat-launcher-wrap.is-open .chat-prompt-close,
+.chat-launcher-wrap.prompt-dismissed .chat-prompt,
+.chat-launcher-wrap.prompt-dismissed .chat-prompt-close {
+  display: none;
+}
+
+.chat-prompt {
+  cursor: pointer;
+}
+
 @media (max-width: 540px) {
+  .chat-launcher-wrap {
+    bottom: 14px;
+    right: 12px;
+    gap: 8px;
+  }
+
+  .chat-prompt {
+    font-size: 15px;
+    padding: 13px 16px;
+    max-width: calc(100vw - 130px);
+    white-space: normal;
+  }
+
+  .chat-prompt-close {
+    width: 42px;
+    height: 42px;
+    font-size: 24px;
+  }
+
   .chat-launcher.is-open {
     display: none !important;
   }
 }
 </style>
 
-<button id="custom-zendesk-launcher" class="chat-launcher" type="button">
-  <img id="chat-icon" src="/wp-content/uploads/2026/04/closed-chat.png" alt="Chat">
-</button>
+<div id="custom-zendesk-wrap" class="chat-launcher-wrap">
+  <button id="custom-zendesk-prompt-close" class="chat-prompt-close" type="button" aria-label="Dismiss chat message">×</button>
+  <div id="custom-zendesk-prompt" class="chat-prompt" role="button">Hi. Need any help?</div>
+
+  <button id="custom-zendesk-launcher" class="chat-launcher" type="button" aria-label="Open chat">
+    <img id="chat-icon" src="/wp-content/uploads/2026/04/closed-chat.png" alt="Chat">
+  </button>
+</div>
 
 <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=a841da69-bcf5-4be4-b159-ffcbd20bcfe7"></script>
 
 <script>
   function initZendeskLauncher() {
+    var wrap = document.getElementById('custom-zendesk-wrap');
+    var prompt = document.getElementById('custom-zendesk-prompt');
+    var promptClose = document.getElementById('custom-zendesk-prompt-close');
+
+    if (prompt) {
+      prompt.addEventListener('click', function (e) {
+        e.preventDefault();
+        userHasClicked = true;
+
+        if (isOpen) {
+          zE('messenger', 'close');
+        } else {
+          zE('messenger', 'show');
+          zE('messenger', 'open');
+        }
+      });
+    }
+
+    if (promptClose && wrap) {
+      promptClose.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation(); // 👈 important
+        sessionStorage.setItem('zendeskPromptDismissed', '1');
+        wrap.classList.add('prompt-dismissed');
+      });
+    }
+
     var launcher = document.getElementById('custom-zendesk-launcher');
     var icon = document.getElementById('chat-icon');
     if (!launcher || !icon) return;
+
+    if (sessionStorage.getItem('zendeskPromptDismissed') === '1' && wrap) {
+      wrap.classList.add('prompt-dismissed');
+    }
+
+    if (promptClose && wrap) {
+      promptClose.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        sessionStorage.setItem('zendeskPromptDismissed', '1');
+        wrap.classList.add('prompt-dismissed');
+      });
+    }
 
     var isOpen = false;
     var userHasClicked = false;
@@ -419,23 +523,26 @@ if ( is_page(11215) ) {
         });
 
         zE('messenger:on', 'open', function () {
-          // Ignore the first startup/restore open-like event
-          if (ignoreInitialOpen && !userHasClicked) {
-            ignoreInitialOpen = false;
+          // Ignore any startup/restore open event unless the user actually clicked
+          if (!userHasClicked) {
+            isOpen = false;
+            launcher.classList.remove('is-open');
+            if (wrap) wrap.classList.remove('is-open');
+            icon.src = closedImg;
             return;
           }
 
-          ignoreInitialOpen = false;
           isOpen = true;
           icon.src = openImg;
           launcher.classList.add('is-open');
+          if (wrap) wrap.classList.add('is-open');
         });
 
         zE('messenger:on', 'close', function () {
-          ignoreInitialOpen = false;
           isOpen = false;
           icon.src = closedImg;
           launcher.classList.remove('is-open');
+          if (wrap) wrap.classList.remove('is-open');
           zE('messenger', 'hide');
         });
 
