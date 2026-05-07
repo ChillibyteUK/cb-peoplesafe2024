@@ -357,14 +357,16 @@ if ( is_page(11215) ) {
   padding: 16px 24px;
   font-size: 18px;
   line-height: 1;
-  box-shadow: 0 8px 24px rgba(0,0,0,.12);
+  box-shadow:
+    0 8px 24px rgba(0,0,0,.12),
+    0 0 0 3px #ffa823;
   white-space: nowrap;
 }
 
 .chat-prompt-close {
   width: 48px;
   height: 48px;
-  border: none;
+  border: 2px solid #ffa823;
   border-radius: 50%;
   background: #fff;
   font-size: 28px;
