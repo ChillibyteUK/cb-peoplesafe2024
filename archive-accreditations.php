@@ -13,7 +13,7 @@ get_header();
 <main id="main" class="pt-5">
     <div class="container-xl pt-5 pb-3">
         <div class="page-meta">
-            <h1>Accreditations</h1>
+            <h1>Accreditations and Certifications</h1>
             <?php
             if ( function_exists('yoast_breadcrumb') ) {
                 yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );
@@ -27,7 +27,7 @@ get_header();
             <p>As pioneers in the worker safety sector, Peoplesafe also plays an instrumental role in developing the latest industry standards for better employee protection.</p>
             <p>A committee member of the British Security Industry Association’s (BSIA) Lone Worker Section, we continue to advise and work with key industry stakeholders and regulatory bodies, including the National Police Chief’s Council (NPCC) and the British Standards Institute (BSI).</p>
         </div>
-        <h2>Our Accreditations</h2>
+        <h2>Our Accreditations and Certifications</h2>
         <p>Our business has achieved the following standards/accreditations:</p>
         <div class="row">
             <?php
