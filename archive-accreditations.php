@@ -28,7 +28,7 @@ get_header();
             <p>A committee member of the British Security Industry Association’s (BSIA) Lone Worker Section, we continue to advise and work with key industry stakeholders and regulatory bodies, including the National Police Chief’s Council (NPCC) and the British Standards Institute (BSI).</p>
         </div>
         <h2>Our Accreditations and Certifications</h2>
-        <p>Our business has achieved the following standards/accreditations:</p>
+        <p>Our business has achieved the following standards/accreditations and certifications:</p>
         <div class="row">
             <?php
             while (have_posts()) {
