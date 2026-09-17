@@ -100,72 +100,76 @@ function pardot_head_script() {
             'gclid', 'gclsrc'
         ];
 
-        function passTrackingParamsToAllPardotIframes() {
-            // Collect whichever tracking params are actually present in the parent URL.
-            var paramsToPass = [];
-            pardotTrackingParams.forEach(function(key) {
-                var value = getParamFromParentURL(key);
-                if (value) {
-                    paramsToPass.push({ key: key, value: value });
-                }
-            });
+        // Match Pardot form iframes by their account path (host-agnostic: works on live,
+        // on the rewritten staging domain, and if the tracker subdomain ever changes).
+        var pardotFormPath = '/l/830213/'; // 830213 = Peoplesafe Pardot account ID
 
-            if (paramsToPass.length === 0) {
-                console.log('No tracking parameters found in parent URL. Skipping iframe updates.');
-                return; // Nothing to forward
-            }
-
-            // Get all iframe elements on the page
-            var iframes = document.querySelectorAll('iframe');
-            // Match Pardot form iframes by their account path, not the hostname, so this
-            // works on live (safe.peoplesafe.co.uk) and on the rewritten staging domain,
-            // and survives any future change of the Pardot tracker subdomain.
-            var pardotFormPath = '/l/830213/'; // 830213 = Peoplesafe Pardot account ID
-
-            iframes.forEach(function(iframe) {
-                var iframeSrc = iframe.src;
-
-                // Only touch Pardot form iframes for this account.
-                if (iframeSrc.indexOf(pardotFormPath) === -1) {
-                    return;
-                }
-
-                var newIframeSrc = iframeSrc;
-
-                paramsToPass.forEach(function(param) {
-                    // Only append if this param is not already present, to avoid duplicates
-                    // (e.g. the #myiframe footer form is decorated separately).
-                    if (newIframeSrc.indexOf(param.key + '=') === -1) {
-                        var separator = newIframeSrc.indexOf('?') === -1 ? '?' : '&';
-                        newIframeSrc += separator + param.key + '=' + encodeURIComponent(param.value);
-                    }
-                });
-
-                if (newIframeSrc !== iframeSrc) { // Only update if it actually changed
-                    iframe.src = newIframeSrc;
-                    console.log('Pardot iframe src updated:', iframe.src);
-                } else {
-                    console.log('Pardot iframe already contains the tracking parameters.');
-                }
-            });
+        // NitroPack lazy-loads iframes by moving the real URL into `nitro-lazy-src` and
+        // leaving `src` empty until the iframe scrolls into view. So we read from whichever
+        // attribute currently holds the Pardot URL, and write the decorated URL back to that
+        // SAME attribute. Writing into `nitro-lazy-src` means NitroPack later loads the iframe
+        // already-decorated on the first request, with no reload and no lost params.
+        function getPardotIframeAttr(iframe) {
+            if ((iframe.getAttribute('src') || '').indexOf(pardotFormPath) !== -1) return 'src';
+            if ((iframe.getAttribute('nitro-lazy-src') || '').indexOf(pardotFormPath) !== -1) return 'nitro-lazy-src';
+            return null;
         }
 
-        // Run as early as possible. On the live site NitroPack can defer this
-        // script until after 'load' has already fired, so if the document is
-        // already loaded we run immediately rather than waiting for an event that
-        // has passed. The function is idempotent (it only appends params that are
-        // not already present), so running on both DOMContentLoaded and load is safe.
+        function decoratePardotIframe(iframe) {
+            var attr = getPardotIframeAttr(iframe);
+            if (!attr) return; // not a Pardot form iframe, or its URL is not present yet
+
+            var currentSrc = iframe.getAttribute(attr);
+            var newSrc = currentSrc;
+
+            pardotTrackingParams.forEach(function(key) {
+                var value = getParamFromParentURL(key);
+                if (!value) return;
+                // Only append if not already present, to avoid duplicates.
+                if (newSrc.indexOf(key + '=') === -1) {
+                    var separator = newSrc.indexOf('?') === -1 ? '?' : '&';
+                    newSrc += separator + key + '=' + encodeURIComponent(value);
+                }
+            });
+
+            if (newSrc !== currentSrc) {
+                iframe.setAttribute(attr, newSrc);
+            }
+        }
+
+        function passTrackingParamsToAllPardotIframes() {
+            document.querySelectorAll('iframe').forEach(decoratePardotIframe);
+        }
+
+        // Catch iframes that NitroPack (or any lazy-loader) injects or swaps between
+        // `src` and `nitro-lazy-src` after our first pass, so they are still decorated
+        // before they actually load. Converges: once params are present nothing changes.
+        function watchForPardotIframes() {
+            try {
+                var observer = new MutationObserver(passTrackingParamsToAllPardotIframes);
+                observer.observe(document.documentElement, {
+                    childList: true,
+                    subtree: true,
+                    attributes: true,
+                    attributeFilter: ['src', 'nitro-lazy-src']
+                });
+                setTimeout(function() { observer.disconnect(); }, 15000); // stop once settled
+            } catch (e) {}
+        }
+
+        // Run as early as possible, and keep watching for lazy/late iframes.
         // NOTE: this script must also be EXCLUDED from NitroPack's "Delay JavaScript"
         // on the live site, or it will not run until the visitor interacts with the page.
         function runPardotTrackingParams() {
             passTrackingParamsToAllPardotIframes();
+            watchForPardotIframes();
         }
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', runPardotTrackingParams);
-            window.addEventListener('load', runPardotTrackingParams);
         } else {
             runPardotTrackingParams();
         }
+        window.addEventListener('load', passTrackingParamsToAllPardotIframes);
     </script>
     <?php
 }
