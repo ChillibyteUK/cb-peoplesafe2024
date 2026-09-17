@@ -94,13 +94,25 @@ function pardot_head_script() {
             return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
         }
 
-        function passGclidToAllPardotIframes() {
-            var gclidParam = getParamFromParentURL('gclid');
-            var gclsrcParam = getParamFromParentURL('gclsrc');
+        // Tracking parameters to forward from the parent page URL into the Pardot iframes.
+        var pardotTrackingParams = [
+            'utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term',
+            'gclid', 'gclsrc'
+        ];
 
-            if (!gclidParam) {
-                console.log('No GCLID parameter found in parent URL. Skipping iframe updates.');
-                return; // Exit if no GCLID to pass
+        function passTrackingParamsToAllPardotIframes() {
+            // Collect whichever tracking params are actually present in the parent URL.
+            var paramsToPass = [];
+            pardotTrackingParams.forEach(function(key) {
+                var value = getParamFromParentURL(key);
+                if (value) {
+                    paramsToPass.push({ key: key, value: value });
+                }
+            });
+
+            if (paramsToPass.length === 0) {
+                console.log('No tracking parameters found in parent URL. Skipping iframe updates.');
+                return; // Nothing to forward
             }
 
             // Get all iframe elements on the page
@@ -111,36 +123,35 @@ function pardot_head_script() {
                 var iframeSrc = iframe.src;
 
                 // Check if the iframe's src starts with the Pardot form URL prefix
-                if (iframeSrc.startsWith(pardotDomainPrefix)) {
-                    var separator = iframeSrc.indexOf('?') === -1 ? '?' : '&';
-                    var newIframeSrc = iframeSrc;
+                if (!iframeSrc.startsWith(pardotDomainPrefix)) {
+                    return;
+                }
 
-                    // Only append if GCLID is not already present to avoid duplicates
-                    if (iframeSrc.indexOf('gclid=') === -1) {
-                        newIframeSrc += separator + 'gclid=' + encodeURIComponent(gclidParam);
-                        separator = '&'; // For subsequent parameters
-                    }
-                    
-                    // Only append gclsrc if not already present
-                    if (gclsrcParam && iframeSrc.indexOf('gclsrc=') === -1) {
-                        newIframeSrc += separator + 'gclsrc=' + encodeURIComponent(gclsrcParam);
-                    }
+                var newIframeSrc = iframeSrc;
 
-                    if (newIframeSrc !== iframeSrc) { // Only update if it actually changed
-                        iframe.src = newIframeSrc;
-                        console.log('Pardot iframe src updated:', iframe.src);
-                    } else {
-                        console.log('Pardot iframe already contains GCLID or no GCLID to update.');
+                paramsToPass.forEach(function(param) {
+                    // Only append if this param is not already present, to avoid duplicates
+                    // (e.g. the #myiframe footer form is decorated separately).
+                    if (newIframeSrc.indexOf(param.key + '=') === -1) {
+                        var separator = newIframeSrc.indexOf('?') === -1 ? '?' : '&';
+                        newIframeSrc += separator + param.key + '=' + encodeURIComponent(param.value);
                     }
+                });
+
+                if (newIframeSrc !== iframeSrc) { // Only update if it actually changed
+                    iframe.src = newIframeSrc;
+                    console.log('Pardot iframe src updated:', iframe.src);
+                } else {
+                    console.log('Pardot iframe already contains the tracking parameters.');
                 }
             });
         }
 
         // Run this function when the parent page has loaded
-        window.addEventListener('load', passGclidToAllPardotIframes);
+        window.addEventListener('load', passTrackingParamsToAllPardotIframes);
         // You might also consider 'DOMContentLoaded' if the iframe is present early in the HTML
         // and you want to modify its src as early as possible before it fully loads.
-        // document.addEventListener('DOMContentLoaded', passGclidToAllPardotIframes);
+        // document.addEventListener('DOMContentLoaded', passTrackingParamsToAllPardotIframes);
     </script>
     <?php
 }
