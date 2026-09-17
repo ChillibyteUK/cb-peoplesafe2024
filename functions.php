@@ -117,13 +117,16 @@ function pardot_head_script() {
 
             // Get all iframe elements on the page
             var iframes = document.querySelectorAll('iframe');
-            var pardotDomainPrefix = 'https://safe.peoplesafe.co.uk/l/'; // Adjust if you use go.pardot.com or other subdomains
+            // Match Pardot form iframes by their account path, not the hostname, so this
+            // works on live (safe.peoplesafe.co.uk) and on the rewritten staging domain,
+            // and survives any future change of the Pardot tracker subdomain.
+            var pardotFormPath = '/l/830213/'; // 830213 = Peoplesafe Pardot account ID
 
             iframes.forEach(function(iframe) {
                 var iframeSrc = iframe.src;
 
-                // Check if the iframe's src starts with the Pardot form URL prefix
-                if (!iframeSrc.startsWith(pardotDomainPrefix)) {
+                // Only touch Pardot form iframes for this account.
+                if (iframeSrc.indexOf(pardotFormPath) === -1) {
                     return;
                 }
 
