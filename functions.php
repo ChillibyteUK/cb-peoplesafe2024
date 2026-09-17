@@ -150,11 +150,22 @@ function pardot_head_script() {
             });
         }
 
-        // Run this function when the parent page has loaded
-        window.addEventListener('load', passTrackingParamsToAllPardotIframes);
-        // You might also consider 'DOMContentLoaded' if the iframe is present early in the HTML
-        // and you want to modify its src as early as possible before it fully loads.
-        // document.addEventListener('DOMContentLoaded', passTrackingParamsToAllPardotIframes);
+        // Run as early as possible. On the live site NitroPack can defer this
+        // script until after 'load' has already fired, so if the document is
+        // already loaded we run immediately rather than waiting for an event that
+        // has passed. The function is idempotent (it only appends params that are
+        // not already present), so running on both DOMContentLoaded and load is safe.
+        // NOTE: this script must also be EXCLUDED from NitroPack's "Delay JavaScript"
+        // on the live site, or it will not run until the visitor interacts with the page.
+        function runPardotTrackingParams() {
+            passTrackingParamsToAllPardotIframes();
+        }
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', runPardotTrackingParams);
+            window.addEventListener('load', runPardotTrackingParams);
+        } else {
+            runPardotTrackingParams();
+        }
     </script>
     <?php
 }
