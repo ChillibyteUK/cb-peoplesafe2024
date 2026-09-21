@@ -50,6 +50,29 @@ function theme_enqueue_styles()
 }
 add_action('wp_enqueue_scripts', 'theme_enqueue_styles');
 
+/**
+ * Keep the "PPC Landing – Standalone HTML" template free of the theme's
+ * front-end CSS/JS, so a self-contained landing page renders on its own styles
+ * without Bootstrap/theme rules bleeding onto its elements. wp_head()/wp_footer()
+ * still fire, so tracking (GTM/GA, Pardot UTM forwarding, consent, NitroPack) is
+ * unaffected — only the theme's own stylesheets/scripts are removed.
+ */
+function theme_dequeue_for_standalone_landing() {
+    if (!is_page_template('page-templates/ppc-landing-standalone.php')) {
+        return;
+    }
+    $handles = array(
+        'child-understrap-styles', 'woocommerce-styles',
+        'slick-styles', 'slick-theme-styles',
+        'child-understrap-scripts', 'slick',
+    );
+    foreach ($handles as $handle) {
+        wp_dequeue_style($handle);
+        wp_dequeue_script($handle);
+    }
+}
+add_action('wp_enqueue_scripts', 'theme_dequeue_for_standalone_landing', 100);
+
 
 function add_child_theme_textdomain()
 {
