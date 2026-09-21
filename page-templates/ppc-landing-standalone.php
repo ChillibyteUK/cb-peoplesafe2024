@@ -15,6 +15,8 @@
 defined('ABSPATH') || exit;
 
 get_header('landing');
+// $mt = is_front_page() ? '' : 'margin-top';
+$modal = 0;
 ?>
 <style>
     /* The PPC header already shows Peoplesafe branding, so hide the embedded
