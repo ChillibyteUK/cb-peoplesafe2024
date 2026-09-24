@@ -2,105 +2,74 @@
 /**
  * Structured data (schema.org) customisations.
  *
- * These EXTEND Yoast SEO's JSON-LD graph rather than printing separate JSON-LD
- * blocks, so the site keeps a single, non-conflicting schema graph.
+ * FAQ schema is collected while the CB FAQ block renders and output as JSON-LD in
+ * the footer (robust to however the block is embedded). Author E-E-A-T extends
+ * Yoast SEO's Person node via its graph filter, so there is no duplicate/conflicting
+ * author schema.
  *
  * @package cb-peoplesafe
  */
 
 defined('ABSPATH') || exit;
 
+/* -------------------------------------------------------------------------
+ * FAQ schema (JSON-LD, built from the CB FAQ block as it renders)
+ * ---------------------------------------------------------------------- */
+
 /**
- * Add a FAQPage node to Yoast's schema graph, built from the CB FAQ block's ACF data.
+ * Record one FAQ question/answer pair as the CB FAQ block renders it.
+ * Called from page-templates/blocks/cb_faq_block.php.
  *
- * The CB FAQ block previously carried the FAQ schema as inline microdata; that markup
- * has been removed from the block template, and the FAQ schema is now provided here as
- * JSON-LD inside Yoast's graph instead — the modern, preferred format that validators
- * and Google read. Applies to any singular page that uses the CB FAQ block.
- *
- * @param array $graph   Yoast schema graph pieces.
- * @param mixed $context Yoast meta tags context (has ->canonical).
- * @return array
+ * @param string $question
+ * @param string $answer
+ * @return void
  */
-add_filter('wpseo_schema_graph', 'cb_add_faq_schema_to_yoast_graph', 11, 2);
-function cb_add_faq_schema_to_yoast_graph($graph, $context = null)
+function cb_register_faq_item($question, $answer)
 {
-    if (!is_singular() || !function_exists('acf_setup_meta')) {
-        return $graph;
+    if (is_admin()) {
+        return; // ignore editor previews
     }
-
-    $post = get_post();
-    if (!$post || strpos((string) $post->post_content, 'acf/cb_faq_block') === false) {
-        return $graph;
+    $question = trim(wp_strip_all_tags((string) $question));
+    $answer   = cb_faq_answer_html((string) $answer);
+    if ($question === '' || $answer === '') {
+        return;
     }
-
-    $questions = array();
-    cb_collect_faq_questions(parse_blocks($post->post_content), $questions);
-
-    if (empty($questions)) {
-        return $graph;
+    if (!isset($GLOBALS['cb_faq_schema_items'])) {
+        $GLOBALS['cb_faq_schema_items'] = array();
     }
-
-    $canonical = (is_object($context) && !empty($context->canonical))
-        ? $context->canonical
-        : get_permalink($post);
-
-    $graph[] = array(
-        '@type'      => 'FAQPage',
-        '@id'        => $canonical . '#faq',
-        'mainEntity' => $questions,
+    $GLOBALS['cb_faq_schema_items'][] = array(
+        '@type'          => 'Question',
+        'name'           => $question,
+        'acceptedAnswer' => array(
+            '@type' => 'Answer',
+            'text'  => $answer,
+        ),
     );
-
-    return $graph;
 }
 
 /**
- * Recursively pull question/answer pairs from every CB FAQ block in a block tree.
+ * Output a single FAQPage JSON-LD block in the footer for any singular page that
+ * rendered one or more CB FAQ blocks.
  *
- * Reads the block's stored ACF field values via acf_setup_meta(), so it works
- * outside the block's own render context (i.e. during wp_head).
- *
- * @param array $blocks    Result of parse_blocks().
- * @param array $questions Collected Question nodes (by reference).
  * @return void
  */
-function cb_collect_faq_questions($blocks, &$questions)
+add_action('wp_footer', 'cb_output_faq_schema', 20);
+function cb_output_faq_schema()
 {
-    foreach ($blocks as $block) {
-        $is_faq_block = isset($block['blockName'])
-            && $block['blockName'] === 'acf/cb_faq_block'
-            && !empty($block['attrs']['data']);
-
-        if ($is_faq_block) {
-            $store = 'cb_faq_' . uniqid();
-            acf_setup_meta($block['attrs']['data'], $store, true);
-
-            if (have_rows('faq')) {
-                while (have_rows('faq')) {
-                    the_row();
-                    $question = trim(wp_strip_all_tags((string) get_sub_field('question')));
-                    $answer   = cb_faq_answer_html((string) get_sub_field('answer'));
-
-                    if ($question !== '' && $answer !== '') {
-                        $questions[] = array(
-                            '@type'          => 'Question',
-                            'name'           => $question,
-                            'acceptedAnswer' => array(
-                                '@type' => 'Answer',
-                                'text'  => $answer,
-                            ),
-                        );
-                    }
-                }
-            }
-
-            acf_reset_meta($store);
-        }
-
-        if (!empty($block['innerBlocks'])) {
-            cb_collect_faq_questions($block['innerBlocks'], $questions);
-        }
+    if (!is_singular() || empty($GLOBALS['cb_faq_schema_items'])) {
+        return;
     }
+
+    $data = array(
+        '@context'   => 'https://schema.org',
+        '@type'      => 'FAQPage',
+        '@id'        => get_permalink() . '#faq',
+        'mainEntity' => array_values($GLOBALS['cb_faq_schema_items']),
+    );
+
+    echo "\n" . '<script type="application/ld+json">'
+        . wp_json_encode($data, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE)
+        . '</script>' . "\n";
 }
 
 /**

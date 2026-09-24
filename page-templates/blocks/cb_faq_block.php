@@ -14,6 +14,10 @@
         $c = 0;
         while (have_rows('faq')) {
             the_row();
+            // Record this Q&A for the FAQPage JSON-LD (output in the footer; see inc/cb-schema.php).
+            if (function_exists('cb_register_faq_item')) {
+                cb_register_faq_item(get_sub_field('question'), get_sub_field('answer'));
+            }
             $border = $counter == 0 ? 'border-top' : '';
             echo '<div data-aos="fade" data-aos-delay="' . $c . '" class="py-4 border-bottom ' . $border . '">';
             echo '  <h3 class="question ' . $collapsed . '" data-bs-toggle="collapse" id="heading_' . $counter . '" data-bs-target="#collapse_' . $counter . '" aria-expanded="true" aria-controls="collapse_' . $counter . '">' . get_sub_field('question') . '</h3>';
