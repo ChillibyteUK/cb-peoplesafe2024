@@ -26,6 +26,7 @@ the_post();
             }
             ?>
         </div>
+		<?php the_content(); ?>
         <?php
         if (get_field('message')) {
             ?>
