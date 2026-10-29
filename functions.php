@@ -50,6 +50,20 @@ function theme_enqueue_styles()
 }
 add_action('wp_enqueue_scripts', 'theme_enqueue_styles');
 
+/**
+ * Favicon: use a single, stable /favicon.ico at the web root for both browsers and
+ * Google, instead of WordPress's Site Icon <link> tags.
+ *
+ * NitroPack rewrites the Site Icon URLs to ephemeral, rev-hashed /nitropack_static/
+ * paths that Google can't reliably crawl (which is why the favicon never showed in
+ * search). We remove those declared links and point to the stable root file, which
+ * NitroPack doesn't touch, leaving one clean favicon source for Google to use.
+ */
+remove_action('wp_head', 'wp_site_icon', 99);
+add_action('wp_head', function () {
+    echo '<link rel="icon" href="/favicon.ico" sizes="any">' . "\n";
+}, 99);
+
 
 function add_child_theme_textdomain()
 {
